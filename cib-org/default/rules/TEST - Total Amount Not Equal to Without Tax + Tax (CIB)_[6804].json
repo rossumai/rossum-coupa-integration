@@ -1,0 +1,38 @@
+{
+  "url": "https://cib.rossum.app/api/v1/rules/6804",
+  "id": 6804,
+  "name": "TEST - Total Amount Not Equal to Without Tax + Tax (CIB)",
+  "description": "",
+  "enabled": true,
+  "trigger_condition": "(\n  not is_empty(field.amount_total)\n  and not is_empty(field.amount_total_base)\n  and not is_empty(field.amount_total_tax)\n  and round(field.amount_total, 2) != round(\n    field.amount_total_base + field.amount_total_tax,\n    2\n  )\n)",
+  "actions": [
+    {
+      "id": "830536bc-1b05-4c63-b4e6-603a30fdf23c",
+      "enabled": true,
+      "type": "show_message",
+      "event": "validation",
+      "payload": {
+        "type": "warning",
+        "content": "Total Amount is not equal to Total Without Tax + Tax Amount.",
+        "schema_id": "amount_total"
+      }
+    },
+    {
+      "id": "176e41fa-bae6-4140-9bd5-26ca9b99baf3",
+      "enabled": true,
+      "type": "add_automation_blocker",
+      "event": "validation",
+      "payload": {
+        "content": "Total Amount is not equal to Total Without Tax + Tax Amount.",
+        "schema_id": "amount_total"
+      }
+    }
+  ],
+  "organization": "https://cib.rossum.app/api/v1/organizations/262116",
+  "modified_by": "https://cib.rossum.app/api/v1/users/146087",
+  "created_by": "https://cib.rossum.app/api/v1/users/146087",
+  "queues": [
+    "https://cib.rossum.app/api/v1/queues/1260377"
+  ],
+  "created_at": "2026-04-17T11:55:38.604764Z"
+}

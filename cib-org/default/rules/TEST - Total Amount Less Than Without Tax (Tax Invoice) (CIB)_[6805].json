@@ -1,0 +1,38 @@
+{
+  "url": "https://cib.rossum.app/api/v1/rules/6805",
+  "id": 6805,
+  "name": "TEST - Total Amount Less Than Without Tax (Tax Invoice) (CIB)",
+  "description": "",
+  "enabled": true,
+  "trigger_condition": "(\n  not is_empty(field.document_type) and field.document_type == 'tax_invoice'\n  and not is_empty(field.amount_total)\n  and not is_empty(field.amount_total_base)\n  and field.amount_total < field.amount_total_base\n)",
+  "actions": [
+    {
+      "id": "98ed163c-3bb6-436e-814c-bf80258c0f88",
+      "enabled": true,
+      "type": "show_message",
+      "event": "validation",
+      "payload": {
+        "type": "warning",
+        "content": "Total Amount must be greater than Total Without Tax.",
+        "schema_id": "amount_total"
+      }
+    },
+    {
+      "id": "580c7d75-c4dd-4c64-81eb-538c2f72adc1",
+      "enabled": true,
+      "type": "add_automation_blocker",
+      "event": "validation",
+      "payload": {
+        "content": "Total Amount must be greater than Total Without Tax.",
+        "schema_id": "amount_total"
+      }
+    }
+  ],
+  "organization": "https://cib.rossum.app/api/v1/organizations/262116",
+  "modified_by": "https://cib.rossum.app/api/v1/users/146087",
+  "created_by": "https://cib.rossum.app/api/v1/users/146087",
+  "queues": [
+    "https://cib.rossum.app/api/v1/queues/1260377"
+  ],
+  "created_at": "2026-04-17T11:55:38.801942Z"
+}

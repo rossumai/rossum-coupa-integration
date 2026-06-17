@@ -1,0 +1,12 @@
+{
+  "id": 2637434,
+  "url": "https://cib.rossum.app/api/v1/engine_fields/2637434",
+  "engine": "https://cib.rossum.app/api/v1/engines/51381",
+  "name": "bic",
+  "label": "BIC/SWIFT",
+  "type": "string",
+  "subtype": "alphanumeric",
+  "pre_trained_field_id": "bic",
+  "tabular": false,
+  "multiline": "false"
+}

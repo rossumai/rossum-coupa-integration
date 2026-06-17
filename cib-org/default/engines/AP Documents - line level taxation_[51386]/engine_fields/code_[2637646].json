@@ -1,0 +1,12 @@
+{
+  "id": 2637646,
+  "url": "https://cib.rossum.app/api/v1/engine_fields/2637646",
+  "engine": "https://cib.rossum.app/api/v1/engines/51386",
+  "name": "code",
+  "label": "Supplier Part Number",
+  "type": "string",
+  "subtype": null,
+  "pre_trained_field_id": null,
+  "tabular": false,
+  "multiline": "false"
+}

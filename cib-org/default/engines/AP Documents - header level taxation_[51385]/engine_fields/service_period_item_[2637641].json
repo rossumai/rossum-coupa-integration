@@ -1,0 +1,12 @@
+{
+  "id": 2637641,
+  "url": "https://cib.rossum.app/api/v1/engine_fields/2637641",
+  "engine": "https://cib.rossum.app/api/v1/engines/51385",
+  "name": "service_period_item",
+  "label": "Service Period Item",
+  "type": "string",
+  "subtype": null,
+  "pre_trained_field_id": "service_period_item",
+  "tabular": true,
+  "multiline": "false"
+}

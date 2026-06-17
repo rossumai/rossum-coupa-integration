@@ -1,0 +1,38 @@
+{
+  "url": "https://cib.rossum.app/api/v1/rules/6802",
+  "id": 6802,
+  "name": "TEST - Total Amount Less Than Subtotal (Tax Invoice) (CIB)",
+  "description": "",
+  "enabled": true,
+  "trigger_condition": "(\n  not is_empty(field.document_type) and field.document_type == 'tax_invoice'\n  and not is_empty(field.amount_total)\n  and not is_empty(field.amount_total_base)\n  and field.amount_total < field.amount_total_base\n)",
+  "actions": [
+    {
+      "id": "b2740fc3-1af7-4d46-912c-f33af676ff1f",
+      "enabled": true,
+      "type": "show_message",
+      "event": "validation",
+      "payload": {
+        "type": "warning",
+        "content": "Total Amount must be greater than Subtotal.",
+        "schema_id": "amount_total"
+      }
+    },
+    {
+      "id": "7bacd345-0816-4c05-b7f1-ba76d824152c",
+      "enabled": true,
+      "type": "add_automation_blocker",
+      "event": "validation",
+      "payload": {
+        "content": "Total Amount must be greater than Subtotal.",
+        "schema_id": "amount_total"
+      }
+    }
+  ],
+  "organization": "https://cib.rossum.app/api/v1/organizations/262116",
+  "modified_by": "https://cib.rossum.app/api/v1/users/146087",
+  "created_by": "https://cib.rossum.app/api/v1/users/146087",
+  "queues": [
+    "https://cib.rossum.app/api/v1/queues/1260388"
+  ],
+  "created_at": "2026-04-17T11:55:38.275972Z"
+}

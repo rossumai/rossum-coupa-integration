@@ -1,0 +1,39 @@
+{
+  "url": "https://cib.rossum.app/api/v1/rules/6782",
+  "id": 6782,
+  "name": "TEST - Currency Mismatch (With Line Items) (CIB)",
+  "description": "",
+  "enabled": true,
+  "trigger_condition": "(\n  not is_empty(field.line_items_present) and field.line_items_present == 'true'\n  and not is_empty(field.po_backed) and field.po_backed == 'true'\n  and not is_empty(field.currency)\n  and (\n    is_empty(field.item_po_line_currency_match)\n    or field.currency.upper() != field.item_po_line_currency_match\n  )\n)",
+  "actions": [
+    {
+      "id": "b2204812-dd1c-49fa-8f62-667d77f8072c",
+      "enabled": true,
+      "type": "show_message",
+      "event": "validation",
+      "payload": {
+        "type": "warning",
+        "content": "The currency on the invoice is different from the PO line currency.",
+        "schema_id": "currency"
+      }
+    },
+    {
+      "id": "d30b4ee6-ae17-45b2-a4d1-70321fe79ccf",
+      "enabled": true,
+      "type": "add_automation_blocker",
+      "event": "validation",
+      "payload": {
+        "content": "The currency on the invoice is different from the PO line currency.",
+        "schema_id": "currency"
+      }
+    }
+  ],
+  "organization": "https://cib.rossum.app/api/v1/organizations/262116",
+  "modified_by": "https://cib.rossum.app/api/v1/users/146087",
+  "created_by": "https://cib.rossum.app/api/v1/users/146087",
+  "queues": [
+    "https://cib.rossum.app/api/v1/queues/1260377",
+    "https://cib.rossum.app/api/v1/queues/1260388"
+  ],
+  "created_at": "2026-04-17T11:55:34.757986Z"
+}

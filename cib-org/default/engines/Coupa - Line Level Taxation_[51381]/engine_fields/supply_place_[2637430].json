@@ -1,0 +1,12 @@
+{
+  "id": 2637430,
+  "url": "https://cib.rossum.app/api/v1/engine_fields/2637430",
+  "engine": "https://cib.rossum.app/api/v1/engines/51381",
+  "name": "supply_place",
+  "label": "Place of Supply",
+  "type": "string",
+  "subtype": "",
+  "pre_trained_field_id": "supply_place",
+  "tabular": false,
+  "multiline": "false"
+}

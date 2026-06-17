@@ -1,0 +1,12 @@
+{
+  "id": 2637642,
+  "url": "https://cib.rossum.app/api/v1/engine_fields/2637642",
+  "engine": "https://cib.rossum.app/api/v1/engines/51386",
+  "name": "document_type",
+  "label": "Document Type",
+  "type": "enum",
+  "subtype": "",
+  "pre_trained_field_id": "document_type",
+  "tabular": false,
+  "multiline": "false"
+}

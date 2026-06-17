@@ -1,0 +1,36 @@
+{
+  "id": 566674,
+  "name": "AP Documents - Europe + APAC (kazik baseline)",
+  "url": "https://cib.rossum.app/api/v1/inboxes/566674",
+  "email": "coupa-integration-baseline-cib-org-c7fdf3@cib.rossum.app",
+  "email_prefix": "coupa-integration-baseline-cib-org",
+  "bounce_email_to": null,
+  "bounce_unprocessable_attachments": false,
+  "bounce_deleted_annotations": false,
+  "bounce_postponed_annotations": false,
+  "bounce_email_with_no_attachments": true,
+  "metadata": {},
+  "filters": {
+    "allowed_senders": [],
+    "denied_senders": [],
+    "document_rejection_conditions": {
+      "enabled": true,
+      "resolution_lower_than_px": [
+        1200,
+        600
+      ],
+      "file_size_less_than_b": null,
+      "mime_types": [
+        "image/gif"
+      ],
+      "file_name_regexes": [
+        "(?i)image.{7,}"
+      ]
+    }
+  },
+  "dmarc_check_action": "accept",
+  "modified_by": null,
+  "queues": [
+    "https://cib.rossum.app/api/v1/queues/1260377"
+  ]
+}

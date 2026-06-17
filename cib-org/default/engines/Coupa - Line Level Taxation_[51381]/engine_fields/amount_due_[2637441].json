@@ -1,0 +1,12 @@
+{
+  "id": 2637441,
+  "url": "https://cib.rossum.app/api/v1/engine_fields/2637441",
+  "engine": "https://cib.rossum.app/api/v1/engines/51381",
+  "name": "amount_due",
+  "label": "Amount Due",
+  "type": "number",
+  "subtype": "amount",
+  "pre_trained_field_id": "amount_due",
+  "tabular": false,
+  "multiline": "false"
+}

@@ -1,0 +1,14 @@
+{
+  "id": 51384,
+  "url": "https://cib.rossum.app/api/v1/engines/51384",
+  "organization": "https://cib.rossum.app/api/v1/organizations/262116",
+  "name": "AP Documents - header level taxation (Duplicate)",
+  "type": "extractor",
+  "learning_enabled": true,
+  "training_queues": [],
+  "description": "",
+  "agenda_id": "coup_3820b7f9",
+  "settings": {
+    "use_case": "coupa_header_level"
+  }
+}

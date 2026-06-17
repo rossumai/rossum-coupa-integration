@@ -1,0 +1,12 @@
+{
+  "id": 2637445,
+  "url": "https://cib.rossum.app/api/v1/engine_fields/2637445",
+  "engine": "https://cib.rossum.app/api/v1/engines/51381",
+  "name": "amount_paid",
+  "label": "Amount Paid",
+  "type": "number",
+  "subtype": "amount",
+  "pre_trained_field_id": "amount_paid",
+  "tabular": false,
+  "multiline": "false"
+}

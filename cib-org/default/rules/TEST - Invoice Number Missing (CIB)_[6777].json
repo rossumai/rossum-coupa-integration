@@ -1,0 +1,39 @@
+{
+  "url": "https://cib.rossum.app/api/v1/rules/6777",
+  "id": 6777,
+  "name": "TEST - Invoice Number Missing (CIB)",
+  "description": "",
+  "enabled": true,
+  "trigger_condition": "is_empty(field.document_id)",
+  "actions": [
+    {
+      "id": "ba8e9b71-3204-479d-b4d6-b2e7c47042ec",
+      "enabled": true,
+      "type": "show_message",
+      "event": "validation",
+      "payload": {
+        "type": "warning",
+        "content": "No value was detected for the Invoice Number. Please double-check.",
+        "schema_id": "document_id"
+      }
+    },
+    {
+      "id": "d7394fc6-0e74-4b54-af8d-bc76d09b0188",
+      "enabled": true,
+      "type": "add_automation_blocker",
+      "event": "validation",
+      "payload": {
+        "content": "No value was detected for the Invoice Number. Please double-check.",
+        "schema_id": "document_id"
+      }
+    }
+  ],
+  "organization": "https://cib.rossum.app/api/v1/organizations/262116",
+  "modified_by": "https://cib.rossum.app/api/v1/users/146087",
+  "created_by": "https://cib.rossum.app/api/v1/users/146087",
+  "queues": [
+    "https://cib.rossum.app/api/v1/queues/1260377",
+    "https://cib.rossum.app/api/v1/queues/1260388"
+  ],
+  "created_at": "2026-04-17T11:55:33.892512Z"
+}

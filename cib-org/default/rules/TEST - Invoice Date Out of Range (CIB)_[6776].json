@@ -1,0 +1,39 @@
+{
+  "url": "https://cib.rossum.app/api/v1/rules/6776",
+  "id": 6776,
+  "name": "TEST - Invoice Date Out of Range (CIB)",
+  "description": "",
+  "enabled": true,
+  "trigger_condition": "PAST_LIMIT_DAYS = 365\nFUTURE_LIMIT_DAYS = 180\n(\n  not is_empty(field.date_issue_manual)\n  and (\n    field.date_issue_manual <= datetime.date.today() - datetime.timedelta(days=PAST_LIMIT_DAYS)\n    or field.date_issue_manual >= datetime.date.today() + datetime.timedelta(days=FUTURE_LIMIT_DAYS)\n  )\n)",
+  "actions": [
+    {
+      "id": "68063ff3-dfdd-46e5-a5ab-ac59939fffb8",
+      "enabled": true,
+      "type": "show_message",
+      "event": "validation",
+      "payload": {
+        "type": "warning",
+        "content": "Invoice Date cannot be more than one year in the past and three months in the future.",
+        "schema_id": "date_issue_manual"
+      }
+    },
+    {
+      "id": "164ad635-f223-49c2-8656-91cb7a9f08c2",
+      "enabled": true,
+      "type": "add_automation_blocker",
+      "event": "validation",
+      "payload": {
+        "content": "Invoice Date cannot be more than one year in the past and three months in the future.",
+        "schema_id": "date_issue_manual"
+      }
+    }
+  ],
+  "organization": "https://cib.rossum.app/api/v1/organizations/262116",
+  "modified_by": "https://cib.rossum.app/api/v1/users/146087",
+  "created_by": "https://cib.rossum.app/api/v1/users/146087",
+  "queues": [
+    "https://cib.rossum.app/api/v1/queues/1260377",
+    "https://cib.rossum.app/api/v1/queues/1260388"
+  ],
+  "created_at": "2026-04-17T11:55:33.698946Z"
+}

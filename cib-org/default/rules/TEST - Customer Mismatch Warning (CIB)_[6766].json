@@ -1,0 +1,39 @@
+{
+  "url": "https://cib.rossum.app/api/v1/rules/6766",
+  "id": 6766,
+  "name": "TEST - Customer Mismatch Warning (CIB)",
+  "description": "",
+  "enabled": true,
+  "trigger_condition": "(\n  not is_empty(field.recipient_match)\n  and not is_empty(field.recipient_name_match)\n  and not is_empty(field.recipient_name_export)\n  and field.recipient_name_match != field.recipient_name_export\n)",
+  "actions": [
+    {
+      "id": "74789d0c-47c2-41f7-8523-851ff341ed1a",
+      "enabled": true,
+      "type": "show_message",
+      "event": "validation",
+      "payload": {
+        "type": "warning",
+        "content": "The customer on the backing document PO/Contract is different from the customer matched on the document.",
+        "schema_id": "recipient_match"
+      }
+    },
+    {
+      "id": "51ce454a-d293-4c0d-a30e-ccdac041eb9e",
+      "enabled": true,
+      "type": "add_automation_blocker",
+      "event": "validation",
+      "payload": {
+        "content": "The customer on the backing document PO/Contract is different from the customer matched on the document.",
+        "schema_id": "recipient_match"
+      }
+    }
+  ],
+  "organization": "https://cib.rossum.app/api/v1/organizations/262116",
+  "modified_by": "https://cib.rossum.app/api/v1/users/146087",
+  "created_by": "https://cib.rossum.app/api/v1/users/146087",
+  "queues": [
+    "https://cib.rossum.app/api/v1/queues/1260377",
+    "https://cib.rossum.app/api/v1/queues/1260388"
+  ],
+  "created_at": "2026-04-17T11:55:32.008260Z"
+}

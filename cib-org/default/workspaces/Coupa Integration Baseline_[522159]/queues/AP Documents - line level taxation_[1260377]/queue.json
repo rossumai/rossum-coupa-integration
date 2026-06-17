@@ -1,0 +1,298 @@
+{
+  "id": 1260377,
+  "name": "AP Documents - line level taxation",
+  "url": "https://cib.rossum.app/api/v1/queues/1260377",
+  "workspace": "https://cib.rossum.app/api/v1/workspaces/522159",
+  "connector": null,
+  "hooks": [
+    "https://cib.rossum.app/api/v1/hooks/339158",
+    "https://cib.rossum.app/api/v1/hooks/339902",
+    "https://cib.rossum.app/api/v1/hooks/340003",
+    "https://cib.rossum.app/api/v1/hooks/342923",
+    "https://cib.rossum.app/api/v1/hooks/342955",
+    "https://cib.rossum.app/api/v1/hooks/343051",
+    "https://cib.rossum.app/api/v1/hooks/418429",
+    "https://cib.rossum.app/api/v1/hooks/418430",
+    "https://cib.rossum.app/api/v1/hooks/418431",
+    "https://cib.rossum.app/api/v1/hooks/418432",
+    "https://cib.rossum.app/api/v1/hooks/418433",
+    "https://cib.rossum.app/api/v1/hooks/418434",
+    "https://cib.rossum.app/api/v1/hooks/418435",
+    "https://cib.rossum.app/api/v1/hooks/418436",
+    "https://cib.rossum.app/api/v1/hooks/418437",
+    "https://cib.rossum.app/api/v1/hooks/418438",
+    "https://cib.rossum.app/api/v1/hooks/421929",
+    "https://cib.rossum.app/api/v1/hooks/421930",
+    "https://cib.rossum.app/api/v1/hooks/422850",
+    "https://cib.rossum.app/api/v1/hooks/444021",
+    "https://cib.rossum.app/api/v1/hooks/453520",
+    "https://cib.rossum.app/api/v1/hooks/540278",
+    "https://cib.rossum.app/api/v1/hooks/693315",
+    "https://cib.rossum.app/api/v1/hooks/693316",
+    "https://cib.rossum.app/api/v1/hooks/694975",
+    "https://cib.rossum.app/api/v1/hooks/735954",
+    "https://cib.rossum.app/api/v1/hooks/735955",
+    "https://cib.rossum.app/api/v1/hooks/747526",
+    "https://cib.rossum.app/api/v1/hooks/1090218"
+  ],
+  "webhooks": [
+    "https://cib.rossum.app/api/v1/webhooks/339158",
+    "https://cib.rossum.app/api/v1/webhooks/339902",
+    "https://cib.rossum.app/api/v1/webhooks/340003",
+    "https://cib.rossum.app/api/v1/webhooks/342923",
+    "https://cib.rossum.app/api/v1/webhooks/342955",
+    "https://cib.rossum.app/api/v1/webhooks/343051",
+    "https://cib.rossum.app/api/v1/webhooks/418429",
+    "https://cib.rossum.app/api/v1/webhooks/418430",
+    "https://cib.rossum.app/api/v1/webhooks/418431",
+    "https://cib.rossum.app/api/v1/webhooks/418432",
+    "https://cib.rossum.app/api/v1/webhooks/418433",
+    "https://cib.rossum.app/api/v1/webhooks/418434",
+    "https://cib.rossum.app/api/v1/webhooks/418435",
+    "https://cib.rossum.app/api/v1/webhooks/418436",
+    "https://cib.rossum.app/api/v1/webhooks/418437",
+    "https://cib.rossum.app/api/v1/webhooks/418438",
+    "https://cib.rossum.app/api/v1/webhooks/421929",
+    "https://cib.rossum.app/api/v1/webhooks/421930",
+    "https://cib.rossum.app/api/v1/webhooks/422850",
+    "https://cib.rossum.app/api/v1/webhooks/444021",
+    "https://cib.rossum.app/api/v1/webhooks/453520",
+    "https://cib.rossum.app/api/v1/webhooks/540278",
+    "https://cib.rossum.app/api/v1/webhooks/693315",
+    "https://cib.rossum.app/api/v1/webhooks/693316",
+    "https://cib.rossum.app/api/v1/webhooks/694975",
+    "https://cib.rossum.app/api/v1/webhooks/735954",
+    "https://cib.rossum.app/api/v1/webhooks/735955",
+    "https://cib.rossum.app/api/v1/webhooks/747526",
+    "https://cib.rossum.app/api/v1/webhooks/1090218"
+  ],
+  "schema": "https://cib.rossum.app/api/v1/schemas/1301955",
+  "rules": [
+    "https://cib.rossum.app/api/v1/rules/6765",
+    "https://cib.rossum.app/api/v1/rules/6766",
+    "https://cib.rossum.app/api/v1/rules/6767",
+    "https://cib.rossum.app/api/v1/rules/6768",
+    "https://cib.rossum.app/api/v1/rules/6769",
+    "https://cib.rossum.app/api/v1/rules/6770",
+    "https://cib.rossum.app/api/v1/rules/6771",
+    "https://cib.rossum.app/api/v1/rules/6772",
+    "https://cib.rossum.app/api/v1/rules/6773",
+    "https://cib.rossum.app/api/v1/rules/6774",
+    "https://cib.rossum.app/api/v1/rules/6775",
+    "https://cib.rossum.app/api/v1/rules/6776",
+    "https://cib.rossum.app/api/v1/rules/6777",
+    "https://cib.rossum.app/api/v1/rules/6778",
+    "https://cib.rossum.app/api/v1/rules/6779",
+    "https://cib.rossum.app/api/v1/rules/6780",
+    "https://cib.rossum.app/api/v1/rules/6781",
+    "https://cib.rossum.app/api/v1/rules/6782",
+    "https://cib.rossum.app/api/v1/rules/6783",
+    "https://cib.rossum.app/api/v1/rules/6784",
+    "https://cib.rossum.app/api/v1/rules/6785",
+    "https://cib.rossum.app/api/v1/rules/6786",
+    "https://cib.rossum.app/api/v1/rules/6787",
+    "https://cib.rossum.app/api/v1/rules/6788",
+    "https://cib.rossum.app/api/v1/rules/6789",
+    "https://cib.rossum.app/api/v1/rules/6790",
+    "https://cib.rossum.app/api/v1/rules/6791",
+    "https://cib.rossum.app/api/v1/rules/6792",
+    "https://cib.rossum.app/api/v1/rules/6793",
+    "https://cib.rossum.app/api/v1/rules/6794",
+    "https://cib.rossum.app/api/v1/rules/6795",
+    "https://cib.rossum.app/api/v1/rules/6796",
+    "https://cib.rossum.app/api/v1/rules/6797",
+    "https://cib.rossum.app/api/v1/rules/6798",
+    "https://cib.rossum.app/api/v1/rules/6799",
+    "https://cib.rossum.app/api/v1/rules/6804",
+    "https://cib.rossum.app/api/v1/rules/6805",
+    "https://cib.rossum.app/api/v1/rules/6806",
+    "https://cib.rossum.app/api/v1/rules/6807",
+    "https://cib.rossum.app/api/v1/rules/6808",
+    "https://cib.rossum.app/api/v1/rules/6809",
+    "https://cib.rossum.app/api/v1/rules/6810",
+    "https://cib.rossum.app/api/v1/rules/6812",
+    "https://cib.rossum.app/api/v1/rules/6814"
+  ],
+  "inbox": "https://cib.rossum.app/api/v1/inboxes/566674",
+  "session_timeout": "01:00:00",
+  "rir_url": null,
+  "rir_params": null,
+  "default_score_threshold": 0.975,
+  "automation_enabled": false,
+  "automation_level": "never",
+  "locale": "en_GB",
+  "metadata": {
+    "queueTemplate": "taxinvoiceeu"
+  },
+  "settings": {
+    "columns": [
+      {
+        "schema_id": "document_id"
+      },
+      {
+        "schema_id": "order_id"
+      },
+      {
+        "schema_id": "date_due"
+      },
+      {
+        "schema_id": "amount_total"
+      },
+      {
+        "schema_id": "sender_name"
+      }
+    ],
+    "hide_export_button": false,
+    "accepted_mime_types": [
+      "image/*",
+      "application/pdf",
+      "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+      "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "application/msword",
+      "application/vnd.ms-excel",
+      "application/zip"
+    ],
+    "suggested_edit": "suggest",
+    "rejection_config": {
+      "enabled": true
+    },
+    "suggested_recipients_sources": [
+      {
+        "source": "email_header"
+      },
+      {
+        "source": "queue_mailing_history"
+      }
+    ],
+    "email_notifications": {
+      "recipient": null,
+      "unprocessable_attachments": false,
+      "postponed_annotations": false,
+      "deleted_annotations": false,
+      "email_with_no_attachments": true
+    },
+    "dashboard_customization": {
+      "all_documents": false,
+      "to_review": true,
+      "postponed": true,
+      "confirmed": true,
+      "exported": true,
+      "rejected": true,
+      "deleted": true,
+      "labels": true
+    },
+    "workflows": {
+      "enabled": false,
+      "bypass_workflows_allowed": false
+    },
+    "annotation_list_table": {
+      "columns": [
+        {
+          "visible": true,
+          "column_type": "meta",
+          "width": 170.0,
+          "meta_name": "status"
+        },
+        {
+          "visible": true,
+          "column_type": "meta",
+          "width": 270.0,
+          "meta_name": "original_file_name"
+        },
+        {
+          "visible": true,
+          "column_type": "meta",
+          "width": 150.0,
+          "meta_name": "details"
+        },
+        {
+          "visible": false,
+          "column_type": "meta",
+          "width": 300.0,
+          "meta_name": "queue"
+        },
+        {
+          "visible": true,
+          "column_type": "meta",
+          "width": 250.0,
+          "meta_name": "labels"
+        },
+        {
+          "visible": true,
+          "column_type": "schema",
+          "width": 170.0,
+          "schema_id": "document_id",
+          "data_type": "string"
+        },
+        {
+          "visible": true,
+          "column_type": "schema",
+          "width": 170.0,
+          "schema_id": "order_id",
+          "data_type": "string"
+        },
+        {
+          "visible": true,
+          "column_type": "schema",
+          "width": 170.0,
+          "schema_id": "date_due",
+          "data_type": "date"
+        },
+        {
+          "visible": true,
+          "column_type": "schema",
+          "width": 170.0,
+          "schema_id": "amount_total",
+          "data_type": "number"
+        },
+        {
+          "visible": true,
+          "column_type": "schema",
+          "width": 170.0,
+          "schema_id": "sender_name",
+          "data_type": "string"
+        },
+        {
+          "visible": true,
+          "column_type": "meta",
+          "width": 150.0,
+          "meta_name": "created_at"
+        },
+        {
+          "visible": true,
+          "column_type": "meta",
+          "width": 150.0,
+          "meta_name": "creator"
+        },
+        {
+          "visible": true,
+          "column_type": "meta",
+          "width": 150.0,
+          "meta_name": "modified_at"
+        },
+        {
+          "visible": true,
+          "column_type": "meta",
+          "width": 170.0,
+          "meta_name": "modifier"
+        }
+      ]
+    },
+    "ui_upload_enabled": true,
+    "ui_on_edit_confirm": "validate_first",
+    "ui_validation_screen_enabled": true,
+    "ui_edit_target_queue_selection_enabled": true
+  },
+  "use_confirmed_state": false,
+  "document_lifetime": null,
+  "dedicated_engine": null,
+  "generic_engine": null,
+  "delete_after": null,
+  "status": "active",
+  "workflows": [],
+  "quality_spot_check_percentage": 0.0,
+  "modified_by": "https://cib.rossum.app/api/v1/users/146087",
+  "engine": "https://cib.rossum.app/api/v1/engines/51386",
+  "training_enabled": true,
+  "archive_enabled": false
+}

@@ -1,0 +1,29 @@
+{
+  "url": "https://cib.rossum.app/api/v1/rules/6772",
+  "id": 6772,
+  "name": "TEST - Required - Line Total or Unit Price (CIB)",
+  "description": "",
+  "enabled": true,
+  "trigger_condition": "(\n  is_empty(field.item_total_base)\n  and is_empty(field.item_amount_base)\n)",
+  "actions": [
+    {
+      "id": "8fcd77e2-ec0e-4e95-b816-8616ea29a60a",
+      "enabled": true,
+      "type": "show_message",
+      "event": "validation",
+      "payload": {
+        "type": "error",
+        "content": "required",
+        "schema_id": "item_total_base"
+      }
+    }
+  ],
+  "organization": "https://cib.rossum.app/api/v1/organizations/262116",
+  "modified_by": "https://cib.rossum.app/api/v1/users/146087",
+  "created_by": "https://cib.rossum.app/api/v1/users/146087",
+  "queues": [
+    "https://cib.rossum.app/api/v1/queues/1260377",
+    "https://cib.rossum.app/api/v1/queues/1260388"
+  ],
+  "created_at": "2026-04-17T11:55:33.032558Z"
+}

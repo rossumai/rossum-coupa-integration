@@ -1,0 +1,39 @@
+{
+  "url": "https://cib.rossum.app/api/v1/rules/6769",
+  "id": 6769,
+  "name": "TEST - Negative Amount - Not Credit Note (CIB)",
+  "description": "",
+  "enabled": true,
+  "trigger_condition": "(\n  not is_empty(field.document_type) and field.document_type != 'credit_note'\n  and not is_empty(field.coupa_total_calculated)\n  and field.coupa_total_calculated < 0\n)",
+  "actions": [
+    {
+      "id": "0f910153-5858-4384-aea5-d079cee93871",
+      "enabled": true,
+      "type": "show_message",
+      "event": "validation",
+      "payload": {
+        "type": "warning",
+        "content": "Negative amount detected, but the document type is not Credit Note. Please double-check.",
+        "schema_id": "document_type"
+      }
+    },
+    {
+      "id": "f0d07a77-4928-4520-89fd-c4d3f18803b2",
+      "enabled": true,
+      "type": "add_automation_blocker",
+      "event": "validation",
+      "payload": {
+        "content": "Negative amount detected, but the document type is not Credit Note. Please double-check.",
+        "schema_id": "document_type"
+      }
+    }
+  ],
+  "organization": "https://cib.rossum.app/api/v1/organizations/262116",
+  "modified_by": "https://cib.rossum.app/api/v1/users/146087",
+  "created_by": "https://cib.rossum.app/api/v1/users/146087",
+  "queues": [
+    "https://cib.rossum.app/api/v1/queues/1260377",
+    "https://cib.rossum.app/api/v1/queues/1260388"
+  ],
+  "created_at": "2026-04-17T11:55:32.457352Z"
+}

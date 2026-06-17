@@ -1,0 +1,14 @@
+{
+  "id": 51381,
+  "url": "https://cib.rossum.app/api/v1/engines/51381",
+  "organization": "https://cib.rossum.app/api/v1/organizations/262116",
+  "name": "Coupa - Line Level Taxation",
+  "type": "extractor",
+  "learning_enabled": true,
+  "training_queues": [],
+  "description": "",
+  "agenda_id": "coup_1ee75c2f",
+  "settings": {
+    "use_case": "generic_ap"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "url": "https://cib.rossum.app/api/v1/rules/6767",
+  "id": 6767,
+  "name": "TEST - Payment Terms Mismatch (CIB)",
+  "description": "",
+  "enabled": true,
+  "trigger_condition": "(\n  not is_empty(field.payment_terms_match)\n  and not is_empty(field.sender_payment_days_match)\n  and not is_empty(field.payment_terms_days_match)\n  and int(field.sender_payment_days_match) != int(field.payment_terms_days_match)\n)",
+  "actions": [
+    {
+      "id": "b7d5856b-7990-4c8f-8048-ca3b8e68239a",
+      "enabled": true,
+      "type": "show_message",
+      "event": "validation",
+      "payload": {
+        "type": "warning",
+        "content": "The Payment Terms are different from the default Payment Terms of the supplier.",
+        "schema_id": "payment_terms_match"
+      }
+    },
+    {
+      "id": "cf3e8c84-552c-482c-b1cf-333ace397a8c",
+      "enabled": true,
+      "type": "add_automation_blocker",
+      "event": "validation",
+      "payload": {
+        "content": "The Payment Terms are different from the default Payment Terms of the supplier.",
+        "schema_id": "payment_terms_match"
+      }
+    }
+  ],
+  "organization": "https://cib.rossum.app/api/v1/organizations/262116",
+  "modified_by": "https://cib.rossum.app/api/v1/users/146087",
+  "created_by": "https://cib.rossum.app/api/v1/users/146087",
+  "queues": [
+    "https://cib.rossum.app/api/v1/queues/1260377",
+    "https://cib.rossum.app/api/v1/queues/1260388"
+  ],
+  "created_at": "2026-04-17T11:55:32.145337Z"
+}

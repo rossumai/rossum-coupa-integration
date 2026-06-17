@@ -1,0 +1,28 @@
+{
+  "url": "https://cib.rossum.app/api/v1/rules/6810",
+  "id": 6810,
+  "name": "TEST - Item Tax Code Required (Line Items, PO Backed) (CIB)",
+  "description": "",
+  "enabled": true,
+  "trigger_condition": "(\n  not is_empty(field.line_items_present) and field.line_items_present == 'true'\n  and not is_empty(field.po_backed) and field.po_backed == 'true'\n  and is_empty(field.item_tax_code_match)\n)",
+  "actions": [
+    {
+      "id": "b5c67589-b126-4103-926c-de832f7b05c6",
+      "enabled": true,
+      "type": "show_message",
+      "event": "validation",
+      "payload": {
+        "type": "warning",
+        "content": "This field must be filled in for the document to be submitted to Coupa.",
+        "schema_id": "item_tax_code_match"
+      }
+    }
+  ],
+  "organization": "https://cib.rossum.app/api/v1/organizations/262116",
+  "modified_by": "https://cib.rossum.app/api/v1/users/146087",
+  "created_by": "https://cib.rossum.app/api/v1/users/146087",
+  "queues": [
+    "https://cib.rossum.app/api/v1/queues/1260377"
+  ],
+  "created_at": "2026-04-17T11:55:39.688887Z"
+}

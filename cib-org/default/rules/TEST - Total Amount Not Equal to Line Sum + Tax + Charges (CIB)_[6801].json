@@ -1,0 +1,38 @@
+{
+  "url": "https://cib.rossum.app/api/v1/rules/6801",
+  "id": 6801,
+  "name": "TEST - Total Amount Not Equal to Line Sum + Tax + Charges (CIB)",
+  "description": "",
+  "enabled": true,
+  "trigger_condition": "(\n  not is_empty(field.amount_total)\n  and not is_empty(field.amount_total_tax_calculated)\n  and not is_empty(field.charges_calculated)\n  and round(field.amount_total, 2) != round(\n    sum([default_to(v, 0) for v in field.item_total_base.all_values])\n    + field.amount_total_tax_calculated\n    + field.charges_calculated,\n    2\n  )\n)",
+  "actions": [
+    {
+      "id": "7c8f7df0-8321-4865-b7a8-58def080de7e",
+      "enabled": true,
+      "type": "show_message",
+      "event": "validation",
+      "payload": {
+        "type": "warning",
+        "content": "Total Amount on the header is not equal to the sum of Line Total Net on line items + Tax Amount + Charges.",
+        "schema_id": "amount_total"
+      }
+    },
+    {
+      "id": "dbac4f18-fea1-42b4-9263-c26d0555c39d",
+      "enabled": true,
+      "type": "add_automation_blocker",
+      "event": "validation",
+      "payload": {
+        "content": "Total Amount on the header is not equal to the sum of Line Total Net on line items + Tax Amount + Charges.",
+        "schema_id": "amount_total"
+      }
+    }
+  ],
+  "organization": "https://cib.rossum.app/api/v1/organizations/262116",
+  "modified_by": "https://cib.rossum.app/api/v1/users/146087",
+  "created_by": "https://cib.rossum.app/api/v1/users/146087",
+  "queues": [
+    "https://cib.rossum.app/api/v1/queues/1260388"
+  ],
+  "created_at": "2026-04-17T11:55:38.088541Z"
+}

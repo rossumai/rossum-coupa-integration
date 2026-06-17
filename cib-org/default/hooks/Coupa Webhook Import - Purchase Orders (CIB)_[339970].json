@@ -1,0 +1,223 @@
+{
+  "id": 339970,
+  "type": "webhook",
+  "name": "Coupa Webhook Import - Purchase Orders (CIB)",
+  "url": "https://cib.rossum.app/api/v1/hooks/339970",
+  "description": "",
+  "settings": {
+    "credentials": {
+      "client_id": "ef7262b7624a011ec6eb1178c28e1a0b",
+      "base_api_url": "https://rossum-czech-coupalink.coupacloud.com/",
+      "client_scope": "core.purchase_order.read"
+    },
+    "import_config": {
+      "query": {
+        "dir": "desc",
+        "fields": [
+          "id",
+          "created_at",
+          "updated_at",
+          "po_number",
+          "status",
+          "version",
+          "payment_method",
+          "ship_to_attention",
+          {
+            "custom_fields": {}
+          },
+          {
+            "requisition_header": [
+              "id",
+              {
+                "requested_by": [
+                  "email"
+                ]
+              }
+            ]
+          },
+          {
+            "ship_to_address": [
+              "id",
+              "created_at",
+              "updated_at",
+              "name",
+              "location_code",
+              "street1",
+              "street2",
+              "street3",
+              "street4",
+              "city",
+              "state",
+              "postal_code",
+              "attention",
+              "active",
+              "business_group_name",
+              "vat_number",
+              "local_tax_number",
+              "type",
+              {
+                "country": [
+                  "id",
+                  "code",
+                  "name"
+                ]
+              }
+            ]
+          },
+          {
+            "supplier": [
+              "id",
+              "name",
+              "display_name",
+              "number"
+            ]
+          },
+          {
+            "order_lines": [
+              "id",
+              "created_at",
+              "updated_at",
+              "accounting_total",
+              {
+                "accounting_total_currency": [
+                  "id",
+                  "code",
+                  "decimals"
+                ]
+              },
+              "description",
+              "line_num",
+              "order_header_id",
+              "order_header_number",
+              "price",
+              "quantity",
+              "source_part_num",
+              "status",
+              "sub_line_num",
+              "total",
+              "type",
+              "version",
+              "supplier_order_number",
+              {
+                "account": [
+                  "id",
+                  "created_at",
+                  "updated_at",
+                  "name",
+                  "code",
+                  "active",
+                  "account_type_id",
+                  "segment_1",
+                  "segment_2",
+                  "segment_3",
+                  "segment_4",
+                  "segment_5",
+                  "segment_6",
+                  "segment_7",
+                  "segment_8",
+                  "segment_9",
+                  "segment_10",
+                  "segment_11",
+                  "segment_12",
+                  "segment_13",
+                  "segment_14",
+                  "segment_15",
+                  "segment_16",
+                  "segment_17",
+                  "segment_18",
+                  "segment_19",
+                  "segment_20"
+                ]
+              },
+              {
+                "currency": [
+                  "id",
+                  "code",
+                  "decimals"
+                ]
+              },
+              {
+                "supplier": [
+                  "id",
+                  "name",
+                  "display_name",
+                  "number"
+                ]
+              },
+              {
+                "uom": [
+                  "id",
+                  "created_at",
+                  "updated_at",
+                  "code",
+                  "name",
+                  "allowable_precision",
+                  "active"
+                ]
+              }
+            ]
+          }
+        ],
+        "order_by": "created_at",
+        "updated-at[gt_or_eq]": "${last_modified_date}"
+      },
+      "method": "update",
+      "id_keys": [
+        "id"
+      ],
+      "endpoint": "api/purchase_orders",
+      "dataset_name": "purchase_orders_test",
+      "records_per_request": 50
+    },
+    "job_run_settings": {
+      "max_run_time_s": 36000
+    }
+  },
+  "active": true,
+  "events": [
+    "invocation.scheduled",
+    "invocation.manual"
+  ],
+  "queues": [],
+  "run_after": [],
+  "metadata": {},
+  "config": {
+    "schedule": {
+      "cron": "*/15 * * * *"
+    },
+    "app": null,
+    "payload_logging_enabled": false,
+    "timeout_s": 30,
+    "max_polling_time_s": 300,
+    "retry_count": 4,
+    "retry_after_polling_failure": true,
+    "url": "https://shared-eu2.rossum.app/svc/scheduled-imports/api/coupa/v1/import",
+    "secret": null,
+    "insecure_ssl": false,
+    "client_ssl_certificate": null,
+    "retry_on_any_non_2xx": false
+  },
+  "test": {},
+  "sideload": [],
+  "settings_schema": null,
+  "secrets_schema": {
+    "type": "object",
+    "properties": {
+      "client_secret": {
+        "type": "string",
+        "description": "API OAuth Client secret"
+      }
+    },
+    "additionalProperties": false
+  },
+  "token_owner": "https://cib.rossum.app/api/v1/users/282700",
+  "extension_source": "custom",
+  "guide": null,
+  "read_more_url": null,
+  "extension_image_url": null,
+  "token_lifetime_s": 120,
+  "hook_template": null,
+  "created_by": null,
+  "created_at": null,
+  "modified_by": "https://cib.rossum.app/api/v1/users/146087"
+}

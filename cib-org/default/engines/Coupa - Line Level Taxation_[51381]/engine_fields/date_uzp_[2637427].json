@@ -1,0 +1,12 @@
+{
+  "id": 2637427,
+  "url": "https://cib.rossum.app/api/v1/engine_fields/2637427",
+  "engine": "https://cib.rossum.app/api/v1/engines/51381",
+  "name": "date_uzp",
+  "label": "Tax Point Date",
+  "type": "date",
+  "subtype": "period_end",
+  "pre_trained_field_id": "date_uzp",
+  "tabular": false,
+  "multiline": "false"
+}

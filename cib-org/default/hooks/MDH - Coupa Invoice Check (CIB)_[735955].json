@@ -1,0 +1,122 @@
+{
+  "id": 735955,
+  "type": "webhook",
+  "name": "MDH - Coupa Invoice Check (CIB)",
+  "url": "https://cib.rossum.app/api/v1/hooks/735955",
+  "description": "Enhance the extracted data with details from your master records.",
+  "settings": {
+    "configurations": [
+      {
+        "name": "Coupa Invoice Existence Check",
+        "source": {
+          "auth": {
+            "url": "{oauth_url}",
+            "body": {
+              "scope": "core.invoice.read",
+              "client_id": "ef7262b7624a011ec6eb1178c28e1a0b",
+              "grant_type": "client_credentials",
+              "client_secret": "{secrets.client_secret}"
+            },
+            "method": "POST",
+            "headers": {
+              "Accept": "application/json",
+              "Content-Type": "application/x-www-form-urlencoded"
+            }
+          },
+          "queries": [
+            {
+              "url": "{create_draft_url}",
+              "body": {},
+              "method": "GET",
+              "headers": {
+                "Accept": "application/json",
+                "Authorization": "Bearer {auth.body.access_token}"
+              },
+              "result_path": "",
+              "query_params": {
+                "fields": "[\"id\",\"status\"]",
+                "supplier_id": "{sender_export}",
+                "invoice_number": "{document_id_manual}"
+              }
+            }
+          ]
+        },
+        "default": {
+          "label": "---",
+          "value": ""
+        },
+        "mapping": {
+          "dataset_key": "status",
+          "target_schema_id": "duplicate_invoice_statuses"
+        },
+        "result_actions": {
+          "no_match_found": {
+            "message": {
+              "type": "info",
+              "content": "No duplicates found"
+            }
+          },
+          "one_match_found": {
+            "select": "best_match"
+          },
+          "multiple_matches_found": {
+            "select": "best_match",
+            "message": {
+              "type": "info",
+              "content": "Multiple duplicate statuses found"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "active": true,
+  "events": [
+    "annotation_content.initialize",
+    "annotation_content.started",
+    "annotation_content.updated"
+  ],
+  "queues": [
+    "https://cib.rossum.app/api/v1/queues/1260377",
+    "https://cib.rossum.app/api/v1/queues/1260388"
+  ],
+  "run_after": [
+    "https://cib.rossum.app/api/v1/hooks/343051"
+  ],
+  "metadata": {},
+  "config": {
+    "private": true,
+    "schedule": {},
+    "app": null,
+    "payload_logging_enabled": false,
+    "timeout_s": 60,
+    "max_polling_time_s": 300,
+    "retry_count": 4,
+    "retry_after_polling_failure": true,
+    "insecure_ssl": false,
+    "client_ssl_certificate": null,
+    "retry_on_any_non_2xx": false
+  },
+  "test": {},
+  "sideload": [
+    "schemas"
+  ],
+  "settings_schema": null,
+  "secrets_schema": {
+    "type": "object",
+    "properties": {},
+    "additionalProperties": {
+      "type": "string"
+    }
+  },
+  "token_owner": "https://cib.rossum.app/api/v1/users/282705",
+  "extension_source": "rossum_store",
+  "guide": "<div>\r\n    <p>To manage and configure the behavior, use our configurator below.</p> \r\n    <p>Start by</p>\r\n    <ul>\r\n        <li>Selecting the queues that you want to use for this extension below</li>\r\n    </ul>\r\n    <p>Then open Master Data Hub and</p>\r\n    <ul>\r\n        <li>Import the dataset with Dataset Management</li>\r\n        <li>Create and set up a new configuration in Configurator</li>\r\n    </ul>\r\n    <p>For more information, take a look at our documentation <a href=\"https://knowledge-base.rossum.ai/docs/master-data-hub-extension/\" target=\"_blank\">here</a>.</p>\r\n\r\n    <p><form action=\"https://cib.rossum.app/svc/master-data-hub/web/\" target=\"_blank\" rel=\"noopener noreferrer\">\r\n        <button type=\"submit\"style=\"\r\n            border: none;    \r\n            background: var(--color-primary);\r\n            border-radius: 4px;\r\n            padding: 6px 16px;\r\n            color: var(--white);\r\n            font-weight: 500;\"\r\n         >\r\n            Open configurator\r\n        </button>\r\n    </form></p>\r\n</div>",
+  "read_more_url": "https://elis.rossum.ai/svc/master-data-hub/api/docs",
+  "extension_image_url": "https://rossum.ai/help/wp-content/uploads/2024/01/Master-Data-Hub.png",
+  "token_lifetime_s": 7200,
+  "hook_template": "https://cib.rossum.app/api/v1/hook_templates/39",
+  "created_by": "https://cib.rossum.app/api/v1/users/331619",
+  "created_at": "2025-06-27T13:32:25.407138Z",
+  "modified_by": "https://cib.rossum.app/api/v1/users/331619"
+}

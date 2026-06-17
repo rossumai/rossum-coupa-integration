@@ -1,0 +1,21 @@
+{
+  "id": 6342543,
+  "url": "https://cib.rossum.app/api/v1/email_templates/6342543",
+  "name": "Default rejection template",
+  "queue": "https://cib.rossum.app/api/v1/queues/1260377",
+  "organization": "https://cib.rossum.app/api/v1/organizations/262116",
+  "subject": "Rejected document {{parent_email_subject}}",
+  "message": "<p>Dear sender,<br><br>The attached document has been rejected.<br><br><br>Best regards,<br>{{ user_name }}</p>\n",
+  "type": "rejection_default",
+  "enabled": true,
+  "automate": true,
+  "triggers": [],
+  "to": [
+    {
+      "email": "{{sender_email}}"
+    }
+  ],
+  "cc": [],
+  "bcc": [],
+  "modified_by": null
+}

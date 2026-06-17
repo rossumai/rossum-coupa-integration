@@ -1,0 +1,28 @@
+{
+  "url": "https://cib.rossum.app/api/v1/rules/6814",
+  "id": 6814,
+  "name": "TEST - ShowHide - Hide Tax Code Match (CIB)",
+  "description": "",
+  "enabled": true,
+  "trigger_condition": "field.line_items_present == 'false'",
+  "actions": [
+    {
+      "id": "0842f9c2-e741-43a1-a5e7-91cbad3b2e16",
+      "enabled": true,
+      "type": "show_hide_field",
+      "event": "validation",
+      "payload": {
+        "schema_ids": [
+          "tax_code_match"
+        ]
+      }
+    }
+  ],
+  "organization": "https://cib.rossum.app/api/v1/organizations/262116",
+  "modified_by": "https://cib.rossum.app/api/v1/users/146087",
+  "created_by": "https://cib.rossum.app/api/v1/users/146087",
+  "queues": [
+    "https://cib.rossum.app/api/v1/queues/1260377"
+  ],
+  "created_at": "2026-04-17T12:21:13.480018Z"
+}

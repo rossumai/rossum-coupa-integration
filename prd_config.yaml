@@ -1,0 +1,7 @@
+directories:
+  cib-org:
+    org_id: '262116'
+    api_base: https://cib.rossum.app/api/v1
+    subdirectories:
+      default:
+        regex: ''

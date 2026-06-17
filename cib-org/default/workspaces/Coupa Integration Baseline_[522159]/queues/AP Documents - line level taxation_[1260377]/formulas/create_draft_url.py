@@ -1,0 +1,1 @@
+f"{field.coupa_api_base_url}api/invoices"

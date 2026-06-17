@@ -1,0 +1,39 @@
+{
+  "url": "https://cib.rossum.app/api/v1/rules/6779",
+  "id": 6779,
+  "name": "TEST - Invoice Number Too Long (CIB)",
+  "description": "",
+  "enabled": true,
+  "trigger_condition": "MAX_CHARS = 40\n(\n  not is_empty(field.document_id)\n  and len(str(field.document_id)) > MAX_CHARS\n)",
+  "actions": [
+    {
+      "id": "3146f3ef-8999-4e5d-9a70-5432ece106c3",
+      "enabled": true,
+      "type": "show_message",
+      "event": "validation",
+      "payload": {
+        "type": "warning",
+        "content": "The value contains more than 40 characters and has been truncated to 40 characters in the Invoice Number (manual) field.",
+        "schema_id": "document_id"
+      }
+    },
+    {
+      "id": "5479de4f-323b-43f1-8a6c-9a1d498dda91",
+      "enabled": true,
+      "type": "add_automation_blocker",
+      "event": "validation",
+      "payload": {
+        "content": "The value contains more than 40 characters and has been truncated to 40 characters in the Invoice Number (manual) field.",
+        "schema_id": "document_id"
+      }
+    }
+  ],
+  "organization": "https://cib.rossum.app/api/v1/organizations/262116",
+  "modified_by": "https://cib.rossum.app/api/v1/users/146087",
+  "created_by": "https://cib.rossum.app/api/v1/users/146087",
+  "queues": [
+    "https://cib.rossum.app/api/v1/queues/1260377",
+    "https://cib.rossum.app/api/v1/queues/1260388"
+  ],
+  "created_at": "2026-04-17T11:55:34.223257Z"
+}

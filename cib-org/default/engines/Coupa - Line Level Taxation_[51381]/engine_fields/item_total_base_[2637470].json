@@ -1,0 +1,12 @@
+{
+  "id": 2637470,
+  "url": "https://cib.rossum.app/api/v1/engine_fields/2637470",
+  "engine": "https://cib.rossum.app/api/v1/engines/51381",
+  "name": "item_total_base",
+  "label": "Total Base",
+  "type": "number",
+  "subtype": "amount",
+  "pre_trained_field_id": "table_column_amount_total_base",
+  "tabular": true,
+  "multiline": "false"
+}

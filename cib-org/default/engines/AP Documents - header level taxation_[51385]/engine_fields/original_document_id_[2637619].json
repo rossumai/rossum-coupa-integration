@@ -1,0 +1,12 @@
+{
+  "id": 2637619,
+  "url": "https://cib.rossum.app/api/v1/engine_fields/2637619",
+  "engine": "https://cib.rossum.app/api/v1/engines/51385",
+  "name": "original_document_id",
+  "label": "Original Invoice Number",
+  "type": "string",
+  "subtype": null,
+  "pre_trained_field_id": "original_document_id",
+  "tabular": false,
+  "multiline": "false"
+}

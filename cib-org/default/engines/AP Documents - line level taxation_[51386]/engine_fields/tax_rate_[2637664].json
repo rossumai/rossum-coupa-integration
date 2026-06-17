@@ -1,0 +1,12 @@
+{
+  "id": 2637664,
+  "url": "https://cib.rossum.app/api/v1/engine_fields/2637664",
+  "engine": "https://cib.rossum.app/api/v1/engines/51386",
+  "name": "tax_rate",
+  "label": "Tax Rate",
+  "type": "number",
+  "subtype": null,
+  "pre_trained_field_id": "tax_rate",
+  "tabular": false,
+  "multiline": "false"
+}

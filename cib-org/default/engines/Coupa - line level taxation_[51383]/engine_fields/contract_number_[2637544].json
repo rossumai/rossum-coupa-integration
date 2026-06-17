@@ -1,0 +1,12 @@
+{
+  "id": 2637544,
+  "url": "https://cib.rossum.app/api/v1/engine_fields/2637544",
+  "engine": "https://cib.rossum.app/api/v1/engines/51383",
+  "name": "contract_number",
+  "label": "Contract Number",
+  "type": "string",
+  "subtype": null,
+  "pre_trained_field_id": "contract_number",
+  "tabular": false,
+  "multiline": "false"
+}

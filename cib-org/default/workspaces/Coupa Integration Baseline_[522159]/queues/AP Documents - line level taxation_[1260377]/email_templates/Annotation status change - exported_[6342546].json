@@ -1,0 +1,23 @@
+{
+  "id": 6342546,
+  "url": "https://cib.rossum.app/api/v1/email_templates/6342546",
+  "name": "Annotation status change - exported",
+  "queue": "https://cib.rossum.app/api/v1/queues/1260377",
+  "organization": "https://cib.rossum.app/api/v1/organizations/262116",
+  "subject": "Documents exported: {{ parent_email_subject }}",
+  "message": "<p>Dear sender,<br><br>Your documents have been successfully exported.<br><br>{{ document_list }}<br><br>Regards</p>\n",
+  "type": "custom",
+  "enabled": false,
+  "automate": false,
+  "triggers": [
+    "https://cib.rossum.app/api/v1/triggers/5080003"
+  ],
+  "to": [
+    {
+      "email": "{{sender_email}}"
+    }
+  ],
+  "cc": [],
+  "bcc": [],
+  "modified_by": null
+}

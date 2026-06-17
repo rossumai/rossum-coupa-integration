@@ -1,0 +1,12 @@
+{
+  "id": 2637573,
+  "url": "https://cib.rossum.app/api/v1/engine_fields/2637573",
+  "engine": "https://cib.rossum.app/api/v1/engines/51384",
+  "name": "iban",
+  "label": "IBAN",
+  "type": "string",
+  "subtype": "iban",
+  "pre_trained_field_id": "iban",
+  "tabular": false,
+  "multiline": "false"
+}

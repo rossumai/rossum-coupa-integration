@@ -1,0 +1,146 @@
+{
+  "id": 444021,
+  "type": "webhook",
+  "name": "Duplicate Handling (CIB)",
+  "url": "https://cib.rossum.app/api/v1/hooks/444021",
+  "description": "Detect duplicate documents based on custom rules and apply actions on detected duplicates.",
+  "settings": {
+    "configurations": [
+      {
+        "logic": [
+          {
+            "actions": [
+              {
+                "type": "fill_field",
+                "field_to_fill": "is_duplicate",
+                "value_to_fill": "true"
+              },
+              {
+                "type": "mark_duplicate"
+              }
+            ],
+            "search_query": {
+              "query": {
+                "$and": [
+                  {
+                    "status": {
+                      "$nin": [
+                        "split",
+                        "purged"
+                      ]
+                    }
+                  },
+                  {
+                    "field.document_id_manual.string": {
+                      "$ne": ""
+                    }
+                  },
+                  {
+                    "field.document_id_manual.string": {
+                      "$eq": "@{document_id_manual}"
+                    }
+                  },
+                  {
+                    "field.sender_export.string": {
+                      "$ne": ""
+                    }
+                  },
+                  {
+                    "field.sender_export.string": {
+                      "$eq": "@{sender_export}"
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        ],
+        "trigger_events": [
+          "annotation_content"
+        ],
+        "trigger_actions": [
+          "initialize",
+          "started",
+          "updated"
+        ]
+      },
+      {
+        "logic": [
+          {
+            "rules": [
+              {
+                "id": 1,
+                "attribute": "relation"
+              }
+            ],
+            "actions": [
+              {
+                "type": "fill_field",
+                "field_to_fill": "is_duplicate",
+                "value_to_fill": "true"
+              }
+            ],
+            "matching_flow": [
+              "1"
+            ]
+          }
+        ],
+        "trigger_events": [
+          "annotation_content"
+        ],
+        "trigger_actions": [
+          "initialize"
+        ]
+      }
+    ]
+  },
+  "active": true,
+  "events": [
+    "annotation_content.initialize",
+    "annotation_content.started",
+    "annotation_content.updated",
+    "annotation_content.confirm",
+    "annotation_content.export",
+    "annotation_status.changed"
+  ],
+  "queues": [
+    "https://cib.rossum.app/api/v1/queues/1260377",
+    "https://cib.rossum.app/api/v1/queues/1260388"
+  ],
+  "run_after": [
+    "https://cib.rossum.app/api/v1/hooks/343051"
+  ],
+  "metadata": {},
+  "config": {
+    "private": true,
+    "schedule": {},
+    "app": null,
+    "payload_logging_enabled": false,
+    "timeout_s": 30,
+    "max_polling_time_s": 300,
+    "retry_count": 4,
+    "retry_after_polling_failure": true,
+    "insecure_ssl": false,
+    "client_ssl_certificate": null,
+    "retry_on_any_non_2xx": false
+  },
+  "test": {},
+  "sideload": [],
+  "settings_schema": null,
+  "secrets_schema": {
+    "type": "object",
+    "additionalProperties": {
+      "type": "string"
+    }
+  },
+  "token_owner": "https://cib.rossum.app/api/v1/users/282705",
+  "extension_source": "rossum_store",
+  "guide": "<div style=\"color: var(--white)\">\r\n<p>How to set up the Duplicate Handling extension:</p>\r\n<ol>\r\n    <li><b>Specify the queue(s) for which the extension will be used</b></li>\r\n    <li><b>Configure detection rules and actions.</b></li>\r\n</ol>\r\n<p><a href=\"https://rossum.ai/help/article/duplicate-handling-extension/\" target=\"_blank\" rel=\"noopener noreferrer\">Read this article</a> if you need help.</p>\r\n</div>",
+  "read_more_url": "https://elis.rossum.ai/svc/duplicates/docs",
+  "extension_image_url": "https://rossum.ai/help/wp-content/uploads/2024/01/Duplicate-Handling.png",
+  "token_lifetime_s": null,
+  "hook_template": "https://cib.rossum.app/api/v1/hook_templates/28",
+  "created_by": null,
+  "created_at": null,
+  "modified_by": "https://cib.rossum.app/api/v1/users/146087"
+}

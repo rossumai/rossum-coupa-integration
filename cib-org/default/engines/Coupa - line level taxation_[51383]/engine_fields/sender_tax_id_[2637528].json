@@ -1,0 +1,12 @@
+{
+  "id": 2637528,
+  "url": "https://cib.rossum.app/api/v1/engine_fields/2637528",
+  "engine": "https://cib.rossum.app/api/v1/engines/51383",
+  "name": "sender_tax_id",
+  "label": "Supplier Tax Number",
+  "type": "string",
+  "subtype": null,
+  "pre_trained_field_id": "sender_vat_id",
+  "tabular": false,
+  "multiline": "false"
+}

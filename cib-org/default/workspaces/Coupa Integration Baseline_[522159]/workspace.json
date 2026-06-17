@@ -1,0 +1,15 @@
+{
+  "id": 522159,
+  "name": "Coupa Integration Baseline",
+  "url": "https://cib.rossum.app/api/v1/workspaces/522159",
+  "organization": "https://cib.rossum.app/api/v1/organizations/262116",
+  "queues": [
+    "https://cib.rossum.app/api/v1/queues/1260377",
+    "https://cib.rossum.app/api/v1/queues/1260388"
+  ],
+  "metadata": {},
+  "autopilot": true,
+  "created_by": null,
+  "created_at": "2026-04-21T11:05:36.678636Z",
+  "modified_by": null
+}

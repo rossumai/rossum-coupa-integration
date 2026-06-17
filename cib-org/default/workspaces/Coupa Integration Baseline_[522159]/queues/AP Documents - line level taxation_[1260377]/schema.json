@@ -1,0 +1,4859 @@
+{
+  "id": 1301955,
+  "name": "Tax invoices (EU) schema",
+  "queues": [
+    "https://cib.rossum.app/api/v1/queues/1260377"
+  ],
+  "url": "https://cib.rossum.app/api/v1/schemas/1301955",
+  "content": [
+    {
+      "category": "section",
+      "id": "general_info_section",
+      "label": "General Information",
+      "children": [
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": true
+          },
+          "default_value": null,
+          "category": "datapoint",
+          "id": "document_type",
+          "label": "Document Type",
+          "type": "enum",
+          "ui_configuration": {
+            "type": "captured",
+            "edit": "enabled"
+          },
+          "options": [
+            {
+              "value": "tax_invoice",
+              "label": "Invoice"
+            },
+            {
+              "value": "credit_note",
+              "label": "Credit Note"
+            }
+          ]
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "default_value": null,
+          "category": "datapoint",
+          "id": "document_id",
+          "label": "Invoice Number",
+          "description": "The ID of the document.",
+          "hidden": false,
+          "type": "string",
+          "can_export": true,
+          "ui_configuration": {
+            "type": "captured",
+            "edit": "disabled"
+          }
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": true
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "document_id_manual",
+          "label": "Invoice Number (manual)",
+          "description": "Manually modified ID of the document.",
+          "hidden": false,
+          "type": "string",
+          "can_export": true,
+          "ui_configuration": {
+            "type": "formula",
+            "edit": "enabled"
+          },
+          "formula": "if is_set(field.document_id):\n    result = field.document_id\n    result = substitute(r\"[\\r\\n]+\", \"\", result)\n    result = substitute(r\"^(.{40}).*$\", \"\\\\1\", result)\n    result"
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "default_value": null,
+          "category": "datapoint",
+          "id": "date_issue",
+          "label": "Invoice Date",
+          "type": "date",
+          "ui_configuration": {
+            "type": "captured",
+            "edit": "disabled"
+          },
+          "format": "D/M/YYYY"
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": true
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "date_issue_manual",
+          "label": "Invoice Date (manual)",
+          "hidden": false,
+          "type": "date",
+          "can_export": true,
+          "ui_configuration": {
+            "type": "formula",
+            "edit": "enabled"
+          },
+          "formula": "field.date_issue",
+          "format": "D/M/YYYY"
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "default_value": null,
+          "category": "datapoint",
+          "id": "header_description",
+          "label": "Description",
+          "type": "string",
+          "ui_configuration": {
+            "type": "captured",
+            "edit": "disabled"
+          }
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "description_export",
+          "label": "Description Export",
+          "hidden": false,
+          "type": "string",
+          "can_export": true,
+          "ui_configuration": {
+            "type": "formula",
+            "edit": "enabled"
+          },
+          "formula": "if not is_empty(field.po_line_description_match):\n    field.po_line_description_match\nelif  not is_empty(field.header_description):\n    field.header_description"
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "default_value": null,
+          "category": "datapoint",
+          "id": "code",
+          "label": "Supplier Part Number",
+          "hidden": false,
+          "type": "string",
+          "ui_configuration": {
+            "type": "captured",
+            "edit": "disabled"
+          }
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "notes_manual",
+          "label": "Notes",
+          "type": "string",
+          "ui_configuration": {
+            "type": "manual",
+            "edit": "enabled"
+          }
+        }
+      ],
+      "icon": null
+    },
+    {
+      "category": "section",
+      "id": "payment_terms_section",
+      "label": "Payment Terms",
+      "hidden": false,
+      "children": [
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "default_value": null,
+          "category": "datapoint",
+          "id": "date_due",
+          "label": "Due Date",
+          "type": "date",
+          "ui_configuration": {
+            "type": "captured",
+            "edit": "disabled"
+          },
+          "format": "D/M/YYYY"
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "default_value": null,
+          "category": "datapoint",
+          "id": "terms",
+          "label": "Payment Terms",
+          "description": "Payment terms as written on the document (eg. \"45 days\", \"upon receipt\").",
+          "hidden": false,
+          "type": "string",
+          "can_export": false,
+          "ui_configuration": {
+            "type": "captured",
+            "edit": "enabled"
+          }
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "terms_calculated",
+          "label": "Payment Terms (calculated)",
+          "hidden": true,
+          "type": "number",
+          "can_export": false,
+          "ui_configuration": {
+            "type": "formula",
+            "edit": "disabled"
+          },
+          "formula": "terms_calculated = ''\n\nif is_set(field.date_issue) and is_set(field.date_due):\n    terms_calculated = (field.date_due - field.date_issue).days\nelif is_set(field.terms) and re.sub(r'\\D', '', field.terms) != '':\n    terms_calculated = re.sub(r'\\D', '', field.terms)\nelif is_set(field.sender_payment_days_match):\n   terms_calculated = int(field.sender_payment_days_match)\n\n\nterms_calculated",
+          "format": "#,##0.#"
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "payment_terms_match",
+          "label": "Payment Terms Match",
+          "hidden": false,
+          "type": "enum",
+          "can_export": true,
+          "ui_configuration": {
+            "type": "data",
+            "edit": "enabled"
+          },
+          "options": []
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "payment_terms_days_match",
+          "label": "Payment Terms Days Match",
+          "hidden": true,
+          "type": "enum",
+          "can_export": true,
+          "ui_configuration": {
+            "type": "data",
+            "edit": "enabled"
+          },
+          "options": []
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "payment_terms_code_match",
+          "label": "Payment Terms Code Match",
+          "hidden": true,
+          "type": "enum",
+          "can_export": true,
+          "ui_configuration": {
+            "type": "data",
+            "edit": "enabled"
+          },
+          "options": []
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "payment_terms_code_export",
+          "label": "Payment Terms (export)",
+          "hidden": false,
+          "type": "string",
+          "can_export": true,
+          "ui_configuration": {
+            "type": "formula",
+            "edit": "disabled"
+          },
+          "formula": "if not is_empty(field.epd_payment_terms_match) and default_to(field.epd_expires, -1) > 0:\n    field.epd_payment_terms_code_match\nelif not is_empty(field.payment_terms_match): \n    field.payment_terms_code_match"
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "payment_terms_export",
+          "label": "Payment Terms ID (export)",
+          "hidden": true,
+          "type": "string",
+          "can_export": true,
+          "ui_configuration": {
+            "type": "formula",
+            "edit": "disabled"
+          },
+          "formula": "if not is_empty(field.epd_payment_terms_match) and default_to(field.epd_expires, -1) > 0:\n    field.epd_payment_terms_match\nelif not is_empty(field.payment_terms_match): \n    field.payment_terms_match"
+        }
+      ],
+      "icon": null
+    },
+    {
+      "category": "section",
+      "id": "early_payment_dicount_section",
+      "label": "Early Payment Discount",
+      "hidden": false,
+      "children": [
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "epd_info",
+          "label": "EPD Info",
+          "description": "Your task is to analyse the provided text, which represents the payment terms from an invoice, and extract specific details about any available Early Payment Discount (EPD).  1.  Read the \"Payment Terms\". 2.  Carefully identify if an early payment discount is offered. 3.  If a discount is offered, extract the discount rate (as a percentage) and the payment period (in days). 5.  If the text mentions a discount but does not specify a numeric rate or a number of days (e.g., it mentions a fixed dollar amount or a specific date), set \"is_epd_offered\" to true but return null for the missing value(s). The goal is to extract only what is explicitly stated. 6.  Provide the output only in the structured JSON format specified below. Do not add any explanations or conversational text.  Provide your response as a JSON object with the following three keys:  * \"is_epd_offered\": (boolean) true if a discount is mentioned, otherwise false. * \"epd_rate\": (number) The discount percentage. Do not include the '%' symbol. If no discount rate is offered or extractable, this should be null. * \"epd_days\": (number) The number of days for the early payment. If no discount period in days is offered or extractable, this should be null.  ### Example 1: Standard Format Payment Terms: 2/10, n/30 JSON OUTPUT: {   \"is_epd_offered\": true,   \"epd_rate\": 2,   \"epd_days\": 10 }  ### Example 2: Alternative Standard Format Payment Terms: 2% 10, NET 30 JSON OUTPUT: {   \"is_epd_offered\": true,   \"epd_rate\": 2,   \"epd_days\": 10 }  ### Example 3: Verbose Text Format Payment Terms: A 2 percent discount may be taken if paid within 10 days. JSON OUTPUT: {   \"is_epd_offered\": true,   \"epd_rate\": 2,   \"epd_days\": 10 }  ### Example 4: No Discount Offered Payment Terms: Payment due within 30 days. JSON OUTPUT: {   \"is_epd_offered\": false,   \"epd_rate\": null,   \"epd_days\": null }",
+          "hidden": true,
+          "type": "string",
+          "can_export": true,
+          "ui_configuration": {
+            "type": "manual",
+            "edit": "enabled"
+          }
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "epd_detected",
+          "label": "EPD Detected",
+          "hidden": true,
+          "type": "enum",
+          "can_export": true,
+          "ui_configuration": {
+            "type": "formula",
+            "edit": "disabled"
+          },
+          "formula": "import json\n\nif not is_empty(field.epd_info):\n    epd_info = json.loads(field.epd_info)\n    if epd_info['is_epd_offered']:\n        'true'\n    else:\n        'false'",
+          "options": [
+            {
+              "value": "true",
+              "label": "true"
+            },
+            {
+              "value": "false",
+              "label": "false"
+            }
+          ],
+          "enum_value_type": "string"
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "epd_rate",
+          "label": "EPD Rate",
+          "hidden": true,
+          "type": "number",
+          "can_export": true,
+          "ui_configuration": {
+            "type": "formula",
+            "edit": "disabled"
+          },
+          "formula": "import json\n\nif not is_empty(field.epd_info):\n    epd_info = json.loads(field.epd_info)\n    if epd_info['is_epd_offered']:\n        epd_info['epd_rate']",
+          "format": "#,##0.#"
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "epd_days",
+          "label": "EPD Days",
+          "hidden": true,
+          "type": "number",
+          "can_export": true,
+          "ui_configuration": {
+            "type": "formula",
+            "edit": "disabled"
+          },
+          "formula": "import json\n\nif not is_empty(field.epd_info):\n    epd_info = json.loads(field.epd_info)\n    if epd_info['is_epd_offered']:\n        epd_info['epd_days']",
+          "format": "#,##0.#"
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "epd_payment_terms_match",
+          "label": "EPD Terms Match",
+          "hidden": true,
+          "type": "enum",
+          "can_export": true,
+          "ui_configuration": {
+            "type": "data",
+            "edit": "enabled"
+          },
+          "options": []
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "epd_payment_terms_code_match",
+          "label": "EPD Terms Code Match",
+          "hidden": true,
+          "type": "enum",
+          "can_export": true,
+          "ui_configuration": {
+            "type": "data",
+            "edit": "enabled"
+          },
+          "options": []
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "epd_payment_terms_days_match",
+          "label": "EPD Terms Days Match",
+          "hidden": true,
+          "type": "enum",
+          "can_export": true,
+          "ui_configuration": {
+            "type": "data",
+            "edit": "enabled"
+          },
+          "options": []
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "epd_payment_terms_rate_match",
+          "label": "EPD Terms Rate Match",
+          "hidden": true,
+          "type": "enum",
+          "can_export": true,
+          "ui_configuration": {
+            "type": "data",
+            "edit": "enabled"
+          },
+          "options": []
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "epd_amount",
+          "label": "EPD Amount",
+          "hidden": true,
+          "type": "number",
+          "can_export": true,
+          "ui_configuration": {
+            "type": "formula",
+            "edit": "disabled"
+          },
+          "formula": "epd_rate = None\n\nif not is_empty(field.epd_rate):\n    epd_rate = field.epd_rate\nelif not is_empty(field.epd_payment_terms_rate_match):\n    epd_rate = float(field.epd_payment_terms_rate_match)\n\nif epd_rate and not is_empty(field.amount_total):\n    round((field.amount_total / 100) * epd_rate)",
+          "format": "#,##0.#"
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "epd_expires",
+          "label": "EPD Expires In (days)",
+          "hidden": true,
+          "type": "number",
+          "can_export": true,
+          "ui_configuration": {
+            "type": "formula",
+            "edit": "disabled"
+          },
+          "formula": "epd_days = None\n\nif not is_empty(field.epd_days):\n    epd_days = int(field.epd_days)\nelif not is_empty(field.epd_payment_terms_days_match):\n    epd_days = int(field.epd_payment_terms_days_match)\n\nif epd_days and not is_empty(field.date_issue):\n    current_date = datetime.date.today()\n    discount_expiry_date = field.date_issue + datetime.timedelta(days=epd_days)\n    (discount_expiry_date - current_date).days",
+          "format": "#,##0.#"
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "epd_tag",
+          "label": "EPD Tag",
+          "hidden": true,
+          "type": "enum",
+          "can_export": true,
+          "ui_configuration": {
+            "type": "formula",
+            "edit": "disabled"
+          },
+          "formula": "if default_to(field.epd_expires, -1) > 0 and not is_empty(field.epd_payment_terms_match):\n    \"discount_terms\"",
+          "options": [
+            {
+              "value": "",
+              "label": ""
+            },
+            {
+              "value": "discount_terms",
+              "label": "discount_terms"
+            }
+          ],
+          "enum_value_type": "string"
+        }
+      ],
+      "icon": null
+    },
+    {
+      "category": "section",
+      "id": "customer_section",
+      "label": "Customer",
+      "children": [
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "default_value": null,
+          "category": "datapoint",
+          "id": "recipient_name",
+          "label": "Customer Name",
+          "type": "string",
+          "ui_configuration": {
+            "type": "captured",
+            "edit": "disabled"
+          }
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "default_value": null,
+          "category": "datapoint",
+          "id": "recipient_address",
+          "label": "Customer Address",
+          "type": "string",
+          "ui_configuration": {
+            "type": "captured",
+            "edit": "disabled"
+          }
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "default_value": null,
+          "category": "datapoint",
+          "id": "recipient_tax_id",
+          "label": "Customer Tax Number",
+          "type": "string",
+          "ui_configuration": {
+            "type": "captured",
+            "edit": "disabled"
+          }
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "recipient_tax_id_normalized",
+          "label": "Customer Tax Number (normalized)",
+          "hidden": true,
+          "type": "string",
+          "ui_configuration": {
+            "type": "formula",
+            "edit": "disabled"
+          },
+          "formula": "# remove all non-alphanumeric characters from the extracted TAX ID\nre.sub(r'\\W+', '', field.recipient_tax_id)"
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "recipient_search",
+          "label": "Customer (Search)",
+          "description": "Use to manually search for Coupa Chart of Accounts.",
+          "hidden": false,
+          "type": "string",
+          "can_export": true,
+          "ui_configuration": {
+            "type": "manual",
+            "edit": "enabled"
+          }
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": true
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "recipient_match",
+          "label": "Customer Match",
+          "hidden": false,
+          "type": "enum",
+          "can_export": true,
+          "ui_configuration": {
+            "type": "data",
+            "edit": "enabled"
+          },
+          "options": [],
+          "enum_value_type": "number"
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "recipient_ship_to_match",
+          "label": "Customer Ship-To Match",
+          "hidden": false,
+          "type": "enum",
+          "ui_configuration": {
+            "type": "data",
+            "edit": "enabled"
+          },
+          "options": []
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": true
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "recipient_name_match",
+          "label": "Customer Name Match",
+          "hidden": true,
+          "type": "enum",
+          "ui_configuration": {
+            "type": "data",
+            "edit": "enabled"
+          },
+          "options": []
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "recipient_primary_address_match",
+          "label": "Customer Primary Address Match",
+          "hidden": true,
+          "type": "enum",
+          "ui_configuration": {
+            "type": "data",
+            "edit": "enabled"
+          },
+          "options": [],
+          "enum_value_type": "number"
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "recipient_tax_registration_match",
+          "label": "Customer Tax Reg. Match",
+          "hidden": false,
+          "type": "enum",
+          "ui_configuration": {
+            "type": "data",
+            "edit": "enabled"
+          },
+          "options": [],
+          "enum_value_type": "number"
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "recipient_country_code_match",
+          "label": "Customer Country Code Match",
+          "hidden": true,
+          "type": "enum",
+          "ui_configuration": {
+            "type": "data",
+            "edit": "disabled"
+          },
+          "options": []
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "recipient_entity_country_code_match",
+          "label": "Customer Entity Country Code Match",
+          "hidden": true,
+          "type": "enum",
+          "ui_configuration": {
+            "type": "data",
+            "edit": "disabled"
+          },
+          "options": []
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": true
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "recipient_export",
+          "label": "Customer ID (export)",
+          "hidden": true,
+          "type": "string",
+          "can_export": true,
+          "ui_configuration": {
+            "type": "formula",
+            "edit": "disabled"
+          },
+          "formula": "def get_nonempty(list_of_strings):\n    for s in list_of_strings:\n        if s:\n            return s\nif field.backing_document == \"contract\":\n    if not is_empty(field.contract_customer_match):\n        field.contract_customer_match\nelif any(field.item_po_line_recipient_match.all_values):\n    get_nonempty(field.item_po_line_recipient_match.all_values)\nelif not is_empty(field.po_line_recipient_match):\n    field.po_line_recipient_match\nelse:\n    field.recipient_match"
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": true
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "recipient_name_export",
+          "label": "Customer (export)",
+          "hidden": false,
+          "type": "string",
+          "can_export": true,
+          "ui_configuration": {
+            "type": "formula",
+            "edit": "disabled"
+          },
+          "formula": "def get_nonempty(list_of_strings):\n    for s in list_of_strings:\n        if s:\n            return s\n\n\nif field.backing_document == 'contract':\n    if not is_empty(field.contract_customer_name):\n        field.contract_customer_name\nelif any(field.item_po_line_recipient_name_match.all_values):\n    get_nonempty(field.item_po_line_recipient_name_match.all_values)\nelif not is_empty(field.po_line_recipient_name_match):\n    field.po_line_recipient_name_match\nelse:\n    field.recipient_name_match"
+        }
+      ],
+      "icon": null
+    },
+    {
+      "category": "section",
+      "id": "vendor_section",
+      "label": "Supplier",
+      "children": [
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "default_value": null,
+          "category": "datapoint",
+          "id": "sender_name",
+          "label": "Supplier Name",
+          "type": "string",
+          "ui_configuration": {
+            "type": "captured",
+            "edit": "disabled"
+          }
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "default_value": null,
+          "category": "datapoint",
+          "id": "sender_address",
+          "label": "Supplier Address",
+          "type": "string",
+          "ui_configuration": {
+            "type": "captured",
+            "edit": "disabled"
+          }
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "default_value": null,
+          "category": "datapoint",
+          "id": "sender_tax_id",
+          "label": "Supplier Tax Number",
+          "hidden": false,
+          "type": "string",
+          "can_export": true,
+          "ui_configuration": {
+            "type": "captured",
+            "edit": "disabled"
+          }
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "sender_tax_id_normalized",
+          "label": "Supplier Tax Number (normalized)",
+          "hidden": true,
+          "type": "string",
+          "ui_configuration": {
+            "type": "formula",
+            "edit": "disabled"
+          },
+          "formula": "# remove all non-alphanumeric characters from the extracted TAX ID\nre.sub(r'\\W+', '', field.sender_tax_id)"
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "sender_search",
+          "label": "Supplier (Search)",
+          "description": "Use to manually search for Coupa Supplier.",
+          "hidden": false,
+          "type": "string",
+          "can_export": true,
+          "ui_configuration": {
+            "type": "manual",
+            "edit": "enabled"
+          }
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": true
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "sender_match",
+          "label": "Supplier Match",
+          "hidden": false,
+          "type": "enum",
+          "can_export": true,
+          "ui_configuration": {
+            "type": "data",
+            "edit": "enabled"
+          },
+          "options": [],
+          "enum_value_type": "number"
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "sender_country_code_match",
+          "label": "Supplier Country Code Match",
+          "hidden": true,
+          "type": "enum",
+          "ui_configuration": {
+            "type": "data",
+            "edit": "disabled"
+          },
+          "options": []
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "sender_payment_days_match",
+          "label": "Supplier Payment Days Match",
+          "hidden": true,
+          "type": "enum",
+          "ui_configuration": {
+            "type": "data",
+            "edit": "disabled"
+          },
+          "options": []
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "sender_display_name_match",
+          "label": "Supplier Disaplay Name Match",
+          "hidden": true,
+          "type": "enum",
+          "ui_configuration": {
+            "type": "data",
+            "edit": "disabled"
+          },
+          "options": []
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "sender_name_match",
+          "label": "Supplier Name Match",
+          "hidden": true,
+          "type": "enum",
+          "ui_configuration": {
+            "type": "data",
+            "edit": "disabled"
+          },
+          "options": []
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "sender_number_match",
+          "label": "Supplier Number Match",
+          "hidden": true,
+          "type": "enum",
+          "ui_configuration": {
+            "type": "data",
+            "edit": "disabled"
+          },
+          "options": []
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": true
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "sender_export",
+          "label": "Supplier ID (export)",
+          "hidden": true,
+          "type": "string",
+          "can_export": true,
+          "ui_configuration": {
+            "type": "formula",
+            "edit": "disabled"
+          },
+          "formula": "def get_nonempty(list_of_strings):\n    for s in list_of_strings:\n        if s:\n            return s\nif field.backing_document == \"contract\":\n    if not is_empty(field.contract_supplier_match):\n        field.contract_supplier_match\nelif any(field.item_po_line_supplier_match.all_values):\n    int(get_nonempty(field.item_po_line_supplier_match.all_values))\nelif field.po_line_supplier_match:\n    int(field.po_line_supplier_match)\nelse:\n    int(field.sender_match)"
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": true
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "sender_name_export",
+          "label": "Supplier (export)",
+          "hidden": false,
+          "type": "string",
+          "can_export": true,
+          "ui_configuration": {
+            "type": "formula",
+            "edit": "disabled"
+          },
+          "formula": "def get_nonempty(list_of_strings):\n    for s in list_of_strings:\n        if s:\n            return s\n\nif field.backing_document == \"contract\":\n    if not is_empty(field.contract_supplier_name):\n        field.contract_supplier_name\nelif any(field.item_po_line_supplier_name_match.all_values):\n    get_nonempty(field.item_po_line_supplier_name_match.all_values)\nelif field.po_line_supplier_name_match:\n    field.po_line_supplier_name_match\nelse:\n    field.sender_name_match"
+        }
+      ],
+      "icon": null
+    },
+    {
+      "category": "section",
+      "id": "payment_info_section",
+      "label": "Bank Details",
+      "children": [
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "default_value": null,
+          "category": "datapoint",
+          "id": "iban",
+          "label": "IBAN",
+          "type": "string",
+          "ui_configuration": {
+            "type": "captured",
+            "edit": "disabled"
+          }
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "default_value": null,
+          "category": "datapoint",
+          "id": "bic",
+          "label": "BIC/SWIFT",
+          "description": "Bank BIC or SWIFT code.",
+          "hidden": false,
+          "type": "string",
+          "can_export": true,
+          "ui_configuration": {
+            "type": "captured",
+            "edit": "disabled"
+          }
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "default_value": null,
+          "category": "datapoint",
+          "id": "account_num",
+          "label": "Account Number",
+          "type": "string",
+          "ui_configuration": {
+            "type": "captured",
+            "edit": "disabled"
+          }
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "default_value": null,
+          "category": "datapoint",
+          "id": "bank_num",
+          "label": "Bank Code",
+          "type": "string",
+          "ui_configuration": {
+            "type": "captured",
+            "edit": "disabled"
+          }
+        }
+      ],
+      "icon": null
+    },
+    {
+      "category": "section",
+      "id": "credit_note_section",
+      "label": "Credit Note",
+      "children": [
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "default_value": null,
+          "category": "datapoint",
+          "id": "original_document_id",
+          "label": "Original Invoice Number",
+          "type": "string",
+          "ui_configuration": {
+            "type": "captured",
+            "edit": "disabled"
+          }
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "default_value": null,
+          "category": "datapoint",
+          "id": "original_date_issue",
+          "label": "Original Invoice Date",
+          "type": "date",
+          "ui_configuration": {
+            "type": "captured",
+            "edit": "disabled"
+          },
+          "format": "D/M/YYYY"
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "score_threshold": 0.0,
+          "default_value": "negative",
+          "category": "datapoint",
+          "id": "credit_notes_amounts",
+          "label": "Credit notes amounts",
+          "hidden": true,
+          "type": "string",
+          "can_export": true,
+          "ui_configuration": {
+            "type": "manual",
+            "edit": "enabled"
+          }
+        }
+      ],
+      "icon": null
+    },
+    {
+      "category": "section",
+      "id": "amounts_section",
+      "label": "Taxes & Amounts",
+      "children": [
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "default_value": null,
+          "category": "datapoint",
+          "id": "amount_total",
+          "label": "Total Amount",
+          "type": "number",
+          "ui_configuration": {
+            "type": "captured",
+            "edit": "disabled"
+          },
+          "format": "#,##0.#"
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "default_value": null,
+          "category": "datapoint",
+          "id": "amount_total_base",
+          "label": "Total Without Tax",
+          "type": "number",
+          "ui_configuration": {
+            "type": "captured",
+            "edit": "disabled"
+          },
+          "format": "#,##0.#"
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "default_value": null,
+          "category": "datapoint",
+          "id": "amount_total_base_calculated",
+          "label": "Total Without Tax (calculated)",
+          "hidden": false,
+          "type": "number",
+          "can_export": true,
+          "ui_configuration": {
+            "type": "formula",
+            "edit": "disabled"
+          },
+          "formula": "sign = field.credit_notes_amounts\n\namount_total_base = None\nif is_set(field.amount_total_base): \n    amount_total_base = field.amount_total_base\nelif is_set(field.amount_total) and is_set(field.amount_total_tax_calculated):\n    amount_total_base = field.amount_total - field.amount_total_tax_calculated\nelse:\n    amount_total_base = field.amount_total\n\n\nif amount_total_base is not None:\n    if field.document_type != 'credit_note':\n        round(amount_total_base, 6)\n    else:\n        if sign == 'negative':\n            -abs(round(amount_total_base, 6))\n        else:\n            abs(round(amount_total_base, 6))",
+          "format": "#,##0.#"
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "default_value": null,
+          "category": "datapoint",
+          "id": "amount_total_tax",
+          "label": "Tax Amount",
+          "hidden": false,
+          "type": "number",
+          "can_export": true,
+          "ui_configuration": {
+            "type": "captured",
+            "edit": "disabled"
+          },
+          "format": "#,##0.#"
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "amount_total_tax_calculated",
+          "label": "Tax Amount (calculated)",
+          "hidden": true,
+          "type": "number",
+          "can_export": true,
+          "ui_configuration": {
+            "type": "formula",
+            "edit": "disabled"
+          },
+          "formula": "tax_amount = None\nsign = field.credit_notes_amounts\n\nif is_set(field.amount_total_tax): \n    tax_amount = field.amount_total_tax\nelif is_set(field.amount_total) and is_set(field.amount_total_base):\n    tax_amount = field.amount_total - field.amount_total_base\nelif is_set(field.amount_total) and is_set(field.tax_rate_calculated):\n    tax_amount = field.amount_total - (field.amount_total / (1 + (field.tax_rate_calculated / 100)))\nelif is_set(field.amount_total_base) and is_set(field.tax_rate_calculated):\n    tax_amount = field.amount_total_base * (field.tax_rate_calculated / 100)\nelif is_set(field.amount_total):\n    tax_amount = 0\n    \nif tax_amount is not None:\n    if field.document_type == 'credit_note':\n        if sign == 'negative':\n            -abs(round(tax_amount,6))\n        else:\n            abs(round(tax_amount,6))\n    else:\n        round(tax_amount,6)",
+          "format": "#,##0.#"
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "default_value": null,
+          "category": "datapoint",
+          "id": "tax_rate",
+          "label": "Tax Rate",
+          "type": "number",
+          "ui_configuration": {
+            "type": "captured",
+            "edit": "disabled"
+          },
+          "format": "#,##0.#"
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "tax_code_match",
+          "label": "Tax Code Match",
+          "hidden": false,
+          "type": "enum",
+          "can_export": true,
+          "ui_configuration": {
+            "type": "data",
+            "edit": "enabled"
+          },
+          "options": [],
+          "enum_value_type": "number"
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "tax_rate_calculated",
+          "label": "Tax Rate (calculated)",
+          "hidden": true,
+          "type": "number",
+          "can_export": true,
+          "ui_configuration": {
+            "type": "formula",
+            "edit": "disabled"
+          },
+          "formula": "tax_rate = None\n\nif is_set(field.tax_rate): \n    tax_rate = field.tax_rate\nelif is_set(field.amount_total_base) and is_set(field.amount_total_tax):\n    tax_rate = (field.amount_total_tax / field.amount_total_base) * 100\nelif is_set(field.amount_total) and is_set(field.amount_total_base):\n    tax_rate = ((field.amount_total - field.amount_total_base) / field.amount_total_base) * 100\nelif is_set(field.amount_total):\n    tax_rate = 0\n   \nif tax_rate is not None: \n    round(tax_rate,1)",
+          "format": "#,##0.#"
+        },
+        {
+          "rir_field_names": [],
+          "category": "multivalue",
+          "id": "line_item_charges",
+          "label": "Charges",
+          "hidden": false,
+          "children": {
+            "rir_field_names": [],
+            "category": "tuple",
+            "id": "charge_annotated",
+            "label": "VAT Rates",
+            "children": [
+              {
+                "rir_field_names": [
+                  "charge_type"
+                ],
+                "constraints": {
+                  "required": true
+                },
+                "score_threshold": 0.0,
+                "default_value": "InvoiceShippingCharge",
+                "category": "datapoint",
+                "id": "charge_type",
+                "label": "Charge Type",
+                "hidden": true,
+                "type": "enum",
+                "ui_configuration": {
+                  "type": "data",
+                  "edit": "disabled"
+                },
+                "options": [
+                  {
+                    "value": "InvoiceShippingCharge",
+                    "label": "Shipping"
+                  },
+                  {
+                    "value": "InvoiceHandlingCharge",
+                    "label": "Handling"
+                  },
+                  {
+                    "value": "InvoiceMiscCharge",
+                    "label": "Misc"
+                  }
+                ]
+              },
+              {
+                "rir_field_names": [],
+                "constraints": {
+                  "required": true
+                },
+                "default_value": null,
+                "category": "datapoint",
+                "id": "charge_amount",
+                "label": "Charge Amount",
+                "type": "number",
+                "ui_configuration": {
+                  "type": "captured",
+                  "edit": "disabled"
+                },
+                "format": "#,##0.#"
+              },
+              {
+                "rir_field_names": [],
+                "constraints": {
+                  "required": false
+                },
+                "default_value": null,
+                "category": "datapoint",
+                "id": "charge_tax",
+                "label": "Charge Tax Amount",
+                "type": "number",
+                "ui_configuration": {
+                  "type": "captured",
+                  "edit": "disabled"
+                },
+                "format": "#,##0.#"
+              },
+              {
+                "rir_field_names": [],
+                "constraints": {
+                  "required": false
+                },
+                "score_threshold": 0.0,
+                "default_value": null,
+                "category": "datapoint",
+                "id": "charge_tax_calculated",
+                "label": "Charge Tax Amount (calculated)",
+                "hidden": true,
+                "type": "number",
+                "ui_configuration": {
+                  "type": "formula",
+                  "edit": "disabled"
+                },
+                "formula": "tax_amount = 0\n\nif is_set(field.charge_tax):\n    tax_amount = field.charge_tax\nelif is_set(field.charge_amount) and is_set(field.charge_tax_rate_calculated):\n    tax_amount = field.charge_amount * (field.charge_tax_rate_calculated / 100)\n\nsign = field.credit_notes_amounts\nif field.document_type == 'credit_note':\n    if sign == 'negative':  \n        -abs(tax_amount)\n    else:\n        -abs(tax_amount)\nelse:\n    tax_amount",
+                "format": "#,##0.#"
+              },
+              {
+                "rir_field_names": [],
+                "constraints": {
+                  "required": false
+                },
+                "default_value": null,
+                "category": "datapoint",
+                "id": "charge_tax_rate",
+                "label": "Charge Tax Rate",
+                "type": "number",
+                "ui_configuration": {
+                  "type": "captured",
+                  "edit": "disabled"
+                },
+                "format": "#,##0.#"
+              },
+              {
+                "rir_field_names": [],
+                "constraints": {
+                  "required": false
+                },
+                "score_threshold": 0.0,
+                "default_value": null,
+                "category": "datapoint",
+                "id": "charge_tax_rate_calculated",
+                "label": "Charge Tax Rate (calculated)",
+                "hidden": true,
+                "type": "number",
+                "ui_configuration": {
+                  "type": "formula",
+                  "edit": "disabled"
+                },
+                "formula": "tax_rate = 0\n\nif is_set(field.charge_tax_rate):\n    tax_rate = field.charge_tax_rate\nelif is_set(field.charge_tax) and is_set(field.charge_amount) and (field.charge_amount - field.charge_tax) != 0:\n    tax_rate = (field.charge_tax / (field.charge_amount - field.charge_tax)) * 100\nelif is_set(field.tax_rate_calculated):\n    tax_rate = field.tax_rate_calculated\n\nsign = field.credit_notes_amounts\nif field.document_type == 'credit_note':\n    if sign == 'negative':\n        -abs(tax_rate)\n    else:\n        abs(tax_rate)\nelse:\n    tax_rate",
+                "format": "#,##0.#"
+              }
+            ]
+          },
+          "min_occurrences": null,
+          "max_occurrences": null,
+          "default_value": null,
+          "show_grid_by_default": false
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "charges_net_amount_total_calculated",
+          "label": "Charges Net Amount Total (calculated)",
+          "hidden": true,
+          "type": "number",
+          "can_export": true,
+          "ui_configuration": {
+            "type": "formula",
+            "edit": "disabled"
+          },
+          "formula": "sign = field.credit_notes_amounts\nif field.document_type == 'credit_note':\n    if sign == 'negative':\n        -abs(round(sum(field.charge_amount.all_values),6))\n    else:\n        abs(round(sum(field.charge_amount.all_values),6))\nelse:\n    round(sum(field.charge_amount.all_values),6)",
+          "format": "#,##0.#"
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "charges_total_tax_calculated",
+          "label": "Charges Tax Total (calculated)",
+          "hidden": true,
+          "type": "number",
+          "can_export": true,
+          "ui_configuration": {
+            "type": "formula",
+            "edit": "disabled"
+          },
+          "formula": "round(sum(field.charge_tax_calculated.all_values),6)",
+          "format": "#,##0.#"
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "charges_tax_rate_average_calculated",
+          "label": "Charges Tax Rate Average (calculated)",
+          "hidden": true,
+          "type": "number",
+          "can_export": true,
+          "ui_configuration": {
+            "type": "formula",
+            "edit": "disabled"
+          },
+          "formula": "if len(field.charge_tax_rate_calculated.all_values) > 0:\n    round(sum(field.charge_tax_rate_calculated.all_values) / len(field.charge_tax_rate_calculated.all_values),6)\nelse:\n    0",
+          "format": "#,##0.#"
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": true
+          },
+          "default_value": null,
+          "category": "datapoint",
+          "id": "currency",
+          "label": "Currency",
+          "type": "enum",
+          "ui_configuration": {
+            "type": "captured",
+            "edit": "enabled"
+          },
+          "options": [
+            {
+              "value": "usd",
+              "label": "USD"
+            },
+            {
+              "value": "eur",
+              "label": "EUR"
+            },
+            {
+              "value": "gbp",
+              "label": "GBP"
+            },
+            {
+              "value": "aed",
+              "label": "AED"
+            },
+            {
+              "value": "ars",
+              "label": "ARS"
+            },
+            {
+              "value": "aud",
+              "label": "AUD"
+            },
+            {
+              "value": "bdt",
+              "label": "BDT"
+            },
+            {
+              "value": "bgn",
+              "label": "BGN"
+            },
+            {
+              "value": "bhd",
+              "label": "BHD"
+            },
+            {
+              "value": "brl",
+              "label": "BRL"
+            },
+            {
+              "value": "cad",
+              "label": "CAD"
+            },
+            {
+              "value": "chf",
+              "label": "CHF"
+            },
+            {
+              "value": "clp",
+              "label": "CLP"
+            },
+            {
+              "value": "cny",
+              "label": "CNY"
+            },
+            {
+              "value": "cop",
+              "label": "COP"
+            },
+            {
+              "value": "crc",
+              "label": "CRC"
+            },
+            {
+              "value": "czk",
+              "label": "CZK"
+            },
+            {
+              "value": "dkk",
+              "label": "DKK"
+            },
+            {
+              "value": "dop",
+              "label": "DOP"
+            },
+            {
+              "value": "dzd",
+              "label": "DZD"
+            },
+            {
+              "value": "hkd",
+              "label": "HKD"
+            },
+            {
+              "value": "hrk",
+              "label": "HRK"
+            },
+            {
+              "value": "huf",
+              "label": "HUF"
+            },
+            {
+              "value": "idr",
+              "label": "IDR"
+            },
+            {
+              "value": "ils",
+              "label": "ILS"
+            },
+            {
+              "value": "inr",
+              "label": "INR"
+            },
+            {
+              "value": "jpy",
+              "label": "JPY"
+            },
+            {
+              "value": "kes",
+              "label": "KES"
+            },
+            {
+              "value": "khr",
+              "label": "KHR"
+            },
+            {
+              "value": "krw",
+              "label": "KRW"
+            },
+            {
+              "value": "lkr",
+              "label": "LKR"
+            },
+            {
+              "value": "mad",
+              "label": "MAD"
+            },
+            {
+              "value": "mmk",
+              "label": "MMK"
+            },
+            {
+              "value": "mur",
+              "label": "MUR"
+            },
+            {
+              "value": "mxn",
+              "label": "MXN"
+            },
+            {
+              "value": "myr",
+              "label": "MYR"
+            },
+            {
+              "value": "nok",
+              "label": "NOK"
+            },
+            {
+              "value": "nzd",
+              "label": "NZD"
+            },
+            {
+              "value": "php",
+              "label": "PHP"
+            },
+            {
+              "value": "pkr",
+              "label": "PKR"
+            },
+            {
+              "value": "pln",
+              "label": "PLN"
+            },
+            {
+              "value": "ron",
+              "label": "RON"
+            },
+            {
+              "value": "rsd",
+              "label": "RSD"
+            },
+            {
+              "value": "rub",
+              "label": "RUB"
+            },
+            {
+              "value": "sar",
+              "label": "SAR"
+            },
+            {
+              "value": "scr",
+              "label": "SCR"
+            },
+            {
+              "value": "sek",
+              "label": "SEK"
+            },
+            {
+              "value": "sgd",
+              "label": "SGD"
+            },
+            {
+              "value": "thb",
+              "label": "THB"
+            },
+            {
+              "value": "tnd",
+              "label": "TND"
+            },
+            {
+              "value": "try",
+              "label": "TRY"
+            },
+            {
+              "value": "twd",
+              "label": "TWD"
+            },
+            {
+              "value": "uah",
+              "label": "SEK"
+            },
+            {
+              "value": "ugx",
+              "label": "UGX"
+            },
+            {
+              "value": "uyu",
+              "label": "UYU"
+            },
+            {
+              "value": "vnd",
+              "label": "VND"
+            },
+            {
+              "value": "xaf",
+              "label": "XAF"
+            },
+            {
+              "value": "zar",
+              "label": "ZAR"
+            }
+          ]
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "coupa_total_calculated",
+          "label": "Coupa Total (calculated)",
+          "hidden": false,
+          "type": "number",
+          "can_export": true,
+          "ui_configuration": {
+            "type": "formula",
+            "edit": "disabled"
+          },
+          "formula": "if field.line_items_present == 'false':\n    total_amount = default_to(field.quantity_export,1) * field.price_export\n    taxes = default_to(field.amount_total_tax_calculated,0)\nelse:\n    total_amount = sum(default_to(field.item_net_total_coupa.all_values,0))\n    taxes = sum(default_to(field.item_tax_calculated.all_values,0))\n\ntaxes += field.charges_total_tax_calculated\ncharges = field.charges_net_amount_total_calculated \n\ntotal = total_amount + charges + taxes\n\nsign = field.credit_notes_amounts\nif field.document_type == 'credit_note':\n    if sign == 'negative':\n        -abs(round(total,2))\n    else:\n        abs(round(total,2))\nelse:\n    round(total,2)",
+          "format": "#,##0.#"
+        }
+      ],
+      "icon": null
+    },
+    {
+      "category": "section",
+      "id": "po_section",
+      "label": "Purchase Order",
+      "children": [
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "default_value": null,
+          "category": "datapoint",
+          "id": "order_id",
+          "label": "PO Number",
+          "type": "string",
+          "ui_configuration": {
+            "type": "captured",
+            "edit": "disabled"
+          }
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "order_id_calculated",
+          "label": "PO Number (calculated)",
+          "hidden": false,
+          "type": "string",
+          "can_export": true,
+          "ui_configuration": {
+            "type": "formula",
+            "edit": "disabled"
+          },
+          "formula": "if is_set(field.order_id):\n    field.order_id\nelif is_set(field.order_blanket_match):\n    field.order_blanket_match"
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "order_header_match",
+          "label": "PO Header Match",
+          "hidden": true,
+          "type": "enum",
+          "ui_configuration": {
+            "type": "data",
+            "edit": "enabled"
+          },
+          "options": []
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "order_header_status_match",
+          "label": "PO Status",
+          "hidden": false,
+          "type": "enum",
+          "can_export": true,
+          "ui_configuration": {
+            "type": "data",
+            "edit": "enabled"
+          },
+          "options": [],
+          "enum_value_type": "string"
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "order_header_ship_to_addr_match",
+          "label": "PO Header Ship-To Match",
+          "hidden": true,
+          "type": "enum",
+          "ui_configuration": {
+            "type": "data",
+            "edit": "enabled"
+          },
+          "options": []
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "order_blanket_match",
+          "label": "Blanket PO Match",
+          "hidden": false,
+          "type": "enum",
+          "ui_configuration": {
+            "type": "data",
+            "edit": "enabled"
+          },
+          "options": []
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "order_item_match",
+          "label": "PO Line Match",
+          "hidden": true,
+          "type": "enum",
+          "ui_configuration": {
+            "type": "data",
+            "edit": "enabled"
+          },
+          "options": []
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "po_line_currency_match",
+          "label": "PO Line Currency (Coupa)",
+          "hidden": false,
+          "type": "enum",
+          "can_export": true,
+          "ui_configuration": {
+            "type": "data",
+            "edit": "disabled"
+          },
+          "options": [],
+          "enum_value_type": "string"
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "po_line_status_match",
+          "label": "PO Line Status (Coupa)",
+          "hidden": false,
+          "type": "enum",
+          "ui_configuration": {
+            "type": "data",
+            "edit": "disabled"
+          },
+          "options": []
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "po_line_uom_match",
+          "label": "PO Line UOM (Coupa)",
+          "hidden": true,
+          "type": "enum",
+          "ui_configuration": {
+            "type": "data",
+            "edit": "disabled"
+          },
+          "options": []
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "order_item_number_export",
+          "label": "PO Line Number Export",
+          "hidden": true,
+          "type": "string",
+          "ui_configuration": {
+            "type": "formula",
+            "edit": "disabled"
+          },
+          "formula": "if not is_empty(field.order_item_match) and field.po_line_status_match in ('partially_received', 'received', 'soft_closed_for_receiving','created'):\n    field.po_line_number_match\nelse:\n    \"\""
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "requestor_email",
+          "label": "Requestor Email",
+          "hidden": true,
+          "type": "enum",
+          "can_export": true,
+          "ui_configuration": {
+            "type": "data",
+            "edit": "enabled"
+          },
+          "options": [],
+          "enum_value_type": "string"
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "requestor_email_calculated",
+          "label": "Requestor Email Calculated",
+          "hidden": true,
+          "type": "string",
+          "can_export": true,
+          "ui_configuration": {
+            "type": "formula",
+            "edit": "disabled"
+          },
+          "formula": "(\n    next(\n        (\n            default_to(row.item_requestor_email_match, \"\")\n            for row in field.line_items\n            if default_to(row.item_requestor_email_match, \"\") != \"\"\n        ),\n        \"\"\n    )\n    if is_empty(default_to(field.requestor_email, \"\")) and default_to(field.backing_document, \"\") == \"po\"\n    else \"\"\n)"
+        }
+      ],
+      "icon": null
+    },
+    {
+      "category": "section",
+      "id": "contract_section",
+      "label": "Contract",
+      "hidden": false,
+      "children": [
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "default_value": null,
+          "category": "datapoint",
+          "id": "contract_number",
+          "label": "Contract Number",
+          "hidden": false,
+          "type": "string",
+          "can_export": true,
+          "ui_configuration": {
+            "type": "captured",
+            "edit": "disabled"
+          }
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "contract_number_normalized",
+          "label": "Contract Number Normalized",
+          "hidden": true,
+          "type": "string",
+          "can_export": true,
+          "ui_configuration": {
+            "type": "formula",
+            "edit": "disabled"
+          },
+          "formula": "import re\n\nre.sub(r'[^a-zA-Z0-9]', '', default_to(field.contract_number, ''))"
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "contract_match",
+          "label": "Contract Match",
+          "hidden": false,
+          "type": "enum",
+          "can_export": true,
+          "ui_configuration": {
+            "type": "data",
+            "edit": "enabled"
+          },
+          "options": [],
+          "enum_value_type": "string"
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "contract_supplier_match",
+          "label": "Contract Supplier Match",
+          "hidden": true,
+          "type": "enum",
+          "can_export": true,
+          "ui_configuration": {
+            "type": "data",
+            "edit": "disabled"
+          },
+          "options": [],
+          "enum_value_type": "string"
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "contract_supplier_name",
+          "label": "Contract Supplier Name",
+          "hidden": false,
+          "type": "enum",
+          "can_export": true,
+          "ui_configuration": {
+            "type": "data",
+            "edit": "enabled"
+          },
+          "options": [],
+          "enum_value_type": "string"
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "contract_customer_match",
+          "label": "Contract Customer Match",
+          "hidden": true,
+          "type": "enum",
+          "can_export": true,
+          "ui_configuration": {
+            "type": "data",
+            "edit": "disabled"
+          },
+          "options": [],
+          "enum_value_type": "string"
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "contract_customer_name",
+          "label": "Contract Customer Name",
+          "hidden": false,
+          "type": "enum",
+          "can_export": true,
+          "ui_configuration": {
+            "type": "data",
+            "edit": "enabled"
+          },
+          "options": [],
+          "enum_value_type": "string"
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "contract_status_match",
+          "label": "Contract Status Match",
+          "hidden": false,
+          "type": "enum",
+          "can_export": true,
+          "ui_configuration": {
+            "type": "data",
+            "edit": "disabled"
+          },
+          "options": [],
+          "enum_value_type": "string"
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "backing_document",
+          "label": "Backing Document",
+          "hidden": true,
+          "type": "enum",
+          "can_export": true,
+          "ui_configuration": {
+            "type": "formula",
+            "edit": "disabled"
+          },
+          "formula": "('contract' if (is_empty(field.order_header_match) and is_empty(field.order_blanket_match) and default_to(field.contract_status_match, '') == 'approved') else 'po')",
+          "options": [
+            {
+              "value": "contract",
+              "label": "Contract"
+            },
+            {
+              "value": "po",
+              "label": "Purchase Order"
+            }
+          ],
+          "enum_value_type": "string"
+        }
+      ],
+      "icon": null
+    },
+    {
+      "category": "section",
+      "id": "service_period_section",
+      "label": "Service Period",
+      "hidden": false,
+      "children": [
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "default_value": null,
+          "category": "datapoint",
+          "id": "service_period",
+          "label": "Service Period",
+          "hidden": true,
+          "type": "string",
+          "can_export": true,
+          "ui_configuration": {
+            "type": "captured",
+            "edit": "disabled"
+          }
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "default_value": null,
+          "category": "datapoint",
+          "id": "sp_date_start",
+          "label": "Service Period Start",
+          "hidden": false,
+          "type": "date",
+          "can_export": true,
+          "ui_configuration": {
+            "type": "captured",
+            "edit": "disabled"
+          },
+          "format": "D/M/YYYY"
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "default_value": null,
+          "category": "datapoint",
+          "id": "sp_date_end",
+          "label": "Service Period End",
+          "hidden": false,
+          "type": "date",
+          "can_export": true,
+          "ui_configuration": {
+            "type": "captured",
+            "edit": "disabled"
+          },
+          "format": "D/M/YYYY"
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "service_period_dates_parsed",
+          "label": "Service Period Dates Parsed",
+          "description": "The field is ready to be switched to \"Reasoning\" and used for parsing of the Service Period string into a pair of dates. If the customer decides to use this option. The following prompt should be used in that case: Extract the information of the start and end date for which the service is charged. It is often given as a month or a quarter and in such cases you have to set the start and end dates of this given period. Return the result as a JSON object with these two dates.",
+          "hidden": true,
+          "type": "string",
+          "can_export": true,
+          "ui_configuration": {
+            "type": "manual",
+            "edit": "enabled"
+          }
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "service_period_start_export",
+          "label": "Service Period Start Export",
+          "hidden": false,
+          "type": "date",
+          "can_export": true,
+          "ui_configuration": {
+            "type": "formula",
+            "edit": "enabled"
+          },
+          "formula": "import json\n\nif not is_empty(field.sp_date_start):\n    field.sp_date_start\nelif not is_empty(field.service_period_dates_parsed):\n    try:\n        dates = json.loads(field.service_period_dates_parsed)\n        dates.get('start_date')\n    except:\n        None\nelse:\n    None",
+          "format": "D/M/YYYY"
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "service_period_end_export",
+          "label": "Service Period End Export",
+          "hidden": false,
+          "type": "date",
+          "can_export": true,
+          "ui_configuration": {
+            "type": "formula",
+            "edit": "enabled"
+          },
+          "formula": "import json\n\nif not is_empty(field.sp_date_end):\n    field.sp_date_end\nelif not is_empty(field.service_period_dates_parsed):\n    try:\n        dates = json.loads(field.service_period_dates_parsed)\n        dates.get('end_date')\n    except:\n        None\nelse:\n    None",
+          "format": "D/M/YYYY"
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "service_period_start_text",
+          "label": "Service Period Start Text",
+          "hidden": true,
+          "type": "string",
+          "can_export": true,
+          "ui_configuration": {
+            "type": "formula",
+            "edit": "disabled"
+          },
+          "formula": "default_to(field.service_period_start_export.strftime('%Y-%m-%d') if not is_empty(field.service_period_start_export) else '', '')"
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "service_period_end_text",
+          "label": "Service Period End Text",
+          "hidden": true,
+          "type": "string",
+          "can_export": true,
+          "ui_configuration": {
+            "type": "formula",
+            "edit": "disabled"
+          },
+          "formula": "default_to(field.service_period_end_export.strftime('%m/%d/%Y') if not is_empty(field.service_period_end_export) else '', '')"
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "po_line_sp_start_date_match",
+          "label": "Service Period Start Match (Coupa)",
+          "hidden": true,
+          "type": "enum",
+          "can_export": true,
+          "ui_configuration": {
+            "type": "data",
+            "edit": "enabled"
+          },
+          "options": [],
+          "enum_value_type": "string"
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "po_line_sp_end_date_match",
+          "label": "Service Period End Match (Coupa)",
+          "hidden": true,
+          "type": "enum",
+          "can_export": true,
+          "ui_configuration": {
+            "type": "data",
+            "edit": "enabled"
+          },
+          "options": [],
+          "enum_value_type": "string"
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "po_line_sp_start_date_normalized",
+          "label": "Service Period Start Date Normalized",
+          "hidden": true,
+          "type": "date",
+          "can_export": true,
+          "ui_configuration": {
+            "type": "formula",
+            "edit": "disabled"
+          },
+          "formula": "from datetime import datetime\n\nif is_empty(field.po_line_sp_start_date_match):\n    \"\"\nelse:\n    datetime.fromisoformat(field.po_line_sp_start_date_match).date()",
+          "format": "D/M/YYYY"
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "po_line_sp_end_date_normalized",
+          "label": "Service Period End Date Normalized",
+          "hidden": true,
+          "type": "date",
+          "can_export": true,
+          "ui_configuration": {
+            "type": "formula",
+            "edit": "disabled"
+          },
+          "formula": "from datetime import datetime\n\nif is_empty(field.po_line_sp_end_date_match):\n    \"\"\nelse:\n    datetime.fromisoformat(field.po_line_sp_end_date_match).date()",
+          "format": "D/M/YYYY"
+        }
+      ],
+      "icon": null
+    },
+    {
+      "category": "section",
+      "id": "line_items_section",
+      "label": "Line Items",
+      "children": [
+        {
+          "rir_field_names": [
+            "line_items"
+          ],
+          "category": "multivalue",
+          "id": "line_items",
+          "label": "Line Items",
+          "hidden": false,
+          "children": {
+            "rir_field_names": [],
+            "category": "tuple",
+            "id": "line_item",
+            "label": "Line Item",
+            "children": [
+              {
+                "rir_field_names": [],
+                "width": 50,
+                "constraints": {
+                  "required": false
+                },
+                "default_value": null,
+                "category": "datapoint",
+                "id": "item_description",
+                "label": "Description",
+                "type": "string",
+                "ui_configuration": {
+                  "type": "captured",
+                  "edit": "disabled"
+                }
+              },
+              {
+                "rir_field_names": [],
+                "constraints": {
+                  "required": false
+                },
+                "score_threshold": 0.0,
+                "default_value": null,
+                "category": "datapoint",
+                "id": "item_description_export",
+                "label": "Description (export)",
+                "hidden": false,
+                "type": "string",
+                "can_collapse": false,
+                "can_export": true,
+                "ui_configuration": {
+                  "type": "formula",
+                  "edit": "enabled"
+                },
+                "formula": "field.item_description"
+              },
+              {
+                "rir_field_names": [],
+                "constraints": {
+                  "required": false
+                },
+                "default_value": null,
+                "category": "datapoint",
+                "id": "item_quantity",
+                "label": "Quantity",
+                "description": "Quantity of the item.",
+                "hidden": false,
+                "type": "number",
+                "can_collapse": false,
+                "can_export": true,
+                "ui_configuration": {
+                  "type": "captured",
+                  "edit": "disabled"
+                },
+                "format": "#,##0.#"
+              },
+              {
+                "rir_field_names": [],
+                "constraints": {
+                  "required": false
+                },
+                "score_threshold": 0.0,
+                "default_value": null,
+                "category": "datapoint",
+                "id": "item_quantity_calculated",
+                "label": "Quantity (calculated)",
+                "hidden": true,
+                "type": "number",
+                "can_collapse": false,
+                "can_export": true,
+                "ui_configuration": {
+                  "type": "formula",
+                  "edit": "disabled"
+                },
+                "formula": "if field.item_quantity:\n    abs(field.item_quantity)\nelif is_set(field.item_amount_base) and is_set(field.item_total_base) and field.item_amount_base != 0:\n    abs(round(field.item_total_base / field.item_amount_base,6))\nelse:\n    1",
+                "format": "#,##0.#"
+              },
+              {
+                "rir_field_names": [],
+                "constraints": {
+                  "required": false
+                },
+                "default_value": null,
+                "category": "datapoint",
+                "id": "item_amount_base",
+                "label": "Unit Price Net",
+                "type": "number",
+                "ui_configuration": {
+                  "type": "captured",
+                  "edit": "disabled"
+                },
+                "format": "#,##0.#"
+              },
+              {
+                "rir_field_names": [],
+                "constraints": {
+                  "required": false
+                },
+                "score_threshold": 0.0,
+                "default_value": null,
+                "category": "datapoint",
+                "id": "item_amount_base_calculated",
+                "label": "Unit Price Net (calculated)",
+                "hidden": true,
+                "type": "number",
+                "can_collapse": false,
+                "can_export": true,
+                "ui_configuration": {
+                  "type": "formula",
+                  "edit": "disabled"
+                },
+                "formula": "def set_sign(v, hp, ln, lp):\n    v = v\n    if hp and lp:\n        if sign == 'negative':\n            v = -abs(v)\n    elif not hp and ln:\n        if sign == 'positive':\n            v = abs(v)\n        elif sign == 'negative':\n            v = -abs(v)\n    if hp and not ln and not lp:\n        if sign == 'negative':\n            v = -abs(v) if v >= 0 else abs(v)\n    elif not hp and lp:\n        if sign == 'positive':\n            v = -abs(v) if v >= 0 else abs(v)\n    return v\n\nsign = field.credit_notes_amounts\nhip = True if default_to(field.amount_total_base, 0) > 0 or field.amount_total > 0 else False\nv = None\naln = True\nalp = True\n\nfor row in field.line_items:\n    if default_to(row.item_amount_base,0) < 0 or default_to(row.item_quantity,0) < 0:\n        alp = False\n        break\nfor row in field.line_items:\n    if default_to(row.item_amount_base,0) >= 0 and default_to(row.item_quantity,0) >= 0:\n        aln = False\n        break\n\nif field.document_type == 'credit_note':\n    if field.item_amount_base:\n        v = set_sign(-abs(field.item_amount_base) if default_to(field.item_quantity,0) < 0 else field.item_amount_base, hip, aln, alp)\n    elif field.item_quantity_calculated != 0 and not is_empty(field.item_total_base):\n        vs = field.item_total_base / field.item_quantity_calculated\n        vs = -abs(vs) if default_to(field.item_quantity,0) < 0 else vs\n        v = set_sign(field.item_total_base / field.item_quantity_calculated, hip, aln, alp)\nelse:\n    if field.item_amount_base:\n        v = field.item_amount_base\n    elif field.item_quantity_calculated != 0 and not is_empty(field.item_total_base):\n        v = field.item_total_base / default_to(field.item_quantity_calculated, 1)\n\nv",
+                "format": "#,##0.#"
+              },
+              {
+                "rir_field_names": [],
+                "width": 15,
+                "constraints": {
+                  "required": false
+                },
+                "default_value": null,
+                "category": "datapoint",
+                "id": "item_total_base",
+                "label": "Line Total Net",
+                "type": "number",
+                "can_export": false,
+                "ui_configuration": {
+                  "type": "captured",
+                  "edit": "disabled"
+                },
+                "format": "#,##0.#",
+                "aggregations": {
+                  "sum": {
+                    "label": "Sum"
+                  }
+                }
+              },
+              {
+                "rir_field_names": [],
+                "constraints": {
+                  "required": false
+                },
+                "score_threshold": 0.0,
+                "default_value": null,
+                "category": "datapoint",
+                "id": "item_total_base_calculated",
+                "label": "Line Total Net (calculated)",
+                "hidden": true,
+                "type": "number",
+                "can_collapse": false,
+                "can_export": true,
+                "ui_configuration": {
+                  "type": "formula",
+                  "edit": "disabled"
+                },
+                "formula": "def set_value_sign_line_items(value, header_is_positive, lines_all_negative, lines_all_positive):\n    value = value\n    if header_is_positive and lines_all_positive:\n        if sign == 'negative':\n            value = -abs(value)\n    elif not header_is_positive and lines_all_negative:\n        if sign == 'positive':\n            value = abs(value)\n    if header_is_positive and not lines_all_negative and not lines_all_positive:\n        if sign == 'negative':\n            value = -abs(value) if value >= 0 else abs(value)\n    elif not header_is_positive and not header_is_positive and lines_all_positive:\n        if sign == 'positive':\n            value = -abs(value) if value >= 0 else abs(value)\n    return value\n\nsign = field.credit_notes_amounts\nheader_is_positive = True if default_to(field.amount_total_base,0) > 0 or field.amount_total > 0 else False\nlines_all_negative = True\nlines_all_positive = True\nvalue = None\n\nfor row in field.line_items:\n    if default_to(row.item_total_base,0) < 0:\n        lines_all_positive = False\n        break\nfor row in field.line_items:\n    if default_to(row.item_total_base,0) >= 0:\n        lines_all_negative = False\n        break\n\nif field.document_type == 'credit_note':\n    if not is_empty(field.item_total_base):\n        value = set_value_sign_line_items(field.item_total_base, header_is_positive, lines_all_negative, lines_all_positive)\n    elif not is_empty(field.item_amount_base_calculated) and not is_empty(field.item_quantity_calculated):\n        value = set_value_sign_line_items(field.item_amount_base_calculated * field.item_quantity_calculated, header_is_positive, lines_all_negative, lines_all_positive)\nelse:\n    if not is_empty(field.item_total_base):\n        value = field.item_total_base\n    else:\n        value = field.item_amount_base_calculated * field.item_quantity_calculated\n\nvalue",
+                "format": "#,##0.#"
+              },
+              {
+                "rir_field_names": [],
+                "constraints": {
+                  "required": false
+                },
+                "default_value": null,
+                "category": "datapoint",
+                "id": "item_rate",
+                "label": "Line Tax Rate",
+                "type": "number",
+                "can_export": false,
+                "ui_configuration": {
+                  "type": "captured",
+                  "edit": "disabled"
+                },
+                "format": "#,##0.#"
+              },
+              {
+                "rir_field_names": [],
+                "constraints": {
+                  "required": false
+                },
+                "score_threshold": 0.0,
+                "default_value": null,
+                "category": "datapoint",
+                "id": "item_rate_calculated",
+                "label": "Line Tax Rate (calculated)",
+                "hidden": true,
+                "type": "number",
+                "can_collapse": false,
+                "can_export": true,
+                "ui_configuration": {
+                  "type": "formula",
+                  "edit": "disabled"
+                },
+                "formula": "tax_rate = None\n\nif is_set(field.item_rate): \n    tax_rate = field.item_rate\nelif is_set(field.item_total_base_calculated) and is_set(field.item_tax) and field.item_total_base_calculated != 0:\n    tax_rate = field.item_tax / (field.item_total_base_calculated / 100)\nelif is_set(field.tax_rate_calculated):\n    tax_rate = field.tax_rate_calculated\n   \nif tax_rate is not None: \n    round(tax_rate,1)",
+                "format": "#,##0.#"
+              },
+              {
+                "rir_field_names": [],
+                "constraints": {
+                  "required": false
+                },
+                "default_value": null,
+                "category": "datapoint",
+                "id": "item_tax",
+                "label": "Line Tax Amount",
+                "type": "number",
+                "can_export": false,
+                "ui_configuration": {
+                  "type": "captured",
+                  "edit": "disabled"
+                },
+                "format": "#,##0.#"
+              },
+              {
+                "rir_field_names": [],
+                "constraints": {
+                  "required": false
+                },
+                "score_threshold": 0.0,
+                "default_value": null,
+                "category": "datapoint",
+                "id": "item_tax_calculated",
+                "label": "Tax Amount (calculated)",
+                "hidden": true,
+                "type": "number",
+                "can_collapse": false,
+                "can_export": true,
+                "ui_configuration": {
+                  "type": "formula",
+                  "edit": "disabled"
+                },
+                "formula": "def set_value_sign_line_items(value, header_is_positive, lines_all_negative, lines_all_positive):\n    value = value\n    if header_is_positive and lines_all_positive:\n        if sign == 'negative':\n            value = -abs(value)\n    elif not header_is_positive and lines_all_negative:\n        if sign == 'positive':\n            value = abs(value)\n    if header_is_positive and not lines_all_negative and not lines_all_positive:\n        if sign == 'negative':\n            value = -abs(value) if value >= 0 else abs(value)\n    return value\n\nsign = field.credit_notes_amounts\nheader_is_positive = True if default_to(field.amount_total_base,0) > 0 or field.amount_total > 0 else False\nlines_all_negative = True\nlines_all_positive = True\nvalue = None\n\nfor row in field.line_items:\n    if default_to(row.item_tax,0) < 0:\n        lines_all_positive = False\n        break\nfor row in field.line_items:\n    if default_to(row.item_tax,0) >= 0:\n        lines_all_negative = False\n        break\n\nif is_set(field.item_tax):\n    value = field.item_tax\nelif is_set(field.item_total_base_calculated) and is_set(field.item_rate_calculated):\n    value = field.item_total_base_calculated * (field.item_rate_calculated / 100)\nelse:\n    value = 0\n\n\nif field.document_type == 'credit_note':\n    value = set_value_sign_line_items(value, header_is_positive, lines_all_negative, lines_all_positive)\n\nround(value,6)",
+                "format": "#,##0.#"
+              },
+              {
+                "rir_field_names": [],
+                "constraints": {
+                  "required": false
+                },
+                "score_threshold": 0.0,
+                "default_value": null,
+                "category": "datapoint",
+                "id": "item_tax_code_match",
+                "label": "Tax Code Match",
+                "hidden": false,
+                "type": "enum",
+                "can_collapse": false,
+                "can_export": true,
+                "ui_configuration": {
+                  "type": "data",
+                  "edit": "enabled"
+                },
+                "options": [],
+                "enum_value_type": "number"
+              },
+              {
+                "rir_field_names": [],
+                "constraints": {
+                  "required": false
+                },
+                "default_value": null,
+                "category": "datapoint",
+                "id": "item_order_id",
+                "label": "PO Number",
+                "type": "string",
+                "ui_configuration": {
+                  "type": "captured",
+                  "edit": "disabled"
+                }
+              },
+              {
+                "rir_field_names": [],
+                "constraints": {
+                  "required": false
+                },
+                "score_threshold": 0.0,
+                "default_value": null,
+                "category": "datapoint",
+                "id": "item_order_item_number_export",
+                "label": "PO Line Number Export",
+                "hidden": true,
+                "type": "string",
+                "ui_configuration": {
+                  "type": "formula",
+                  "edit": "disabled"
+                },
+                "formula": "if field.item_po_line_status_match in ('partially_received', 'received', 'soft_closed_for_receiving','created'):\n    field.item_po_line_number_match\nelse:\n    \"\""
+              },
+              {
+                "rir_field_names": [],
+                "constraints": {
+                  "required": false
+                },
+                "score_threshold": 0.0,
+                "default_value": null,
+                "category": "datapoint",
+                "id": "item_order_id_calculated",
+                "label": "PO Number (calculated)",
+                "hidden": true,
+                "type": "string",
+                "can_collapse": false,
+                "can_export": true,
+                "ui_configuration": {
+                  "type": "formula",
+                  "edit": "disabled"
+                },
+                "formula": "order_id = ''\n\nif is_set(field.item_order_id):\n    order_id = field.item_order_id\nelif is_set(field.order_id_calculated):\n    order_id = field.order_id_calculated\nelif is_set(field.order_blanket_match):\n    order_id = field.order_blanket_match\n    \n\norder_id"
+              },
+              {
+                "rir_field_names": [],
+                "constraints": {
+                  "required": false
+                },
+                "score_threshold": 0.0,
+                "default_value": null,
+                "category": "datapoint",
+                "id": "item_order_item_match",
+                "label": "PO Line Match",
+                "hidden": false,
+                "type": "enum",
+                "can_collapse": false,
+                "can_export": true,
+                "ui_configuration": {
+                  "type": "data",
+                  "edit": "enabled"
+                },
+                "options": [],
+                "enum_value_type": "string"
+              },
+              {
+                "rir_field_names": [],
+                "constraints": {
+                  "required": false
+                },
+                "default_value": null,
+                "category": "datapoint",
+                "id": "item_code",
+                "label": "Supplier Part Number",
+                "hidden": false,
+                "type": "string",
+                "ui_configuration": {
+                  "type": "captured",
+                  "edit": "disabled"
+                }
+              },
+              {
+                "rir_field_names": [],
+                "constraints": {
+                  "required": false
+                },
+                "score_threshold": 0.0,
+                "default_value": null,
+                "category": "datapoint",
+                "id": "item_order_header_match",
+                "label": "PO Header Match",
+                "hidden": true,
+                "type": "enum",
+                "ui_configuration": {
+                  "type": "data",
+                  "edit": "disabled"
+                },
+                "options": []
+              },
+              {
+                "rir_field_names": [],
+                "constraints": {
+                  "required": false
+                },
+                "score_threshold": 0.0,
+                "default_value": null,
+                "category": "datapoint",
+                "id": "item_order_header_status_match",
+                "label": "PO Status",
+                "hidden": false,
+                "type": "enum",
+                "can_collapse": false,
+                "can_export": true,
+                "ui_configuration": {
+                  "type": "data",
+                  "edit": "disabled"
+                },
+                "options": [],
+                "enum_value_type": "string"
+              },
+              {
+                "rir_field_names": [],
+                "constraints": {
+                  "required": false
+                },
+                "score_threshold": 0.0,
+                "default_value": null,
+                "category": "datapoint",
+                "id": "item_order_header_ship_to_addr_match",
+                "label": "PO Header Ship-To Match",
+                "hidden": true,
+                "type": "enum",
+                "ui_configuration": {
+                  "type": "data",
+                  "edit": "disabled"
+                },
+                "options": []
+              },
+              {
+                "rir_field_names": [],
+                "constraints": {
+                  "required": false
+                },
+                "score_threshold": 0.0,
+                "default_value": null,
+                "category": "datapoint",
+                "id": "item_po_line_number_match",
+                "label": "PO Line number (Coupa)",
+                "hidden": true,
+                "type": "enum",
+                "ui_configuration": {
+                  "type": "data",
+                  "edit": "disabled"
+                },
+                "options": []
+              },
+              {
+                "rir_field_names": [],
+                "constraints": {
+                  "required": false
+                },
+                "score_threshold": 0.0,
+                "default_value": null,
+                "category": "datapoint",
+                "id": "item_po_line_type_match",
+                "label": "PO Line type (Coupa)",
+                "hidden": true,
+                "type": "enum",
+                "ui_configuration": {
+                  "type": "data",
+                  "edit": "disabled"
+                },
+                "options": []
+              },
+              {
+                "rir_field_names": [],
+                "constraints": {
+                  "required": false
+                },
+                "score_threshold": 0.0,
+                "default_value": null,
+                "category": "datapoint",
+                "id": "item_po_line_recipient_match",
+                "label": "PO Line Customer (Coupa)",
+                "hidden": true,
+                "type": "enum",
+                "ui_configuration": {
+                  "type": "data",
+                  "edit": "disabled"
+                },
+                "options": [],
+                "enum_value_type": "number"
+              },
+              {
+                "rir_field_names": [],
+                "constraints": {
+                  "required": false
+                },
+                "score_threshold": 0.0,
+                "default_value": null,
+                "category": "datapoint",
+                "id": "item_po_line_recipient_name_match",
+                "label": "PO Line Customer Name (Coupa)",
+                "hidden": true,
+                "type": "enum",
+                "ui_configuration": {
+                  "type": "data",
+                  "edit": "disabled"
+                },
+                "options": []
+              },
+              {
+                "rir_field_names": [],
+                "constraints": {
+                  "required": false
+                },
+                "score_threshold": 0.0,
+                "default_value": null,
+                "category": "datapoint",
+                "id": "item_po_line_supplier_match",
+                "label": "PO Line Supplier (Coupa)",
+                "hidden": true,
+                "type": "enum",
+                "ui_configuration": {
+                  "type": "data",
+                  "edit": "disabled"
+                },
+                "options": [],
+                "enum_value_type": "number"
+              },
+              {
+                "rir_field_names": [],
+                "constraints": {
+                  "required": false
+                },
+                "score_threshold": 0.0,
+                "default_value": null,
+                "category": "datapoint",
+                "id": "item_po_line_supplier_name_match",
+                "label": "PO Line Supplier Name (Coupa)",
+                "hidden": true,
+                "type": "enum",
+                "ui_configuration": {
+                  "type": "data",
+                  "edit": "disabled"
+                },
+                "options": []
+              },
+              {
+                "rir_field_names": [],
+                "constraints": {
+                  "required": false
+                },
+                "score_threshold": 0.0,
+                "default_value": null,
+                "category": "datapoint",
+                "id": "item_po_line_supplier_display_name_match",
+                "label": "PO Line Supplier Display Name (Coupa)",
+                "hidden": true,
+                "type": "enum",
+                "ui_configuration": {
+                  "type": "data",
+                  "edit": "disabled"
+                },
+                "options": []
+              },
+              {
+                "rir_field_names": [],
+                "constraints": {
+                  "required": false
+                },
+                "score_threshold": 0.0,
+                "default_value": null,
+                "category": "datapoint",
+                "id": "item_po_line_uom_match",
+                "label": "PO Line UOM (Coupa)",
+                "hidden": true,
+                "type": "enum",
+                "ui_configuration": {
+                  "type": "data",
+                  "edit": "disabled"
+                },
+                "options": []
+              },
+              {
+                "rir_field_names": [],
+                "constraints": {
+                  "required": false
+                },
+                "score_threshold": 0.0,
+                "default_value": null,
+                "category": "datapoint",
+                "id": "item_po_line_total_match",
+                "label": "PO Line Net Total (Coupa)",
+                "hidden": true,
+                "type": "enum",
+                "ui_configuration": {
+                  "type": "data",
+                  "edit": "disabled"
+                },
+                "options": []
+              },
+              {
+                "rir_field_names": [],
+                "constraints": {
+                  "required": false
+                },
+                "score_threshold": 0.0,
+                "default_value": null,
+                "category": "datapoint",
+                "id": "item_po_line_price_match",
+                "label": "PO Line Price (Coupa)",
+                "hidden": true,
+                "type": "enum",
+                "ui_configuration": {
+                  "type": "data",
+                  "edit": "disabled"
+                },
+                "options": []
+              },
+              {
+                "rir_field_names": [],
+                "constraints": {
+                  "required": false
+                },
+                "score_threshold": 0.0,
+                "default_value": null,
+                "category": "datapoint",
+                "id": "item_po_line_description_match",
+                "label": "PO Line Description (Coupa)",
+                "hidden": true,
+                "type": "enum",
+                "ui_configuration": {
+                  "type": "data",
+                  "edit": "disabled"
+                },
+                "options": []
+              },
+              {
+                "rir_field_names": [],
+                "constraints": {
+                  "required": false
+                },
+                "score_threshold": 0.0,
+                "default_value": null,
+                "category": "datapoint",
+                "id": "item_po_line_status_match",
+                "label": "PO Line Status (Coupa)",
+                "hidden": false,
+                "type": "enum",
+                "ui_configuration": {
+                  "type": "data",
+                  "edit": "disabled"
+                },
+                "options": []
+              },
+              {
+                "rir_field_names": [],
+                "constraints": {
+                  "required": false
+                },
+                "score_threshold": 0.0,
+                "default_value": null,
+                "category": "datapoint",
+                "id": "item_po_line_quantity_match",
+                "label": "PO Line Quantity (Coupa)",
+                "hidden": true,
+                "type": "enum",
+                "ui_configuration": {
+                  "type": "data",
+                  "edit": "disabled"
+                },
+                "options": []
+              },
+              {
+                "rir_field_names": [],
+                "constraints": {
+                  "required": false
+                },
+                "score_threshold": 0.0,
+                "default_value": null,
+                "category": "datapoint",
+                "id": "item_po_line_currency_match",
+                "label": "PO Line Currency (Coupa)",
+                "hidden": false,
+                "type": "enum",
+                "ui_configuration": {
+                  "type": "data",
+                  "edit": "disabled"
+                },
+                "options": []
+              },
+              {
+                "rir_field_names": [],
+                "constraints": {
+                  "required": false
+                },
+                "default_value": null,
+                "category": "datapoint",
+                "id": "item_quantity_export",
+                "label": "Item Quantity (Coupa)",
+                "hidden": false,
+                "type": "number",
+                "can_collapse": false,
+                "can_export": true,
+                "ui_configuration": {
+                  "type": "formula",
+                  "edit": "disabled"
+                },
+                "formula": "if  field.item_line_type == 'InvoiceQuantityLine':\n    round(field.item_quantity_calculated,6)\nelse:\n    \"\"",
+                "format": "#,##0.#"
+              },
+              {
+                "rir_field_names": [],
+                "constraints": {
+                  "required": false
+                },
+                "score_threshold": 0.0,
+                "default_value": null,
+                "category": "datapoint",
+                "id": "item_price_export",
+                "label": "Item Price (Coupa)",
+                "hidden": false,
+                "type": "number",
+                "can_collapse": false,
+                "can_export": true,
+                "ui_configuration": {
+                  "type": "formula",
+                  "edit": "disabled"
+                },
+                "formula": "net_calc = field.item_amount_base_calculated\npo_l_type = field.item_po_line_type_match\n\n\nif po_l_type != 'OrderAmountLine':\n    net_calc = field.item_amount_base_calculated\nelse:\n    net_calc = field.item_total_base_calculated\n\nround(net_calc, 6)",
+                "format": "#,##0.#"
+              },
+              {
+                "rir_field_names": [],
+                "constraints": {
+                  "required": false
+                },
+                "default_value": null,
+                "category": "datapoint",
+                "id": "item_net_total_coupa",
+                "label": "Item Net Total (Coupa)",
+                "hidden": true,
+                "type": "number",
+                "can_collapse": false,
+                "can_export": true,
+                "ui_configuration": {
+                  "type": "formula",
+                  "edit": "disabled"
+                },
+                "formula": "sign = field.credit_notes_amounts\n\nif field.document_type == 'credit_note':\n    if not is_empty(field.item_price_export):\n        if sign == 'negative':\n            -abs(default_to(field.item_quantity_export, 1) * field.item_price_export)\n        else:\n            abs(default_to(field.item_quantity_export, 1) * field.item_price_export)\nelse:\n    if not is_empty(field.item_price_export):\n        default_to(field.item_quantity_export, 1) * field.item_price_export",
+                "format": "#,##0.#"
+              },
+              {
+                "rir_field_names": [],
+                "constraints": {
+                  "required": false
+                },
+                "score_threshold": 0.0,
+                "default_value": "EA",
+                "category": "datapoint",
+                "id": "item_uom_export",
+                "label": "Item UOM (Coupa)",
+                "hidden": true,
+                "type": "string",
+                "ui_configuration": {
+                  "type": "formula",
+                  "edit": "disabled"
+                },
+                "formula": "if field.item_po_line_uom_match:\n   field.item_po_line_uom_match\nelse: \n    \"EA\""
+              },
+              {
+                "rir_field_names": [],
+                "constraints": {
+                  "required": false
+                },
+                "default_value": null,
+                "category": "datapoint",
+                "id": "item_description_calculated",
+                "label": "Description (calculated)",
+                "hidden": true,
+                "type": "string",
+                "can_collapse": false,
+                "can_export": true,
+                "ui_configuration": {
+                  "type": "formula",
+                  "edit": "disabled"
+                },
+                "formula": "if field.po_closed == \"true\":\n    field.item_order_id_calculated\nelif is_set(field.po_line_description_match):\n    field.item_po_line_description_match\nelif is_set(field.item_description):\n    field.item_description"
+              },
+              {
+                "rir_field_names": [],
+                "constraints": {
+                  "required": false
+                },
+                "score_threshold": 0.0,
+                "default_value": null,
+                "category": "datapoint",
+                "id": "item_recipient_mismatch_tag",
+                "label": "PO x Invoice Customer Mismatch Tag",
+                "type": "enum",
+                "ui_configuration": {
+                  "type": "formula",
+                  "edit": "disabled"
+                },
+                "formula": "if field.recipient_match and field.item_po_line_recipient_match and field.recipient_match != field.item_po_line_recipient_match:\n    'recipient_mismatch'\nelse:\n    ''",
+                "options": [
+                  {
+                    "value": "",
+                    "label": "---"
+                  },
+                  {
+                    "value": "recipient_mismatch",
+                    "label": "PO x Invoice Customer Mismatch"
+                  }
+                ]
+              },
+              {
+                "rir_field_names": [],
+                "constraints": {
+                  "required": false
+                },
+                "score_threshold": 0.0,
+                "default_value": null,
+                "category": "datapoint",
+                "id": "item_supplier_mismatch_tag",
+                "label": "PO x Invoice Supplier Mismatch Tag",
+                "type": "enum",
+                "ui_configuration": {
+                  "type": "formula",
+                  "edit": "disabled"
+                },
+                "formula": "if field.sender_match and field.item_po_line_supplier_match and field.sender_match != field.item_po_line_supplier_match:\n    'supplier_mismatch'\nelse:\n    ''",
+                "options": [
+                  {
+                    "value": "",
+                    "label": "---"
+                  },
+                  {
+                    "value": "supplier_mismatch",
+                    "label": "PO x Invoice Supplier Mismatch"
+                  }
+                ]
+              },
+              {
+                "rir_field_names": [],
+                "constraints": {
+                  "required": false
+                },
+                "score_threshold": 0.0,
+                "default_value": null,
+                "category": "datapoint",
+                "id": "item_inactive_po_line_tag",
+                "label": "PO Line Inactive Tag",
+                "hidden": true,
+                "type": "enum",
+                "ui_configuration": {
+                  "type": "formula",
+                  "edit": "disabled"
+                },
+                "formula": "if  not is_empty(field.item_order_item_match) and field.item_po_line_status_match \\\n    not in ('partially_received', 'received', 'soft_closed_for_receiving','created'):\n        \"po_line_inactive\"",
+                "options": [
+                  {
+                    "value": "",
+                    "label": "---"
+                  },
+                  {
+                    "value": "po_line_inactive",
+                    "label": "PO Line Inactive"
+                  }
+                ]
+              },
+              {
+                "rir_field_names": [],
+                "constraints": {
+                  "required": false
+                },
+                "score_threshold": 0.0,
+                "default_value": null,
+                "category": "datapoint",
+                "id": "item_po_closed",
+                "label": "PO Closed",
+                "hidden": true,
+                "type": "enum",
+                "ui_configuration": {
+                  "type": "formula",
+                  "edit": "disabled"
+                },
+                "formula": "if field.item_order_header_status_match in ('soft_closed','closed', 'cancelled'):\n    \"true\"\nelse:\n    \"false\"",
+                "options": [
+                  {
+                    "value": "true",
+                    "label": "true"
+                  },
+                  {
+                    "value": "false",
+                    "label": "false"
+                  }
+                ]
+              },
+              {
+                "rir_field_names": [],
+                "constraints": {
+                  "required": true
+                },
+                "default_value": null,
+                "category": "datapoint",
+                "id": "item_line_type",
+                "label": "Invoice Line Type Line",
+                "hidden": true,
+                "type": "string",
+                "can_collapse": false,
+                "can_export": true,
+                "ui_configuration": {
+                  "type": "formula",
+                  "edit": "disabled"
+                },
+                "formula": "if  field.item_po_line_type_match == 'OrderAmountLine':\n    \"InvoiceAmountLine\"\nelse:\n    \"InvoiceQuantityLine\""
+              },
+              {
+                "rir_field_names": [],
+                "constraints": {
+                  "required": false
+                },
+                "score_threshold": 0.0,
+                "default_value": null,
+                "category": "datapoint",
+                "id": "item_po_line_split_billing_match",
+                "label": "PO Line Split Billing",
+                "hidden": true,
+                "type": "enum",
+                "ui_configuration": {
+                  "type": "data",
+                  "edit": "disabled"
+                },
+                "options": []
+              },
+              {
+                "rir_field_names": [],
+                "constraints": {
+                  "required": false
+                },
+                "score_threshold": 0.0,
+                "default_value": null,
+                "category": "datapoint",
+                "id": "item_order_requestor_match",
+                "label": "PO Requestor",
+                "hidden": true,
+                "type": "enum",
+                "can_export": true,
+                "ui_configuration": {
+                  "type": "data",
+                  "edit": "enabled"
+                },
+                "options": [],
+                "enum_value_type": "string"
+              },
+              {
+                "rir_field_names": [],
+                "constraints": {
+                  "required": false
+                },
+                "default_value": null,
+                "category": "datapoint",
+                "id": "service_period_item",
+                "label": "Service Period Item",
+                "hidden": false,
+                "type": "string",
+                "can_collapse": false,
+                "can_export": true,
+                "ui_configuration": {
+                  "type": "captured",
+                  "edit": "disabled"
+                }
+              },
+              {
+                "rir_field_names": [],
+                "constraints": {
+                  "required": false
+                },
+                "default_value": null,
+                "category": "datapoint",
+                "id": "service_period_item_start",
+                "label": "Service Period Item Start",
+                "hidden": false,
+                "type": "date",
+                "can_collapse": false,
+                "can_export": true,
+                "ui_configuration": {
+                  "type": "captured",
+                  "edit": "disabled"
+                },
+                "format": "D/M/YYYY"
+              },
+              {
+                "rir_field_names": [],
+                "constraints": {
+                  "required": false
+                },
+                "default_value": null,
+                "category": "datapoint",
+                "id": "service_period_item_end",
+                "label": "Service Period Item End",
+                "hidden": false,
+                "type": "date",
+                "can_collapse": false,
+                "can_export": true,
+                "ui_configuration": {
+                  "type": "captured",
+                  "edit": "disabled"
+                },
+                "format": "D/M/YYYY"
+              },
+              {
+                "rir_field_names": [],
+                "constraints": {
+                  "required": false
+                },
+                "score_threshold": 0.0,
+                "default_value": null,
+                "category": "datapoint",
+                "id": "service_period_item_dates_parsed",
+                "label": "Service Period Item Dates Parsed",
+                "description": "The field is ready to be switched to \"Reasoning\" and used for parsing of the Service Period string into a pair of dates. If the customer decides to use this option. The following prompt should be used in that case: Where available parse the input string from the given field to extract start and end dates for which the given item is invoiced. It may be a month or a quarter and such cases you have to return start and end dates of this period. Return as JSON object with two attributes.",
+                "hidden": true,
+                "type": "string",
+                "can_collapse": false,
+                "can_export": true,
+                "ui_configuration": {
+                  "type": "manual",
+                  "edit": "enabled"
+                }
+              },
+              {
+                "rir_field_names": [],
+                "constraints": {
+                  "required": false
+                },
+                "score_threshold": 0.0,
+                "default_value": null,
+                "category": "datapoint",
+                "id": "sp_item_start_date_export",
+                "label": "Service Period Item Start Export",
+                "hidden": false,
+                "type": "date",
+                "can_collapse": false,
+                "can_export": true,
+                "ui_configuration": {
+                  "type": "formula",
+                  "edit": "enabled"
+                },
+                "formula": "import json\n\nif not is_empty(field.service_period_item_start):\n    field.service_period_item_start\nelif not is_empty(field.service_period_item_dates_parsed):\n    try:\n        json.loads(field.service_period_item_dates_parsed).get('start_date')\n    except:\n        None\nelif not is_empty(field.service_period_dates_parsed):\n    try:\n        json.loads(default_to(field.service_period_dates_parsed, '{}')).get('start_date')\n    except:\n        None\nelse:\n    None",
+                "format": "D/M/YYYY"
+              },
+              {
+                "rir_field_names": [],
+                "constraints": {
+                  "required": false
+                },
+                "score_threshold": 0.0,
+                "default_value": null,
+                "category": "datapoint",
+                "id": "sp_item_end_date_export",
+                "label": "Service Period Item End Export",
+                "hidden": false,
+                "type": "date",
+                "can_collapse": false,
+                "can_export": true,
+                "ui_configuration": {
+                  "type": "formula",
+                  "edit": "enabled"
+                },
+                "formula": "import json\n\nif not is_empty(field.service_period_item_end):\n    field.service_period_item_end\nelif not is_empty(field.service_period_item_dates_parsed):\n    try:\n        json.loads(field.service_period_item_dates_parsed).get('end_date')\n    except:\n        None\nelif not is_empty(field.service_period_dates_parsed):\n    try:\n        json.loads(default_to(field.service_period_dates_parsed, '{}')).get('end_date')\n    except:\n        None\nelse:\n    None",
+                "format": "D/M/YYYY"
+              },
+              {
+                "rir_field_names": [],
+                "constraints": {
+                  "required": false
+                },
+                "score_threshold": 0.0,
+                "default_value": null,
+                "category": "datapoint",
+                "id": "sp_item_start_date_text",
+                "label": "Service Period Item Start Date Match",
+                "hidden": true,
+                "type": "string",
+                "can_collapse": false,
+                "can_export": true,
+                "ui_configuration": {
+                  "type": "formula",
+                  "edit": "disabled"
+                },
+                "formula": "default_to(field.sp_item_start_date_export, \"\")"
+              },
+              {
+                "rir_field_names": [],
+                "constraints": {
+                  "required": false
+                },
+                "score_threshold": 0.0,
+                "default_value": null,
+                "category": "datapoint",
+                "id": "sp_item_end_date_text",
+                "label": "Service Period Item End Date Match",
+                "hidden": true,
+                "type": "string",
+                "can_collapse": false,
+                "can_export": true,
+                "ui_configuration": {
+                  "type": "formula",
+                  "edit": "disabled"
+                },
+                "formula": "default_to(field.sp_item_end_date_export, \"\")"
+              },
+              {
+                "rir_field_names": [],
+                "constraints": {
+                  "required": false
+                },
+                "score_threshold": 0.0,
+                "default_value": null,
+                "category": "datapoint",
+                "id": "item_po_line_sp_start_date_match",
+                "label": "PO Line Service Period Start Date Match",
+                "hidden": true,
+                "type": "enum",
+                "can_collapse": false,
+                "can_export": true,
+                "ui_configuration": {
+                  "type": "data",
+                  "edit": "disabled"
+                },
+                "options": [],
+                "enum_value_type": "string"
+              },
+              {
+                "rir_field_names": [],
+                "constraints": {
+                  "required": false
+                },
+                "score_threshold": 0.0,
+                "default_value": null,
+                "category": "datapoint",
+                "id": "item_po_line_sp_end_date_match",
+                "label": "PO Line Service Period End Date Match",
+                "hidden": true,
+                "type": "enum",
+                "can_collapse": false,
+                "can_export": true,
+                "ui_configuration": {
+                  "type": "data",
+                  "edit": "disabled"
+                },
+                "options": [],
+                "enum_value_type": "string"
+              },
+              {
+                "rir_field_names": [],
+                "constraints": {
+                  "required": false
+                },
+                "score_threshold": 0.0,
+                "default_value": null,
+                "category": "datapoint",
+                "id": "item_po_line_sp_start_date_normalized",
+                "label": "PO Line Service Period Start Date Normalized",
+                "hidden": true,
+                "type": "date",
+                "can_collapse": false,
+                "can_export": true,
+                "ui_configuration": {
+                  "type": "formula",
+                  "edit": "disabled"
+                },
+                "formula": "from datetime import datetime\n\nif is_empty(field.item_po_line_sp_start_date_match):\n    \"\"\nelse:\n    datetime.fromisoformat(field.item_po_line_sp_start_date_match).date()",
+                "format": "D/M/YYYY"
+              },
+              {
+                "rir_field_names": [],
+                "constraints": {
+                  "required": false
+                },
+                "score_threshold": 0.0,
+                "default_value": null,
+                "category": "datapoint",
+                "id": "item_po_line_sp_end_date_normalized",
+                "label": "PO Line Service Period End Date Normalized",
+                "hidden": true,
+                "type": "date",
+                "can_collapse": false,
+                "can_export": true,
+                "ui_configuration": {
+                  "type": "formula",
+                  "edit": "disabled"
+                },
+                "formula": "from datetime import datetime\n\nif is_empty(field.item_po_line_sp_end_date_match):\n    \"\"\nelse:\n    datetime.fromisoformat(field.item_po_line_sp_end_date_match).date()",
+                "format": "D/M/YYYY"
+              },
+              {
+                "rir_field_names": [],
+                "constraints": {
+                  "required": false
+                },
+                "score_threshold": 0.0,
+                "default_value": null,
+                "category": "datapoint",
+                "id": "item_requestor_email_match",
+                "label": "Item Requestor Email",
+                "hidden": true,
+                "type": "enum",
+                "can_collapse": false,
+                "can_export": true,
+                "ui_configuration": {
+                  "type": "data",
+                  "edit": "enabled"
+                },
+                "options": [],
+                "enum_value_type": "string"
+              }
+            ]
+          },
+          "min_occurrences": null,
+          "max_occurrences": null,
+          "default_value": null,
+          "show_grid_by_default": false
+        }
+      ],
+      "icon": null
+    },
+    {
+      "category": "section",
+      "id": "coupa_technical_fields",
+      "label": "Coupa Technical Fields",
+      "hidden": false,
+      "children": [
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": true
+          },
+          "score_threshold": 0.0,
+          "default_value": "No",
+          "category": "datapoint",
+          "id": "sf_submit_for_approval",
+          "label": "Submit For Approval?",
+          "hidden": false,
+          "type": "enum",
+          "can_export": true,
+          "ui_configuration": {
+            "type": "formula",
+            "edit": "disabled"
+          },
+          "formula": "#Messages from Formulas are overwriting export results after the export. This will be moved to rules and actions after release..\n#reasons = []\n#if field.enforce_draft == 'Yes':\n#    reasons.append('Document is enforced as draft')\n#if not field.po_backed == 'true':\n#    reasons.append('Document needs valid PO backing')\n#if field.fully_tax_coded != 'true':\n#    reasons.append('Document is not fully tax coded')\n#if not is_empty(field.inv_total_issue_tag):\n#    reasons.append('Invoice total issue detected')\n#if not is_empty(field.recipient_mismatch_tag):\n#    reasons.append('Customer mismatch detected')\n#if not is_empty(field.supplier_mismatch_tag):\n#    reasons.append('Supplier mismatch detected')\n#if len(reasons) > 0:\n#    show_warning('Cannot submit for approval: ' + '; '.join(reasons), field.sf_submit_for_approval)\n\nif  (\n    field.enforce_draft == 'No' \n    and field.document_type != 'credit_note' \n    and (\n        (field.po_backed == \"true\" and field.fully_tax_coded == \"true\")\n        or field.backing_document == \"contract\")\n):\n        \"Yes\"\nelse:\n        \"No\"",
+          "options": [
+            {
+              "value": "Yes",
+              "label": "Yes"
+            },
+            {
+              "value": "No",
+              "label": "No"
+            }
+          ],
+          "enum_value_type": "string"
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": true
+          },
+          "score_threshold": 0.0,
+          "default_value": "No",
+          "category": "datapoint",
+          "id": "enforce_draft",
+          "label": "Enforce Draft",
+          "type": "enum",
+          "ui_configuration": {
+            "type": "manual",
+            "edit": "enabled"
+          },
+          "options": [
+            {
+              "value": "Yes",
+              "label": "Yes"
+            },
+            {
+              "value": "No",
+              "label": "No"
+            }
+          ]
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "score_threshold": 0.0,
+          "default_value": "rosssum_draft",
+          "category": "datapoint",
+          "id": "rossum_tag",
+          "label": "Rossum Tag",
+          "hidden": true,
+          "type": "enum",
+          "ui_configuration": {
+            "type": "formula",
+            "edit": "disabled"
+          },
+          "formula": "if field.sf_submit_for_approval == 'Yes':\n    'rossum_submit'\nelse:\n    'rossum_draft'",
+          "options": [
+            {
+              "value": "rossum_draft",
+              "label": "Rossum Draft"
+            },
+            {
+              "value": "rossum_submit",
+              "label": "Rossum Submit"
+            }
+          ]
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "default_value": "False",
+          "category": "datapoint",
+          "id": "line_level_taxation",
+          "label": "Line level taxation",
+          "hidden": true,
+          "type": "string",
+          "ui_configuration": {
+            "type": "data",
+            "edit": "disabled"
+          }
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "quantity_header_calculated",
+          "label": "Quantity Header (calculated)",
+          "hidden": true,
+          "type": "number",
+          "ui_configuration": {
+            "type": "formula",
+            "edit": "disabled"
+          },
+          "formula": "1",
+          "format": "#,##0.#"
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "po_line_number_match",
+          "label": "PO Line number (Coupa)",
+          "hidden": true,
+          "type": "enum",
+          "ui_configuration": {
+            "type": "data",
+            "edit": "disabled"
+          },
+          "options": []
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": true
+          },
+          "default_value": null,
+          "category": "datapoint",
+          "id": "line_type",
+          "label": "Invoice Line Type",
+          "hidden": true,
+          "type": "string",
+          "can_export": true,
+          "ui_configuration": {
+            "type": "formula",
+            "edit": "disabled"
+          },
+          "formula": "if  field.po_line_type_match == 'OrderAmountLine':\n    \"InvoiceAmountLine\"\nelse:\n    \"InvoiceQuantityLine\""
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "po_line_type_match",
+          "label": "PO Line type (Coupa)",
+          "hidden": true,
+          "type": "enum",
+          "ui_configuration": {
+            "type": "data",
+            "edit": "disabled"
+          },
+          "options": []
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "po_line_recipient_name_match",
+          "label": "PO Line Customer Name (Coupa)",
+          "hidden": true,
+          "type": "enum",
+          "ui_configuration": {
+            "type": "data",
+            "edit": "disabled"
+          },
+          "options": []
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "po_line_recipient_match",
+          "label": "PO Line Customer (Coupa)",
+          "hidden": true,
+          "type": "enum",
+          "ui_configuration": {
+            "type": "data",
+            "edit": "disabled"
+          },
+          "options": [],
+          "enum_value_type": "number"
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "po_line_supplier_match",
+          "label": "PO Line Supplier (Coupa)",
+          "hidden": true,
+          "type": "enum",
+          "ui_configuration": {
+            "type": "data",
+            "edit": "disabled"
+          },
+          "options": [],
+          "enum_value_type": "number"
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "po_line_supplier_name_match",
+          "label": "PO Line Supplier Name (Coupa)",
+          "hidden": true,
+          "type": "enum",
+          "ui_configuration": {
+            "type": "data",
+            "edit": "disabled"
+          },
+          "options": []
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "po_line_supplier_display_name_match",
+          "label": "PO Line Supplier Display Name (Coupa)",
+          "hidden": true,
+          "type": "enum",
+          "ui_configuration": {
+            "type": "data",
+            "edit": "disabled"
+          },
+          "options": []
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "po_line_total_match",
+          "label": "PO Line Net Total (Coupa)",
+          "hidden": true,
+          "type": "enum",
+          "ui_configuration": {
+            "type": "data",
+            "edit": "disabled"
+          },
+          "options": []
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "po_line_price_match",
+          "label": "PO Line Price (Coupa)",
+          "hidden": true,
+          "type": "enum",
+          "ui_configuration": {
+            "type": "data",
+            "edit": "disabled"
+          },
+          "options": []
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "po_line_description_match",
+          "label": "PO Line Description (Coupa)",
+          "hidden": true,
+          "type": "enum",
+          "ui_configuration": {
+            "type": "data",
+            "edit": "disabled"
+          },
+          "options": []
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "po_line_quantity_match",
+          "label": "PO Line Quantity (Coupa)",
+          "hidden": true,
+          "type": "enum",
+          "ui_configuration": {
+            "type": "data",
+            "edit": "disabled"
+          },
+          "options": []
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "quantity_export",
+          "label": "Quantity (Coupa)",
+          "hidden": false,
+          "type": "number",
+          "can_export": true,
+          "ui_configuration": {
+            "type": "formula",
+            "edit": "disabled"
+          },
+          "formula": "round(field.quantity_header_calculated,6)",
+          "format": "#,##0.#"
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "price_export",
+          "label": "Price (Coupa)",
+          "hidden": false,
+          "type": "number",
+          "can_export": true,
+          "ui_configuration": {
+            "type": "formula",
+            "edit": "disabled"
+          },
+          "formula": "round(field.amount_total_base_calculated, 6)",
+          "format": "#,##0.#"
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "score_threshold": 0.0,
+          "default_value": "EA",
+          "category": "datapoint",
+          "id": "uom_export",
+          "label": "Item UOM (Coupa)",
+          "hidden": true,
+          "type": "string",
+          "ui_configuration": {
+            "type": "formula",
+            "edit": "disabled"
+          },
+          "formula": "if field.po_line_uom_match:\n   field.po_line_uom_match\nelse: \n    \"EA\""
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "recipient_mismatch_tag",
+          "label": "PO x Invoice Customer Mismatch Tag",
+          "type": "enum",
+          "ui_configuration": {
+            "type": "formula",
+            "edit": "disabled"
+          },
+          "formula": "if any(field.item_recipient_mismatch_tag.all_values) or (field.po_line_recipient_match and field.recipient_match and field.po_line_recipient_match != field.recipient_match):\n    \"recipient_mismatch\"\nelse: \n    \"\"",
+          "options": [
+            {
+              "value": "",
+              "label": "---"
+            },
+            {
+              "value": "recipient_mismatch",
+              "label": "PO x Invoice Customer Mismatch"
+            }
+          ]
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "supplier_mismatch_tag",
+          "label": "PO x Invoice Supplier Mismatch Tag",
+          "hidden": false,
+          "type": "enum",
+          "can_export": true,
+          "ui_configuration": {
+            "type": "formula",
+            "edit": "disabled"
+          },
+          "formula": "if any(field.item_supplier_mismatch_tag.all_values) or (field.po_line_supplier_match and field.sender_match and field.po_line_supplier_match != field.sender_match):\n    \"supplier_mismatch\"\nelse: \n    \"\"",
+          "options": [
+            {
+              "value": "",
+              "label": "---"
+            },
+            {
+              "value": "supplier_mismatch",
+              "label": "PO x Invoice Supplier Mismatch"
+            }
+          ],
+          "enum_value_type": "string"
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "inactive_po_line_tag",
+          "label": "PO Line Inactive Tag",
+          "hidden": true,
+          "type": "enum",
+          "ui_configuration": {
+            "type": "formula",
+            "edit": "disabled"
+          },
+          "formula": "if  not is_empty(field.order_item_match) and field.po_line_status_match \\\n    not in ('partially_received', 'received', 'soft_closed_for_receiving','created') or \\\n    any(field.item_inactive_po_line_tag.all_values):\n        \"po_line_inactive\"",
+          "options": [
+            {
+              "value": "",
+              "label": "---"
+            },
+            {
+              "value": "po_line_inactive",
+              "label": "PO Line Inactive"
+            }
+          ]
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "inv_total_issue_tag",
+          "label": "Inv. Total Issue Tag",
+          "hidden": true,
+          "type": "enum",
+          "ui_configuration": {
+            "type": "formula",
+            "edit": "disabled"
+          },
+          "formula": "if abs(field.coupa_total_calculated) != abs(default_to(field.amount_total, field.coupa_total_calculated)):\n    \"inv_total_issue\"",
+          "options": [
+            {
+              "value": "",
+              "label": "---"
+            },
+            {
+              "value": "inv_total_issue",
+              "label": "Inv. Total Issue"
+            }
+          ]
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "duplicate_invoice_statuses",
+          "label": "Coupa Duplicate Invoice Statuses",
+          "hidden": true,
+          "type": "enum",
+          "can_export": false,
+          "ui_configuration": {
+            "type": "data",
+            "edit": "enabled"
+          },
+          "options": [],
+          "enum_value_type": "string"
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "coupa_invoices_statuses",
+          "label": "Coupa Invoices Statuses",
+          "hidden": false,
+          "type": "string",
+          "can_export": true,
+          "ui_configuration": {
+            "type": "formula",
+            "edit": "disabled"
+          },
+          "formula": "unique = []\nseen = set()\n\nfor opt in field.duplicate_invoice_statuses.attr.options:\n    val = opt.value\n    if val not in seen:\n        seen.add(val)\n        unique.append(val)\n\nresult = \", \".join(unique)\nresult"
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "score_threshold": 0.0,
+          "default_value": "false",
+          "category": "datapoint",
+          "id": "is_duplicate",
+          "label": "Duplicate",
+          "hidden": false,
+          "type": "enum",
+          "can_export": true,
+          "ui_configuration": {
+            "type": "data",
+            "edit": "disabled"
+          },
+          "options": [
+            {
+              "value": "true",
+              "label": "true"
+            },
+            {
+              "value": "false",
+              "label": "false"
+            }
+          ],
+          "enum_value_type": "string"
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "charges_tag",
+          "label": "Charges Tag",
+          "hidden": true,
+          "type": "enum",
+          "ui_configuration": {
+            "type": "data",
+            "edit": "disabled"
+          },
+          "options": [
+            {
+              "value": "",
+              "label": "---"
+            },
+            {
+              "value": "charges",
+              "label": "charges"
+            }
+          ]
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "enforced_draft_tag",
+          "label": "Enforced Draft Tag",
+          "hidden": true,
+          "type": "enum",
+          "ui_configuration": {
+            "type": "formula",
+            "edit": "disabled"
+          },
+          "formula": "if field.enforce_draft == \"Yes\":\n    \"enforced_draft\"",
+          "options": [
+            {
+              "value": "",
+              "label": "---"
+            },
+            {
+              "value": "enforced_draft",
+              "label": "enforced_draft"
+            }
+          ]
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "line_items_present",
+          "label": "Line Items?",
+          "hidden": true,
+          "type": "enum",
+          "ui_configuration": {
+            "type": "formula",
+            "edit": "disabled"
+          },
+          "formula": "if len(field.line_items) > 0:\n    \"true\"\nelse: \n    \"false\"",
+          "options": [
+            {
+              "value": "true",
+              "label": "true"
+            },
+            {
+              "value": "false",
+              "label": "false"
+            }
+          ]
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "default_value": null,
+          "category": "datapoint",
+          "id": "po_backed",
+          "label": "PO backed?",
+          "hidden": true,
+          "type": "enum",
+          "can_export": true,
+          "ui_configuration": {
+            "type": "formula",
+            "edit": "disabled"
+          },
+          "formula": "if not is_empty(field.order_header_match) or any(field.item_order_header_match.all_values):\n    \"true\"\nelse:\n    \"false\"",
+          "options": [
+            {
+              "value": "true",
+              "label": "true"
+            },
+            {
+              "value": "false",
+              "label": "false"
+            }
+          ],
+          "enum_value_type": "string"
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "fully_tax_coded",
+          "label": "Tax Coded?",
+          "hidden": true,
+          "type": "enum",
+          "can_export": true,
+          "ui_configuration": {
+            "type": "formula",
+            "edit": "disabled"
+          },
+          "formula": "if  (is_set(field.tax_code_match) or (field.line_items_present == 'true' and all(field.item_tax_code_match.all_values))):\n        \"true\"\nelse:\n        \"false\"",
+          "options": [
+            {
+              "value": "true",
+              "label": "true"
+            },
+            {
+              "value": "false",
+              "label": "false"
+            }
+          ],
+          "enum_value_type": "string"
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "po_closed",
+          "label": "PO Closed?",
+          "hidden": true,
+          "type": "enum",
+          "ui_configuration": {
+            "type": "formula",
+            "edit": "disabled"
+          },
+          "formula": "if field.order_header_status_match in ('soft_closed','closed', 'cancelled'):\n    \"true\"\nelse:\n    \"false\"",
+          "options": [
+            {
+              "value": "true",
+              "label": "true"
+            },
+            {
+              "value": "false",
+              "label": "false"
+            }
+          ]
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "default_value": null,
+          "category": "datapoint",
+          "id": "api1_status",
+          "label": "API 1 Coupa status",
+          "hidden": true,
+          "type": "string",
+          "can_export": true,
+          "ui_configuration": {
+            "type": "data",
+            "edit": "disabled"
+          }
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "default_value": null,
+          "category": "datapoint",
+          "id": "api1_status_code",
+          "label": "API 1 status code",
+          "hidden": true,
+          "type": "string",
+          "can_export": true,
+          "ui_configuration": {
+            "type": "data",
+            "edit": "disabled"
+          }
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "default_value": null,
+          "category": "datapoint",
+          "id": "api1_response_body",
+          "label": "API 1 response body",
+          "hidden": true,
+          "type": "string",
+          "can_export": true,
+          "ui_configuration": {
+            "type": "data",
+            "edit": "disabled"
+          }
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "api2_url",
+          "label": "API 2 URL",
+          "hidden": true,
+          "type": "string",
+          "can_export": true,
+          "ui_configuration": {
+            "type": "formula",
+            "edit": "disabled"
+          },
+          "formula": "if field.coupa_invoice_id:\n    f\"{field.coupa_api_base_url}api/invoices/{field.coupa_invoice_id}/image_scan\"\nelse:\n    \"\""
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "default_value": null,
+          "category": "datapoint",
+          "id": "api2_status_code",
+          "label": "API 2 Status Code",
+          "hidden": true,
+          "type": "string",
+          "can_export": true,
+          "ui_configuration": {
+            "type": "data",
+            "edit": "enabled"
+          }
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "default_value": null,
+          "category": "datapoint",
+          "id": "api2_gate",
+          "label": "API 2 Gate",
+          "hidden": true,
+          "type": "string",
+          "can_export": true,
+          "ui_configuration": {
+            "type": "formula",
+            "edit": "disabled"
+          },
+          "formula": "if field.api1_status_code == \"201\":\n    \"API 2 allowed\"\nelse:\n    \"\""
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "api2_response_body",
+          "label": "API 2 response body",
+          "hidden": true,
+          "type": "string",
+          "can_export": true,
+          "ui_configuration": {
+            "type": "data",
+            "edit": "disabled"
+          }
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "api3_url",
+          "label": "API 3 URL",
+          "hidden": true,
+          "type": "string",
+          "can_export": true,
+          "ui_configuration": {
+            "type": "formula",
+            "edit": "disabled"
+          },
+          "formula": "if field.coupa_invoice_id:\n    f\"{field.coupa_api_base_url}api/invoices/{field.coupa_invoice_id}/attachments\"\nelse:\n    \"\""
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "default_value": null,
+          "category": "datapoint",
+          "id": "api3_status_code",
+          "label": "API 3 Status Code",
+          "hidden": true,
+          "type": "string",
+          "can_export": true,
+          "ui_configuration": {
+            "type": "data",
+            "edit": "disabled"
+          }
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "api3_response_body",
+          "label": "API 3 response body",
+          "hidden": true,
+          "type": "string",
+          "can_export": true,
+          "ui_configuration": {
+            "type": "data",
+            "edit": "disabled"
+          }
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "default_value": null,
+          "category": "datapoint",
+          "id": "api4_status_code",
+          "label": "API 4 Status Code",
+          "hidden": true,
+          "type": "string",
+          "can_export": true,
+          "ui_configuration": {
+            "type": "data",
+            "edit": "disabled"
+          }
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "api4_gate",
+          "label": "API 4 Gate",
+          "hidden": true,
+          "type": "string",
+          "can_export": true,
+          "ui_configuration": {
+            "type": "formula",
+            "edit": "disabled"
+          },
+          "formula": "if field.api1_status_code == \"201\" and field.sf_submit_for_approval == \"Yes\":\n    \"API 4 allowed\"\nelse:\n    \"\""
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "api4_url",
+          "label": "API 4 URL",
+          "hidden": true,
+          "type": "string",
+          "can_export": true,
+          "ui_configuration": {
+            "type": "formula",
+            "edit": "disabled"
+          },
+          "formula": "if field.coupa_invoice_id:\n    f\"{field.coupa_api_base_url}api/invoices/{field.coupa_invoice_id}/submit\"\nelse:\n    \"\""
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "default_value": null,
+          "category": "datapoint",
+          "id": "api4_response_body",
+          "label": "API 4 response body",
+          "hidden": true,
+          "type": "string",
+          "can_export": true,
+          "ui_configuration": {
+            "type": "data",
+            "edit": "disabled"
+          }
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "default_value": null,
+          "category": "datapoint",
+          "id": "coupa_invoice_id",
+          "label": "Coupa Invoice ID",
+          "hidden": true,
+          "type": "string",
+          "can_export": true,
+          "ui_configuration": {
+            "type": "data",
+            "edit": "disabled"
+          }
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "coupa_api_base_url",
+          "label": "Coupa API Base URL",
+          "hidden": true,
+          "type": "string",
+          "can_export": true,
+          "ui_configuration": {
+            "type": "formula",
+            "edit": "disabled"
+          },
+          "formula": "\"https://rossum-czech-coupalink.coupacloud.com/\""
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "oauth_url",
+          "label": "oAuth URL",
+          "hidden": true,
+          "type": "string",
+          "can_export": true,
+          "ui_configuration": {
+            "type": "formula",
+            "edit": "disabled"
+          },
+          "formula": "f\"{field.coupa_api_base_url}oauth2/token\""
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "create_draft_url",
+          "label": "Create Draft URL",
+          "hidden": true,
+          "type": "string",
+          "can_export": true,
+          "ui_configuration": {
+            "type": "formula",
+            "edit": "disabled"
+          },
+          "formula": "f\"{field.coupa_api_base_url}api/invoices\""
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "default_value": null,
+          "category": "datapoint",
+          "id": "original_file_name",
+          "label": "Original File Name",
+          "hidden": true,
+          "type": "string",
+          "can_export": true,
+          "ui_configuration": {
+            "type": "data",
+            "edit": "disabled"
+          }
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "rossum_annotation_link",
+          "label": "Rossum Annotation Link",
+          "hidden": true,
+          "type": "string",
+          "can_export": true,
+          "ui_configuration": {
+            "type": "data",
+            "edit": "enabled"
+          }
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "oauth_client_id",
+          "label": "OAuth Client ID",
+          "hidden": true,
+          "type": "string",
+          "can_export": true,
+          "ui_configuration": {
+            "type": "formula",
+            "edit": "disabled"
+          },
+          "formula": "\"ef7262b7624a011ec6eb1178c28e1a0b\""
+        }
+      ],
+      "icon": null
+    }
+  ],
+  "metadata": {},
+  "modified_by": "https://cib.rossum.app/api/v1/users/146087"
+}

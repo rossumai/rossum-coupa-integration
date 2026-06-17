@@ -1,0 +1,39 @@
+{
+  "url": "https://cib.rossum.app/api/v1/rules/6778",
+  "id": 6778,
+  "name": "TEST - Invoice Number Manual Too Long (CIB)",
+  "description": "",
+  "enabled": true,
+  "trigger_condition": "MAX_CHARS = 40\n(\n  not is_empty(field.document_id_manual)\n  and len(str(field.document_id_manual)) > MAX_CHARS\n)",
+  "actions": [
+    {
+      "id": "56348ee4-ba91-4b1e-8354-418b1a40bd53",
+      "enabled": true,
+      "type": "show_message",
+      "event": "validation",
+      "payload": {
+        "type": "error",
+        "content": "The value cannot contain more than 40 characters.",
+        "schema_id": "document_id_manual"
+      }
+    },
+    {
+      "id": "3c161ffb-a32f-4c67-9b20-1f5ba027c8b7",
+      "enabled": true,
+      "type": "add_automation_blocker",
+      "event": "validation",
+      "payload": {
+        "content": "The value cannot contain more than 40 characters.",
+        "schema_id": "document_id_manual"
+      }
+    }
+  ],
+  "organization": "https://cib.rossum.app/api/v1/organizations/262116",
+  "modified_by": "https://cib.rossum.app/api/v1/users/146087",
+  "created_by": "https://cib.rossum.app/api/v1/users/146087",
+  "queues": [
+    "https://cib.rossum.app/api/v1/queues/1260377",
+    "https://cib.rossum.app/api/v1/queues/1260388"
+  ],
+  "created_at": "2026-04-17T11:55:34.089109Z"
+}

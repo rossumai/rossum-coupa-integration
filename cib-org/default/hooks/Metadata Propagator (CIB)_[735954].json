@@ -1,0 +1,55 @@
+{
+  "id": 735954,
+  "type": "function",
+  "name": "Metadata Propagator (CIB)",
+  "url": "https://cib.rossum.app/api/v1/hooks/735954",
+  "description": "",
+  "settings": {},
+  "active": true,
+  "events": [
+    "annotation_content.initialize",
+    "annotation_content.started"
+  ],
+  "queues": [
+    "https://cib.rossum.app/api/v1/queues/1260377",
+    "https://cib.rossum.app/api/v1/queues/1260388"
+  ],
+  "run_after": [],
+  "metadata": {},
+  "config": {
+    "schedule": {
+      "cron": ""
+    },
+    "app": null,
+    "payload_logging_enabled": false,
+    "timeout_s": 30,
+    "max_polling_time_s": 300,
+    "retry_count": 4,
+    "retry_after_polling_failure": true,
+    "runtime": "python3.12",
+    "code": "\"\"\"\nThis custom serverless function example demonstrates showing messages to the\nuser on the validation screen, updating values of specific fields, and\nexecuting actions on the annotation.\n\nSee https://elis.rossum.ai/api/docs/#rossum-transaction-scripts for more examples.\n\"\"\"\n\nfrom txscript import TxScript, default_to, substitute\n\ndef rossum_hook_request_handler(payload: dict) -> dict:\n    t = TxScript.from_payload(payload)\n\n    annotation_path = \"/document/\"\n    \n    # Updates Coupa Technical fields:\n    # Rossum annotation link: URL that opens the annotation from Coupa\n    # Original_file_name: uploaded file name\n    \n    t.field.rossum_annotation_link = payload.get(\"base_url\") + annotation_path + str(t.annotation.id)\n    #print(f'Annotation URL is {t.field.rossum_annotation_link}')\n    t.field.original_file_name = payload.get(\"document\").get(\"original_file_name\")\n    #print(f'File name is {t.field.original_file_name}')\n\n    return t.hook_response()",
+    "third_party_library_pack": "default",
+    "memory_size_mb": 256
+  },
+  "test": {},
+  "sideload": [
+    "schemas"
+  ],
+  "settings_schema": null,
+  "secrets_schema": {
+    "type": "object",
+    "additionalProperties": {
+      "type": "string"
+    }
+  },
+  "token_owner": null,
+  "extension_source": "custom",
+  "guide": null,
+  "read_more_url": null,
+  "extension_image_url": null,
+  "token_lifetime_s": null,
+  "hook_template": null,
+  "created_by": "https://cib.rossum.app/api/v1/users/331619",
+  "created_at": "2025-06-27T13:29:36.092969Z",
+  "modified_by": "https://cib.rossum.app/api/v1/users/331619"
+}

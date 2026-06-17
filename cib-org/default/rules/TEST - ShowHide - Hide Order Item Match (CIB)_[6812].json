@@ -1,0 +1,29 @@
+{
+  "url": "https://cib.rossum.app/api/v1/rules/6812",
+  "id": 6812,
+  "name": "TEST - ShowHide - Hide Order Item Match (CIB)",
+  "description": "",
+  "enabled": true,
+  "trigger_condition": "field.line_items_present == 'false'",
+  "actions": [
+    {
+      "id": "83deb389-712d-4be4-adf2-c826480082f2",
+      "enabled": true,
+      "type": "show_hide_field",
+      "event": "validation",
+      "payload": {
+        "schema_ids": [
+          "order_item_match"
+        ]
+      }
+    }
+  ],
+  "organization": "https://cib.rossum.app/api/v1/organizations/262116",
+  "modified_by": "https://cib.rossum.app/api/v1/users/146087",
+  "created_by": "https://cib.rossum.app/api/v1/users/146087",
+  "queues": [
+    "https://cib.rossum.app/api/v1/queues/1260377",
+    "https://cib.rossum.app/api/v1/queues/1260388"
+  ],
+  "created_at": "2026-04-17T12:21:13.138938Z"
+}

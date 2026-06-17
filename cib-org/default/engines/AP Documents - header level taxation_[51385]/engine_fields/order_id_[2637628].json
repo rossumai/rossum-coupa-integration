@@ -1,0 +1,12 @@
+{
+  "id": 2637628,
+  "url": "https://cib.rossum.app/api/v1/engine_fields/2637628",
+  "engine": "https://cib.rossum.app/api/v1/engines/51385",
+  "name": "order_id",
+  "label": "PO Number",
+  "type": "string",
+  "subtype": "alphanumeric",
+  "pre_trained_field_id": "order_id",
+  "tabular": false,
+  "multiline": "false"
+}

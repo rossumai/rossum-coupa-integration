@@ -1,0 +1,12 @@
+{
+  "id": 2637426,
+  "url": "https://cib.rossum.app/api/v1/engine_fields/2637426",
+  "engine": "https://cib.rossum.app/api/v1/engines/51381",
+  "name": "customer_id",
+  "label": "Customer ID",
+  "type": "string",
+  "subtype": "alphanumeric",
+  "pre_trained_field_id": "customer_id",
+  "tabular": false,
+  "multiline": "false"
+}

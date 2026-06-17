@@ -1,0 +1,39 @@
+{
+  "url": "https://cib.rossum.app/api/v1/rules/6788",
+  "id": 6788,
+  "name": "TEST - PO Not Found in Coupa (CIB)",
+  "description": "",
+  "enabled": true,
+  "trigger_condition": "(\n  not is_empty(field.order_id_calculated)\n  and is_empty(field.order_header_match)\n)",
+  "actions": [
+    {
+      "id": "45fc3795-0897-463a-b0de-e0823623b222",
+      "enabled": true,
+      "type": "show_message",
+      "event": "validation",
+      "payload": {
+        "type": "warning",
+        "content": "The PO does not exist in Coupa. Please double-check.",
+        "schema_id": "order_id_calculated"
+      }
+    },
+    {
+      "id": "2ba3812f-b58b-4558-b6b3-29e35a0c75c3",
+      "enabled": true,
+      "type": "add_automation_blocker",
+      "event": "validation",
+      "payload": {
+        "content": "The PO does not exist in Coupa. Please double-check.",
+        "schema_id": "order_id_calculated"
+      }
+    }
+  ],
+  "organization": "https://cib.rossum.app/api/v1/organizations/262116",
+  "modified_by": "https://cib.rossum.app/api/v1/users/146087",
+  "created_by": "https://cib.rossum.app/api/v1/users/146087",
+  "queues": [
+    "https://cib.rossum.app/api/v1/queues/1260377",
+    "https://cib.rossum.app/api/v1/queues/1260388"
+  ],
+  "created_at": "2026-04-17T11:55:35.801575Z"
+}

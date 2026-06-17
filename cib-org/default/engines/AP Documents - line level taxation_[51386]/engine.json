@@ -1,0 +1,16 @@
+{
+  "id": 51386,
+  "url": "https://cib.rossum.app/api/v1/engines/51386",
+  "organization": "https://cib.rossum.app/api/v1/organizations/262116",
+  "name": "AP Documents - line level taxation",
+  "type": "extractor",
+  "learning_enabled": true,
+  "training_queues": [
+    "https://cib.rossum.app/api/v1/queues/1260377"
+  ],
+  "description": "",
+  "agenda_id": "coup_baf90251",
+  "settings": {
+    "use_case": "coupa_line_level"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "url": "https://cib.rossum.app/api/v1/rules/6783",
+  "id": 6783,
+  "name": "TEST - Coupa Duplicate Found (CIB)",
+  "description": "",
+  "enabled": true,
+  "trigger_condition": "not is_empty(field.coupa_invoices_statuses)",
+  "actions": [
+    {
+      "id": "0831eee5-f34c-4163-bcae-92fd16fa24c6",
+      "enabled": true,
+      "type": "show_message",
+      "event": "validation",
+      "payload": {
+        "type": "warning",
+        "content": "The Coupa duplicates check found duplicate invoices in Coupa. Please double-check.",
+        "schema_id": "coupa_invoices_statuses"
+      }
+    },
+    {
+      "id": "ebdaf407-a952-4b1a-a237-78ce1450ee33",
+      "enabled": true,
+      "type": "add_automation_blocker",
+      "event": "validation",
+      "payload": {
+        "content": "The Coupa duplicates check found duplicate invoices in Coupa. Please double-check.",
+        "schema_id": "coupa_invoices_statuses"
+      }
+    }
+  ],
+  "organization": "https://cib.rossum.app/api/v1/organizations/262116",
+  "modified_by": "https://cib.rossum.app/api/v1/users/146087",
+  "created_by": "https://cib.rossum.app/api/v1/users/146087",
+  "queues": [
+    "https://cib.rossum.app/api/v1/queues/1260377",
+    "https://cib.rossum.app/api/v1/queues/1260388"
+  ],
+  "created_at": "2026-04-17T11:55:34.943301Z"
+}

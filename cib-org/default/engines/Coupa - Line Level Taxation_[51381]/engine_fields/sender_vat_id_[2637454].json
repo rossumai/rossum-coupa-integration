@@ -1,0 +1,12 @@
+{
+  "id": 2637454,
+  "url": "https://cib.rossum.app/api/v1/engine_fields/2637454",
+  "engine": "https://cib.rossum.app/api/v1/engines/51381",
+  "name": "sender_vat_id",
+  "label": "Vendor VAT Number",
+  "type": "string",
+  "subtype": "vat_number",
+  "pre_trained_field_id": "sender_vat_id",
+  "tabular": false,
+  "multiline": "false"
+}

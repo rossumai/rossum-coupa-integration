@@ -1,0 +1,38 @@
+{
+  "url": "https://cib.rossum.app/api/v1/rules/6807",
+  "id": 6807,
+  "name": "TEST - Total Without Tax Not Equal to Sum of Item Totals (CIB)",
+  "description": "",
+  "enabled": true,
+  "trigger_condition": "(\n  not is_empty(field.amount_total_base)\n  and round(field.amount_total_base, 2) != round(\n    sum([default_to(v, 0) for v in field.item_total_base.all_values]),\n    2\n  )\n)",
+  "actions": [
+    {
+      "id": "b21ed514-d1aa-4ca5-8dd3-989faa3a60f1",
+      "enabled": true,
+      "type": "show_message",
+      "event": "validation",
+      "payload": {
+        "type": "warning",
+        "content": "Total Without Tax is not equal to the sum of the item totals.",
+        "schema_id": "amount_total_base"
+      }
+    },
+    {
+      "id": "b21deefa-9a9e-44d1-a186-f955db0a03a4",
+      "enabled": true,
+      "type": "add_automation_blocker",
+      "event": "validation",
+      "payload": {
+        "content": "Total Without Tax is not equal to the sum of the item totals.",
+        "schema_id": "amount_total_base"
+      }
+    }
+  ],
+  "organization": "https://cib.rossum.app/api/v1/organizations/262116",
+  "modified_by": "https://cib.rossum.app/api/v1/users/146087",
+  "created_by": "https://cib.rossum.app/api/v1/users/146087",
+  "queues": [
+    "https://cib.rossum.app/api/v1/queues/1260377"
+  ],
+  "created_at": "2026-04-17T11:55:39.133647Z"
+}

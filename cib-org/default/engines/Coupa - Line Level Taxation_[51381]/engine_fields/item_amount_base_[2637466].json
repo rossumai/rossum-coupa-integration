@@ -1,0 +1,12 @@
+{
+  "id": 2637466,
+  "url": "https://cib.rossum.app/api/v1/engine_fields/2637466",
+  "engine": "https://cib.rossum.app/api/v1/engines/51381",
+  "name": "item_amount_base",
+  "label": "Unit Price Base",
+  "type": "number",
+  "subtype": "amount",
+  "pre_trained_field_id": "table_column_amount_base",
+  "tabular": true,
+  "multiline": "false"
+}

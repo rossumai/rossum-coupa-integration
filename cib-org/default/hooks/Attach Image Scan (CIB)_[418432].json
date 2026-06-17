@@ -1,0 +1,91 @@
+{
+  "id": 418432,
+  "type": "webhook",
+  "name": "Attach Image Scan (CIB)",
+  "url": "https://cib.rossum.app/api/v1/hooks/418432",
+  "description": "",
+  "settings": {
+    "auth": {
+      "url": "@{oauth_url}",
+      "data": {
+        "scope": "core.invoice.create core.invoice.read core.invoice.write",
+        "client_id": "@{oauth_client_id}",
+        "grant_type": "client_credentials",
+        "client_secret": "{secret.client_secret}"
+      },
+      "method": "POST",
+      "headers": {
+        "Content-Type": "application/x-www-form-urlencoded"
+      }
+    },
+    "request": {
+      "url": "@{api2_url}",
+      "method": "PUT",
+      "headers": {
+        "ACCEPT": "application/json",
+        "Content-Type": "multipart/form-data; boundary=--------------------------423983229254890990801073"
+      },
+      "file_key": "file",
+      "file_name": "@{original_file_name}",
+      "file_content": "#{original_file}"
+    },
+    "condition": "@{api2_gate}",
+    "response_headers_reference_key": "attach_image_scan_reply_headers",
+    "response_payload_reference_key": "attach_image_scan_reply_payload"
+  },
+  "active": true,
+  "events": [
+    "annotation_content.export"
+  ],
+  "queues": [
+    "https://cib.rossum.app/api/v1/queues/1260377",
+    "https://cib.rossum.app/api/v1/queues/1260388"
+  ],
+  "run_after": [
+    "https://cib.rossum.app/api/v1/hooks/418431"
+  ],
+  "metadata": {},
+  "config": {
+    "schedule": {
+      "cron": ""
+    },
+    "app": null,
+    "payload_logging_enabled": true,
+    "timeout_s": 60,
+    "max_polling_time_s": 300,
+    "retry_count": 0,
+    "retry_after_polling_failure": true,
+    "url": "https://shared-eu2.rest-api-export.rossum-ext.app",
+    "secret": null,
+    "insecure_ssl": false,
+    "client_ssl_certificate": null,
+    "retry_on_any_non_2xx": false
+  },
+  "test": {},
+  "sideload": [
+    "schemas"
+  ],
+  "settings_schema": null,
+  "secrets_schema": {
+    "type": "object",
+    "properties": {
+      "client_secret": {
+        "type": "string",
+        "description": "Coupa OAuth Client Secret"
+      }
+    },
+    "additionalProperties": {
+      "type": "string"
+    }
+  },
+  "token_owner": "https://cib.rossum.app/api/v1/users/282705",
+  "extension_source": "custom",
+  "guide": null,
+  "read_more_url": null,
+  "extension_image_url": null,
+  "token_lifetime_s": null,
+  "hook_template": null,
+  "created_by": null,
+  "created_at": null,
+  "modified_by": "https://cib.rossum.app/api/v1/users/282705"
+}

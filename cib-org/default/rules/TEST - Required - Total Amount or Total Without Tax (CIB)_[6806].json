@@ -1,0 +1,28 @@
+{
+  "url": "https://cib.rossum.app/api/v1/rules/6806",
+  "id": 6806,
+  "name": "TEST - Required - Total Amount or Total Without Tax (CIB)",
+  "description": "",
+  "enabled": true,
+  "trigger_condition": "(\n  is_empty(field.amount_total)\n  and is_empty(field.amount_total_base)\n)",
+  "actions": [
+    {
+      "id": "adaef9d0-6332-48fa-bb10-f856572f09c5",
+      "enabled": true,
+      "type": "show_message",
+      "event": "validation",
+      "payload": {
+        "type": "error",
+        "content": "Total Amount or Total Without Tax must be present.",
+        "schema_id": "amount_total"
+      }
+    }
+  ],
+  "organization": "https://cib.rossum.app/api/v1/organizations/262116",
+  "modified_by": "https://cib.rossum.app/api/v1/users/146087",
+  "created_by": "https://cib.rossum.app/api/v1/users/146087",
+  "queues": [
+    "https://cib.rossum.app/api/v1/queues/1260377"
+  ],
+  "created_at": "2026-04-17T11:55:38.936296Z"
+}

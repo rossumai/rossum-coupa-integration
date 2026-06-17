@@ -1,0 +1,12 @@
+{
+  "id": 2637463,
+  "url": "https://cib.rossum.app/api/v1/engine_fields/2637463",
+  "engine": "https://cib.rossum.app/api/v1/engines/51381",
+  "name": "item_description",
+  "label": "Description",
+  "type": "string",
+  "subtype": "",
+  "pre_trained_field_id": "table_column_description",
+  "tabular": true,
+  "multiline": "true"
+}

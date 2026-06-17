@@ -1,0 +1,39 @@
+{
+  "url": "https://cib.rossum.app/api/v1/rules/6775",
+  "id": 6775,
+  "name": "TEST - Duplicate Detected (CIB)",
+  "description": "",
+  "enabled": true,
+  "trigger_condition": "not is_empty(field.is_duplicate) and field.is_duplicate == 'true'",
+  "actions": [
+    {
+      "id": "224585b0-38a8-4855-9481-551b93664159",
+      "enabled": true,
+      "type": "show_message",
+      "event": "validation",
+      "payload": {
+        "type": "warning",
+        "content": "Duplicate detected. Blocking automation.",
+        "schema_id": "document_id"
+      }
+    },
+    {
+      "id": "8e7225e0-b1ba-4383-84a7-01f65841927f",
+      "enabled": true,
+      "type": "add_automation_blocker",
+      "event": "validation",
+      "payload": {
+        "content": "Duplicate detected. Blocking automation.",
+        "schema_id": "document_id"
+      }
+    }
+  ],
+  "organization": "https://cib.rossum.app/api/v1/organizations/262116",
+  "modified_by": "https://cib.rossum.app/api/v1/users/146087",
+  "created_by": "https://cib.rossum.app/api/v1/users/146087",
+  "queues": [
+    "https://cib.rossum.app/api/v1/queues/1260377",
+    "https://cib.rossum.app/api/v1/queues/1260388"
+  ],
+  "created_at": "2026-04-17T11:55:33.558618Z"
+}

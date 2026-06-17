@@ -1,0 +1,12 @@
+{
+  "id": 2637429,
+  "url": "https://cib.rossum.app/api/v1/engine_fields/2637429",
+  "engine": "https://cib.rossum.app/api/v1/engines/51381",
+  "name": "delivery_note_id",
+  "label": "Delivery Note ID",
+  "type": "string",
+  "subtype": "",
+  "pre_trained_field_id": "delivery_note_id",
+  "tabular": false,
+  "multiline": "false"
+}

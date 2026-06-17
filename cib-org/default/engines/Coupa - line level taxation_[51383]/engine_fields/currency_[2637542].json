@@ -1,0 +1,12 @@
+{
+  "id": 2637542,
+  "url": "https://cib.rossum.app/api/v1/engine_fields/2637542",
+  "engine": "https://cib.rossum.app/api/v1/engines/51383",
+  "name": "currency",
+  "label": "Currency",
+  "type": "enum",
+  "subtype": null,
+  "pre_trained_field_id": "currency",
+  "tabular": false,
+  "multiline": "false"
+}

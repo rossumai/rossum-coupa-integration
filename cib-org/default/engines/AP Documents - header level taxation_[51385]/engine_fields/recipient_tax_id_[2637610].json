@@ -1,0 +1,12 @@
+{
+  "id": 2637610,
+  "url": "https://cib.rossum.app/api/v1/engine_fields/2637610",
+  "engine": "https://cib.rossum.app/api/v1/engines/51385",
+  "name": "recipient_tax_id",
+  "label": "Customer Tax Number",
+  "type": "string",
+  "subtype": "vat_number",
+  "pre_trained_field_id": "recipient_vat_id",
+  "tabular": false,
+  "multiline": "false"
+}

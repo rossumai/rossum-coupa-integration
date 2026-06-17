@@ -1,0 +1,12 @@
+{
+  "id": 2637581,
+  "url": "https://cib.rossum.app/api/v1/engine_fields/2637581",
+  "engine": "https://cib.rossum.app/api/v1/engines/51384",
+  "name": "amount_total_tax",
+  "label": "Tax Amounts",
+  "type": "number",
+  "subtype": null,
+  "pre_trained_field_id": "amount_total_tax",
+  "tabular": false,
+  "multiline": "false"
+}

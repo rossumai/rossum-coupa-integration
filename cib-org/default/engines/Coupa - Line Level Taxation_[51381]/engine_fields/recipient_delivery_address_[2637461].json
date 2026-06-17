@@ -1,0 +1,12 @@
+{
+  "id": 2637461,
+  "url": "https://cib.rossum.app/api/v1/engine_fields/2637461",
+  "engine": "https://cib.rossum.app/api/v1/engines/51381",
+  "name": "recipient_delivery_address",
+  "label": "Customer Delivery Address",
+  "type": "string",
+  "subtype": "",
+  "pre_trained_field_id": "recipient_delivery_address",
+  "tabular": false,
+  "multiline": "true"
+}

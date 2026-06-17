@@ -1,0 +1,12 @@
+{
+  "id": 2637658,
+  "url": "https://cib.rossum.app/api/v1/engine_fields/2637658",
+  "engine": "https://cib.rossum.app/api/v1/engines/51386",
+  "name": "bank_num",
+  "label": "Bank Code",
+  "type": "string",
+  "subtype": "alphanumeric",
+  "pre_trained_field_id": "bank_num",
+  "tabular": false,
+  "multiline": "false"
+}

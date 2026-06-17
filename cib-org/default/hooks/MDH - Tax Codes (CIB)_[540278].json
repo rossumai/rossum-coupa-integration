@@ -1,0 +1,610 @@
+{
+  "id": 540278,
+  "type": "webhook",
+  "name": "MDH - Tax Codes (CIB)",
+  "url": "https://cib.rossum.app/api/v1/hooks/540278",
+  "description": "Enhance the extracted data with details from your master records.",
+  "settings": {
+    "configurations": [
+      {
+        "name": "Tax Codes (line-items)",
+        "source": {
+          "dataset": "tax_codes_test",
+          "queries": [
+            {
+              "//": "Memorized value recalled by exact matching supplier_match, recipient_match & item_description, , than union with other results",
+              "aggregate": [
+                {
+                  "$match": {
+                    "_id": "#"
+                  }
+                },
+                {
+                  "$unionWith": {
+                    "coll": "_tax_code_memorization",
+                    "pipeline": [
+                      {
+                        "$match": {
+                          "sender_match": "{sender_match}",
+                          "recipient_match": "{recipient_match}",
+                          "line_item.item_description": "{item_description}"
+                        }
+                      },
+                      {
+                        "$lookup": {
+                          "as": "original",
+                          "from": "tax_codes_test",
+                          "localField": "line_item.item_tax_code_match",
+                          "foreignField": "id"
+                        }
+                      },
+                      {
+                        "$match": {
+                          "$expr": {
+                            "$gt": [
+                              {
+                                "$size": "$original"
+                              },
+                              0
+                            ]
+                          }
+                        }
+                      },
+                      {
+                        "$replaceRoot": {
+                          "newRoot": {
+                            "$mergeObjects": [
+                              {
+                                "$arrayElemAt": [
+                                  "$original",
+                                  0
+                                ]
+                              },
+                              "$$ROOT"
+                            ]
+                          }
+                        }
+                      },
+                      {
+                        "$project": {
+                          "id": 1,
+                          "code": 1,
+                          "active": 1,
+                          "memorized": "True",
+                          "percentage": 1,
+                          "_sortPriority": "1"
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "$match": {
+                    "active": true
+                  }
+                },
+                {
+                  "$limit": 1
+                },
+                {
+                  "$unionWith": {
+                    "coll": "tax_codes_test",
+                    "pipeline": [
+                      {
+                        "$facet": {
+                          "pipeline1Results": [
+                            {
+                              "$match": {
+                                "active": true,
+                                "percentage": "{item_rate_calculated}",
+                                "country.code": "{recipient_country_code_match}"
+                              }
+                            }
+                          ],
+                          "pipeline2Results": [
+                            {
+                              "$match": {
+                                "active": true,
+                                "percentage": "{item_rate_calculated}",
+                                "country.code": "{recipient_entity_country_code_match}"
+                              }
+                            }
+                          ],
+                          "pipeline3Results": [
+                            {
+                              "$match": {
+                                "active": true,
+                                "percentage": "{item_rate_calculated}"
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "$project": {
+                          "result": {
+                            "$cond": {
+                              "if": {
+                                "$gt": [
+                                  {
+                                    "$size": "$pipeline1Results"
+                                  },
+                                  0
+                                ]
+                              },
+                              "else": {
+                                "$cond": {
+                                  "if": {
+                                    "$gt": [
+                                      {
+                                        "$size": "$pipeline2Results"
+                                      },
+                                      0
+                                    ]
+                                  },
+                                  "else": "$pipeline3Results",
+                                  "then": "$pipeline2Results"
+                                }
+                              },
+                              "then": "$pipeline1Results"
+                            }
+                          }
+                        }
+                      },
+                      {
+                        "$unwind": {
+                          "path": "$result"
+                        }
+                      },
+                      {
+                        "$project": {
+                          "id": "$result.id",
+                          "code": "$result.code",
+                          "percentage": "$result.percentage",
+                          "_sortPriority": "3"
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "$facet": {
+                    "emptyDocument": [
+                      {
+                        "$group": {
+                          "_id": null,
+                          "count": {
+                            "$sum": 1
+                          },
+                          "memorizedCount": {
+                            "$sum": {
+                              "$cond": [
+                                {
+                                  "$ne": [
+                                    {
+                                      "$type": "$memorized"
+                                    },
+                                    "missing"
+                                  ]
+                                },
+                                1,
+                                0
+                              ]
+                            }
+                          }
+                        }
+                      },
+                      {
+                        "$match": {
+                          "count": {
+                            "$gt": 1
+                          },
+                          "memorizedCount": 0
+                        }
+                      },
+                      {
+                        "$replaceWith": {
+                          "id": "",
+                          "code": "---",
+                          "percentage": "",
+                          "_sortPriority": "2"
+                        }
+                      }
+                    ],
+                    "originalDocuments": []
+                  }
+                },
+                {
+                  "$project": {
+                    "combinedResults": {
+                      "$concatArrays": [
+                        "$originalDocuments",
+                        "$emptyDocument"
+                      ]
+                    }
+                  }
+                },
+                {
+                  "$unwind": "$combinedResults"
+                },
+                {
+                  "$replaceWith": "$combinedResults"
+                },
+                {
+                  "$sort": {
+                    "_sortPriority": 1
+                  }
+                },
+                {
+                  "$group": {
+                    "_id": {
+                      "id": "$id",
+                      "code": "$code",
+                      "percentage": "$percentage"
+                    },
+                    "originalDoc": {
+                      "$first": "$$ROOT"
+                    }
+                  }
+                },
+                {
+                  "$replaceRoot": {
+                    "newRoot": "$originalDoc"
+                  }
+                },
+                {
+                  "$sort": {
+                    "_sortPriority": 1
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "default": {
+          "label": "---",
+          "value": ""
+        },
+        "mapping": {
+          "dataset_key": "id",
+          "label_template": "{code}, {percentage || '---'}",
+          "target_schema_id": "item_tax_code_match"
+        },
+        "result_actions": {
+          "no_match_found": {
+            "select": "default"
+          },
+          "one_match_found": {
+            "select": "best_match"
+          },
+          "multiple_matches_found": {
+            "select": "best_match"
+          }
+        }
+      },
+      {
+        "name": "Tax Codes (headers)",
+        "source": {
+          "dataset": "tax_codes_test",
+          "queries": [
+            {
+              "//": "Memorized value recalled by exact matching supplier_match, recipient_match & header_description, , than union with other results",
+              "aggregate": [
+                {
+                  "$match": {
+                    "_id": "#"
+                  }
+                },
+                {
+                  "$unionWith": {
+                    "coll": "_tax_code_memorization",
+                    "pipeline": [
+                      {
+                        "$match": {
+                          "sender_match": "{sender_match}",
+                          "recipient_match": "{recipient_match}",
+                          "description_export": "{description_export}"
+                        }
+                      },
+                      {
+                        "$lookup": {
+                          "as": "original",
+                          "from": "tax_codes_test",
+                          "localField": "tax_code_match",
+                          "foreignField": "id"
+                        }
+                      },
+                      {
+                        "$match": {
+                          "$expr": {
+                            "$gt": [
+                              {
+                                "$size": "$original"
+                              },
+                              0
+                            ]
+                          }
+                        }
+                      },
+                      {
+                        "$replaceRoot": {
+                          "newRoot": {
+                            "$mergeObjects": [
+                              {
+                                "$arrayElemAt": [
+                                  "$original",
+                                  0
+                                ]
+                              },
+                              "$$ROOT"
+                            ]
+                          }
+                        }
+                      },
+                      {
+                        "$project": {
+                          "id": 1,
+                          "code": 1,
+                          "active": 1,
+                          "memorized": "True",
+                          "percentage": 1,
+                          "_sortPriority": "1"
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "$match": {
+                    "active": true
+                  }
+                },
+                {
+                  "$limit": 1
+                },
+                {
+                  "$unionWith": {
+                    "coll": "tax_codes_test",
+                    "pipeline": [
+                      {
+                        "$facet": {
+                          "pipeline1Results": [
+                            {
+                              "$match": {
+                                "active": true,
+                                "percentage": "{tax_rate_calculated}",
+                                "country.code": "{recipient_country_code_match}"
+                              }
+                            }
+                          ],
+                          "pipeline2Results": [
+                            {
+                              "$match": {
+                                "active": true,
+                                "percentage": "{tax_rate_calculated}",
+                                "country.code": "{recipient_entity_country_code_match}"
+                              }
+                            }
+                          ],
+                          "pipeline3Results": [
+                            {
+                              "$match": {
+                                "active": true,
+                                "percentage": "{tax_rate_calculated}"
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "$project": {
+                          "result": {
+                            "$cond": {
+                              "if": {
+                                "$gt": [
+                                  {
+                                    "$size": "$pipeline1Results"
+                                  },
+                                  0
+                                ]
+                              },
+                              "else": {
+                                "$cond": {
+                                  "if": {
+                                    "$gt": [
+                                      {
+                                        "$size": "$pipeline2Results"
+                                      },
+                                      0
+                                    ]
+                                  },
+                                  "else": "$pipeline3Results",
+                                  "then": "$pipeline2Results"
+                                }
+                              },
+                              "then": "$pipeline1Results"
+                            }
+                          }
+                        }
+                      },
+                      {
+                        "$unwind": {
+                          "path": "$result"
+                        }
+                      },
+                      {
+                        "$project": {
+                          "id": "$result.id",
+                          "code": "$result.code",
+                          "percentage": "$result.percentage",
+                          "_sortPriority": "3"
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "$facet": {
+                    "emptyDocument": [
+                      {
+                        "$group": {
+                          "_id": null,
+                          "count": {
+                            "$sum": 1
+                          },
+                          "memorizedCount": {
+                            "$sum": {
+                              "$cond": [
+                                {
+                                  "$ne": [
+                                    {
+                                      "$type": "$memorized"
+                                    },
+                                    "missing"
+                                  ]
+                                },
+                                1,
+                                0
+                              ]
+                            }
+                          }
+                        }
+                      },
+                      {
+                        "$match": {
+                          "count": {
+                            "$gt": 1
+                          },
+                          "memorizedCount": 0
+                        }
+                      },
+                      {
+                        "$replaceWith": {
+                          "id": "",
+                          "code": "---",
+                          "percentage": "",
+                          "_sortPriority": "2"
+                        }
+                      }
+                    ],
+                    "originalDocuments": []
+                  }
+                },
+                {
+                  "$project": {
+                    "combinedResults": {
+                      "$concatArrays": [
+                        "$originalDocuments",
+                        "$emptyDocument"
+                      ]
+                    }
+                  }
+                },
+                {
+                  "$unwind": "$combinedResults"
+                },
+                {
+                  "$replaceWith": "$combinedResults"
+                },
+                {
+                  "$sort": {
+                    "_sortPriority": 1
+                  }
+                },
+                {
+                  "$group": {
+                    "_id": {
+                      "id": "$id",
+                      "code": "$code",
+                      "percentage": "$percentage"
+                    },
+                    "originalDoc": {
+                      "$first": "$$ROOT"
+                    }
+                  }
+                },
+                {
+                  "$replaceRoot": {
+                    "newRoot": "$originalDoc"
+                  }
+                },
+                {
+                  "$sort": {
+                    "_sortPriority": 1
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "default": {
+          "label": "---",
+          "value": ""
+        },
+        "mapping": {
+          "dataset_key": "id",
+          "label_template": "{code}, {percentage || '---'} - {_sortPriority}",
+          "target_schema_id": "tax_code_match"
+        },
+        "result_actions": {
+          "no_match_found": {
+            "select": "default"
+          },
+          "one_match_found": {
+            "select": "best_match"
+          },
+          "multiple_matches_found": {
+            "select": "best_match"
+          }
+        }
+      }
+    ]
+  },
+  "active": true,
+  "events": [
+    "annotation_content.initialize",
+    "annotation_content.started",
+    "annotation_content.updated"
+  ],
+  "queues": [
+    "https://cib.rossum.app/api/v1/queues/1260377"
+  ],
+  "run_after": [
+    "https://cib.rossum.app/api/v1/hooks/343051"
+  ],
+  "metadata": {},
+  "config": {
+    "private": true,
+    "schedule": {},
+    "app": null,
+    "payload_logging_enabled": false,
+    "timeout_s": 60,
+    "max_polling_time_s": 300,
+    "retry_count": 4,
+    "retry_after_polling_failure": true,
+    "insecure_ssl": false,
+    "client_ssl_certificate": null,
+    "retry_on_any_non_2xx": false
+  },
+  "test": {},
+  "sideload": [
+    "schemas"
+  ],
+  "settings_schema": null,
+  "secrets_schema": {
+    "type": "object",
+    "additionalProperties": {
+      "type": "string"
+    }
+  },
+  "token_owner": "https://cib.rossum.app/api/v1/users/282705",
+  "extension_source": "rossum_store",
+  "guide": "<div>\r\n    <p>To manage and configure the behavior, use our configurator below.</p> \r\n    <p>Start by</p>\r\n    <ul>\r\n        <li>Selecting the queues that you want to use for this extension below</li>\r\n    </ul>\r\n    <p>Then open Master Data Hub and</p>\r\n    <ul>\r\n        <li>Import the dataset with Dataset Management</li>\r\n        <li>Create and set up a new configuration in Configurator</li>\r\n    </ul>\r\n    <p>For more information, take a look at our documentation <a href=\"https://rossum.ai/help/article/master-data-hub-extension\" target=\"_blank\">here</a>.</p>\r\n\r\n    <p><form action=\"https://cib.rossum.app/svc/master-data-hub/web/\" target=\"_blank\" rel=\"noopener noreferrer\">\r\n        <button type=\"submit\"style=\"\r\n            border: none;    \r\n            background: var(--color-primary);\r\n            border-radius: 4px;\r\n            padding: 6px 16px;\r\n            color: var(--white);\r\n            font-weight: 500;\"\r\n         >\r\n            Open configurator\r\n        </button>\r\n    </form></p>\r\n</div>",
+  "read_more_url": "https://elis.rossum.ai/svc/master-data-hub/api/docs",
+  "extension_image_url": "https://rossum.ai/help/wp-content/uploads/2024/01/Master-Data-Hub.png",
+  "token_lifetime_s": 7200,
+  "hook_template": "https://cib.rossum.app/api/v1/hook_templates/39",
+  "created_by": null,
+  "created_at": null,
+  "modified_by": "https://cib.rossum.app/api/v1/users/328995"
+}

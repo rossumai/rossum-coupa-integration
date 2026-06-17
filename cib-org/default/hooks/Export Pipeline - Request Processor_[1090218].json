@@ -1,0 +1,546 @@
+{
+  "id": 1090218,
+  "type": "function",
+  "name": "Export Pipeline - Request Processor",
+  "url": "https://cib.rossum.app/api/v1/hooks/1090218",
+  "description": "Flexible multi-stage engine for calling external APIs with dynamic data, authentication, and response handling - all configured via JSON.",
+  "settings": {
+    "stages": [
+      {
+        "call_api": [
+          {
+            "auth": {
+              "url": "{field.oauth_url}",
+              "method": "POST",
+              "content": {
+                "scope": "core.invoice.create core.invoice.read core.invoice.write",
+                "client_id": "{field.oauth_client_id}",
+                "grant_type": "client_credentials",
+                "client_secret": "{payload.secrets.secret_key}"
+              },
+              "headers": {
+                "Content-Type": "application/x-www-form-urlencoded"
+              },
+              "content_type": "form",
+              "credential_key": "access_token"
+            },
+            "name": "create_draft",
+            "request": {
+              "url": "{field.create_draft_url}",
+              "method": "POST",
+              "content": "{property.create_draft.content.@}",
+              "headers": {
+                "Accept": "application/json",
+                "Content-Type": "application/json",
+                "Authorization": "Bearer {token}"
+              },
+              "content_type": "json"
+            },
+            "response_handlers": [
+              {
+                "value": {
+                  "response": {
+                    "$jmespath": "status_code"
+                  }
+                },
+                "target_key": "api1_status_code",
+                "target_type": "schema_id"
+              },
+              {
+                "value": {
+                  "response": {
+                    "$jmespath": "body.status"
+                  }
+                },
+                "target_key": "api1_status",
+                "target_type": "schema_id"
+              },
+              {
+                "value": {
+                  "response": {
+                    "$jmespath": "body.id"
+                  }
+                },
+                "target_key": "coupa_invoice_id",
+                "target_type": "schema_id"
+              },
+              {
+                "value": {
+                  "response": {
+                    "$jmespath": "body"
+                  }
+                },
+                "target_key": "api1_response_body",
+                "target_type": "schema_id"
+              }
+            ]
+          }
+        ],
+        "get_content": [
+          {
+            "name": "create_draft",
+            "query": {
+              "key": {
+                "$eq": "create_draft"
+              }
+            },
+            "source": "document_relation_content"
+          }
+        ]
+      },
+      {
+        "call_api": [
+          {
+            "auth": {
+              "url": "{field.oauth_url}",
+              "method": "POST",
+              "content": {
+                "scope": "core.invoice.create core.invoice.read core.invoice.write",
+                "client_id": "{field.oauth_client_id}",
+                "grant_type": "client_credentials",
+                "client_secret": "{payload.secrets.secret_key}"
+              },
+              "headers": {
+                "Content-Type": "application/x-www-form-urlencoded"
+              },
+              "content_type": "form",
+              "credential_key": "access_token"
+            },
+            "name": "attach_image_scan",
+            "request": {
+              "url": "{field.coupa_api_base_url}api/invoices/{field.coupa_invoice_id}/image_scan",
+              "method": "PUT",
+              "content": {
+                "file": [
+                  "{payload.document.original_file_name}",
+                  "{payload.document.content.@}"
+                ]
+              },
+              "headers": {
+                "Accept": "application/json",
+                "Authorization": "Bearer {token}"
+              },
+              "content_type": "files"
+            },
+            "response_handlers": [
+              {
+                "value": {
+                  "response": {
+                    "$jmespath": "status_code"
+                  }
+                },
+                "target_key": "api2_status_code",
+                "target_type": "schema_id"
+              },
+              {
+                "value": {
+                  "response": {
+                    "$jmespath": "{status_code: status_code, headers: headers, raw: headers_raw}"
+                  }
+                },
+                "target_key": "api2_response_body",
+                "target_type": "schema_id"
+              }
+            ]
+          }
+        ],
+        "evaluate": [
+          {
+            "name": "api1_status_condition",
+            "condition": {
+              "field.api1_status_code": {
+                "$in": [
+                  "200",
+                  "201"
+                ]
+              }
+            }
+          },
+          {
+            "name": "coupa_invoice_id_exists",
+            "condition": {
+              "field.coupa_invoice_id": {
+                "$ne": "",
+                "$exists": true
+              }
+            }
+          }
+        ]
+      },
+      {
+        "call_api": [
+          {
+            "auth": {
+              "url": "{field.oauth_url}",
+              "method": "POST",
+              "content": {
+                "scope": "core.invoice.create core.invoice.read core.invoice.write",
+                "client_id": "{field.oauth_client_id}",
+                "grant_type": "client_credentials",
+                "client_secret": "{payload.secrets.secret_key}"
+              },
+              "headers": {
+                "Content-Type": "application/x-www-form-urlencoded"
+              },
+              "content_type": "form",
+              "credential_key": "access_token"
+            },
+            "name": "attach_rossum_url",
+            "request": {
+              "url": "{field.coupa_api_base_url}api/invoices/{field.coupa_invoice_id}/attachments",
+              "method": "POST",
+              "content": {
+                "attachment[url]": "{field.rossum_annotation_link}"
+              },
+              "headers": {
+                "Accept": "application/json",
+                "Authorization": "Bearer {token}"
+              },
+              "content_type": "form"
+            },
+            "response_handlers": [
+              {
+                "value": {
+                  "response": {
+                    "$jmespath": "status_code"
+                  }
+                },
+                "target_key": "api3_status_code",
+                "target_type": "schema_id"
+              },
+              {
+                "value": {
+                  "response": {
+                    "$jmespath": "{status_code: status_code, headers: headers, raw: headers_raw}"
+                  }
+                },
+                "target_key": "api3_response_body",
+                "target_type": "schema_id"
+              }
+            ]
+          }
+        ],
+        "evaluate": [
+          {
+            "name": "api1_status_condition",
+            "condition": {
+              "field.api1_status_code": {
+                "$in": [
+                  "200",
+                  "201"
+                ]
+              }
+            }
+          },
+          {
+            "name": "coupa_invoice_id_exists",
+            "condition": {
+              "field.coupa_invoice_id": {
+                "$ne": "",
+                "$exists": true
+              }
+            }
+          }
+        ]
+      },
+      {
+        "call_api": [
+          {
+            "auth": {
+              "url": "{field.oauth_url}",
+              "method": "POST",
+              "content": {
+                "scope": "core.invoice.create core.invoice.read core.invoice.write",
+                "client_id": "{field.oauth_client_id}",
+                "grant_type": "client_credentials",
+                "client_secret": "{payload.secrets.secret_key}"
+              },
+              "headers": {
+                "Content-Type": "application/x-www-form-urlencoded"
+              },
+              "content_type": "form",
+              "credential_key": "access_token"
+            },
+            "name": "upload_related_documents",
+            "request": {
+              "url": "{field.coupa_api_base_url}api/invoices/{field.coupa_invoice_id}/attachments",
+              "method": "POST",
+              "content": {
+                "attachment[file]": [
+                  "{item.original_file_name}",
+                  "{item.content.@}"
+                ],
+                "attachment[intent]": "Supplier"
+              },
+              "headers": {
+                "Accept": "application/json",
+                "Authorization": "Bearer {token}"
+              },
+              "content_type": "multipart",
+              "iterate_over": "property.additional_attachments",
+              "iteration_item_name": "item"
+            },
+            "response_handlers": [
+              {
+                "value": {
+                  "response": {
+                    "$jmespath": "status_code"
+                  }
+                },
+                "target_key": "attachments_status_code",
+                "target_type": "schema_id"
+              },
+              {
+                "value": {
+                  "response": {
+                    "$jmespath": "{status_code: status_code, headers: headers, raw: headers_raw}"
+                  }
+                },
+                "target_key": "attachments_response_body",
+                "target_type": "schema_id"
+              }
+            ]
+          }
+        ],
+        "evaluate": [
+          {
+            "name": "api1_status_condition",
+            "condition": {
+              "field.api1_status_code": {
+                "$in": [
+                  "200",
+                  "201"
+                ]
+              }
+            }
+          },
+          {
+            "name": "coupa_invoice_id_exists",
+            "condition": {
+              "field.coupa_invoice_id": {
+                "$ne": "",
+                "$exists": true
+              }
+            }
+          }
+        ],
+        "get_content": [
+          {
+            "name": "additional_attachments",
+            "query": {
+              "key": {
+                "$regex": "^attachment_email_attachments_\\d{8,10}(?:_\\d+)?$"
+              }
+            },
+            "source": "document_relation_content"
+          }
+        ]
+      },
+      {
+        "call_api": [
+          {
+            "auth": {
+              "url": "{field.oauth_url}",
+              "method": "POST",
+              "content": {
+                "scope": "core.invoice.create core.invoice.read core.invoice.write",
+                "client_id": "{field.oauth_client_id}",
+                "grant_type": "client_credentials",
+                "client_secret": "{payload.secrets.secret_key}"
+              },
+              "headers": {
+                "Content-Type": "application/x-www-form-urlencoded"
+              },
+              "content_type": "form",
+              "credential_key": "access_token"
+            },
+            "name": "submit_document",
+            "request": {
+              "url": "{field.coupa_api_base_url}api/invoices/{field.coupa_invoice_id}/submit",
+              "method": "PUT",
+              "headers": {
+                "Accept": "application/json",
+                "Content-Type": "application/json",
+                "Authorization": "Bearer {token}"
+              }
+            },
+            "response_handlers": [
+              {
+                "value": {
+                  "response": {
+                    "$jmespath": "status_code"
+                  }
+                },
+                "target_key": "api4_status_code",
+                "target_type": "schema_id"
+              },
+              {
+                "value": {
+                  "response.body": {
+                    "$jmespath": "@"
+                  }
+                },
+                "target_key": "api4_response_body",
+                "target_type": "schema_id"
+              }
+            ]
+          }
+        ],
+        "evaluate": [
+          {
+            "name": "api3_status_condition",
+            "condition": {
+              "field.api3_status_code": {
+                "$in": [
+                  "200",
+                  "201"
+                ]
+              }
+            }
+          },
+          {
+            "name": "coupa_invoice_id_exists",
+            "condition": {
+              "field.coupa_invoice_id": {
+                "$ne": "",
+                "$exists": true
+              }
+            }
+          }
+        ]
+      },
+      {
+        "call_api": [
+          {
+            "auth": {
+              "url": "{field.oauth_url}",
+              "method": "POST",
+              "content": {
+                "scope": "core.invoice.create core.invoice.read core.invoice.write",
+                "client_id": "{field.oauth_client_id}",
+                "grant_type": "client_credentials",
+                "client_secret": "{payload.secrets.secret_key}"
+              },
+              "headers": {
+                "Content-Type": "application/x-www-form-urlencoded"
+              },
+              "content_type": "form",
+              "credential_key": "access_token"
+            },
+            "name": "attach_email_eml",
+            "request": {
+              "url": "{field.coupa_api_base_url}api/invoices/{field.coupa_invoice_id}/attachments",
+              "method": "POST",
+              "content": {
+                "attachment[file]": [
+                  "annotation_{payload.annotation.id}_email_file.eml",
+                  "{property.email_content_url.@}",
+                  "message/rfc822"
+                ],
+                "attachment[intent]": "Email"
+              },
+              "headers": {
+                "Accept": "application/json",
+                "Authorization": "Bearer {token}"
+              },
+              "content_type": "files"
+            },
+            "response_handlers": [
+              {
+                "value": {
+                  "response": {
+                    "$jmespath": "status_code"
+                  }
+                },
+                "target_key": "attachments_status_code",
+                "target_type": "schema_id"
+              },
+              {
+                "value": {
+                  "response": {
+                    "$jmespath": "{status_code: status_code, headers: headers, raw: headers_raw}"
+                  }
+                },
+                "target_key": "attachments_response_body",
+                "target_type": "schema_id"
+              }
+            ]
+          }
+        ],
+        "evaluate": [
+          {
+            "name": "email_exists",
+            "condition": {
+              "payload.document.email": {
+                "$ne": "",
+                "$exists": true
+              }
+            }
+          }
+        ],
+        "get_content": [
+          {
+            "name": "email_content_url",
+            "query": [
+              "{payload.document.email}/content"
+            ],
+            "source": "explicit"
+          }
+        ]
+      }
+    ]
+  },
+  "active": false,
+  "events": [
+    "annotation_content.export"
+  ],
+  "queues": [
+    "https://cib.rossum.app/api/v1/queues/1260377",
+    "https://cib.rossum.app/api/v1/queues/1260388"
+  ],
+  "run_after": [
+    "https://cib.rossum.app/api/v1/hooks/418429",
+    "https://cib.rossum.app/api/v1/hooks/419136"
+  ],
+  "metadata": {},
+  "config": {
+    "schedule": {},
+    "app": null,
+    "payload_logging_enabled": true,
+    "timeout_s": 360,
+    "max_polling_time_s": 360,
+    "retry_count": 4,
+    "retry_after_polling_failure": true,
+    "runtime": "python3.12",
+    "code": "import ast\nimport base64\nimport hashlib\nimport json\nimport logging\nimport re\nimport threading\nimport xml.etree.ElementTree as ET\nfrom collections import defaultdict\nfrom typing import Any, Callable, Literal\nfrom urllib.parse import urlparse\n\nimport jmespath\nimport requests\nimport txscript\nfrom pydantic import BaseModel as _BaseModel\nfrom pydantic import ConfigDict, Field, PrivateAttr, model_validator\nfrom requests.exceptions import JSONDecodeError\nfrom txscript import TxScript\n\nDEFAULT_TIMEOUT = 10\n\n# =============================================================================\n# 1. Custom Exceptions\n# =============================================================================\n\n\nclass ResolveVarError(Exception):\n    key: str\n    expression: str\n\n    def __init__(self, key, expression):\n        self.key = key\n        self.expression = expression\n\n\n# =============================================================================\n# 2. API Client Classes\n# =============================================================================\n\n\nclass RossumClient:\n    def __init__(self, payload: dict) -> None:\n        self.base_url = payload[\"base_url\"]\n        self.auth_token = payload[\"rossum_authorization_token\"]\n        self.headers = self._build_headers()\n\n    def _build_headers(self) -> dict:\n        return {\"Authorization\": f\"Bearer {self.auth_token}\"}\n\n    def call(self, method: str, endpoint: str, binary: bool = False, **kwargs) -> dict:\n        if endpoint.startswith(\"https://\"):\n            url = endpoint\n        else:\n            url = f\"{self.base_url}/api/v1/{endpoint}\"\n        kwargs.setdefault(\"timeout\", DEFAULT_TIMEOUT)\n        response = requests.request(method, url, headers=self.headers, **kwargs)\n        if not response.ok:\n            raise RuntimeError(response.text)\n\n        content_type_json = response.headers.get(\"Content-Type\", \"\")\n\n        if binary:\n            return response.content\n\n        if \"application/json\" in content_type_json:\n            return response.json()\n\n        else:\n            return response.content\n\n\nclass ApiClient:\n    def __init__(self, rossum) -> None:\n        self.rossum: RossumClient = rossum\n        self.api_url = f\"{rossum.base_url}/api/v1/\"\n\n    # ------------------\n    # Basic HTTP methods with pagination support\n    # ------------------\n\n    def get(self, endpoint: str, id_: str = None, query_params: dict = None):\n        url = f\"{self.api_url}{endpoint}\"\n        if id_ is not None:\n            if \"{id}\" in endpoint:\n                url = url.format(id=id_)\n            else:\n                url = f\"{url}/{id_}\"\n        if query_params:\n            url = f\"{url}?{'&'.join(f'{k}={v}' for k, v in query_params.items())}\"\n\n        results = []\n        while url:\n            response = self.rossum.call(\"GET\", url)\n            if isinstance(response, dict) and \"results\" in response and \"pagination\" in response:\n                results.extend(response.get(\"results\", []))\n                url = response.get(\"pagination\", {}).get(\"next\")\n            else:\n                return response\n        return results\n\n    def post(self, endpoint: str, **kwargs):\n        url = f\"{self.api_url}{endpoint}\"\n        results = []\n\n        while url:\n            response = self.rossum.call(\"POST\", url, **kwargs)\n            if isinstance(response, dict) and \"results\" in response and \"pagination\" in response:\n                results.extend(response.get(\"results\", []))\n                url = response.get(\"pagination\", {}).get(\"next\")\n            else:\n                return response\n        return results\n\n    def patch(self, endpoint: str, id_: str, **kwargs):\n        return self.rossum.call(\"PATCH\", f\"{self.api_url}{endpoint}/{id_}\", **kwargs)\n\n    def update_hook_secrets(self, hook_id: str, secrets: dict):\n        return self.patch(\"hooks\", id_=hook_id, json={\"secrets\": secrets})\n\n    def delete(self, endpoint: str, id_: str):\n        return self.rossum.call(\"DELETE\", f\"{self.api_url}{endpoint}/{id_}\", binary=True)\n\n    # ------------------\n    # Custom methods\n    # ------------------\n\n    def get_relations_parents_attachments(self, parent_id):\n        return self.get(\"relations\", query_params={\"parent\": parent_id, \"type\": \"attachment\"})\n\n    def upload_document(self, filename, content, content_type=\"application/octet-stream\"):\n        if content_type:\n            files = {\"content\": (filename, content, content_type)}\n        else:\n            files = {\"content\": (filename, content)}\n        response = self.post(\"documents\", files=files)\n        logging.info(f\"Uploading document {filename} returned document id {response['id']}\\n\")\n        return response\n\n    def get_existing_relations(self, relation_type, annotation_id, key=None):\n        query_params = {\"annotation\": annotation_id}\n        if key is not None:\n            query_params[\"key\"] = key\n        relations = self.get(relation_type, query_params=query_params)\n        return relations\n\n    def create_or_update_relation(self, document, annotation, key):\n        existing_relations = self.get_existing_relations(\"document_relations\", annotation[\"id\"], key=key)\n        if not existing_relations:\n            new_relation = self.post(\n                \"document_relations\",\n                json={\"documents\": [document[\"url\"]], \"annotation\": annotation[\"url\"], \"type\": \"export\", \"key\": key},\n            )\n            logging.info(f\"Creating new document relation {new_relation['id']}\\n\")\n\n        else:\n            existing_relation = existing_relations[0]\n            new_relation = self.patch(\n                \"document_relations\", id_=existing_relation[\"id\"], json={\"documents\": [document[\"url\"]]}\n            )\n            logging.info(f\"Setting new document into existing document_relation {existing_relation['id']}\\n\")\n\n            if existing_relation.get(\"documents\"):\n                old_document_id = existing_relation[\"documents\"][0].split(\"/\")[-1]\n                self.delete(\"documents\", id_=old_document_id)\n                logging.info(f\"Deleting old document {old_document_id}\\n\")\n\n        return new_relation\n\n\n# =============================================================================\n# 3. Helper Functions, Constants, Singletons\n# =============================================================================\n\nLOCAL_FILTER_OPERATORS: dict[str, Callable[[Any, Any], bool]] = {\n    \"$eq\": lambda a, b: a == b,\n    \"$ne\": lambda a, b: a != b,\n    \"$gt\": lambda a, b: (a is not None and b is not None and a > b),\n    \"$gte\": lambda a, b: (a is not None and b is not None and a >= b),\n    \"$lt\": lambda a, b: (a is not None and b is not None and a < b),\n    \"$lte\": lambda a, b: (a is not None and b is not None and a <= b),\n    \"$in\": lambda a, b: (b is not None and hasattr(b, \"__contains__\") and a in b),\n    \"$nin\": lambda a, b: (b is not None and hasattr(b, \"__contains__\") and a not in b),\n    \"$regex\": lambda a, b: isinstance(a, str) and re.search(b, a) is not None,\n    \"$exists\": lambda a, b: (b and a is not None) or (not b and a is None),\n}\n\n\nRESOLVE_VAR_FUNCTIONS: dict[str, Callable[[Any], Any]] = {\n    \"base64\": lambda v: base64.b64encode(v if isinstance(v, bytes) else str(v).encode(\"utf-8\")).decode(\"utf-8\"),\n}\n\n\nclass TokenCache:\n    \"\"\"\n    A singleton class to manage and cache authentication tokens.\n    \"\"\"\n\n    _instance = None\n    _lock = threading.Lock()\n\n    def __new__(cls):\n        if cls._instance is None:\n            with cls._lock:\n                if cls._instance is None:\n                    cls._instance = super(TokenCache, cls).__new__(cls)\n        return cls._instance\n\n    @classmethod\n    def get_instance(cls):\n        \"\"\"Get the singleton instance.\"\"\"\n        if cls._instance is None:\n            cls()  # calls __new__\n        return cls._instance\n\n    def _get_config_hash(self, auth_config: \"BearerAuth\") -> str:\n        \"\"\"Create a stable hash for a given auth configuration.\"\"\"\n        config_json = json.dumps(auth_config.model_dump(), sort_keys=True).encode(\"utf-8\")\n        msg_hash = hashlib.sha256(config_json).hexdigest()[:16]\n\n        try:\n            hostname = urlparse(auth_config.url).netloc\n            safe_hostname = re.sub(r\"[^a-zA-Z0-9]\", \"_\", hostname)\n            # Ensure the hostname isn't too long to keep the key manageable\n            safe_hostname = safe_hostname[:32]\n        except Exception:\n            safe_hostname = \"auth\"\n\n        return f\"{safe_hostname}_{msg_hash}\"\n\n    def _fetch_new_token(self, auth_config: \"BearerAuth\") -> str:\n        \"\"\"\n        Performs the authentication request to get a new token.\n        \"\"\"\n        logging.info(f\"Fetching new token for {auth_config.url}\")\n\n        with requests.Session() as auth_session:\n            auth_session.headers.update(auth_config.headers or {})\n\n            request_args = {\n                \"method\": auth_config.method,\n                \"url\": str(auth_config.url),\n                \"params\": auth_config.params,\n            }\n\n            if auth_config.content_type == \"json\":\n                request_args[\"json\"] = auth_config.content\n            else:\n                request_args[\"data\"] = auth_config.content\n\n            try:\n                response = auth_session.request(**request_args, timeout=DEFAULT_TIMEOUT)\n\n                if not response.ok:\n                    logging.error(f\"Auth request failed with {response.status_code}: {response.text}\\n\")\n                    response.raise_for_status()\n\n                auth_data = response.json()\n                keys = auth_config.credential_key.split(\".\")\n                token = auth_data\n                for key in keys:\n                    token = token.get(key)\n                    if token is None:\n                        logging.error(f\"Auth token not found at key '{auth_config.credential_key}'\\n\")\n                        raise ResolveVarError(auth_config.credential_key, \"Auth Response\")\n\n                logging.info(f\"Successfully fetched new token for {auth_config.url}\")\n                return token\n\n            except (requests.RequestException, JSONDecodeError, ResolveVarError) as e:\n                logging.error(f\"Failed to fetch or parse auth token: {str(e)}\")\n                raise\n\n    def get_token(self, auth_config: \"BearerAuth\", payload: dict, api_client: ApiClient) -> str:\n        \"\"\"\n        Get a token from the cache (payload) or fetch a new one and update API.\n        \"\"\"\n        config_hash = self._get_config_hash(auth_config)\n        secrets = payload.get(\"secrets\") or {}\n        cache_key = f\"_request_processor_token_cache_{config_hash}\"\n\n        if cache_key in secrets:\n            logging.info(f\"Using cached token from payload for {auth_config.url}\")\n            return secrets[cache_key]\n\n        token = self._fetch_new_token(auth_config)\n\n        if \"secrets\" not in payload:\n            payload[\"secrets\"] = {}\n        payload[\"secrets\"][cache_key] = token\n\n        try:\n            hook_id = payload[\"hook\"].split(\"/\")[-1]\n            api_client.update_hook_secrets(hook_id, payload[\"secrets\"])\n            logging.info(f\"Updated secrets on API for hook {hook_id}\")\n        except Exception as e:\n            logging.warning(f\"Failed to update secrets on API: {e}\")\n\n        return token\n\n    def invalidate_token(self, auth_config: \"BearerAuth\", payload: dict):\n        \"\"\"\n        Remove an expired token from the cache (payload).\n        \"\"\"\n        config_hash = self._get_config_hash(auth_config)\n        cache_key = f\"_request_processor_token_cache_{config_hash}\"\n        if payload.get(\"secrets\") and cache_key in payload[\"secrets\"]:\n            del payload[\"secrets\"][cache_key]\n            logging.info(f\"Invalidated token in payload for {auth_config.url}\")\n\n\ndef resolve_var(expr: str, context: dict, api_client: ApiClient | None = None, raise_exceptions: bool = False) -> Any:\n    \"\"\"\n    Resolve a variable expression like 'a[0].b' or 'a[\"key\"]' in the given context dictionary.\n    Supports base64 encoding wrapper: 'base64(payload.content)' will resolve the inner expression\n    and return its base64-encoded value.\n    Args:\n        expr (str): The variable expression to resolve.\n        context (dict): The context dictionary to look up variables.\n        api_client (ApiClient | None): Optional ApiClient to fetch data from URLs.\n        raise_exceptions (bool): Whether to raise exceptions on unresolved variables.\n    Returns:\n        Any: The resolved value, or None if any part of the path is invalid.\n    \"\"\"\n\n    def is_url(url_string: str):\n        try:\n            if not isinstance(url_string, str):\n                return False\n            result = urlparse(url_string)\n            return result.scheme in (\"http\", \"https\") and bool(result.netloc)\n        except ValueError:\n            return False\n\n    def is_same_origin(url_string: str) -> bool:\n        \"\"\"Check if URL is same origin as api_client base_url.\n\n        Compares the last two parts of the domain (e.g., rossum.ai) to allow\n        api.elis.rossum.ai to match elis.rossum.ai.\n        \"\"\"\n        if not api_client:\n            return False\n        try:\n            url_host = urlparse(url_string).netloc\n            base_host = urlparse(api_client.rossum.base_url).netloc\n            url_domain = \".\".join(url_host.split(\".\")[-2:])\n            base_domain = \".\".join(base_host.split(\".\")[-2:])\n            return url_domain == base_domain\n        except Exception:\n            return False\n\n    fn_match = re.match(r\"^(\\w+)\\((.+)\\)$\", expr)\n    if fn_match:\n        fn_name = fn_match.group(1)\n        if fn_name in RESOLVE_VAR_FUNCTIONS:\n            inner_expr = fn_match.group(2)\n            inner_value = resolve_var(inner_expr, context, api_client, raise_exceptions)\n            if inner_value is None:\n                return None\n            return RESOLVE_VAR_FUNCTIONS[fn_name](inner_value)\n        if raise_exceptions:\n            raise ResolveVarError(f\"Unknown function: {fn_name}\", expr)\n        return None\n\n    match = re.match(r\"^(\\w+)\", expr)\n    if not match:\n        return None\n\n    var_name = match.group(1)\n    if var_name not in context:\n        if raise_exceptions:\n            raise ResolveVarError(var_name, expr)\n        return None\n\n    value = context[var_name]\n    remaining_path = expr[match.end() :]\n\n    while remaining_path:\n        # Check for explicit fetch operator .@\n        if remaining_path.startswith(\".@\"):\n            if api_client and is_url(value):\n                if is_same_origin(value):\n                    value = api_client.rossum.call(\"GET\", value)\n                else:\n                    if raise_exceptions:\n                        raise ResolveVarError(value, f\"URL fetch not allowed (different origin): {value}\")\n                    return None\n            remaining_path = remaining_path[2:]  # consume \".@\"\n            continue\n\n        # dot access (e.g., .key)\n        dot_match = re.match(r\"^\\.(\\w+)\", remaining_path)\n        if dot_match:\n            key = dot_match.group(1)\n            try:\n                if isinstance(value, dict):\n                    if key in value:\n                        value = value[key]\n                    else:\n                        if raise_exceptions:\n                            raise ResolveVarError(key, expr)\n                        return None\n                else:\n                    value = getattr(value, key)\n\n            except (AttributeError, KeyError):\n                if raise_exceptions:\n                    raise ResolveVarError(key, expr)\n                return None  # Failed to get attribute or key\n\n            remaining_path = remaining_path[dot_match.end() :]\n            continue\n\n        # bracket access (e.g., [0] or ['key'])\n        bracket_match = re.match(r\"^\\[(.*?)\\]\", remaining_path)\n        if bracket_match:\n            accessor_str = bracket_match.group(1)\n            try:\n                key_or_index = ast.literal_eval(accessor_str)\n                value = value[key_or_index]\n            except (ValueError, SyntaxError, KeyError, IndexError, TypeError):\n                if raise_exceptions:\n                    raise ResolveVarError(accessor_str, expr)\n                return None\n\n            remaining_path = remaining_path[bracket_match.end() :]\n            continue\n\n        # Invalid syntax\n        if raise_exceptions:\n            raise ResolveVarError(remaining_path, expr)\n        return None\n\n    return value\n\n\ndef fill_template(template: dict | list | str, raise_exceptions=False, api_client: ApiClient | None = None, **context):\n    \"\"\"\n    Fill in placeholders in a nested dictionary structure using context variables.\n    Args:\n        template (dict | RelationConfig): The template dictionary with placeholders.\n        raise_exceptions (bool): Whether to raise exceptions on unresolved variables.\n        api_client (ApiClient | None): The ApiClient to fetch data from URLs.\n        **context: Key-value pairs to replace placeholders in the template.\n    Returns:\n        dict | RelationConfig: A new dictionary with placeholders replaced by context values.\n    \"\"\"\n\n    _placeholder_pattern = re.compile(r\"\\{([^{}]+)\\}\")\n    _exact_placeholder_pattern = re.compile(r\"^\\s*\\{([^{}]+)\\}\\s*$\")\n\n    def _replace_placeholders(item):\n        if isinstance(item, dict):\n            new_dict = {}\n            for k, v in item.items():\n                new_k = _replace_placeholders(k)\n                new_v = _replace_placeholders(v)\n                new_dict[new_k] = new_v\n            return new_dict\n        elif isinstance(item, list):\n            return [_replace_placeholders(v) for v in item]\n        elif isinstance(item, str):\n            exact_match = _exact_placeholder_pattern.fullmatch(item)\n\n            if exact_match:\n                expr = exact_match.group(1).strip()\n                val = resolve_var(expr, context, raise_exceptions=raise_exceptions, api_client=api_client)\n                # Return the value directly, with its original type (bytes, int, None, etc.)\n                return val\n\n            # If not an exact match, it's a composite string (or a plain string).\n            # Perform standard string interpolation.\n            def repl(match: re.Match) -> str:\n                expr = match.group(1).strip()\n                val = resolve_var(expr, context, raise_exceptions=raise_exceptions, api_client=api_client)\n\n                return str(val) if val is not None else \"\"\n\n            return _placeholder_pattern.sub(repl, item)\n        else:\n            return item\n\n    return _replace_placeholders(template)\n\n\ndef evaluate_filter(data_list: list[dict], query: dict) -> list[dict]:\n    \"\"\"\n    Filters a list of dictionaries using MongoDB-like query syntax.\n    Args:\n        data_list (list[dict]): A list of dictionaries to filter.\n        query (dict): A dictionary representing the filter conditions.\n    Returns:\n        list[dict]: A new list containing only the items that match the query.\n    \"\"\"\n\n    def _matches(item: dict, sub_query: dict) -> bool:\n        # Recursively checks if an item matches a query or sub-query.\n        if \"$and\" in sub_query:\n            return all(_matches(item, q) for q in sub_query[\"$and\"])\n\n        if \"$or\" in sub_query:\n            return any(_matches(item, q) for q in sub_query[\"$or\"])\n\n        for field, condition in sub_query.items():\n            item_value = resolve_var(field, item)\n\n            if isinstance(condition, dict):\n                for operator, value in condition.items():\n                    if operator == \"$size\":\n                        if not hasattr(item_value, \"__len__\"):\n                            return False\n\n                        array_size = len(item_value)\n\n                        # Nested operators e.g., {$size: {$gte: 10}}\n                        if isinstance(value, dict):\n                            for sub_op, sub_val in value.items():\n                                if sub_op not in LOCAL_FILTER_OPERATORS or not LOCAL_FILTER_OPERATORS[sub_op](\n                                    array_size, sub_val\n                                ):\n                                    return False\n                        # Simple equality e.g., {$size: 3}\n                        elif isinstance(value, int):\n                            if array_size != value:\n                                return False\n                        else:\n                            # Invalid value for $size operator\n                            return False\n                    else:\n                        if operator not in LOCAL_FILTER_OPERATORS or not LOCAL_FILTER_OPERATORS[operator](\n                            item_value, value\n                        ):\n                            return False\n            else:\n                if not LOCAL_FILTER_OPERATORS[\"$eq\"](item_value, condition):\n                    return False\n\n        return True\n\n    return [item for item in data_list if _matches(item, query)]\n\n\n# =============================================================================\n# 4. Pydantic Models (Configuration & Data Structures)\n# =============================================================================\n\n\nclass BaseModel(_BaseModel):\n    def fill_template(self, context: dict, raise_exceptions=False, api_client=None):\n        for field_name, field_value in self.model_dump().items():\n            if isinstance(field_value, (dict, list, str)):\n                filled_value = fill_template(\n                    field_value, raise_exceptions=raise_exceptions, api_client=api_client, **context\n                )\n                setattr(self, field_name, filled_value)\n\n\nclass BearerAuth(BaseModel):\n    url: str\n    method: Literal[\"GET\", \"POST\", \"PUT\", \"PATCH\", \"DELETE\"]\n    content_type: Literal[\"json\", \"form\"] | None = None\n    content: dict[str, Any] | None = None\n    headers: dict[str, str] = Field(default_factory=dict)\n    params: dict[str, Any] = Field(default_factory=dict)\n    credential_key: str\n\n\nclass Requester(BaseModel):\n    url: str\n    method: Literal[\"GET\", \"POST\", \"PUT\", \"PATCH\", \"DELETE\"]\n    content: Any | None = None\n    content_type: Literal[\"json\", \"form\", \"files\", \"multipart\"] | None = None\n    headers: dict[str, str] | None = None\n    iterate_over: str | None = None\n    iteration_item_name: str = \"item\"\n    timeout: int = DEFAULT_TIMEOUT\n\n    def execute(self, session: requests.Session, content_batch) -> requests.Response:\n        session.headers.update(self.headers or {})\n        params = {\"method\": self.method, \"url\": str(self.url)}\n        if self.content_type == \"json\":\n            params[\"json\"] = content_batch\n        elif self.content_type == \"files\":\n            params[\"files\"] = content_batch\n        elif self.content_type == \"multipart\":\n            files = {}\n            data = {}\n            if isinstance(content_batch, dict):\n                for key, value in content_batch.items():\n                    if isinstance(value, (list, tuple)):\n                        files[key] = value\n                    else:\n                        data[key] = value\n            else:\n                files = content_batch\n\n            params[\"files\"] = files\n            if data:\n                params[\"data\"] = data\n        else:\n            params[\"data\"] = content_batch\n        params[\"timeout\"] = self.timeout\n        response = session.request(**params)\n        logging.info(f\"{self.method} API call to {self.url} returned status code {response.status_code}\\n\")\n        return response\n\n\nclass ValueExtractor(BaseModel):\n    \"\"\"Defines how to extract a value from response using one operator.\"\"\"\n\n    jmespath: str | None = Field(None, alias=\"$jmespath\")\n    xmlpath: str | None = Field(None, alias=\"$xmlpath\")\n    regex: str | None = Field(None, alias=\"$regex\")\n\n    def model_post_init(self, __context):\n        operators = [self.jmespath, self.xmlpath, self.regex]\n        if sum(op is not None for op in operators) != 1:\n            raise ValueError(\"Exactly one operator ($jmespath, $xmlpath, or $regex) must be specified\")\n\n\nclass ValueConfig(BaseModel):\n    \"\"\"Maps a context path to an extraction operator. e.g., {\"response.body\": {\"$jmespath\": \"key\"}}\"\"\"\n\n    model_config = ConfigDict(extra=\"forbid\")\n\n    context_path: str\n    extractor: ValueExtractor\n\n    @model_validator(mode=\"before\")\n    @classmethod\n    def parse_value_config(cls, data: Any) -> dict:\n        if isinstance(data, dict) and \"context_path\" not in data:\n            # Shorthand format: {\"response.body\": {\"$jmespath\": \"key\"}}\n            if len(data) != 1:\n                raise ValueError(\"value config must contain exactly one context path\")\n            context_path, extractor_dict = next(iter(data.items()))\n            return {\"context_path\": context_path, \"extractor\": extractor_dict}\n        return data\n\n\nclass ResponseHandler(BaseModel):\n    condition: dict[str, Any] | None = None  # condition to evaluate to decide if this handler is applicable\n    target_type: Literal[\"schema_id\", \"document_relation\", \"property\"]\n    target_key: (\n        str  # target schema id to store the response. If not resolvable, store as document relation with this key\n    )\n    value: ValueConfig | None = None\n\n    def handle_response(\n        self,\n        api_call: \"CallApiPhase\",\n        response: requests.Response,\n        accessible_variables: \"AccessibleVariables\",\n        sequence,\n    ) -> bool:\n        def response_to_dict(response: requests.Response) -> dict:\n            normalized_headers = {k.replace(\"-\", \"_\").lower(): v for k, v in response.headers.items()}\n\n            return {\n                \"status_code\": response.status_code,\n                \"headers\": normalized_headers,\n                \"headers_raw\": list(response.headers.items()),\n                \"text\": response.text,\n                \"content\": response.content,\n                \"url\": response.url,\n                \"reason\": response.reason,\n                \"elapsed\": response.elapsed.total_seconds(),\n                \"ok\": response.ok,\n                \"encoding\": response.encoding,\n                \"cookies\": dict(response.cookies),\n            }\n\n        content_type = response.headers.get(\"Content-Type\", \"unknown\")\n        context = {\"response\": response_to_dict(response)}\n        found_value = None\n\n        # Parse response body based on content type\n        match content_type:\n            case _ if \"application/json\" in content_type:\n                body = response.json()\n                context[\"response\"][\"body\"] = body\n                logging.info(f\"Response content type is JSON for call api phase '{api_call.name}'\\n\")\n            case _ if \"xml\" in content_type:\n                xml_tree = ET.fromstring(response.text)\n                context[\"response\"][\"body\"] = response.text\n                context[\"response\"][\"_xml_tree\"] = xml_tree  # Store parsed tree for XPath\n                logging.info(f\"Response content type is XML for call api phase '{api_call.name}'\\n\")\n            case _ if \"text\" in content_type:\n                context[\"response\"][\"body\"] = response.text\n                logging.info(f\"Response content type is Text for call api phase '{api_call.name}'\\n\")\n            case _ if \"unknown\" in content_type:\n                logging.info(f\"Response content type is None (no body) for call api phase '{api_call.name}'\\n\")\n            case _:\n                body = response.content\n                context[\"response\"][\"body\"] = body\n                logging.warning(\n                    f\"Response content type is unsupported ({content_type}) for call api phase '{api_call.name}'\\n\"\n                )\n\n        # Extract value using configured operator\n        if self.value:\n            # Get the target data from context\n            path_parts = self.value.context_path.split(\".\")\n            target_data = context\n            for part in path_parts:\n                target_data = target_data.get(part, {})\n\n            # Apply the appropriate operator\n            if self.value.extractor.jmespath:\n                found_value = jmespath.search(self.value.extractor.jmespath, target_data)\n                logging.info(\n                    f\"Applied JMESPath query '{self.value.extractor.jmespath}' on '{self.value.context_path}'\\n\"\n                )\n\n            elif self.value.extractor.xmlpath:\n                if \"_xml_tree\" not in context[\"response\"]:\n                    raise ValueError(\"$xmlpath operator can only be used with XML responses\")\n                xml_tree = context[\"response\"][\"_xml_tree\"]\n                try:\n                    xpath_result = xml_tree.findall(self.value.extractor.xmlpath)\n                    if xpath_result:\n                        if len(xpath_result) > 1:\n                            found_value = [\n                                elem.text if elem.text else ET.tostring(elem, encoding=\"unicode\")\n                                for elem in xpath_result\n                            ]\n                        else:\n                            elem = xpath_result[0]\n                            found_value = elem.text if elem.text else ET.tostring(elem, encoding=\"unicode\")\n                    else:\n                        found_value = None\n                    logging.info(f\"Applied XPath query '{self.value.extractor.xmlpath}' on XML\\n\")\n                except Exception as e:\n                    logging.warning(f\"XPath query '{self.value.extractor.xmlpath}' failed: {e}\\n\")\n                    found_value = None\n\n            elif self.value.extractor.regex:\n                if not isinstance(target_data, str):\n                    target_data = str(target_data)\n                match_obj = re.search(self.value.extractor.regex, target_data)\n                if match_obj:\n                    try:\n                        found_value = match_obj.group(1)\n                    except IndexError:\n                        found_value = match_obj.group(0)\n                else:\n                    found_value = None\n                logging.info(f\"Applied regex pattern '{self.value.extractor.regex}' on '{self.value.context_path}'\\n\")\n\n            context[\"found_value\"] = found_value\n\n        if self.condition and check_condition(self.condition, context) is False:\n            logging.info(f\"Response handler condition not met for call api phase '{api_call.name}'\\n\")\n            return False\n\n        target_key = self.target_key.format(sequence=sequence)\n        match self.target_type:\n            case \"schema_id\":\n                if isinstance(found_value, dict):\n                    found_value = json.dumps(found_value)\n                accessible_variables.field_cache[target_key].append(found_value)\n                setattr(accessible_variables.field, target_key, found_value)\n                return True\n            case \"property\":\n                if accessible_variables.property_.get(target_key):\n                    logging.warning(\n                        f\"Variable {found_value} overwritten the property.{target_key}, because you use the same key multiple times. Old value is deleted.\"\n                    )\n                accessible_variables.property_[target_key] = found_value\n                return True\n            case \"document_relation\":\n                api_client: ApiClient = accessible_variables.api_client\n                document = api_client.upload_document(f\"{target_key}_response\", response.text, \"text/plain\")\n                api_client.create_or_update_relation(\n                    document, accessible_variables.payload[\"annotation\"], self.target_key\n                )\n                logging.info(\n                    f\"Response handling for call api phase '{api_call.name}' stored response as document and created document relation with key '{self.target_key}'\\n\"\n                )\n                return True\n\n        return False\n\n\nclass CallApiPhase(BaseModel):\n    name: str\n    auth: BearerAuth | None = None\n    request: Requester\n    priority_response_handlers: list[\n        ResponseHandler\n    ] = []  # list of response handlers to try in order, after first successful one, skip rest\n    response_handlers: list[ResponseHandler] = []\n    # list of response handlers to always run\n\n\nclass EvaluatePhase(BaseModel):\n    name: str  # name of the condition to be evaluated and logged\n    condition: dict[str, Any]  # condition to be evaluated\n\n\nclass GetContentPhase(BaseModel):\n    name: str  # name of the content to be retrieved and stored in property\n    source: Literal[\n        \"relation\",\n        \"document_relation\",\n        \"explicit\",\n        \"document_relation_content\",\n        \"relation_content\",\n        \"parent_relation\",\n        \"parent_relation_content\",\n    ]  # source type\n    query: dict[str, Any] | list[str]  # rule to get content\n\n\nclass Stage(BaseModel):\n    evaluate: list[EvaluatePhase] | None = None  # stage that must evaluate to True...\n    get_content: list[GetContentPhase] | None = None  # stage to get content from relations or explicit fields\n    call_api: list[CallApiPhase] | None = None  # stage to call external APIs\n\n\nclass Settings(BaseModel):\n    stages: list[Stage]\n    debugging: bool = False\n\n\nclass AccessibleVariables(BaseModel):\n    model_config = ConfigDict(arbitrary_types_allowed=True)\n\n    payload: dict[str, Any]\n    field: txscript.fields.Fields\n    field_cache: dict = defaultdict(list)\n    property_: dict[str, Any] = Field(alias=\"property\")\n    api_client: \"ApiClient\"\n    _relations: list[dict[str, Any]] = PrivateAttr(default=None)\n    _document_relations: list[dict[str, Any]] = PrivateAttr(default=None)\n    _parent_relations: list[dict[str, Any]] = PrivateAttr(default=None)\n\n    @property\n    def relations(self) -> list[dict[str, Any]]:\n        if self._relations is None:\n            self._relations = self.api_client.get_existing_relations(\n                relation_type=\"relations\", annotation_id=self.payload[\"annotation\"][\"id\"]\n            )\n        return self._relations\n\n    @property\n    def document_relations(self) -> list[dict[str, Any]]:\n        if self._document_relations is None:\n            self._document_relations = self.api_client.get_existing_relations(\n                relation_type=\"document_relations\", annotation_id=self.payload[\"annotation\"][\"id\"]\n            )\n        return self._document_relations\n\n    @property\n    def parent_relations(self) -> list[dict[str, Any]]:\n        if self._parent_relations is None:\n            current_id = str(self.payload[\"annotation\"][\"id\"])\n            self._parent_relations = self.api_client.get_relations_parents_attachments(\n                parent_id=self.payload[\"annotation\"][\"id\"]\n            )\n            for parent_relation in self._parent_relations:\n                parent_relation[\"annotations\"] = [\n                    a for a in parent_relation[\"annotations\"] if not a.endswith(current_id)\n                ]\n        return self._parent_relations\n\n    @property\n    def context(self):\n        return {\"payload\": self.payload, \"field\": self.field, \"property\": self.property_}\n\n\n# =============================================================================\n# 5. Core Logic Functions\n# =============================================================================\n\n\ndef check_condition(condition: dict, data: dict) -> bool:\n    filled_filter = fill_template(condition, **data)\n    if not evaluate_filter([data], filled_filter):\n        return False\n    return True\n\n\ndef _enrich_relations_with_documents(relations: list[dict[str, Any]], api_client: \"ApiClient\") -> list[dict[str, Any]]:\n    # Collect all unique annotation URLs across all relations\n    all_annotation_urls = {url for relation in relations for url in relation.get(\"annotations\", [])}\n    if not all_annotation_urls:\n        return []\n\n    # Batch fetch all annotations in one request\n    annotation_ids = \",\".join(url.rsplit(\"/\", 1)[-1] for url in all_annotation_urls)\n    annotations_by_url = {a[\"url\"]: a for a in api_client.get(\"annotations\", query_params={\"id\": annotation_ids})}\n\n    # Batch fetch all documents in one request\n    unique_doc_urls = {a[\"document\"] for a in annotations_by_url.values()}\n    document_ids = \",\".join(url.rsplit(\"/\", 1)[-1] for url in unique_doc_urls)\n    documents_by_url = {d[\"url\"]: d for d in api_client.get(\"documents\", query_params={\"id\": document_ids})}\n\n    # Build enriched entries (content is a URL, resolved lazily via .@ in templates)\n    enriched = []\n    for relation in relations:\n        for annotation_url in relation.get(\"annotations\", []):\n            annotation = annotations_by_url[annotation_url]\n            document = documents_by_url[annotation[\"document\"]]\n            enriched.append(\n                {**relation, \"annotation\": annotation, \"document\": document, \"content\": document[\"content\"]}\n            )\n    return enriched\n\n\ndef get_content(content_rules: list[GetContentPhase], accessible_variables: AccessibleVariables):\n    for rule in content_rules:\n        match rule.source:\n            case \"relation\":\n                filtered_results = evaluate_filter(accessible_variables.relations, rule.query)\n            case \"document_relation\":\n                filtered_results = evaluate_filter(accessible_variables.document_relations, rule.query)\n            case \"document_relation_content\":\n                filtered_results = evaluate_filter(accessible_variables.document_relations, rule.query)\n                documents = []\n                for result in filtered_results:\n                    for document_url in result[\"documents\"]:\n                        document = accessible_variables.api_client.rossum.call(\"GET\", document_url)\n                        documents.append(document)\n                filtered_results = documents\n            case \"relation_content\":\n                filtered_results = evaluate_filter(accessible_variables.relations, rule.query)\n                filtered_results = _enrich_relations_with_documents(filtered_results, accessible_variables.api_client)\n            case \"parent_relation\":\n                filtered_results = evaluate_filter(accessible_variables.parent_relations, rule.query)\n            case \"parent_relation_content\":\n                filtered_results = evaluate_filter(accessible_variables.parent_relations, rule.query)\n                filtered_results = _enrich_relations_with_documents(filtered_results, accessible_variables.api_client)\n            case \"explicit\":\n                filtered_results = fill_template(\n                    rule.query,\n                    raise_exceptions=False,\n                    api_client=accessible_variables.api_client,\n                    **accessible_variables.context,\n                )\n            case _:\n                logging.error(f\"Unknown content source: {rule.source}\\n\")\n                continue\n\n        if len(filtered_results) == 1:\n            filtered_results = filtered_results[0]\n        accessible_variables.property_[rule.name] = filtered_results\n\n\ndef _log_response(\n    response: requests.Response,\n    message: str,\n    level: Literal[\"debug\", \"error\"] = \"debug\",\n) -> None:\n    try:\n        response_body = response.json()\n    except Exception:\n        response_body = response.text\n    if level == \"error\":\n        logging.exception(f\"{message}\\nFull response: status={response.status_code}, body={response_body}\")\n    else:\n        logging.info(f\"[DEBUG] {message}: status={response.status_code}, body={response_body}\")\n\n\n# =============================================================================\n# 6. Main Handler\n# =============================================================================\n\n\ndef rossum_hook_request_handler(payload) -> dict | None:\n    if not payload.get(\"rossum_authorization_token\"):\n        raise ValueError(\"Rossum authorization token is required.\")\n\n    if payload.get(\"event\") != \"annotation_content\":\n        # fool the txscript that its dealing with supported event\n        rossum_client = RossumClient(payload)\n        content = rossum_client.call(\"GET\", payload[\"annotation\"][\"content\"], timeout=20)[\"content\"]\n        payload[\"annotation\"][\"content\"] = content\n        payload[\"event\"] = \"annotation_content\"\n\n    rossum_client = RossumClient(payload)\n    api_client = ApiClient(rossum_client)\n    token_manager = TokenCache.get_instance()\n\n    settings = Settings(**payload.get(\"settings\", {}))\n    exception_occurred = False\n    t = TxScript.from_payload(payload)\n    accessible_variables = AccessibleVariables(\n        payload=payload,\n        field=t.field,\n        property={},\n        api_client=api_client,\n    )\n\n    for stage_idx, stage in enumerate(settings.stages):\n        # first, evaluate the stage condition\n        should_evaluate = True\n        if stage.evaluate:\n            for condition in stage.evaluate:\n                if not check_condition(condition.condition, accessible_variables.context):\n                    logging.info(f\"Skipping {stage_idx + 1}. stage due to unmet condition: {condition.condition}\\n\")\n                    should_evaluate = False\n                    break\n\n        if not should_evaluate:\n            continue\n        logging.info(f\"{stage_idx + 1}. stage went through all conditions successfully.\\n\")\n\n        # process get_content stage. contents are stored in property in accessible_variables\n        if stage.get_content:\n            get_content(stage.get_content, accessible_variables)\n            logging.info(f\"Retrieved content for {stage_idx + 1}. stage\\n\")\n\n        # process call_api stage\n        if stage.call_api:\n            for api_call in stage.call_api:\n                try:\n                    api_call: CallApiPhase\n                    request_payloads = []\n\n                    # Process Auth and add token to context\n                    token = None\n                    if api_call.auth:\n                        api_call.auth.fill_template(accessible_variables.context, raise_exceptions=True)\n                        token = token_manager.get_token(api_call.auth, accessible_variables.payload, api_client)\n\n                    original_request = api_call.request.model_copy()\n                    if api_call.request.iterate_over:\n                        items = resolve_var(\n                            api_call.request.iterate_over, accessible_variables.context, api_client=api_client\n                        )\n\n                        # Handle single item (dict) by wrapping in list\n                        if items is not None and not isinstance(items, list):\n                            items = [items]\n\n                        if items:\n                            # Prevent filling content template with global context, as it likely contains item placeholders\n                            content_template = api_call.request.content\n                            api_call.request.content = None\n\n                            api_call.request.fill_template(\n                                accessible_variables.context | {\"token\": token},\n                                raise_exceptions=True,\n                                api_client=api_client,\n                            )\n\n                            iter_name = api_call.request.iteration_item_name\n                            for idx, item in enumerate(items):\n                                # Fill template for this item\n                                filled_content = fill_template(\n                                    content_template,\n                                    raise_exceptions=True,\n                                    api_client=api_client,\n                                    **accessible_variables.context | {iter_name: item, \"sequence\": idx, \"token\": token},\n                                )\n                                request_payloads.append(filled_content)\n                        else:\n                            logging.warning(\n                                f\"iterate_over '{api_call.request.iterate_over}' resolved to None or empty. Skipping API call.\\n\"\n                            )\n                    else:\n                        api_call.request.fill_template(\n                            accessible_variables.context | {\"sequence\": 0, \"token\": token},\n                            raise_exceptions=True,\n                            api_client=api_client,\n                        )\n                        request_payloads = [api_call.request.content]\n\n                    for content_idx, content_batch in enumerate(request_payloads):\n                        try:\n                            with requests.Session() as session:\n                                response = api_call.request.execute(session, content_batch)\n\n                                if settings.debugging:\n                                    _log_response(response, f\"API response for '{api_call.name}'\", level=\"debug\")\n\n                                # Obtain new token if old one doesn't work anymore\n                                if response.status_code == 401 and api_call.auth:\n                                    logging.warning(\n                                        f\"Token expired (401) for {api_call.name}. Invalidating and fetching new token.\"\n                                    )\n                                    token_manager.invalidate_token(api_call.auth, accessible_variables.payload)\n                                    token = token_manager.get_token(\n                                        api_call.auth, accessible_variables.payload, api_client\n                                    )\n\n                                    api_call.request = original_request.model_copy()\n                                    context_for_fill = accessible_variables.context | {\"token\": token}\n\n                                    if api_call.request.iterate_over:\n                                        context_for_fill.update(\n                                            {\n                                                api_call.request.iteration_item_name: items[content_idx],\n                                                \"sequence\": content_idx,\n                                            }\n                                        )\n                                    else:\n                                        context_for_fill[\"sequence\"] = 0\n\n                                    api_call.request.fill_template(\n                                        context_for_fill,\n                                        raise_exceptions=True,\n                                        api_client=api_client,\n                                    )\n                                    content_batch = api_call.request.content\n\n                                    # If iterating, regenerate future payloads with new token\n                                    if api_call.request.iterate_over and items:\n                                        iter_name = api_call.request.iteration_item_name\n                                        for i in range(content_idx + 1, len(request_payloads)):\n                                            filled = fill_template(\n                                                content_template,\n                                                raise_exceptions=True,\n                                                api_client=api_client,\n                                                **accessible_variables.context\n                                                | {iter_name: items[i], \"sequence\": i, \"token\": token},\n                                            )\n                                            request_payloads[i] = filled\n\n                                    response = api_call.request.execute(session, content_batch)\n\n                                    if settings.debugging:\n                                        _log_response(\n                                            response, f\"API response (retry) for '{api_call.name}'\", level=\"debug\"\n                                        )\n\n                                for response_handler_idx, response_handler in enumerate(\n                                    api_call.priority_response_handlers\n                                ):\n                                    try:\n                                        logging.info(\n                                            f\"Starting {response_handler_idx + 1}. priority response handler for {stage_idx + 1}. stage (call_api name='{api_call.name}, target type='{response_handler.target_type}', key='{response_handler.target_key}')\"\n                                        )\n                                        valid_response = response_handler.handle_response(\n                                            api_call, response, accessible_variables, content_idx\n                                        )\n                                        if valid_response:\n                                            logging.info(\n                                                f\"Handled response for {stage_idx + 1}. stage (call_api name='{api_call.name}') with priority handler for target type='{response_handler.target_type}', key='{response_handler.target_key}'\\n\"\n                                            )\n                                            break\n                                        else:\n                                            logging.info(\n                                                f\"{response_handler_idx + 1}. priority response handler for {stage_idx + 1}. stage did not handle the response successfully. Next handler will be evaluated if present.\"\n                                            )\n                                    except Exception as e:\n                                        exception_occurred = True\n                                        _log_response(\n                                            response,\n                                            f\"Error in priority response handler {response_handler_idx + 1} for '{api_call.name}': {str(e)}\",\n                                            level=\"error\",\n                                        )\n                                for response_handler_idx, response_handler in enumerate(api_call.response_handlers):\n                                    try:\n                                        logging.info(\n                                            f\"Starting {response_handler_idx + 1}. response handler for {stage_idx + 1}. stage (call_api name='{api_call.name}', target type='{response_handler.target_type}', key='{response_handler.target_key})\"\n                                        )\n                                        response_handler.handle_response(\n                                            api_call, response, accessible_variables, content_idx\n                                        )\n                                        logging.info(\n                                            f\"Handled response for {stage_idx + 1}. stage (call_api name='{api_call.name}') with handler for target type='{response_handler.target_type}', key='{response_handler.target_key}'\\n\"\n                                        )\n                                    except Exception as e:\n                                        exception_occurred = True\n                                        _log_response(\n                                            response,\n                                            f\"Error in response handler {response_handler_idx + 1} for '{api_call.name}': {str(e)}\",\n                                            level=\"error\",\n                                        )\n                        except Exception as e:\n                            exception_occurred = True\n                            logging.exception(\n                                f\"Error during request execution for {stage_idx + 1}. stage: '{api_call.name}', content batch {content_idx}: {str(e)}\\n\"\n                            )\n                            continue\n                except Exception as e:\n                    exception_occurred = True\n                    logging.exception(f\"Error in API call for {stage_idx + 1}. stage: '{api_call.name}': {str(e)}'\\n\")\n                    continue\n    for key, values in accessible_variables.field_cache.items():\n        if len(values) > 1:\n            # we tried to write down multiple values to one field. Instead, we make it a list\n            setattr(t.field, key, values)\n\n    if exception_occurred:\n        t._messages.append(\n            {\n                \"type\": \"error\",\n                \"content\": \"Some exception occurred during during export pipeline - request processor run. Check log for details.\",\n            }\n        )\n\n    response = t.hook_response()\n    return response",
+    "third_party_library_pack": "default",
+    "memory_size_mb": 256
+  },
+  "test": {},
+  "sideload": [
+    "schemas"
+  ],
+  "settings_schema": null,
+  "secrets_schema": {
+    "type": "object",
+    "properties": {
+      "secret_key": {
+        "type": "string",
+        "description": "API secret"
+      }
+    },
+    "additionalProperties": {
+      "type": "string"
+    }
+  },
+  "token_owner": "https://cib.rossum.app/api/v1/users/282705",
+  "extension_source": "rossum_store",
+  "guide": "<div>\r\n    <p>This extension enables complex API integrations through a configurable multi-stage workflow engine.</p>\r\n    <p>To set up, you need to:</p>\r\n    <ul>\r\n        <li>Define <strong>stages</strong> that execute sequentially, each with optional evaluate, get_content, and call_api phases</li>\r\n        <li>Configure <strong>request</strong> objects with URL, method, headers, and content using dynamic templating</li>\r\n        <li>Set up <strong>response_handlers</strong> to extract values using JMESPath, XPath, or regex and write to fields or properties</li>\r\n    </ul>\r\n    <p>How it works:</p>\r\n    <ul>\r\n        <li>Use <strong>{variable.path}</strong> syntax to inject dynamic values from payload, fields, or properties</li>\r\n        <li>Add <strong>evaluate</strong> conditions to skip stages when criteria aren't met</li>\r\n        <li>Use <strong>get_content</strong> to fetch data from relations or documents before API calls</li>\r\n        <li>Configure <strong>auth</strong> with automatic token caching and refresh on 401 responses</li>\r\n        <li>Use <strong>iterate_over</strong> to loop requests over line items or lists</li>\r\n        <li>Extract response values with <strong>$jmespath</strong>, <strong>$xmlpath</strong>, or <strong>$regex</strong> operators</li>\r\n    </ul>\r\n    <p>Supports JSON, form data, file uploads, and multipart content types.</p>\r\n    <p>For more information, take a look at our <a href=\"https://gitlab.rossum.cloud/elis-connectors/elis-serverless-functions/-/blob/master/generic-functions/experimental/attachment_processor/request_processor/readme.md\" target=\"_blank\">documentation</a>.</p>\r\n</div>",
+  "read_more_url": "https://gitlab.rossum.cloud/elis-connectors/elis-serverless-functions/-/blob/master/generic-functions/experimental/attachment_processor/request_processor/readme.md",
+  "extension_image_url": "https://rossum-public-resources.app.rossum.ai/rossum-store-assets/Export-Pipeline-Request-Processor.png",
+  "token_lifetime_s": null,
+  "hook_template": "https://cib.rossum.app/api/v1/hook_templates/50",
+  "created_by": null,
+  "created_at": "2026-04-28T11:19:18.830930Z",
+  "modified_by": "https://cib.rossum.app/api/v1/users/336250"
+}

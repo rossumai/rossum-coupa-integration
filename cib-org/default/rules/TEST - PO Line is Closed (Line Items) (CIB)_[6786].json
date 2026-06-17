@@ -1,0 +1,29 @@
+{
+  "url": "https://cib.rossum.app/api/v1/rules/6786",
+  "id": 6786,
+  "name": "TEST - PO Line is Closed (Line Items) (CIB)",
+  "description": "",
+  "enabled": true,
+  "trigger_condition": "OPEN_STATUSES = ['created', 'received', 'partially_received', 'soft_closed_for_receiving']\n(\n  not is_empty(field.item_po_line_status_match)\n  and field.item_po_line_status_match not in OPEN_STATUSES\n)",
+  "actions": [
+    {
+      "id": "cdd17745-6443-42d0-9cd7-fc979c669f37",
+      "enabled": true,
+      "type": "show_message",
+      "event": "validation",
+      "payload": {
+        "type": "error",
+        "content": "The PO line is closed.",
+        "schema_id": "item_order_item_match"
+      }
+    }
+  ],
+  "organization": "https://cib.rossum.app/api/v1/organizations/262116",
+  "modified_by": "https://cib.rossum.app/api/v1/users/146087",
+  "created_by": "https://cib.rossum.app/api/v1/users/146087",
+  "queues": [
+    "https://cib.rossum.app/api/v1/queues/1260377",
+    "https://cib.rossum.app/api/v1/queues/1260388"
+  ],
+  "created_at": "2026-04-17T11:55:35.453564Z"
+}

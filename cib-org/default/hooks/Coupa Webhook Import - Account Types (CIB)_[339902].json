@@ -1,0 +1,151 @@
+{
+  "id": 339902,
+  "type": "webhook",
+  "name": "Coupa Webhook Import - Account Types (CIB)",
+  "url": "https://cib.rossum.app/api/v1/hooks/339902",
+  "description": "",
+  "settings": {
+    "credentials": {
+      "client_id": "ef7262b7624a011ec6eb1178c28e1a0b",
+      "base_api_url": "https://rossum-czech-coupalink.coupacloud.com/",
+      "client_scope": "core.accounting.read"
+    },
+    "import_config": {
+      "query": {
+        "fields": [
+          "id",
+          "created_at",
+          "updated_at",
+          "name",
+          "active",
+          "legal_entity_name",
+          "dynamic_flag",
+          {
+            "custom_fields": {}
+          },
+          {
+            "currency": [
+              "id",
+              "code",
+              "decimals"
+            ]
+          },
+          {
+            "primary_contact": [
+              "id",
+              "created_at",
+              "updated_at",
+              "email",
+              "name_prefix",
+              "name_suffix",
+              "name_additional",
+              "name_given",
+              "name_family",
+              "name_fullname",
+              "notes",
+              "active",
+              "purposes"
+            ]
+          },
+          {
+            "primary_address": [
+              "id",
+              "created_at",
+              "updated_at",
+              "name",
+              "location_code",
+              "street1",
+              "street2",
+              "street3",
+              "street4",
+              "city",
+              "state",
+              "postal_code",
+              "attention",
+              "active",
+              "business_group_name",
+              "vat_number",
+              "local_tax_number",
+              "type",
+              {
+                "country": [
+                  "id",
+                  "code",
+                  "name"
+                ]
+              },
+              {
+                "vat_country": [
+                  "id",
+                  "code",
+                  "name"
+                ]
+              }
+            ]
+          }
+        ],
+        "updated-at[gt_or_eq]": "${last_modified_date}"
+      },
+      "method": "update",
+      "id_keys": [
+        "id"
+      ],
+      "endpoint": "api/account_types",
+      "dataset_name": "account_types_test",
+      "records_per_request": 50
+    },
+    "job_run_settings": {
+      "max_run_time_s": 36000
+    }
+  },
+  "active": true,
+  "events": [
+    "invocation.scheduled",
+    "invocation.manual"
+  ],
+  "queues": [
+    "https://cib.rossum.app/api/v1/queues/1260377",
+    "https://cib.rossum.app/api/v1/queues/1260388"
+  ],
+  "run_after": [],
+  "metadata": {},
+  "config": {
+    "schedule": {
+      "cron": "5 */2 * * *"
+    },
+    "app": null,
+    "payload_logging_enabled": false,
+    "timeout_s": 30,
+    "max_polling_time_s": 300,
+    "retry_count": 4,
+    "retry_after_polling_failure": true,
+    "url": "https://shared-eu2.rossum.app/svc/scheduled-imports/api/coupa/v1/import",
+    "secret": null,
+    "insecure_ssl": false,
+    "client_ssl_certificate": null,
+    "retry_on_any_non_2xx": false
+  },
+  "test": {},
+  "sideload": [],
+  "settings_schema": null,
+  "secrets_schema": {
+    "type": "object",
+    "properties": {
+      "client_secret": {
+        "type": "string",
+        "description": "API oAuth Client secret"
+      }
+    },
+    "additionalProperties": false
+  },
+  "token_owner": "https://cib.rossum.app/api/v1/users/282700",
+  "extension_source": "custom",
+  "guide": null,
+  "read_more_url": null,
+  "extension_image_url": null,
+  "token_lifetime_s": 120,
+  "hook_template": null,
+  "created_by": null,
+  "created_at": null,
+  "modified_by": "https://cib.rossum.app/api/v1/users/146087"
+}

@@ -1,0 +1,38 @@
+{
+  "url": "https://cib.rossum.app/api/v1/rules/6803",
+  "id": 6803,
+  "name": "TEST - Subtotal Not Equal to Sum of Item Totals (CIB)",
+  "description": "",
+  "enabled": true,
+  "trigger_condition": "(\n  not is_empty(field.amount_total_base)\n  and round(field.amount_total_base, 2) != round(\n    sum([default_to(v, 0) for v in field.item_total_base.all_values]),\n    2\n  )\n)",
+  "actions": [
+    {
+      "id": "6e4ee606-dded-4017-99fb-03ace5127e37",
+      "enabled": true,
+      "type": "show_message",
+      "event": "validation",
+      "payload": {
+        "type": "warning",
+        "content": "Subtotal is not equal to the sum of the item totals.",
+        "schema_id": "amount_total_base"
+      }
+    },
+    {
+      "id": "096dd43a-6676-4751-96a4-8eff68b4bc02",
+      "enabled": true,
+      "type": "add_automation_blocker",
+      "event": "validation",
+      "payload": {
+        "content": "Subtotal is not equal to the sum of the item totals.",
+        "schema_id": "amount_total_base"
+      }
+    }
+  ],
+  "organization": "https://cib.rossum.app/api/v1/organizations/262116",
+  "modified_by": "https://cib.rossum.app/api/v1/users/146087",
+  "created_by": "https://cib.rossum.app/api/v1/users/146087",
+  "queues": [
+    "https://cib.rossum.app/api/v1/queues/1260388"
+  ],
+  "created_at": "2026-04-17T11:55:38.426157Z"
+}

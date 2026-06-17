@@ -1,0 +1,12 @@
+{
+  "id": 2637648,
+  "url": "https://cib.rossum.app/api/v1/engine_fields/2637648",
+  "engine": "https://cib.rossum.app/api/v1/engines/51386",
+  "name": "terms",
+  "label": "Payment Terms",
+  "type": "string",
+  "subtype": "",
+  "pre_trained_field_id": "terms",
+  "tabular": false,
+  "multiline": "true"
+}

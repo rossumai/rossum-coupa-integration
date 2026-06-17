@@ -1,0 +1,12 @@
+{
+  "id": 2637453,
+  "url": "https://cib.rossum.app/api/v1/engine_fields/2637453",
+  "engine": "https://cib.rossum.app/api/v1/engines/51381",
+  "name": "sender_ic",
+  "label": "Vendor Company ID",
+  "type": "string",
+  "subtype": "vat_number",
+  "pre_trained_field_id": "sender_ic",
+  "tabular": false,
+  "multiline": "false"
+}

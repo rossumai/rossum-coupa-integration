@@ -1,0 +1,12 @@
+{
+  "id": 2637652,
+  "url": "https://cib.rossum.app/api/v1/engine_fields/2637652",
+  "engine": "https://cib.rossum.app/api/v1/engines/51386",
+  "name": "sender_name",
+  "label": "Supplier Name",
+  "type": "string",
+  "subtype": "",
+  "pre_trained_field_id": "sender_name",
+  "tabular": false,
+  "multiline": "true"
+}

@@ -1,0 +1,39 @@
+{
+  "url": "https://cib.rossum.app/api/v1/rules/6795",
+  "id": 6795,
+  "name": "TEST - Service Period Start After PO End (Line Items) (CIB)",
+  "description": "",
+  "enabled": true,
+  "trigger_condition": "(\n  not is_empty(field.sp_item_start_date_export)\n  and not is_empty(field.item_po_line_sp_end_date_normalized)\n  and field.sp_item_start_date_export > field.item_po_line_sp_end_date_normalized\n)",
+  "actions": [
+    {
+      "id": "9c41455f-837c-42f2-ba2c-e3a07a1ff66b",
+      "enabled": true,
+      "type": "show_message",
+      "event": "validation",
+      "payload": {
+        "type": "warning",
+        "content": "The start date on the document is greater than the end date on the item. Please double-check.",
+        "schema_id": "sp_item_start_date_export"
+      }
+    },
+    {
+      "id": "2838be83-a6be-4207-b576-9486f8297c93",
+      "enabled": true,
+      "type": "add_automation_blocker",
+      "event": "validation",
+      "payload": {
+        "content": "The start date on the document is greater than the end date on the item. Please double-check.",
+        "schema_id": "sp_item_start_date_export"
+      }
+    }
+  ],
+  "organization": "https://cib.rossum.app/api/v1/organizations/262116",
+  "modified_by": "https://cib.rossum.app/api/v1/users/146087",
+  "created_by": "https://cib.rossum.app/api/v1/users/146087",
+  "queues": [
+    "https://cib.rossum.app/api/v1/queues/1260377",
+    "https://cib.rossum.app/api/v1/queues/1260388"
+  ],
+  "created_at": "2026-04-17T11:55:37.032087Z"
+}

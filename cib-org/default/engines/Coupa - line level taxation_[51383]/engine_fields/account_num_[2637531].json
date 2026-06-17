@@ -1,0 +1,12 @@
+{
+  "id": 2637531,
+  "url": "https://cib.rossum.app/api/v1/engine_fields/2637531",
+  "engine": "https://cib.rossum.app/api/v1/engines/51383",
+  "name": "account_num",
+  "label": "Account Number",
+  "type": "string",
+  "subtype": null,
+  "pre_trained_field_id": "account_num",
+  "tabular": false,
+  "multiline": "false"
+}

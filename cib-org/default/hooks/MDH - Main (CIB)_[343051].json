@@ -1,0 +1,3893 @@
+{
+  "id": 343051,
+  "type": "webhook",
+  "name": "MDH - Main (CIB)",
+  "url": "https://cib.rossum.app/api/v1/hooks/343051",
+  "description": "Enhance the extracted data with details from your master records.",
+  "settings": {
+    "configurations": [
+      {
+        "name": "1 .Entities (Account Types)",
+        "source": {
+          "dataset": "account_types_test",
+          "queries": [
+            {
+              "//": "Manual search",
+              "aggregate": [
+                {
+                  "$search": {
+                    "compound": {
+                      "must": [
+                        {
+                          "phrase": {
+                            "path": [
+                              "name"
+                            ],
+                            "slop": 5,
+                            "query": "{recipient_search}"
+                          }
+                        }
+                      ],
+                      "filter": [
+                        {
+                          "equals": {
+                            "path": "active",
+                            "value": true
+                          }
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "$limit": 100
+                },
+                {
+                  "$project": {
+                    "id": 1,
+                    "name": 1,
+                    "primary-address": 1
+                  }
+                }
+              ]
+            },
+            {
+              "//": "Memorized value recalled by exact matching of name and/or address",
+              "aggregate": [
+                {
+                  "$match": {
+                    "_id": "#"
+                  }
+                },
+                {
+                  "$unionWith": {
+                    "coll": "_customer_memorization_test",
+                    "pipeline": [
+                      {
+                        "$match": {
+                          "recipient_name": "{recipient_name}",
+                          "recipient_address": "{recipient_address}"
+                        }
+                      },
+                      {
+                        "$lookup": {
+                          "as": "original",
+                          "from": "account_types_test",
+                          "localField": "recipient_match",
+                          "foreignField": "id"
+                        }
+                      },
+                      {
+                        "$replaceRoot": {
+                          "newRoot": {
+                            "$mergeObjects": [
+                              {
+                                "$arrayElemAt": [
+                                  "$original",
+                                  0
+                                ]
+                              },
+                              "$$ROOT"
+                            ]
+                          }
+                        }
+                      },
+                      {
+                        "$project": {
+                          "original": 0
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "$limit": 1
+                },
+                {
+                  "$project": {
+                    "id": 1,
+                    "name": 1,
+                    "primary-address": 1
+                  }
+                }
+              ]
+            },
+            {
+              "//": "Exact match of TAX ID with primary-address.vat-number (with normalization)",
+              "aggregate": [
+                {
+                  "$addFields": {
+                    "pa-vat-normalized": {
+                      "$replaceAll": {
+                        "find": " ",
+                        "input": "$primary-address.vat-number",
+                        "replacement": ""
+                      }
+                    }
+                  }
+                },
+                {
+                  "$match": {
+                    "$and": [
+                      {
+                        "active": true
+                      },
+                      {
+                        "pa-vat-normalized": {
+                          "$regex": "^(?:[A-Z]+)?{recipient_tax_id_normalized}$",
+                          "$options": "i"
+                        }
+                      },
+                      {
+                        "primary-address.vat-number": {
+                          "$nin": [
+                            "",
+                            null
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "$project": {
+                    "id": 1,
+                    "name": 1,
+                    "primary-address": 1
+                  }
+                }
+              ]
+            },
+            {
+              "//": "Exact match on Name",
+              "aggregate": [
+                {
+                  "$match": {
+                    "$expr": {
+                      "$eq": [
+                        {
+                          "$toLower": "$name"
+                        },
+                        {
+                          "$toLower": "{recipient_name}"
+                        }
+                      ]
+                    },
+                    "active": true
+                  }
+                },
+                {
+                  "$project": {
+                    "id": 1,
+                    "name": 1,
+                    "primary-address": 1
+                  }
+                }
+              ]
+            },
+            {
+              "//": "Fuzzy match on Name - score normalization, thresholds: 0.95, 0.93, 0.9, 0.85, 0.8, 0.75, 0.65, 0.6",
+              "aggregate": [
+                {
+                  "$search": {
+                    "compound": {
+                      "must": [
+                        {
+                          "text": {
+                            "path": [
+                              "name"
+                            ],
+                            "fuzzy": {
+                              "maxEdits": 1,
+                              "prefixLength": 1
+                            },
+                            "query": [
+                              "{recipient_name}"
+                            ]
+                          }
+                        }
+                      ],
+                      "filter": [
+                        {
+                          "equals": {
+                            "path": "active",
+                            "value": true
+                          }
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "$limit": 10
+                },
+                {
+                  "$addFields": {
+                    "score": {
+                      "$meta": "searchScore"
+                    }
+                  }
+                },
+                {
+                  "$addFields": {
+                    "normalized_score": {
+                      "$divide": [
+                        "$score",
+                        {
+                          "$add": [
+                            1,
+                            "$score",
+                            {
+                              "$abs": {
+                                "$subtract": [
+                                  1,
+                                  {
+                                    "$divide": [
+                                      {
+                                        "$strLenCP": "$name"
+                                      },
+                                      {
+                                        "$strLenCP": "{recipient_name}"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "$setWindowFields": {
+                    "output": {
+                      "normalized_score_max": {
+                        "$max": "$normalized_score"
+                      }
+                    }
+                  }
+                },
+                {
+                  "$sort": {
+                    "normalized_score": -1
+                  }
+                },
+                {
+                  "$match": {
+                    "$expr": {
+                      "$cond": {
+                        "if": {
+                          "$or": [
+                            {
+                              "$and": [
+                                {
+                                  "$gt": [
+                                    "$normalized_score_max",
+                                    0.95
+                                  ]
+                                },
+                                {
+                                  "$gt": [
+                                    "$normalized_score",
+                                    0.95
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "$and": [
+                                {
+                                  "$gt": [
+                                    "$normalized_score_max",
+                                    0.93
+                                  ]
+                                },
+                                {
+                                  "$lte": [
+                                    "$normalized_score_max",
+                                    0.95
+                                  ]
+                                },
+                                {
+                                  "$gt": [
+                                    "$normalized_score",
+                                    0.93
+                                  ]
+                                },
+                                {
+                                  "$lte": [
+                                    "$normalized_score",
+                                    0.95
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "$and": [
+                                {
+                                  "$gt": [
+                                    "$normalized_score_max",
+                                    0.9
+                                  ]
+                                },
+                                {
+                                  "$lte": [
+                                    "$normalized_score_max",
+                                    0.93
+                                  ]
+                                },
+                                {
+                                  "$gt": [
+                                    "$normalized_score",
+                                    0.9
+                                  ]
+                                },
+                                {
+                                  "$lte": [
+                                    "$normalized_score",
+                                    0.93
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "$and": [
+                                {
+                                  "$gt": [
+                                    "$normalized_score_max",
+                                    0.85
+                                  ]
+                                },
+                                {
+                                  "$lte": [
+                                    "$normalized_score_max",
+                                    0.9
+                                  ]
+                                },
+                                {
+                                  "$gt": [
+                                    "$normalized_score",
+                                    0.85
+                                  ]
+                                },
+                                {
+                                  "$lte": [
+                                    "$normalized_score",
+                                    0.9
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "$and": [
+                                {
+                                  "$gt": [
+                                    "$normalized_score_max",
+                                    0.8
+                                  ]
+                                },
+                                {
+                                  "$lte": [
+                                    "$normalized_score_max",
+                                    0.85
+                                  ]
+                                },
+                                {
+                                  "$gt": [
+                                    "$normalized_score",
+                                    0.8
+                                  ]
+                                },
+                                {
+                                  "$lte": [
+                                    "$normalized_score",
+                                    0.85
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "$and": [
+                                {
+                                  "$gt": [
+                                    "$normalized_score_max",
+                                    0.75
+                                  ]
+                                },
+                                {
+                                  "$lte": [
+                                    "$normalized_score_max",
+                                    0.8
+                                  ]
+                                },
+                                {
+                                  "$gt": [
+                                    "$normalized_score",
+                                    0.75
+                                  ]
+                                },
+                                {
+                                  "$lte": [
+                                    "$normalized_score",
+                                    0.8
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "$and": [
+                                {
+                                  "$gt": [
+                                    "$normalized_score_max",
+                                    0.65
+                                  ]
+                                },
+                                {
+                                  "$lte": [
+                                    "$normalized_score_max",
+                                    0.75
+                                  ]
+                                },
+                                {
+                                  "$gt": [
+                                    "$normalized_score",
+                                    0.65
+                                  ]
+                                },
+                                {
+                                  "$lte": [
+                                    "$normalized_score",
+                                    0.75
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "$and": [
+                                {
+                                  "$gt": [
+                                    "$normalized_score_max",
+                                    0.6
+                                  ]
+                                },
+                                {
+                                  "$lte": [
+                                    "$normalized_score_max",
+                                    0.65
+                                  ]
+                                },
+                                {
+                                  "$gt": [
+                                    "$normalized_score",
+                                    0.6
+                                  ]
+                                },
+                                {
+                                  "$lte": [
+                                    "$normalized_score",
+                                    0.65
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        "else": false,
+                        "then": true
+                      }
+                    }
+                  }
+                },
+                {
+                  "$project": {
+                    "id": 1,
+                    "name": 1,
+                    "primary-address": 1
+                  }
+                }
+              ]
+            },
+            {
+              "//": "Exact match on Primary Address Name",
+              "aggregate": [
+                {
+                  "$match": {
+                    "$and": [
+                      {
+                        "active": true
+                      },
+                      {
+                        "primary-address.name": "{recipient_name}"
+                      },
+                      {
+                        "primary-address.name": {
+                          "$nin": [
+                            "",
+                            null
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "$project": {
+                    "id": 1,
+                    "name": 1,
+                    "primary-address": 1
+                  }
+                }
+              ]
+            },
+            {
+              "//": "Fuzzy match on Primary address Name",
+              "aggregate": [
+                {
+                  "$search": {
+                    "compound": {
+                      "must": [
+                        {
+                          "text": {
+                            "path": [
+                              "primary-address.name"
+                            ],
+                            "fuzzy": {
+                              "maxEdits": 1,
+                              "prefixLength": 1
+                            },
+                            "query": [
+                              "{recipient_name}"
+                            ]
+                          }
+                        }
+                      ],
+                      "filter": [
+                        {
+                          "equals": {
+                            "path": "active",
+                            "value": true
+                          }
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "$limit": 15
+                },
+                {
+                  "$addFields": {
+                    "score": {
+                      "$meta": "searchScore"
+                    }
+                  }
+                },
+                {
+                  "$addFields": {
+                    "new_score": {
+                      "$divide": [
+                        "$score",
+                        {
+                          "$add": [
+                            1,
+                            {
+                              "$abs": {
+                                "$subtract": [
+                                  1,
+                                  {
+                                    "$divide": [
+                                      {
+                                        "$strLenCP": {
+                                          "$concat": [
+                                            {
+                                              "$ifNull": [
+                                                "$primary-address.name",
+                                                ""
+                                              ]
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      {
+                                        "$strLenCP": "{recipient_name}"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "$addFields": {
+                    "normalized_score": {
+                      "$divide": [
+                        "$new_score",
+                        {
+                          "$add": [
+                            1,
+                            "$new_score"
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "$sort": {
+                    "normalized_score": -1
+                  }
+                },
+                {
+                  "$match": {
+                    "normalized_score": {
+                      "$gt": 0.8
+                    }
+                  }
+                },
+                {
+                  "$project": {
+                    "id": 1,
+                    "name": 1,
+                    "primary-address": 1
+                  }
+                }
+              ]
+            },
+            {
+              "//": "Fuzzy match on Name and Address ",
+              "aggregate": [
+                {
+                  "$search": {
+                    "compound": {
+                      "must": [
+                        {
+                          "text": {
+                            "path": [
+                              "primary-address.name"
+                            ],
+                            "fuzzy": {
+                              "maxEdits": 1,
+                              "prefixLength": 1
+                            },
+                            "query": [
+                              "{recipient_name}"
+                            ],
+                            "score": {
+                              "boost": {
+                                "value": 2
+                              }
+                            }
+                          }
+                        }
+                      ],
+                      "filter": [
+                        {
+                          "equals": {
+                            "path": "active",
+                            "value": true
+                          }
+                        }
+                      ],
+                      "should": [
+                        {
+                          "text": {
+                            "path": [
+                              "primary-address.street1",
+                              "primary-address.street2",
+                              "primary-address.street3",
+                              "primary-address.city",
+                              "primary-address.postal-code",
+                              "primary-address.state"
+                            ],
+                            "fuzzy": {
+                              "maxEdits": 2,
+                              "prefixLength": 1
+                            },
+                            "query": [
+                              "{recipient_address}"
+                            ],
+                            "score": {
+                              "boost": {
+                                "value": 0.5
+                              }
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "$limit": 50
+                },
+                {
+                  "$addFields": {
+                    "score": {
+                      "$meta": "searchScore"
+                    }
+                  }
+                },
+                {
+                  "$addFields": {
+                    "new_score": {
+                      "$divide": [
+                        "$score",
+                        {
+                          "$add": [
+                            1,
+                            {
+                              "$abs": {
+                                "$subtract": [
+                                  1,
+                                  {
+                                    "$divide": [
+                                      {
+                                        "$strLenCP": {
+                                          "$concat": [
+                                            {
+                                              "$ifNull": [
+                                                "$primary-address.name",
+                                                ""
+                                              ]
+                                            },
+                                            {
+                                              "$ifNull": [
+                                                "$primary-address.street1",
+                                                ""
+                                              ]
+                                            },
+                                            {
+                                              "$ifNull": [
+                                                "$primary-address.street2",
+                                                ""
+                                              ]
+                                            },
+                                            {
+                                              "$ifNull": [
+                                                "$primary-address.street3",
+                                                ""
+                                              ]
+                                            },
+                                            {
+                                              "$ifNull": [
+                                                "$primary-address.city",
+                                                ""
+                                              ]
+                                            },
+                                            {
+                                              "$ifNull": [
+                                                "$primary-address.postal-code",
+                                                ""
+                                              ]
+                                            },
+                                            {
+                                              "$ifNull": [
+                                                "$primary-address.state",
+                                                ""
+                                              ]
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      {
+                                        "$strLenCP": "{recipient_name} {recipient_address}"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "$addFields": {
+                    "normalized_score": {
+                      "$divide": [
+                        "$new_score",
+                        {
+                          "$add": [
+                            1,
+                            "$new_score"
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "$sort": {
+                    "normalized_score": -1
+                  }
+                },
+                {
+                  "$match": {
+                    "normalized_score": {
+                      "$gt": 0.8
+                    }
+                  }
+                },
+                {
+                  "$project": {
+                    "id": 1,
+                    "name": 1,
+                    "primary-address": 1
+                  }
+                }
+              ]
+            },
+            {
+              "//": "Return all entities when nothing was found.",
+              "aggregate": [
+                {
+                  "$match": {
+                    "active": true
+                  }
+                },
+                {
+                  "$project": {
+                    "id": 1,
+                    "name": 1,
+                    "primary-address": 1
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "default": {
+          "label": "---",
+          "value": ""
+        },
+        "mapping": {
+          "label_keys": [
+            "name"
+          ],
+          "dataset_key": "id",
+          "target_schema_id": "recipient_match"
+        },
+        "result_actions": {
+          "no_match_found": {
+            "select": "default"
+          },
+          "one_match_found": {
+            "select": "best_match"
+          },
+          "multiple_matches_found": {
+            "select": "default"
+          }
+        },
+        "additional_mappings": [
+          {
+            "dataset_key": "name",
+            "target_schema_id": "recipient_name_match"
+          },
+          {
+            "dataset_key": "primary-address.id || ''",
+            "target_schema_id": "recipient_primary_address_match"
+          },
+          {
+            "dataset_key": "primary-address.country.code || ''",
+            "target_schema_id": "recipient_entity_country_code_match"
+          }
+        ]
+      },
+      {
+        "name": "2. Customer Tax Registration",
+        "source": {
+          "dataset": "tax_registrations_test",
+          "queries": [
+            {
+              "aggregate": [
+                {
+                  "$match": {
+                    "active": true,
+                    "number": "{recipient_tax_id_normalized}",
+                    "owner-id": "{recipient_primary_address_match}"
+                  }
+                },
+                {
+                  "$project": {
+                    "id": 1,
+                    "number": 1,
+                    "country": 1
+                  }
+                }
+              ]
+            },
+            {
+              "aggregate": [
+                {
+                  "$match": {
+                    "active": true,
+                    "owner-id": "{recipient_primary_address_match}"
+                  }
+                },
+                {
+                  "$project": {
+                    "id": 1,
+                    "number": 1,
+                    "country": 1
+                  }
+                }
+              ]
+            },
+            {
+              "aggregate": [
+                {
+                  "$match": {
+                    "active": true,
+                    "number": "{recipient_tax_id_normalized}"
+                  }
+                },
+                {
+                  "$project": {
+                    "id": 1,
+                    "number": 1,
+                    "country": 1
+                  }
+                }
+              ]
+            },
+            {
+              "aggregate": [
+                {
+                  "$match": {
+                    "active": true
+                  }
+                },
+                {
+                  "$project": {
+                    "id": 1,
+                    "number": 1,
+                    "country": 1
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "default": {
+          "label": "---",
+          "value": ""
+        },
+        "mapping": {
+          "dataset_key": "number",
+          "label_template": "{\"number\"}",
+          "target_schema_id": "recipient_tax_registration_match"
+        },
+        "result_actions": {
+          "no_match_found": {
+            "select": "default"
+          },
+          "one_match_found": {
+            "select": "best_match"
+          },
+          "multiple_matches_found": {
+            "select": "default"
+          }
+        },
+        "additional_mappings": [
+          {
+            "dataset_key": "country.code || ''",
+            "target_schema_id": "recipient_country_code_match"
+          }
+        ]
+      },
+      {
+        "name": "3. Supplier",
+        "source": {
+          "dataset": "suppliers_test",
+          "queries": [
+            {
+              "//": "Manual search",
+              "aggregate": [
+                {
+                  "$search": {
+                    "compound": {
+                      "must": [
+                        {
+                          "phrase": {
+                            "path": [
+                              "name"
+                            ],
+                            "slop": 5,
+                            "query": "{sender_search}"
+                          }
+                        }
+                      ],
+                      "filter": [
+                        {
+                          "phrase": {
+                            "path": "status",
+                            "query": "active"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "$limit": 100
+                },
+                {
+                  "$project": {
+                    "id": 1,
+                    "name": 1,
+                    "number": 1,
+                    "tax-id": 1,
+                    "display-name": 1,
+                    "primary-address": 1,
+                    "payment-term.days-for-net-payment": 1
+                  }
+                }
+              ]
+            },
+            {
+              "//": "Memorized value recalled by exact matching of name and/or address",
+              "aggregate": [
+                {
+                  "$match": {
+                    "_id": "#"
+                  }
+                },
+                {
+                  "$unionWith": {
+                    "coll": "_supplier_memorization_test",
+                    "pipeline": [
+                      {
+                        "$match": {
+                          "sender_name": "{sender_name}",
+                          "sender_address": "{sender_address}"
+                        }
+                      },
+                      {
+                        "$lookup": {
+                          "as": "original",
+                          "from": "suppliers_test",
+                          "localField": "sender_match",
+                          "foreignField": "id"
+                        }
+                      },
+                      {
+                        "$replaceRoot": {
+                          "newRoot": {
+                            "$mergeObjects": [
+                              {
+                                "$arrayElemAt": [
+                                  "$original",
+                                  0
+                                ]
+                              },
+                              "$$ROOT"
+                            ]
+                          }
+                        }
+                      },
+                      {
+                        "$project": {
+                          "original": 0
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "$limit": 1
+                },
+                {
+                  "$project": {
+                    "id": 1,
+                    "name": 1,
+                    "number": 1,
+                    "tax-id": 1,
+                    "display-name": 1,
+                    "primary-address": 1,
+                    "payment-term.days-for-net-payment": 1
+                  }
+                }
+              ]
+            },
+            {
+              "//": "Exact match on Tax ID",
+              "aggregate": [
+                {
+                  "$addFields": {
+                    "tax-id-normalized": {
+                      "$replaceAll": {
+                        "find": " ",
+                        "input": "$tax-id",
+                        "replacement": ""
+                      }
+                    }
+                  }
+                },
+                {
+                  "$match": {
+                    "$and": [
+                      {
+                        "status": "active"
+                      },
+                      {
+                        "tax-id-normalized": {
+                          "$regex": "^(?:[A-Z]+)?{sender_tax_id_normalized}$",
+                          "$options": "i"
+                        }
+                      },
+                      {
+                        "tax-id": {
+                          "$nin": [
+                            "",
+                            null
+                          ]
+                        }
+                      },
+                      {
+                        "tax-id": {
+                          "$regex": "[0-9]"
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "$project": {
+                    "id": 1,
+                    "name": 1,
+                    "number": 1,
+                    "tax-id": 1,
+                    "display-name": 1,
+                    "primary-address": 1,
+                    "payment-term.days-for-net-payment": 1
+                  }
+                }
+              ]
+            },
+            {
+              "//": "Exact match of TAX ID with primary-address.vat-number (with normalization)",
+              "aggregate": [
+                {
+                  "$addFields": {
+                    "p-a.vat-number-normalized": {
+                      "$replaceAll": {
+                        "find": " ",
+                        "input": "$primary-address.vat-number",
+                        "replacement": ""
+                      }
+                    }
+                  }
+                },
+                {
+                  "$match": {
+                    "$and": [
+                      {
+                        "status": "active"
+                      },
+                      {
+                        "p-a.vat-number-normalized": {
+                          "$regex": "^(?:[A-Z]+)?{sender_tax_id_normalized}$",
+                          "$options": "i"
+                        }
+                      },
+                      {
+                        "primary-address.vat-number": {
+                          "$nin": [
+                            "",
+                            null
+                          ]
+                        }
+                      },
+                      {
+                        "primary-address.vat-number": {
+                          "$regex": "[0-9]"
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "$project": {
+                    "id": 1,
+                    "name": 1,
+                    "number": 1,
+                    "tax-id": 1,
+                    "display-name": 1,
+                    "primary-address": 1,
+                    "payment-term.days-for-net-payment": 1
+                  }
+                }
+              ]
+            },
+            {
+              "//": "Exact match on Name",
+              "aggregate": [
+                {
+                  "$match": {
+                    "$expr": {
+                      "$eq": [
+                        {
+                          "$toLower": "$name"
+                        },
+                        {
+                          "$toLower": "{sender_name}"
+                        }
+                      ]
+                    },
+                    "status": "active"
+                  }
+                },
+                {
+                  "$project": {
+                    "id": 1,
+                    "name": 1,
+                    "number": 1,
+                    "tax-id": 1,
+                    "display-name": 1,
+                    "primary-address": 1,
+                    "payment-term.days-for-net-payment": 1
+                  }
+                }
+              ]
+            },
+            {
+              "//": "Fuzzy match on Name - score normalization, thresholds: 0.95, 0.93, 0.9, 0.85, 0.8, 0.75, 0.65, 0.6",
+              "aggregate": [
+                {
+                  "$search": {
+                    "compound": {
+                      "must": [
+                        {
+                          "text": {
+                            "path": [
+                              "name"
+                            ],
+                            "fuzzy": {
+                              "maxEdits": 1,
+                              "prefixLength": 1
+                            },
+                            "query": [
+                              "{sender_name}"
+                            ]
+                          }
+                        }
+                      ],
+                      "filter": [
+                        {
+                          "phrase": {
+                            "path": "status",
+                            "query": "active"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "$limit": 10
+                },
+                {
+                  "$addFields": {
+                    "score": {
+                      "$meta": "searchScore"
+                    }
+                  }
+                },
+                {
+                  "$addFields": {
+                    "normalized_score": {
+                      "$divide": [
+                        "$score",
+                        {
+                          "$add": [
+                            1,
+                            "$score",
+                            {
+                              "$abs": {
+                                "$subtract": [
+                                  1,
+                                  {
+                                    "$divide": [
+                                      {
+                                        "$strLenCP": "$name"
+                                      },
+                                      {
+                                        "$strLenCP": "{sender_name}"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "$setWindowFields": {
+                    "output": {
+                      "normalized_score_max": {
+                        "$max": "$normalized_score"
+                      }
+                    }
+                  }
+                },
+                {
+                  "$sort": {
+                    "normalized_score": -1
+                  }
+                },
+                {
+                  "$match": {
+                    "$expr": {
+                      "$cond": {
+                        "if": {
+                          "$or": [
+                            {
+                              "$and": [
+                                {
+                                  "$gt": [
+                                    "$normalized_score_max",
+                                    0.95
+                                  ]
+                                },
+                                {
+                                  "$gt": [
+                                    "$normalized_score",
+                                    0.95
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "$and": [
+                                {
+                                  "$gt": [
+                                    "$normalized_score_max",
+                                    0.93
+                                  ]
+                                },
+                                {
+                                  "$lte": [
+                                    "$normalized_score_max",
+                                    0.95
+                                  ]
+                                },
+                                {
+                                  "$gt": [
+                                    "$normalized_score",
+                                    0.93
+                                  ]
+                                },
+                                {
+                                  "$lte": [
+                                    "$normalized_score",
+                                    0.95
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "$and": [
+                                {
+                                  "$gt": [
+                                    "$normalized_score_max",
+                                    0.9
+                                  ]
+                                },
+                                {
+                                  "$lte": [
+                                    "$normalized_score_max",
+                                    0.93
+                                  ]
+                                },
+                                {
+                                  "$gt": [
+                                    "$normalized_score",
+                                    0.9
+                                  ]
+                                },
+                                {
+                                  "$lte": [
+                                    "$normalized_score",
+                                    0.93
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "$and": [
+                                {
+                                  "$gt": [
+                                    "$normalized_score_max",
+                                    0.85
+                                  ]
+                                },
+                                {
+                                  "$lte": [
+                                    "$normalized_score_max",
+                                    0.9
+                                  ]
+                                },
+                                {
+                                  "$gt": [
+                                    "$normalized_score",
+                                    0.85
+                                  ]
+                                },
+                                {
+                                  "$lte": [
+                                    "$normalized_score",
+                                    0.9
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "$and": [
+                                {
+                                  "$gt": [
+                                    "$normalized_score_max",
+                                    0.8
+                                  ]
+                                },
+                                {
+                                  "$lte": [
+                                    "$normalized_score_max",
+                                    0.85
+                                  ]
+                                },
+                                {
+                                  "$gt": [
+                                    "$normalized_score",
+                                    0.8
+                                  ]
+                                },
+                                {
+                                  "$lte": [
+                                    "$normalized_score",
+                                    0.85
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "$and": [
+                                {
+                                  "$gt": [
+                                    "$normalized_score_max",
+                                    0.75
+                                  ]
+                                },
+                                {
+                                  "$lte": [
+                                    "$normalized_score_max",
+                                    0.8
+                                  ]
+                                },
+                                {
+                                  "$gt": [
+                                    "$normalized_score",
+                                    0.75
+                                  ]
+                                },
+                                {
+                                  "$lte": [
+                                    "$normalized_score",
+                                    0.8
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "$and": [
+                                {
+                                  "$gt": [
+                                    "$normalized_score_max",
+                                    0.65
+                                  ]
+                                },
+                                {
+                                  "$lte": [
+                                    "$normalized_score_max",
+                                    0.75
+                                  ]
+                                },
+                                {
+                                  "$gt": [
+                                    "$normalized_score",
+                                    0.65
+                                  ]
+                                },
+                                {
+                                  "$lte": [
+                                    "$normalized_score",
+                                    0.75
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "$and": [
+                                {
+                                  "$gt": [
+                                    "$normalized_score_max",
+                                    0.6
+                                  ]
+                                },
+                                {
+                                  "$lte": [
+                                    "$normalized_score_max",
+                                    0.65
+                                  ]
+                                },
+                                {
+                                  "$gt": [
+                                    "$normalized_score",
+                                    0.6
+                                  ]
+                                },
+                                {
+                                  "$lte": [
+                                    "$normalized_score",
+                                    0.65
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        "else": false,
+                        "then": true
+                      }
+                    }
+                  }
+                },
+                {
+                  "$project": {
+                    "id": 1,
+                    "name": 1,
+                    "number": 1,
+                    "tax-id": 1,
+                    "display-name": 1,
+                    "primary-address": 1,
+                    "normalized_score": 1,
+                    "payment-term.days-for-net-payment": 1
+                  }
+                }
+              ]
+            },
+            {
+              "//": "Fuzzy match on Name and Address",
+              "aggregate": [
+                {
+                  "$search": {
+                    "compound": {
+                      "must": [
+                        {
+                          "text": {
+                            "path": [
+                              "name"
+                            ],
+                            "fuzzy": {
+                              "maxEdits": 1,
+                              "prefixLength": 1
+                            },
+                            "query": [
+                              "{sender_name}"
+                            ],
+                            "score": {
+                              "boost": {
+                                "value": 2
+                              }
+                            }
+                          }
+                        }
+                      ],
+                      "filter": [
+                        {
+                          "phrase": {
+                            "path": "status",
+                            "query": "active"
+                          }
+                        }
+                      ],
+                      "should": [
+                        {
+                          "text": {
+                            "path": [
+                              "primary-address.street1",
+                              "primary-address.street2",
+                              "primary-address.street3",
+                              "primary-address.city",
+                              "primary-address.postal-code",
+                              "primary-address.state"
+                            ],
+                            "fuzzy": {
+                              "maxEdits": 1,
+                              "prefixLength": 1
+                            },
+                            "query": [
+                              "{sender_address}"
+                            ],
+                            "score": {
+                              "boost": {
+                                "value": 0.5
+                              }
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "$limit": 50
+                },
+                {
+                  "$addFields": {
+                    "score": {
+                      "$meta": "searchScore"
+                    }
+                  }
+                },
+                {
+                  "$addFields": {
+                    "new_score": {
+                      "$divide": [
+                        "$score",
+                        {
+                          "$add": [
+                            1,
+                            {
+                              "$abs": {
+                                "$subtract": [
+                                  1,
+                                  {
+                                    "$divide": [
+                                      {
+                                        "$strLenCP": {
+                                          "$concat": [
+                                            {
+                                              "$ifNull": [
+                                                "$name",
+                                                ""
+                                              ]
+                                            },
+                                            {
+                                              "$ifNull": [
+                                                "$primary-address.name",
+                                                ""
+                                              ]
+                                            },
+                                            {
+                                              "$ifNull": [
+                                                "$primary-address.street1",
+                                                ""
+                                              ]
+                                            },
+                                            {
+                                              "$ifNull": [
+                                                "$primary-address.street2",
+                                                ""
+                                              ]
+                                            },
+                                            {
+                                              "$ifNull": [
+                                                "$primary-address.street3",
+                                                ""
+                                              ]
+                                            },
+                                            {
+                                              "$ifNull": [
+                                                "$primary-address.city",
+                                                ""
+                                              ]
+                                            },
+                                            {
+                                              "$ifNull": [
+                                                "$primary-address.postal-code",
+                                                ""
+                                              ]
+                                            },
+                                            {
+                                              "$ifNull": [
+                                                "$primary-address.state",
+                                                ""
+                                              ]
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      {
+                                        "$strLenCP": "{sender_name} {sender_address}"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "$addFields": {
+                    "normalized_score": {
+                      "$divide": [
+                        "$new_score",
+                        {
+                          "$add": [
+                            1,
+                            "$new_score"
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "$sort": {
+                    "normalized_score": -1
+                  }
+                },
+                {
+                  "$match": {
+                    "normalized_score": {
+                      "$gt": 0.8
+                    }
+                  }
+                },
+                {
+                  "$project": {
+                    "id": 1,
+                    "name": 1,
+                    "number": 1,
+                    "tax-id": 1,
+                    "display-name": 1,
+                    "primary-address": 1,
+                    "payment-term.days-for-net-payment": 1
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "default": {
+          "label": "---",
+          "value": ""
+        },
+        "mapping": {
+          "dataset_key": "id",
+          "label_template": "{\"name\"} - {\"display-name\"}",
+          "target_schema_id": "sender_match"
+        },
+        "result_actions": {
+          "no_match_found": {
+            "select": "default"
+          },
+          "one_match_found": {
+            "select": "best_match"
+          },
+          "multiple_matches_found": {
+            "select": "default"
+          }
+        },
+        "additional_mappings": [
+          {
+            "dataset_key": "\"primary-address\".country.code || ''",
+            "target_schema_id": "sender_country_code_match"
+          },
+          {
+            "dataset_key": "\"payment-term\".\"days-for-net-payment\" || ''",
+            "target_schema_id": "sender_payment_days_match"
+          },
+          {
+            "dataset_key": "\"display-name\" || ''",
+            "target_schema_id": "sender_display_name_match"
+          },
+          {
+            "dataset_key": "\"number\" || ''",
+            "target_schema_id": "sender_number_match"
+          },
+          {
+            "dataset_key": "\"name\" || ''",
+            "target_schema_id": "sender_name_match"
+          }
+        ]
+      },
+      {
+        "name": "4. Order Header - Line Items",
+        "source": {
+          "dataset": "purchase_orders_test",
+          "queries": [
+            {
+              "aggregate": [
+                {
+                  "$match": {
+                    "po-number": "{item_order_id_calculated}"
+                  }
+                },
+                {
+                  "$addFields": {
+                    "__score_normalized": "(exact)"
+                  }
+                },
+                {
+                  "$project": {
+                    "id": 1,
+                    "status": 1,
+                    "po-number": 1,
+                    "custom-fields": 1,
+                    "ship-to-address": 1,
+                    "requisition-header.requested-by.email": 1
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "default": {
+          "label": "---",
+          "value": ""
+        },
+        "mapping": {
+          "label_keys": [
+            "po-number",
+            "status"
+          ],
+          "dataset_key": "po-number",
+          "target_schema_id": "item_order_header_match"
+        },
+        "result_actions": {
+          "no_match_found": {
+            "select": "default"
+          },
+          "one_match_found": {
+            "select": "best_match"
+          },
+          "multiple_matches_found": {
+            "select": "default"
+          }
+        },
+        "action_condition": "'{item_order_id_calculated}' != ''  and '{order_id}' == '{order_id}' and '{item_order_id}' == '{item_order_id}'",
+        "additional_mappings": [
+          {
+            "label_keys": [
+              "status"
+            ],
+            "dataset_key": "status",
+            "target_schema_id": "item_order_header_status_match"
+          },
+          {
+            "label_keys": [
+              "ship-to-address.id"
+            ],
+            "dataset_key": "ship-to-address.id",
+            "target_schema_id": "item_order_header_ship_to_addr_match"
+          },
+          {
+            "label_keys": [
+              "requisition-header.requested-by.email"
+            ],
+            "dataset_key": "requisition-header.requested-by.email",
+            "target_schema_id": "item_requestor_email_match"
+          }
+        ]
+      },
+      {
+        "name": "5. Order Header - Headers",
+        "source": {
+          "dataset": "purchase_orders_test",
+          "queries": [
+            {
+              "aggregate": [
+                {
+                  "$match": {
+                    "po-number": "{order_id_calculated}"
+                  }
+                },
+                {
+                  "$addFields": {
+                    "__score_normalized": "(exact)"
+                  }
+                },
+                {
+                  "$project": {
+                    "id": 1,
+                    "status": 1,
+                    "po-number": 1,
+                    "requested-by": 1,
+                    "custom-fields": 1,
+                    "ship-to-address": 1,
+                    "requisition-header.requested-by.email": 1
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "default": {
+          "label": "---",
+          "value": ""
+        },
+        "mapping": {
+          "label_keys": [
+            "po-number",
+            "status"
+          ],
+          "dataset_key": "id",
+          "target_schema_id": "order_header_match"
+        },
+        "result_actions": {
+          "no_match_found": {
+            "select": "default"
+          },
+          "one_match_found": {
+            "select": "best_match"
+          },
+          "multiple_matches_found": {
+            "select": "default"
+          }
+        },
+        "action_condition": "'{order_id_calculated}' != '' and '{order_id}' == '{order_id}'",
+        "additional_mappings": [
+          {
+            "label_keys": [
+              "status"
+            ],
+            "dataset_key": "status",
+            "target_schema_id": "order_header_status_match"
+          },
+          {
+            "label_keys": [
+              "ship-to-address.id"
+            ],
+            "dataset_key": "ship-to-address.id",
+            "target_schema_id": "order_header_ship_to_addr_match"
+          },
+          {
+            "label_keys": [
+              "requisition-header.requested-by.email"
+            ],
+            "dataset_key": "requisition-header.requested-by.email",
+            "target_schema_id": "requestor_email"
+          }
+        ]
+      },
+      {
+        "name": "6. Order Line - Line Items",
+        "source": {
+          "dataset": "purchase_order_lines_test",
+          "queries": [
+            {
+              "aggregate": [
+                {
+                  "$match": {
+                    "$expr": {
+                      "$and": [
+                        {
+                          "$lte": [
+                            {
+                              "$toDate": "$period.start-date"
+                            },
+                            {
+                              "$toDate": "{sp_item_start_date_text}"
+                            }
+                          ]
+                        },
+                        {
+                          "$gte": [
+                            {
+                              "$toDate": "$period.end-date"
+                            },
+                            {
+                              "$toDate": "{sp_item_end_date_text}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    "order-header-number": "{item_order_id_calculated}"
+                  }
+                },
+                {
+                  "$addFields": {
+                    "accountObject": {
+                      "$cond": [
+                        {
+                          "$ne": [
+                            "$account",
+                            null
+                          ]
+                        },
+                        "$account",
+                        {
+                          "$first": "$account-allocations.account"
+                        }
+                      ]
+                    },
+                    "__score_normalized": "(exact)"
+                  }
+                },
+                {
+                  "$lookup": {
+                    "as": "account_type_record",
+                    "from": "account_types_test",
+                    "localField": "accountObject.account-type-id",
+                    "foreignField": "id"
+                  }
+                },
+                {
+                  "$unwind": {
+                    "path": "$account_type_record"
+                  }
+                },
+                {
+                  "$project": {
+                    "id": 1,
+                    "uom": {
+                      "$cond": {
+                        "if": {
+                          "$ne": [
+                            "$uom",
+                            null
+                          ]
+                        },
+                        "else": {
+                          "code": ""
+                        },
+                        "then": "$uom"
+                      }
+                    },
+                    "type": 1,
+                    "price": 1,
+                    "total": 1,
+                    "period": 1,
+                    "status": 1,
+                    "account": "$accountObject",
+                    "currency": 1,
+                    "line-num": 1,
+                    "quantity": 1,
+                    "supplier": 1,
+                    "commodity": 1,
+                    "description": 1,
+                    "custom-fields": 1,
+                    "account_type_name": "$account_type_record.name",
+                    "order-header-number": 1
+                  }
+                }
+              ]
+            },
+            {
+              "aggregate": [
+                {
+                  "$match": {
+                    "source-part-num": {
+                      "$nin": [
+                        "",
+                        null
+                      ]
+                    },
+                    "order-header-number": "{item_order_id_calculated}"
+                  }
+                },
+                {
+                  "$match": {
+                    "$expr": {
+                      "$and": [
+                        {
+                          "$ne": [
+                            "{item_code}",
+                            ""
+                          ]
+                        },
+                        {
+                          "$eq": [
+                            "$source-part-num",
+                            "{item_code}"
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "$addFields": {
+                    "accountObject": {
+                      "$cond": [
+                        {
+                          "$ne": [
+                            "$account",
+                            null
+                          ]
+                        },
+                        "$account",
+                        {
+                          "$first": "$account-allocations.account"
+                        }
+                      ]
+                    },
+                    "__score_normalized": "(exact)"
+                  }
+                },
+                {
+                  "$lookup": {
+                    "as": "account_type_record",
+                    "from": "account_types_test",
+                    "localField": "accountObject.account-type-id",
+                    "foreignField": "id"
+                  }
+                },
+                {
+                  "$unwind": {
+                    "path": "$account_type_record"
+                  }
+                },
+                {
+                  "$project": {
+                    "id": 1,
+                    "uom": {
+                      "$cond": {
+                        "if": {
+                          "$ne": [
+                            "$uom",
+                            null
+                          ]
+                        },
+                        "else": {
+                          "code": ""
+                        },
+                        "then": "$uom"
+                      }
+                    },
+                    "type": 1,
+                    "price": 1,
+                    "total": 1,
+                    "period": 1,
+                    "status": 1,
+                    "account": "$accountObject",
+                    "currency": 1,
+                    "line-num": 1,
+                    "quantity": 1,
+                    "supplier": 1,
+                    "commodity": 1,
+                    "description": 1,
+                    "custom-fields": 1,
+                    "account_type_name": "$account_type_record.name",
+                    "order-header-number": 1
+                  }
+                }
+              ]
+            },
+            {
+              "aggregate": [
+                {
+                  "$match": {
+                    "description": "{item_description_export}",
+                    "order-header-number": "{item_order_id_calculated}"
+                  }
+                },
+                {
+                  "$addFields": {
+                    "accountObject": {
+                      "$cond": [
+                        {
+                          "$ne": [
+                            "$account",
+                            null
+                          ]
+                        },
+                        "$account",
+                        {
+                          "$first": "$account-allocations.account"
+                        }
+                      ]
+                    },
+                    "__score_normalized": "(exact)"
+                  }
+                },
+                {
+                  "$lookup": {
+                    "as": "account_type_record",
+                    "from": "account_types_test",
+                    "localField": "accountObject.account-type-id",
+                    "foreignField": "id"
+                  }
+                },
+                {
+                  "$unwind": {
+                    "path": "$account_type_record"
+                  }
+                },
+                {
+                  "$project": {
+                    "id": 1,
+                    "uom": {
+                      "$cond": {
+                        "if": {
+                          "$ne": [
+                            "$uom",
+                            null
+                          ]
+                        },
+                        "else": {
+                          "code": ""
+                        },
+                        "then": "$uom"
+                      }
+                    },
+                    "type": 1,
+                    "price": 1,
+                    "total": 1,
+                    "period": 1,
+                    "status": 1,
+                    "account": "$accountObject",
+                    "currency": 1,
+                    "line-num": 1,
+                    "quantity": 1,
+                    "supplier": 1,
+                    "commodity": 1,
+                    "description": 1,
+                    "custom-fields": 1,
+                    "account_type_name": "$account_type_record.name",
+                    "order-header-number": 1
+                  }
+                }
+              ]
+            },
+            {
+              "//": "Fuzzy match on description - score normalization: greater than 0.9",
+              "aggregate": [
+                {
+                  "$search": {
+                    "compound": {
+                      "must": [
+                        {
+                          "text": {
+                            "path": [
+                              "description"
+                            ],
+                            "fuzzy": {
+                              "maxEdits": 2
+                            },
+                            "query": [
+                              "{item_description}"
+                            ]
+                          }
+                        }
+                      ],
+                      "filter": [
+                        {
+                          "text": {
+                            "path": "order-header-number",
+                            "query": "{item_order_id_calculated}"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "$match": {
+                    "order-header-number": "{item_order_id_calculated}"
+                  }
+                },
+                {
+                  "$limit": 10
+                },
+                {
+                  "$addFields": {
+                    "score": {
+                      "$meta": "searchScore"
+                    }
+                  }
+                },
+                {
+                  "$addFields": {
+                    "normalized_score": {
+                      "$divide": [
+                        "$score",
+                        {
+                          "$add": [
+                            1,
+                            "$score",
+                            {
+                              "$abs": {
+                                "$subtract": [
+                                  1,
+                                  {
+                                    "$divide": [
+                                      {
+                                        "$strLenCP": "$description"
+                                      },
+                                      {
+                                        "$strLenCP": "{item_description}"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "$setWindowFields": {
+                    "output": {
+                      "normalized_score_max": {
+                        "$max": "$normalized_score"
+                      }
+                    }
+                  }
+                },
+                {
+                  "$sort": {
+                    "normalized_score": -1
+                  }
+                },
+                {
+                  "$match": {
+                    "$expr": {
+                      "$cond": {
+                        "if": {
+                          "$or": [
+                            {
+                              "$and": [
+                                {
+                                  "$gt": [
+                                    "$normalized_score_max",
+                                    0.9
+                                  ]
+                                },
+                                {
+                                  "$gt": [
+                                    "$normalized_score",
+                                    0.9
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        "else": false,
+                        "then": true
+                      }
+                    }
+                  }
+                },
+                {
+                  "$addFields": {
+                    "accountObject": {
+                      "$cond": [
+                        {
+                          "$ne": [
+                            "$account",
+                            null
+                          ]
+                        },
+                        "$account",
+                        {
+                          "$first": "$account-allocations.account"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "$lookup": {
+                    "as": "account_type_record",
+                    "from": "account_types_test",
+                    "localField": "accountObject.account-type-id",
+                    "foreignField": "id"
+                  }
+                },
+                {
+                  "$unwind": {
+                    "path": "$account_type_record"
+                  }
+                },
+                {
+                  "$project": {
+                    "id": 1,
+                    "uom": {
+                      "$cond": {
+                        "if": {
+                          "$ne": [
+                            "$uom",
+                            null
+                          ]
+                        },
+                        "else": {
+                          "code": ""
+                        },
+                        "then": "$uom"
+                      }
+                    },
+                    "type": 1,
+                    "price": 1,
+                    "total": 1,
+                    "period": 1,
+                    "status": 1,
+                    "account": "$accountObject",
+                    "currency": 1,
+                    "line-num": 1,
+                    "quantity": 1,
+                    "supplier": 1,
+                    "commodity": 1,
+                    "description": 1,
+                    "custom-fields": 1,
+                    "account_type_name": "$account_type_record.name",
+                    "order-header-number": 1
+                  }
+                }
+              ]
+            },
+            {
+              "aggregate": [
+                {
+                  "$match": {
+                    "order-header-number": "{item_order_id_calculated}"
+                  }
+                },
+                {
+                  "$addFields": {
+                    "accountObject": {
+                      "$cond": [
+                        {
+                          "$ne": [
+                            "$account",
+                            null
+                          ]
+                        },
+                        "$account",
+                        {
+                          "$first": "$account-allocations.account"
+                        }
+                      ]
+                    },
+                    "__score_normalized": "(exact)"
+                  }
+                },
+                {
+                  "$lookup": {
+                    "as": "account_type_record",
+                    "from": "account_types_test",
+                    "localField": "accountObject.account-type-id",
+                    "foreignField": "id"
+                  }
+                },
+                {
+                  "$unwind": {
+                    "path": "$account_type_record"
+                  }
+                },
+                {
+                  "$project": {
+                    "id": 1,
+                    "uom": {
+                      "$cond": {
+                        "if": {
+                          "$ne": [
+                            "$uom",
+                            null
+                          ]
+                        },
+                        "else": {
+                          "code": ""
+                        },
+                        "then": "$uom"
+                      }
+                    },
+                    "type": 1,
+                    "price": 1,
+                    "total": 1,
+                    "period": 1,
+                    "status": 1,
+                    "account": "$accountObject",
+                    "currency": 1,
+                    "line-num": 1,
+                    "quantity": 1,
+                    "supplier": 1,
+                    "commodity": 1,
+                    "description": 1,
+                    "custom-fields": 1,
+                    "account_type_name": "$account_type_record.name",
+                    "order-header-number": 1
+                  }
+                }
+              ]
+            },
+            {
+              "aggregate": [
+                {
+                  "$match": {
+                    "order-header-number": "{item_order_id_calculated}"
+                  }
+                },
+                {
+                  "$addFields": {
+                    "__score_normalized": "(exact)"
+                  }
+                },
+                {
+                  "$project": {
+                    "id": 1,
+                    "uom": {
+                      "$cond": {
+                        "if": {
+                          "$ne": [
+                            "$uom",
+                            null
+                          ]
+                        },
+                        "else": {
+                          "code": ""
+                        },
+                        "then": "$uom"
+                      }
+                    },
+                    "type": 1,
+                    "price": 1,
+                    "total": 1,
+                    "period": 1,
+                    "status": 1,
+                    "account": 1,
+                    "currency": 1,
+                    "line-num": 1,
+                    "quantity": 1,
+                    "supplier": 1,
+                    "commodity": 1,
+                    "description": 1,
+                    "custom-fields": 1,
+                    "account_type_name": "",
+                    "order-header-number": 1
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "default": {
+          "label": "---",
+          "value": ""
+        },
+        "mapping": {
+          "label_keys": [
+            "line-num",
+            "description"
+          ],
+          "dataset_key": "id",
+          "target_schema_id": "item_order_item_match"
+        },
+        "result_actions": {
+          "no_match_found": {
+            "select": "default"
+          },
+          "one_match_found": {
+            "select": "best_match"
+          },
+          "multiple_matches_found": {
+            "select": "default"
+          }
+        },
+        "action_condition": "'{item_order_id_calculated}' != ''",
+        "additional_mappings": [
+          {
+            "label_keys": [
+              "line-num"
+            ],
+            "dataset_key": "line-num",
+            "target_schema_id": "item_po_line_number_match"
+          },
+          {
+            "label_keys": [
+              "type"
+            ],
+            "dataset_key": "type",
+            "target_schema_id": "item_po_line_type_match"
+          },
+          {
+            "label_keys": [
+              "uom.code"
+            ],
+            "dataset_key": "uom.code",
+            "target_schema_id": "item_po_line_uom_match"
+          },
+          {
+            "label_keys": [
+              "total"
+            ],
+            "dataset_key": "total",
+            "target_schema_id": "item_po_line_total_match"
+          },
+          {
+            "label_keys": [
+              "price"
+            ],
+            "dataset_key": "price",
+            "target_schema_id": "item_po_line_price_match"
+          },
+          {
+            "label_keys": [
+              "description"
+            ],
+            "dataset_key": "description",
+            "target_schema_id": "item_po_line_description_match"
+          },
+          {
+            "label_keys": [
+              "quantity"
+            ],
+            "dataset_key": "quantity",
+            "target_schema_id": "item_po_line_quantity_match"
+          },
+          {
+            "label_keys": [
+              "status"
+            ],
+            "dataset_key": "status",
+            "target_schema_id": "item_po_line_status_match"
+          },
+          {
+            "label_keys": [
+              "account.account-type-id"
+            ],
+            "dataset_key": "account.account-type-id",
+            "target_schema_id": "item_po_line_recipient_match"
+          },
+          {
+            "label_keys": [
+              "account_type_name"
+            ],
+            "dataset_key": "account_type_name",
+            "target_schema_id": "item_po_line_recipient_name_match"
+          },
+          {
+            "label_keys": [
+              "supplier.id"
+            ],
+            "dataset_key": "supplier.id",
+            "target_schema_id": "item_po_line_supplier_match"
+          },
+          {
+            "label_keys": [
+              "supplier.display-name"
+            ],
+            "dataset_key": "supplier.display-name",
+            "target_schema_id": "item_po_line_supplier_display_name_match"
+          },
+          {
+            "label_keys": [
+              "supplier.name"
+            ],
+            "dataset_key": "supplier.name",
+            "target_schema_id": "item_po_line_supplier_name_match"
+          },
+          {
+            "label_keys": [
+              "currency.code"
+            ],
+            "dataset_key": "currency.code",
+            "target_schema_id": "item_po_line_currency_match"
+          },
+          {
+            "label_keys": [
+              "period.\"start-date\" || ''"
+            ],
+            "dataset_key": "period.\"start-date\" || ''",
+            "target_schema_id": "item_po_line_sp_start_date_match"
+          },
+          {
+            "label_keys": [
+              "period.\"end-date\" || ''"
+            ],
+            "dataset_key": "period.\"end-date\" || ''",
+            "target_schema_id": "item_po_line_sp_end_date_match"
+          }
+        ]
+      },
+      {
+        "name": "7. Order Line - Headers",
+        "source": {
+          "dataset": "purchase_order_lines_test",
+          "queries": [
+            {
+              "aggregate": [
+                {
+                  "$match": {
+                    "$expr": {
+                      "$and": [
+                        {
+                          "$lte": [
+                            {
+                              "$toDate": "$period.start-date"
+                            },
+                            {
+                              "$toDate": "{service_period_start_text}"
+                            }
+                          ]
+                        },
+                        {
+                          "$gte": [
+                            {
+                              "$toDate": "$period.end-date"
+                            },
+                            {
+                              "$toDate": "{service_period_end_text}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    "order-header-number": "{order_id_calculated}"
+                  }
+                },
+                {
+                  "$addFields": {
+                    "accountObject": {
+                      "$cond": [
+                        {
+                          "$ne": [
+                            "$account",
+                            null
+                          ]
+                        },
+                        "$account",
+                        {
+                          "$first": "$account-allocations.account"
+                        }
+                      ]
+                    },
+                    "__score_normalized": "(exact)"
+                  }
+                },
+                {
+                  "$lookup": {
+                    "as": "account_type_record",
+                    "from": "account_types_test",
+                    "localField": "accountObject.account-type-id",
+                    "foreignField": "id"
+                  }
+                },
+                {
+                  "$unwind": {
+                    "path": "$account_type_record"
+                  }
+                },
+                {
+                  "$project": {
+                    "id": 1,
+                    "uom": {
+                      "$cond": {
+                        "if": {
+                          "$ne": [
+                            "$uom",
+                            null
+                          ]
+                        },
+                        "else": {
+                          "code": ""
+                        },
+                        "then": "$uom"
+                      }
+                    },
+                    "type": 1,
+                    "price": 1,
+                    "total": 1,
+                    "period": 1,
+                    "status": 1,
+                    "account": "$accountObject",
+                    "currency": 1,
+                    "line-num": 1,
+                    "quantity": 1,
+                    "supplier": 1,
+                    "commodity": 1,
+                    "description": 1,
+                    "custom-fields": 1,
+                    "account_type_name": "$account_type_record.name",
+                    "order-header-number": 1
+                  }
+                }
+              ]
+            },
+            {
+              "aggregate": [
+                {
+                  "$match": {
+                    "source-part-num": {
+                      "$nin": [
+                        "",
+                        null
+                      ]
+                    },
+                    "order-header-number": "{order_id_calculated}"
+                  }
+                },
+                {
+                  "$match": {
+                    "source-part-num": "{code}"
+                  }
+                },
+                {
+                  "$addFields": {
+                    "accountObject": {
+                      "$cond": [
+                        {
+                          "$ne": [
+                            "$account",
+                            null
+                          ]
+                        },
+                        "$account",
+                        {
+                          "$first": "$account-allocations.account"
+                        }
+                      ]
+                    },
+                    "__score_normalized": "(exact)"
+                  }
+                },
+                {
+                  "$lookup": {
+                    "as": "account_type_record",
+                    "from": "account_types_test",
+                    "localField": "accountObject.account-type-id",
+                    "foreignField": "id"
+                  }
+                },
+                {
+                  "$unwind": {
+                    "path": "$account_type_record"
+                  }
+                },
+                {
+                  "$project": {
+                    "id": 1,
+                    "uom": {
+                      "$cond": {
+                        "if": {
+                          "$ne": [
+                            "$uom",
+                            null
+                          ]
+                        },
+                        "else": {
+                          "code": ""
+                        },
+                        "then": "$uom"
+                      }
+                    },
+                    "type": 1,
+                    "price": 1,
+                    "total": 1,
+                    "period": 1,
+                    "status": 1,
+                    "account": "$accountObject",
+                    "currency": 1,
+                    "line-num": 1,
+                    "quantity": 1,
+                    "supplier": 1,
+                    "commodity": 1,
+                    "description": 1,
+                    "custom-fields": 1,
+                    "account_type_name": "$account_type_record.name",
+                    "order-header-number": 1
+                  }
+                }
+              ]
+            },
+            {
+              "aggregate": [
+                {
+                  "$match": {
+                    "description": "{description_export}",
+                    "order-header-number": "{order_id_calculated}"
+                  }
+                },
+                {
+                  "$addFields": {
+                    "accountObject": {
+                      "$cond": [
+                        {
+                          "$ne": [
+                            "$account",
+                            null
+                          ]
+                        },
+                        "$account",
+                        {
+                          "$first": "$account-allocations.account"
+                        }
+                      ]
+                    },
+                    "__score_normalized": "(exact)"
+                  }
+                },
+                {
+                  "$lookup": {
+                    "as": "account_type_record",
+                    "from": "account_types_test",
+                    "localField": "accountObject.account-type-id",
+                    "foreignField": "id"
+                  }
+                },
+                {
+                  "$unwind": {
+                    "path": "$account_type_record"
+                  }
+                },
+                {
+                  "$project": {
+                    "id": 1,
+                    "uom": {
+                      "$cond": {
+                        "if": {
+                          "$ne": [
+                            "$uom",
+                            null
+                          ]
+                        },
+                        "else": {
+                          "code": ""
+                        },
+                        "then": "$uom"
+                      }
+                    },
+                    "type": 1,
+                    "price": 1,
+                    "total": 1,
+                    "period": 1,
+                    "status": 1,
+                    "account": "$accountObject",
+                    "currency": 1,
+                    "line-num": 1,
+                    "quantity": 1,
+                    "supplier": 1,
+                    "commodity": 1,
+                    "description": 1,
+                    "custom-fields": 1,
+                    "account_type_name": "$account_type_record.name",
+                    "order-header-number": 1
+                  }
+                }
+              ]
+            },
+            {
+              "//": "Fuzzy match on description - score normalization, thresholds: 0.9",
+              "aggregate": [
+                {
+                  "$search": {
+                    "compound": {
+                      "must": [
+                        {
+                          "text": {
+                            "path": [
+                              "description"
+                            ],
+                            "fuzzy": {
+                              "maxEdits": 2
+                            },
+                            "query": [
+                              "{header_description}"
+                            ]
+                          }
+                        }
+                      ],
+                      "filter": [
+                        {
+                          "text": {
+                            "path": "order-header-number",
+                            "query": "{order_id_calculated}"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "$match": {
+                    "order-header-number": "{order_id_calculated}"
+                  }
+                },
+                {
+                  "$limit": 10
+                },
+                {
+                  "$addFields": {
+                    "score": {
+                      "$meta": "searchScore"
+                    }
+                  }
+                },
+                {
+                  "$addFields": {
+                    "normalized_score": {
+                      "$divide": [
+                        "$score",
+                        {
+                          "$add": [
+                            1,
+                            "$score",
+                            {
+                              "$abs": {
+                                "$subtract": [
+                                  1,
+                                  {
+                                    "$divide": [
+                                      {
+                                        "$strLenCP": "$description"
+                                      },
+                                      {
+                                        "$strLenCP": "{header_description}"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "$setWindowFields": {
+                    "output": {
+                      "normalized_score_max": {
+                        "$max": "$normalized_score"
+                      }
+                    }
+                  }
+                },
+                {
+                  "$sort": {
+                    "normalized_score": -1
+                  }
+                },
+                {
+                  "$match": {
+                    "$expr": {
+                      "$cond": {
+                        "if": {
+                          "$or": [
+                            {
+                              "$and": [
+                                {
+                                  "$gt": [
+                                    "$normalized_score_max",
+                                    0.9
+                                  ]
+                                },
+                                {
+                                  "$gt": [
+                                    "$normalized_score",
+                                    0.9
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        "else": false,
+                        "then": true
+                      }
+                    }
+                  }
+                },
+                {
+                  "$addFields": {
+                    "accountObject": {
+                      "$cond": [
+                        {
+                          "$ne": [
+                            "$account",
+                            null
+                          ]
+                        },
+                        "$account",
+                        {
+                          "$first": "$account-allocations.account"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "$lookup": {
+                    "as": "account_type_record",
+                    "from": "account_types_test",
+                    "localField": "accountObject.account-type-id",
+                    "foreignField": "id"
+                  }
+                },
+                {
+                  "$unwind": {
+                    "path": "$account_type_record"
+                  }
+                },
+                {
+                  "$project": {
+                    "id": 1,
+                    "uom": {
+                      "$cond": {
+                        "if": {
+                          "$ne": [
+                            "$uom",
+                            null
+                          ]
+                        },
+                        "else": {
+                          "code": ""
+                        },
+                        "then": "$uom"
+                      }
+                    },
+                    "type": 1,
+                    "price": 1,
+                    "total": 1,
+                    "period": 1,
+                    "status": 1,
+                    "account": "$accountObject",
+                    "currency": 1,
+                    "line-num": 1,
+                    "quantity": 1,
+                    "supplier": 1,
+                    "commodity": 1,
+                    "description": 1,
+                    "custom-fields": 1,
+                    "account_type_name": "$account_type_record.name",
+                    "order-header-number": 1
+                  }
+                }
+              ]
+            },
+            {
+              "aggregate": [
+                {
+                  "$match": {
+                    "order-header-number": "{order_id_calculated}"
+                  }
+                },
+                {
+                  "$addFields": {
+                    "accountObject": {
+                      "$cond": [
+                        {
+                          "$ne": [
+                            "$account",
+                            null
+                          ]
+                        },
+                        "$account",
+                        {
+                          "$first": "$account-allocations.account"
+                        }
+                      ]
+                    },
+                    "__score_normalized": "(exact)"
+                  }
+                },
+                {
+                  "$lookup": {
+                    "as": "account_type_record",
+                    "from": "account_types_test",
+                    "localField": "accountObject.account-type-id",
+                    "foreignField": "id"
+                  }
+                },
+                {
+                  "$unwind": {
+                    "path": "$account_type_record"
+                  }
+                },
+                {
+                  "$project": {
+                    "id": 1,
+                    "uom": {
+                      "$cond": {
+                        "if": {
+                          "$ne": [
+                            "$uom",
+                            null
+                          ]
+                        },
+                        "else": {
+                          "code": ""
+                        },
+                        "then": "$uom"
+                      }
+                    },
+                    "type": 1,
+                    "price": 1,
+                    "total": 1,
+                    "period": 1,
+                    "status": 1,
+                    "account": "$accountObject",
+                    "currency": 1,
+                    "line-num": 1,
+                    "quantity": 1,
+                    "supplier": 1,
+                    "commodity": 1,
+                    "description": 1,
+                    "custom-fields": 1,
+                    "account_type_name": "$account_type_record.name",
+                    "order-header-number": 1
+                  }
+                }
+              ]
+            },
+            {
+              "aggregate": [
+                {
+                  "$match": {
+                    "order-header-number": "{order_id_calculated}"
+                  }
+                },
+                {
+                  "$addFields": {
+                    "__score_normalized": "(exact)"
+                  }
+                },
+                {
+                  "$project": {
+                    "id": 1,
+                    "uom": {
+                      "$cond": {
+                        "if": {
+                          "$ne": [
+                            "$uom",
+                            null
+                          ]
+                        },
+                        "else": {
+                          "code": ""
+                        },
+                        "then": "$uom"
+                      }
+                    },
+                    "type": 1,
+                    "price": 1,
+                    "total": 1,
+                    "period": 1,
+                    "status": 1,
+                    "account": {
+                      "account-type-id": ""
+                    },
+                    "currency": 1,
+                    "line-num": 1,
+                    "quantity": 1,
+                    "supplier": 1,
+                    "commodity": 1,
+                    "description": 1,
+                    "custom-fields": 1,
+                    "account_type_name": "",
+                    "order-header-number": 1
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "default": {
+          "label": "---",
+          "value": ""
+        },
+        "mapping": {
+          "label_keys": [
+            "line-num",
+            "description"
+          ],
+          "dataset_key": "id",
+          "target_schema_id": "order_item_match"
+        },
+        "result_actions": {
+          "no_match_found": {
+            "select": "default"
+          },
+          "one_match_found": {
+            "select": "best_match"
+          },
+          "multiple_matches_found": {
+            "select": "default"
+          }
+        },
+        "action_condition": "'{order_id_calculated}' != ''",
+        "additional_mappings": [
+          {
+            "label_keys": [
+              "line-num"
+            ],
+            "dataset_key": "line-num",
+            "target_schema_id": "po_line_number_match"
+          },
+          {
+            "label_keys": [
+              "type"
+            ],
+            "dataset_key": "type",
+            "target_schema_id": "po_line_type_match"
+          },
+          {
+            "label_keys": [
+              "uom.code"
+            ],
+            "dataset_key": "uom.code",
+            "target_schema_id": "po_line_uom_match"
+          },
+          {
+            "label_keys": [
+              "total"
+            ],
+            "dataset_key": "total",
+            "target_schema_id": "po_line_total_match"
+          },
+          {
+            "label_keys": [
+              "price"
+            ],
+            "dataset_key": "price",
+            "target_schema_id": "po_line_price_match"
+          },
+          {
+            "label_keys": [
+              "description"
+            ],
+            "dataset_key": "description",
+            "target_schema_id": "po_line_description_match"
+          },
+          {
+            "label_keys": [
+              "quantity"
+            ],
+            "dataset_key": "quantity",
+            "target_schema_id": "po_line_quantity_match"
+          },
+          {
+            "label_keys": [
+              "status"
+            ],
+            "dataset_key": "status",
+            "target_schema_id": "po_line_status_match"
+          },
+          {
+            "label_keys": [
+              "account.account-type-id"
+            ],
+            "dataset_key": "account.account-type-id",
+            "target_schema_id": "po_line_recipient_match"
+          },
+          {
+            "label_keys": [
+              "account_type_name"
+            ],
+            "dataset_key": "account_type_name",
+            "target_schema_id": "po_line_recipient_name_match"
+          },
+          {
+            "label_keys": [
+              "supplier.id"
+            ],
+            "dataset_key": "supplier.id",
+            "target_schema_id": "po_line_supplier_match"
+          },
+          {
+            "label_keys": [
+              "supplier.display-name"
+            ],
+            "dataset_key": "supplier.display-name",
+            "target_schema_id": "po_line_supplier_display_name_match"
+          },
+          {
+            "label_keys": [
+              "supplier.name"
+            ],
+            "dataset_key": "supplier.name",
+            "target_schema_id": "po_line_supplier_name_match"
+          },
+          {
+            "label_keys": [
+              "currency.code"
+            ],
+            "dataset_key": "currency.code",
+            "target_schema_id": "po_line_currency_match"
+          },
+          {
+            "label_keys": [
+              "period.\"start-date\" || ''"
+            ],
+            "dataset_key": "period.\"start-date\" || ''",
+            "target_schema_id": "po_line_sp_start_date_match"
+          },
+          {
+            "label_keys": [
+              "period.\"end-date\" || ''"
+            ],
+            "dataset_key": "period.\"end-date\" || ''",
+            "target_schema_id": "po_line_sp_end_date_match"
+          }
+        ]
+      },
+      {
+        "name": "8. Customer Ship-To Address - PO or Document data",
+        "source": {
+          "dataset": "addresses_test",
+          "queries": [
+            {
+              "aggregate": [
+                {
+                  "$addFields": {
+                    "matchedId": {
+                      "$toInt": "{order_header_ship_to_addr_match}"
+                    }
+                  }
+                },
+                {
+                  "$match": {
+                    "$expr": {
+                      "$eq": [
+                        "$id",
+                        "$matchedId"
+                      ]
+                    },
+                    "active": true
+                  }
+                },
+                {
+                  "$addFields": {
+                    "normalized_score": "(exact)"
+                  }
+                },
+                {
+                  "$project": {
+                    "id": 1,
+                    "city": 1,
+                    "name": 1,
+                    "state": 1,
+                    "street1": 1,
+                    "street2": 1,
+                    "postal-code": 1,
+                    "normalized_score": 1
+                  }
+                }
+              ]
+            },
+            {
+              "aggregate": [
+                {
+                  "$search": {
+                    "compound": {
+                      "must": [
+                        {
+                          "text": {
+                            "path": [
+                              "street1",
+                              "street2",
+                              "city",
+                              "state",
+                              "postal-code"
+                            ],
+                            "fuzzy": {
+                              "maxEdits": 2
+                            },
+                            "query": [
+                              "{recipient_address}"
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "$match": {
+                    "active": true
+                  }
+                },
+                {
+                  "$limit": 10
+                },
+                {
+                  "$addFields": {
+                    "score": {
+                      "$meta": "searchScore"
+                    }
+                  }
+                },
+                {
+                  "$addFields": {
+                    "path_concat": {
+                      "$concat": [
+                        {
+                          "$ifNull": [
+                            "$street1",
+                            ""
+                          ]
+                        },
+                        {
+                          "$ifNull": [
+                            "$street2",
+                            ""
+                          ]
+                        },
+                        {
+                          "$ifNull": [
+                            "$city",
+                            ""
+                          ]
+                        },
+                        {
+                          "$ifNull": [
+                            "$state",
+                            ""
+                          ]
+                        },
+                        {
+                          "$ifNull": [
+                            "$postal-code",
+                            ""
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "$addFields": {
+                    "normalized_score": {
+                      "$divide": [
+                        "$score",
+                        {
+                          "$add": [
+                            1,
+                            "$score",
+                            {
+                              "$abs": {
+                                "$subtract": [
+                                  1,
+                                  {
+                                    "$divide": [
+                                      {
+                                        "$strLenCP": "$path_concat"
+                                      },
+                                      {
+                                        "$strLenCP": "{recipient_address}"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "$setWindowFields": {
+                    "output": {
+                      "normalized_score_max": {
+                        "$max": "$normalized_score"
+                      }
+                    }
+                  }
+                },
+                {
+                  "$sort": {
+                    "normalized_score": -1
+                  }
+                },
+                {
+                  "$match": {
+                    "normalized_score": {
+                      "$gt": 0.88
+                    }
+                  }
+                },
+                {
+                  "$project": {
+                    "id": 1,
+                    "city": 1,
+                    "name": 1,
+                    "state": 1,
+                    "street1": 1,
+                    "street2": 1,
+                    "postal-code": 1,
+                    "normalized_score": 1
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "default": {
+          "label": "---",
+          "value": ""
+        },
+        "mapping": {
+          "dataset_key": "id",
+          "label_template": "{\"name\"} {\"street1\"} {\"street2\"} {\"city\"} {\"postal-code\"} {\"state\"}",
+          "target_schema_id": "recipient_ship_to_match"
+        },
+        "result_actions": {
+          "no_match_found": {
+            "select": "default"
+          },
+          "one_match_found": {
+            "select": "best_match"
+          },
+          "multiple_matches_found": {
+            "select": "default"
+          }
+        }
+      },
+      {
+        "name": "9. Contract",
+        "source": {
+          "dataset": "contracts_test",
+          "queries": [
+            {
+              "aggregate": [
+                {
+                  "$match": {
+                    "number": "{contract_number_normalized}"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "default": {
+          "label": "---",
+          "value": ""
+        },
+        "mapping": {
+          "dataset_key": "number",
+          "label_template": "{number} - {name}",
+          "target_schema_id": "contract_match"
+        },
+        "result_actions": {
+          "no_match_found": {},
+          "one_match_found": {
+            "select": "best_match"
+          },
+          "multiple_matches_found": {
+            "select": "default",
+            "message": {
+              "type": "warning",
+              "content": "Multiple matches found"
+            }
+          }
+        },
+        "additional_mappings": [
+          {
+            "dataset_key": "supplier.id",
+            "target_schema_id": "contract_supplier_match"
+          },
+          {
+            "dataset_key": "supplier.name",
+            "target_schema_id": "contract_supplier_name"
+          },
+          {
+            "dataset_key": "\"default-account\".\"account-type\".id || ''",
+            "target_schema_id": "contract_customer_match"
+          },
+          {
+            "dataset_key": "\"default-account\".\"account-type\".name || ''",
+            "target_schema_id": "contract_customer_name"
+          },
+          {
+            "dataset_key": "status",
+            "target_schema_id": "contract_status_match"
+          }
+        ]
+      },
+      {
+        "name": "10. Order Blanket Header - Headers",
+        "source": {
+          "dataset": "purchase_order_lines_test",
+          "queries": [
+            {
+              "aggregate": [
+                {
+                  "$addFields": {
+                    "senderId": {
+                      "$toInt": "{sender_match}"
+                    },
+                    "recipientId": {
+                      "$toInt": "{recipient_match}"
+                    }
+                  }
+                },
+                {
+                  "$match": {
+                    "$expr": {
+                      "$and": [
+                        {
+                          "$or": [
+                            {
+                              "$eq": [
+                                "$account.account-type-id",
+                                "$recipientId"
+                              ]
+                            },
+                            {
+                              "$and": [
+                                {
+                                  "$eq": [
+                                    "$account",
+                                    null
+                                  ]
+                                },
+                                {
+                                  "$eq": [
+                                    {
+                                      "$first": "$account-allocations.account.account-type-id"
+                                    },
+                                    "$recipientId"
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "$eq": [
+                            "$supplier.id",
+                            "$senderId"
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "$lookup": {
+                    "as": "po_header",
+                    "from": "purchase_orders_test",
+                    "localField": "order-header-id",
+                    "foreignField": "id"
+                  }
+                },
+                {
+                  "$unwind": {
+                    "path": "$po_header"
+                  }
+                },
+                {
+                  "$match": {
+                    "po_header.status": "issued"
+                  }
+                },
+                {
+                  "$group": {
+                    "_id": "$order-header-id",
+                    "status": {
+                      "$first": "$po_header.status"
+                    },
+                    "order-header-number": {
+                      "$first": "$order-header-number"
+                    }
+                  }
+                },
+                {
+                  "$project": {
+                    "status": 1,
+                    "order-header-number": 1
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "default": {
+          "label": "---",
+          "value": ""
+        },
+        "mapping": {
+          "label_keys": [
+            "order-header-number"
+          ],
+          "dataset_key": "order-header-number",
+          "target_schema_id": "order_blanket_match"
+        },
+        "result_actions": {
+          "no_match_found": {
+            "select": "default"
+          },
+          "one_match_found": {
+            "select": "default"
+          },
+          "multiple_matches_found": {
+            "select": "default"
+          }
+        }
+      }
+    ]
+  },
+  "active": true,
+  "events": [
+    "annotation_content.initialize",
+    "annotation_content.started",
+    "annotation_content.updated"
+  ],
+  "queues": [
+    "https://cib.rossum.app/api/v1/queues/1260377",
+    "https://cib.rossum.app/api/v1/queues/1260388"
+  ],
+  "run_after": [],
+  "metadata": {},
+  "config": {
+    "private": true,
+    "schedule": {},
+    "app": null,
+    "payload_logging_enabled": true,
+    "timeout_s": 60,
+    "max_polling_time_s": 300,
+    "retry_count": 4,
+    "retry_after_polling_failure": true,
+    "insecure_ssl": false,
+    "client_ssl_certificate": null,
+    "retry_on_any_non_2xx": false
+  },
+  "test": {},
+  "sideload": [
+    "schemas"
+  ],
+  "settings_schema": null,
+  "secrets_schema": {
+    "type": "object",
+    "properties": {},
+    "additionalProperties": {
+      "type": "string"
+    }
+  },
+  "token_owner": "https://cib.rossum.app/api/v1/users/282705",
+  "extension_source": "rossum_store",
+  "guide": "<div>\r\n    <p>To manage and configure the behavior, use our configurator below.</p> \r\n    <p>Start by</p>\r\n    <ul>\r\n        <li>Selecting the queues that you want to use for this extension below</li>\r\n    </ul>\r\n    <p>Then open Master Data Hub and</p>\r\n    <ul>\r\n        <li>Import the dataset with Dataset Management</li>\r\n        <li>Create and set up a new configuration in Configurator</li>\r\n    </ul>\r\n    <p>For more information, take a look at our documentation <a href=\"https://rossum.ai/help/article/master-data-hub-extension\" target=\"_blank\">here</a>.</p>\r\n\r\n    <p><form action=\"https://cib.rossum.app/svc/master-data-hub/web/\" target=\"_blank\" rel=\"noopener noreferrer\">\r\n        <button type=\"submit\"style=\"\r\n            border: none;    \r\n            background: var(--color-primary);\r\n            border-radius: 4px;\r\n            padding: 6px 16px;\r\n            color: var(--white);\r\n            font-weight: 500;\"\r\n         >\r\n            Open configurator\r\n        </button>\r\n    </form></p>\r\n</div>",
+  "read_more_url": "https://elis.rossum.ai/svc/master-data-hub/api/docs",
+  "extension_image_url": "https://rossum.ai/help/wp-content/uploads/2024/01/Master-Data-Hub.png",
+  "token_lifetime_s": 7200,
+  "hook_template": "https://cib.rossum.app/api/v1/hook_templates/39",
+  "created_by": null,
+  "created_at": null,
+  "modified_by": "https://cib.rossum.app/api/v1/users/146087"
+}

@@ -1,0 +1,39 @@
+{
+  "url": "https://cib.rossum.app/api/v1/rules/6770",
+  "id": 6770,
+  "name": "TEST - PO Line Match Required (Line Items) (CIB)",
+  "description": "",
+  "enabled": true,
+  "trigger_condition": "(\n  not is_empty(field.line_items_present) and field.line_items_present == 'true'\n  and not is_empty(field.po_backed) and field.po_backed == 'true'\n  and is_empty(field.item_order_item_match)\n)",
+  "actions": [
+    {
+      "id": "0c326079-1e5e-4113-bec9-1f754aab944f",
+      "enabled": true,
+      "type": "show_message",
+      "event": "validation",
+      "payload": {
+        "type": "error",
+        "content": "PO Line Match required.",
+        "schema_id": "item_order_item_match"
+      }
+    },
+    {
+      "id": "40b8c699-4ac2-422d-9cb8-b114f55a786f",
+      "enabled": true,
+      "type": "add_automation_blocker",
+      "event": "validation",
+      "payload": {
+        "content": "PO Line Match required.",
+        "schema_id": "item_order_item_match"
+      }
+    }
+  ],
+  "organization": "https://cib.rossum.app/api/v1/organizations/262116",
+  "modified_by": "https://cib.rossum.app/api/v1/users/146087",
+  "created_by": "https://cib.rossum.app/api/v1/users/146087",
+  "queues": [
+    "https://cib.rossum.app/api/v1/queues/1260377",
+    "https://cib.rossum.app/api/v1/queues/1260388"
+  ],
+  "created_at": "2026-04-17T11:55:32.612728Z"
+}

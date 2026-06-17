@@ -1,0 +1,12 @@
+{
+  "id": 2637449,
+  "url": "https://cib.rossum.app/api/v1/engine_fields/2637449",
+  "engine": "https://cib.rossum.app/api/v1/engines/51381",
+  "name": "tax_detail_tax",
+  "label": "VAT Amount",
+  "type": "number",
+  "subtype": "amount",
+  "pre_trained_field_id": "tax_detail_tax",
+  "tabular": true,
+  "multiline": "false"
+}

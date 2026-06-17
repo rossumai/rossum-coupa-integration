@@ -1,0 +1,12 @@
+{
+  "id": 2637634,
+  "url": "https://cib.rossum.app/api/v1/engine_fields/2637634",
+  "engine": "https://cib.rossum.app/api/v1/engines/51385",
+  "name": "item_quantity",
+  "label": "Quantity",
+  "type": "number",
+  "subtype": null,
+  "pre_trained_field_id": "table_column_quantity",
+  "tabular": true,
+  "multiline": "false"
+}

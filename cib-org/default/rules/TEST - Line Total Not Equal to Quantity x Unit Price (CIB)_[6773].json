@@ -1,0 +1,39 @@
+{
+  "url": "https://cib.rossum.app/api/v1/rules/6773",
+  "id": 6773,
+  "name": "TEST - Line Total Not Equal to Quantity x Unit Price (CIB)",
+  "description": "",
+  "enabled": true,
+  "trigger_condition": "(\n  not is_empty(field.item_total_base)\n  and not is_empty(field.item_amount_base)\n  and not is_empty(field.item_quantity)\n  and round(field.item_total_base, 2) != round(field.item_quantity * field.item_amount_base, 2)\n)",
+  "actions": [
+    {
+      "id": "1d22e456-485b-4a9c-bc7b-32ebab66ffe8",
+      "enabled": true,
+      "type": "show_message",
+      "event": "validation",
+      "payload": {
+        "type": "warning",
+        "content": "Line Total Net is not equal to Quantity \u00d7 Unit Price Net.",
+        "schema_id": "item_total_base"
+      }
+    },
+    {
+      "id": "8c9666a9-1c14-46de-9234-b038dc5f6105",
+      "enabled": true,
+      "type": "add_automation_blocker",
+      "event": "validation",
+      "payload": {
+        "content": "Line Total Net is not equal to Quantity \u00d7 Unit Price Net.",
+        "schema_id": "item_total_base"
+      }
+    }
+  ],
+  "organization": "https://cib.rossum.app/api/v1/organizations/262116",
+  "modified_by": "https://cib.rossum.app/api/v1/users/146087",
+  "created_by": "https://cib.rossum.app/api/v1/users/146087",
+  "queues": [
+    "https://cib.rossum.app/api/v1/queues/1260377",
+    "https://cib.rossum.app/api/v1/queues/1260388"
+  ],
+  "created_at": "2026-04-17T11:55:33.169146Z"
+}
