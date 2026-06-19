@@ -7,6 +7,13 @@ Versioning follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ---
 
+## [1.1.0] - 2026-06-19
+
+### Changed
+- Import hooks: changed sorting from `created_at` to `id` for more reliable ordering on bulk-imported data (applies to all 12 Coupa Webhook Import hooks)
+
+---
+
 ## [1.0.0] - 2026-06-17
 
 ### Added
