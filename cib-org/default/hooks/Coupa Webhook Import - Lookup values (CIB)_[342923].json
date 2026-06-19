@@ -52,7 +52,7 @@
             "custom_fields": {}
           }
         ],
-        "order_by": "created_at",
+        "order_by": "id",
         "updated-at[gt_or_eq]": "${last_modified_date}"
       },
       "method": "update",
