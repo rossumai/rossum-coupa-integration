@@ -12,6 +12,7 @@
     },
     "import_config": {
       "query": {
+        "order_by": "id",
         "updated-at[gt_or_eq]": "${last_modified_date}"
       },
       "method": "update",
