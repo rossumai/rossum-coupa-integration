@@ -1,35 +1,35 @@
 {
-  "id": 262116,
-  "url": "https://cib.rossum.app/api/v1/organizations/262116",
-  "name": "Coupa Integration Baseline (CIB) org",
+  "id": 377932,
+  "url": "https://cib.rossum.app/api/v1/organizations/377932",
+  "name": "CIB 2.0",
   "workspaces": [
-    "https://cib.rossum.app/api/v1/workspaces/522159"
+    "https://cib.rossum.app/api/v1/workspaces/831207",
+    "https://cib.rossum.app/api/v1/workspaces/850952",
+    "https://cib.rossum.app/api/v1/workspaces/845565",
+    "https://cib.rossum.app/api/v1/workspaces/849460",
+    "https://cib.rossum.app/api/v1/workspaces/849461",
+    "https://cib.rossum.app/api/v1/workspaces/886214"
   ],
   "users": [
-    "https://cib.rossum.app/api/v1/users/282705",
-    "https://cib.rossum.app/api/v1/users/282700"
+    "https://cib.rossum.app/api/v1/users/470502",
+    "https://cib.rossum.app/api/v1/users/533067"
   ],
-  "ui_settings": {
-    "features": {
-      "extensions": true,
-      "usage_reports": true
-    }
-  },
+  "ui_settings": {},
   "metadata": {},
   "expires_at": null,
-  "trial_expires_at": "2024-07-07T13:23:11.000000Z",
+  "trial_expires_at": null,
   "is_trial": false,
   "oidc_provider": null,
   "organization_group": "https://cib.rossum.app/api/v1/organization_groups/10595",
-  "created_at": "2024-06-07T13:23:11.950564Z",
+  "created_at": "2026-05-26T21:23:05.372730Z",
   "internal_info": {
     "cs_account_classification": null,
     "customer_type": null,
-    "market_category": "Commercial",
+    "market_category": null,
     "overdue_payment_date": null,
     "sso_active": false
   },
-  "creator": "https://cib.rossum.app/api/v1/users/282700",
+  "creator": "https://cib.rossum.app/api/v1/users/470502",
   "settings": {},
   "modified_by": null,
   "modified_at": null,

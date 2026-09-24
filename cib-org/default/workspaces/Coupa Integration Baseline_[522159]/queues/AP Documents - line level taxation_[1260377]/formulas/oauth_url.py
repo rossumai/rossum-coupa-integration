@@ -1,1 +1,0 @@
-f"{field.coupa_api_base_url}oauth2/token"

@@ -1,0 +1,43 @@
+{
+  "url": "https://cib.rossum.app/api/v1/rules/7872",
+  "id": 7872,
+  "name": "Supplier Mismatch Warning (CIB)",
+  "description": "",
+  "enabled": true,
+  "trigger_condition": "(\n  not is_empty(field.sender_match)\n  and not is_empty(field.sender_name_match)\n  and not is_empty(field.sender_name_export)\n  and field.sender_name_match != field.sender_name_export\n)",
+  "actions": [
+    {
+      "id": "f9742b36-ac74-4518-842d-4803962a23bf",
+      "enabled": true,
+      "type": "show_message",
+      "event": "validation",
+      "payload": {
+        "type": "warning",
+        "content": "The supplier on the backing document PO/Contract is different from the supplier matched on the document.",
+        "schema_id": "sender_match"
+      }
+    },
+    {
+      "id": "b35f6850-c5d6-4709-ab9e-d636b4282a62",
+      "enabled": true,
+      "type": "add_automation_blocker",
+      "event": "validation",
+      "payload": {
+        "content": "The supplier on the backing document PO/Contract is different from the supplier matched on the document.",
+        "schema_id": "sender_match"
+      }
+    }
+  ],
+  "organization": "https://cib.rossum.app/api/v1/organizations/377932",
+  "modified_by": "https://cib.rossum.app/api/v1/users/146087",
+  "created_by": "https://cib.rossum.app/api/v1/users/146087",
+  "queues": [
+    "https://cib.rossum.app/api/v1/queues/2766927",
+    "https://cib.rossum.app/api/v1/queues/2766928",
+    "https://cib.rossum.app/api/v1/queues/2841935",
+    "https://cib.rossum.app/api/v1/queues/2860789",
+    "https://cib.rossum.app/api/v1/queues/2868272",
+    "https://cib.rossum.app/api/v1/queues/3013757"
+  ],
+  "created_at": "2026-05-26T21:33:35.048861Z"
+}

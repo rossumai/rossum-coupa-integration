@@ -1,0 +1,23 @@
+{
+  "id": 13932886,
+  "url": "https://cib.rossum.app/api/v1/email_templates/13932886",
+  "name": "Annotation status change - received",
+  "queue": "https://cib.rossum.app/api/v1/queues/2766928",
+  "organization": "https://cib.rossum.app/api/v1/organizations/377932",
+  "subject": "Documents received: {{ parent_email_subject }}",
+  "message": "<p>Dear sender,<br><br>Your documents have been successfully received.<br><br>{{ document_list }}<br><br>Regards</p>\n",
+  "type": "custom",
+  "enabled": false,
+  "automate": false,
+  "triggers": [
+    "https://cib.rossum.app/api/v1/triggers/11148514"
+  ],
+  "to": [
+    {
+      "email": "{{sender_email}}"
+    }
+  ],
+  "cc": [],
+  "bcc": [],
+  "modified_by": null
+}

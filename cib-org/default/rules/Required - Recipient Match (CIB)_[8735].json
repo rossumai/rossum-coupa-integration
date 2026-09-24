@@ -1,0 +1,33 @@
+{
+  "url": "https://cib.rossum.app/api/v1/rules/8735",
+  "id": 8735,
+  "name": "Required - Recipient Match (CIB)",
+  "description": "",
+  "enabled": true,
+  "trigger_condition": "is_empty(field.recipient_export)",
+  "actions": [
+    {
+      "id": "82a24e26-23f4-420b-a0c6-70ce0b0cc7fc",
+      "enabled": true,
+      "type": "show_message",
+      "event": "validation",
+      "payload": {
+        "type": "error",
+        "content": "Required. Either PO Line Match or Customer Match must be populated.",
+        "schema_id": "recipient_export"
+      }
+    }
+  ],
+  "organization": "https://cib.rossum.app/api/v1/organizations/377932",
+  "modified_by": "https://cib.rossum.app/api/v1/users/146087",
+  "created_by": "https://cib.rossum.app/api/v1/users/146087",
+  "queues": [
+    "https://cib.rossum.app/api/v1/queues/2766927",
+    "https://cib.rossum.app/api/v1/queues/2766928",
+    "https://cib.rossum.app/api/v1/queues/2841935",
+    "https://cib.rossum.app/api/v1/queues/2860789",
+    "https://cib.rossum.app/api/v1/queues/2868272",
+    "https://cib.rossum.app/api/v1/queues/3013757"
+  ],
+  "created_at": "2026-07-02T14:37:56.045155Z"
+}

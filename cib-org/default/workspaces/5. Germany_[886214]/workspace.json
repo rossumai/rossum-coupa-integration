@@ -1,0 +1,14 @@
+{
+  "id": 886214,
+  "name": "5. Germany",
+  "url": "https://cib.rossum.app/api/v1/workspaces/886214",
+  "organization": "https://cib.rossum.app/api/v1/organizations/377932",
+  "queues": [
+    "https://cib.rossum.app/api/v1/queues/3013757"
+  ],
+  "metadata": {},
+  "autopilot": true,
+  "created_by": "https://cib.rossum.app/api/v1/users/458995",
+  "created_at": "2026-08-19T12:41:34.473843Z",
+  "modified_by": "https://cib.rossum.app/api/v1/users/458995"
+}

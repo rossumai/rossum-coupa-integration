@@ -1,0 +1,27 @@
+{
+  "url": "https://cib.rossum.app/api/v1/rules/11887",
+  "id": 11887,
+  "name": "Move to DE queue",
+  "description": "",
+  "enabled": true,
+  "trigger_condition": "field.source_country == 'DE'",
+  "actions": [
+    {
+      "id": "6db81a46-0107-470d-9ddb-e6dfa013ce2b",
+      "enabled": true,
+      "type": "change_queue",
+      "event": "annotation_confirmed",
+      "payload": {
+        "queue": "https://cib.rossum.app/api/v1/queues/3013757",
+        "reimport": true
+      }
+    }
+  ],
+  "organization": "https://cib.rossum.app/api/v1/organizations/377932",
+  "modified_by": "https://cib.rossum.app/api/v1/users/146087",
+  "created_by": "https://cib.rossum.app/api/v1/users/458995",
+  "queues": [
+    "https://cib.rossum.app/api/v1/queues/2860788"
+  ],
+  "created_at": "2026-08-19T13:40:45.355590Z"
+}

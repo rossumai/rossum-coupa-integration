@@ -1,0 +1,98 @@
+{
+  "id": 2860788,
+  "name": "E-invoicing Inbox",
+  "url": "https://cib.rossum.app/api/v1/queues/2860788",
+  "workspace": "https://cib.rossum.app/api/v1/workspaces/849460",
+  "connector": null,
+  "hooks": [
+    "https://cib.rossum.app/api/v1/hooks/1170832",
+    "https://cib.rossum.app/api/v1/hooks/1309899"
+  ],
+  "webhooks": [
+    "https://cib.rossum.app/api/v1/webhooks/1170832",
+    "https://cib.rossum.app/api/v1/webhooks/1309899"
+  ],
+  "schema": "https://cib.rossum.app/api/v1/schemas/2289203",
+  "rules": [
+    "https://cib.rossum.app/api/v1/rules/8732",
+    "https://cib.rossum.app/api/v1/rules/8733",
+    "https://cib.rossum.app/api/v1/rules/8740",
+    "https://cib.rossum.app/api/v1/rules/11887"
+  ],
+  "inbox": "https://cib.rossum.app/api/v1/inboxes/929654",
+  "session_timeout": "01:00:00",
+  "rir_url": null,
+  "rir_params": "full_image_resolution=true&high_resolution=true&extract_barcodes=true",
+  "default_score_threshold": 0.975,
+  "automation_enabled": true,
+  "automation_level": "always",
+  "locale": "en_GB",
+  "metadata": {
+    "queueTemplate": "taxinvoiceeu"
+  },
+  "settings": {
+    "accepted_mime_types": [
+      "image/*",
+      "application/pdf",
+      "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+      "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "application/msword",
+      "application/vnd.ms-excel",
+      "application/zip",
+      "application/xml",
+      "text/xml"
+    ],
+    "suggested_edit": "disable",
+    "rejection_config": {
+      "enabled": false
+    },
+    "suggested_recipients_sources": [
+      {
+        "source": "email_header"
+      },
+      {
+        "source": "queue_mailing_history"
+      }
+    ],
+    "email_notifications": {
+      "recipient": null,
+      "unprocessable_attachments": false,
+      "postponed_annotations": false,
+      "deleted_annotations": false,
+      "email_with_no_attachments": true
+    },
+    "dashboard_customization": {
+      "all_documents": false,
+      "to_review": true,
+      "postponed": true,
+      "confirmed": true,
+      "exported": true,
+      "rejected": true,
+      "deleted": true,
+      "labels": true
+    },
+    "workflows": {
+      "enabled": false,
+      "bypass_workflows_allowed": false
+    },
+    "ui_upload_enabled": true,
+    "ui_on_edit_confirm": "validate_first",
+    "ui_validation_screen_enabled": true,
+    "ui_edit_target_queue_selection_enabled": true,
+    "ui_edit_always_split_document": true,
+    "html_conversion_enabled": true,
+    "txt_conversion_enabled": true
+  },
+  "use_confirmed_state": false,
+  "document_lifetime": null,
+  "dedicated_engine": null,
+  "generic_engine": null,
+  "delete_after": null,
+  "status": "active",
+  "workflows": [],
+  "quality_spot_check_percentage": 0.0,
+  "modified_by": "https://cib.rossum.app/api/v1/users/146087",
+  "engine": "https://cib.rossum.app/api/v1/engines/56992",
+  "training_enabled": false,
+  "archive_enabled": false
+}
