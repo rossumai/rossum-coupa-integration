@@ -1,0 +1,1543 @@
+"cib-org/default/workspaces/4. France_[850952]/queues/AP Documents - FR_[2868272]/email_templates/Default rejection template_[14442544].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-21
+"cib-org/default/workspaces/5. Germany_[886214]/queues/AP Documents - DE_[3013757]/formulas/line_items_present.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - line level taxation_[2766927]/formulas/inv_total_issue_tag.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-2
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - line level taxation_[2766927]/formulas/item_tax_calculated.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-40
+"cib-org/default/hooks/Get Barcodes - KSeF PL (CIB)_[1157629].py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-44
+"cib-org/default/workspaces/3. Poland_[845565]/queues/AP Documents - PL_[2841935]/schema.json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-5159
+"cib-org/default/workspaces/2. Belgium_[849461]/queues/AP Documents - BE_[2860789]/formulas/sender_name_export.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-14
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - line level taxation_[2766927]/formulas/charge_tax_calculated.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-15
+"cib-org/default/workspaces/2. Belgium_[849461]/queues/AP Documents - BE_[2860789]/formulas/item_recipient_mismatch_tag.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/workspaces/2. Belgium_[849461]/queues/AP Documents - BE_[2860789]/email_templates/Annotation status change - exported_[14404838].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-23
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - line level taxation_[2766927]/formulas/item_uom_export.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/workspaces/2. Belgium_[849461]/queues/AP Documents - BE_[2860789]/formulas/epd_amount.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-9
+"cib-org/default/workspaces/3. Poland_[845565]/queues/AP Documents - PL_[2841935]/formulas/transaction_id.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-12
+"cib-org/default/engines/AP Documents - line level taxation_[56992]/engine_fields/charge_amount_[2915692].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-15
+"cib-org/default/rules/Total Amount Not Equal to Line Sum + Tax + Charges (CIB)_[7900].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-38
+"cib-org/default/workspaces/3. Poland_[845565]/queues/AP Documents - PL_[2841935]/formulas/charges_tax_rate_average_calculated.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/workspaces/3. Poland_[845565]/queues/AP Documents - PL_[2841935]/formulas/po_closed.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/workspaces/4. France_[850952]/queues/AP Documents - FR_[2868272]/formulas/order_id_calculated.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/engines/AP Documents - line level taxation_[56992]/engine_fields/date_due_[2915699].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-15
+"cib-org/default/workspaces/4. France_[850952]/queues/AP Documents - FR_[2868272]/formulas/fully_tax_coded.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - line level taxation_[2766927]/formulas/coupa_total_calculated.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-20
+"cib-org/default/workspaces/3. Poland_[845565]/queues/AP Documents - PL_[2841935]/formulas/uom_export.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/workspaces/2. Belgium_[849461]/queues/AP Documents - BE_[2860789]/formulas/sender_export.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-13
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - header level taxation_[2766928]/formulas/recipient_tax_id_normalized.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-2
+"cib-org/default/hooks/Coupa Master Data Import - Tax Registrations (CIB)_[1341769].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-96
+"cib-org/default/rules/Total Amount Less Than Subtotal (Tax Invoice) (CIB)_[7902].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-38
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - header level taxation_[2766928]/email_templates/Annotation status change - exported_[13932888].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-23
+"cib-org/default/engines/AP Documents - header level taxation_[56991]/engine_fields/service_period_[2915677].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-15
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - line level taxation_[2766927]/formulas/charges_total_tax_calculated.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1
+"cib-org/default/workspaces/3. Poland_[845565]/queues/AP Documents - PL_[2841935]/formulas/order_id_calculated.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/workspaces/3. Poland_[845565]/queues/AP Documents - PL_[2841935]/formulas/charges_net_amount_total_calculated.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-8
+"cib-org/default/workspaces/5. Germany_[886214]/queues/AP Documents - DE_[3013757]/formulas/quantity_export.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1
+"cib-org/default/workspaces/5. Germany_[886214]/queues/AP Documents - DE_[3013757]/formulas/sender_tax_id_normalized.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-2
+"cib-org/default/workspaces/5. Germany_[886214]/queues/AP Documents - DE_[3013757]/formulas/item_description_export.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - header level taxation_[2766928]/formulas/item_inactive_po_line_tag.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-3
+"cib-org/default/workspaces/4. France_[850952]/queues/AP Documents - FR_[2868272]/formulas/item_description_export.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1
+"cib-org/default/rules/Move to BE queue_[8733].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-27
+"cib-org/default/workspaces/5. Germany_[886214]/queues/AP Documents - DE_[3013757]/email_templates/Annotation status change - received_[15174053].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-23
+"cib-org/default/engines/AP Documents - header level taxation_[56991]/engine_fields/recipient_tax_id_[2915672].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-15
+"cib-org/default/engines/AP Documents - header level taxation_[56991]/engine_fields/original_document_id_[2915669].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-15
+"cib-org/default/engines/AP Documents - line level taxation_[56992]/engine_fields/original_date_issue_[2915723].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-15
+"cib-org/default/workspaces/3. Poland_[845565]/queues/AP Documents - PL_[2841935]/formulas/country_code.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1
+"cib-org/default/workspaces/5. Germany_[886214]/queues/AP Documents - DE_[3013757]/formulas/amount_total_base_calculated.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-19
+"cib-org/default/workspaces/3. Poland_[845565]/queues/AP Documents - PL_[2841935]/formulas/item_quantity_export.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/workspaces/5. Germany_[886214]/queues/AP Documents - DE_[3013757]/formulas/coupa_api_base_url.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1
+"cib-org/default/workspaces/3. Poland_[845565]/queues/AP Documents - PL_[2841935]/formulas/item_inactive_po_line_tag.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-3
+deploy/hooks.csv
+  s_2cd4f27df9df83::t_da1f3c7dc338f9 1-24
+"cib-org/default/hooks/Coupa Master Data Import - Suppliers (CIB)_[1341764].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-202
+"cib-org/default/workspaces/5. Germany_[886214]/queues/AP Documents - DE_[3013757]/formulas/sf_submit_for_approval.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-27
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - line level taxation_[2766927]/formulas/item_total_base_calculated.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-43
+"cib-org/default/workspaces/2. Belgium_[849461]/queues/AP Documents - BE_[2860789]/formulas/charges_total_tax_calculated.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1
+"cib-org/default/workspaces/2. Belgium_[849461]/queues/AP Documents - BE_[2860789]/formulas/sp_item_start_date_text.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1
+"cib-org/default/workspaces/2. Belgium_[849461]/queues/AP Documents - BE_[2860789]/formulas/service_period_start_export.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-12
+"cib-org/default/rules/ShowHide - Hide Order Item Match (CIB)_[7913].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-33
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - header level taxation_[2766928]/email_templates/Annotation status change - confirmed_[13932887].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-23
+"cib-org/default/rules/PO Line is Closed (Line Items) (CIB)_[7885].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-33
+"cib-org/default/engines/AP Documents - header level taxation_[56991]/engine_fields/recipient_name_[2915671].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-15
+"cib-org/default/workspaces/5. Germany_[886214]/queues/AP Documents - DE_[3013757]/formulas/epd_amount.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-9
+"cib-org/default/engines/AP Documents - line level taxation_[56992]/engine_fields/cash_accounting_scheme_reference_[2915691].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-15
+"cib-org/default/workspaces/2. Belgium_[849461]/queues/AP Documents - BE_[2860789]/formulas/inactive_po_line_tag.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/workspaces/3. Poland_[845565]/queues/AP Documents - PL_[2841935]/formulas/supplier_mismatch_tag.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/workspaces/3. Poland_[845565]/queues/AP Documents - PL_[2841935]/formulas/epd_expires.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-11
+"cib-org/default/engines/AP Documents - line level taxation_[56992]/engine_fields/amount_total_[2915686].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-15
+"cib-org/default/hooks/Tax Coding Memorization (CIB)_[1123407].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-87
+"cib-org/default/engines/AP Documents - line level taxation_[56992]/engine_fields/service_period_item_end_[2915740].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-15
+"cib-org/default/workspaces/2. Belgium_[849461]/queues/AP Documents - BE_[2860789]/formulas/service_period_start_text.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - header level taxation_[2766928]/email_templates/Email with no processable attachments_[13932889].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-23
+"cib-org/default/engines/AP Documents - line level taxation_[56992]/engine_fields/requester_email_xml_[2915732].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-15
+"cib-org/default/workspaces/5. Germany_[886214]/queues/AP Documents - DE_[3013757]/formulas/charges_total_tax_calculated.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - header level taxation_[2766928]/formulas/coupa_invoices_statuses.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-11
+"cib-org/default/workspaces/5. Germany_[886214]/queues/AP Documents - DE_[3013757]/formulas/service_period_start_text.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - header level taxation_[2766928]/formulas/po_backed.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - line level taxation_[2766927]/formulas/enforced_draft_tag.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-2
+"cib-org/default/workspaces/4. France_[850952]/queues/AP Documents - FR_[2868272]/formulas/terms_calculated.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-11
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - line level taxation_[2766927]/formulas/payment_terms_export.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/workspaces/4. France_[850952]/queues/AP Documents - FR_[2868272]/formulas/payment_terms_code_export.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - header level taxation_[2766928]/formulas/sender_tax_id_normalized.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-2
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - header level taxation_[2766928]/formulas/recipient_mismatch_tag.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/rules/Duplicate Detected (CIB)_[7878].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-43
+"cib-org/default/rules/Move to PL queue_[8732].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-27
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - header level taxation_[2766928]/formulas/tax_rate_calculated.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-10
+"cib-org/default/engines/AP Documents - line level taxation_[56992]/engine_fields/date_issue_[2915700].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-15
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - header level taxation_[2766928]/formulas/line_type.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/workspaces/5. Germany_[886214]/queues/AP Documents - DE_[3013757]/formulas/country_code.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1
+"cib-org/default/workspaces/5. Germany_[886214]/queues/AP Documents - DE_[3013757]/formulas/oauth_client_id.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1
+"cib-org/default/workspaces/4. France_[850952]/queues/AP Documents - FR_[2868272]/formulas/epd_rate.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-6
+"cib-org/default/hooks/Coupa Master Data Import - Lookup values (CIB)_[1341766].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-119
+"cib-org/default/workspaces/2. Belgium_[849461]/queues/AP Documents - BE_[2860789]/formulas/item_order_item_number_export.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/workspaces/5. Germany_[886214]/queues/AP Documents - DE_[3013757]/formulas/price_export.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1
+"cib-org/default/rules/Coupa Total Mismatch (CIB)_[7877].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-43
+"cib-org/default/workspaces/3. Poland_[845565]/queues/AP Documents - PL_[2841935]/formulas/inactive_po_line_tag.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/workspaces/5. Germany_[886214]/queues/AP Documents - DE_[3013757]/formulas/sender_name_export.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-14
+"cib-org/default/workspaces/5. Germany_[886214]/queues/AP Documents - DE_[3013757]/formulas/requestor_email_calculated.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-12
+"cib-org/default/engines/AP Documents - header level taxation_[56991]/engine_fields/bank_num_[2915648].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-15
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - header level taxation_[2766928]/formulas/handling_charge_calculated.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-8
+"cib-org/default/workspaces/4. France_[850952]/queues/AP Documents - FR_[2868272]/formulas/sender_export.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-13
+"cib-org/default/engines/AP Documents - header level taxation_[56991]/engine_fields/original_date_issue_[2915668].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-15
+"cib-org/default/engines/AP Documents - header level taxation_[56991]/engine_fields/amount_total_[2915645].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-15
+"cib-org/default/workspaces/2. Belgium_[849461]/queues/AP Documents - BE_[2860789]/formulas/epd_expires.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-11
+"cib-org/default/workspaces/3. Poland_[845565]/queues/AP Documents - PL_[2841935]/formulas/terms_calculated.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-11
+"cib-org/default/engines/AP Documents - line level taxation_[56992]/engine_fields/delivery_date_[2915701].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-15
+"cib-org/default/workspaces/4. France_[850952]/queues/AP Documents - FR_[2868272]/inbox.json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-36
+"cib-org/default/engines/AP Documents - header level taxation_[56991]/engine_fields/header_description_[2915658].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-15
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - header level taxation_[2766928]/formulas/backing_document.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1
+"cib-org/default/hooks/Coupa Master Data Import - Account Types (CIB)_[1341765].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-151
+"cib-org/default/workspaces/5. Germany_[886214]/queues/AP Documents - DE_[3013757]/formulas/item_uom_export.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - line level taxation_[2766927]/formulas/coupa_api_base_url.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - line level taxation_[2766927]/formulas/uom_export.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/workspaces/5. Germany_[886214]/queues/AP Documents - DE_[3013757]/formulas/epd_rate.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-6
+deploy/cib_target.yaml
+  s_2cd4f27df9df83::t_da1f3c7dc338f9 1-926
+"cib-org/default/workspaces/3. Poland_[845565]/queues/AP Documents - PL_[2841935]/formulas/sender_name_export.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-14
+"cib-org/default/hooks/Metadata Propagator (CIB)_[1123391].py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-25
+"cib-org/default/hooks/Coupa Master Data Import - Purchase Orders (CIB)_[1341767].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-218
+"cib-org/default/workspaces/2. Belgium_[849461]/queues/AP Documents - BE_[2860789]/formulas/item_line_type.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - line level taxation_[2766927]/formulas/item_supplier_mismatch_tag.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/workspaces/2. Belgium_[849461]/queues/AP Documents - BE_[2860789]/formulas/service_period_end_export.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-12
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - line level taxation_[2766927]/formulas/contract_number_normalized.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1
+cib-org/organization.json
+  s_2cd4f27df9df83::t_e94b4a0d491d15 2-4,6-11,14-15,17,20,24,28,32
+"cib-org/default/hooks/Export Mapping - LIne Level Taxation (CIB)_[1123383].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-265
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - line level taxation_[2766927]/formulas/recipient_tax_id_normalized.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-2
+"cib-org/default/workspaces/3. Poland_[845565]/queues/AP Documents - PL_[2841935]/formulas/po_backed.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/workspaces/2. Belgium_[849461]/queues/AP Documents - BE_[2860789]/formulas/amount_total_base_calculated.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-19
+"cib-org/default/hooks/Coupa E-Invoicing Status Sync - Inbox (CIB)_[1309899].py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-329
+"cib-org/default/workspaces/3. Poland_[845565]/queues/AP Documents - PL_[2841935]/formulas/sender_export.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-13
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - line level taxation_[2766927]/formulas/sp_item_end_date_text.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1
+"cib-org/default/workspaces/1. Inbox_[849460]/queues/E-invoicing Inbox_[2860788]/email_templates/Annotation status change - exported_[14404828].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-23
+"cib-org/default/engines/AP Documents - line level taxation_[56992]/engine_fields/bic_[2915690].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-15
+"cib-org/default/hooks/Handle Coupa Responses (CIB)_[1123389].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-63
+"cib-org/default/workspaces/2. Belgium_[849461]/queues/AP Documents - BE_[2860789]/formulas/coupa_api_base_url.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1
+"cib-org/default/workspaces/2. Belgium_[849461]/queues/AP Documents - BE_[2860789]/formulas/recipient_name_export.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-15
+"cib-org/default/rules/Total Amount Not Equal to Without Tax + Tax (CIB)_[7903].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-42
+"cib-org/default/workspaces/3. Poland_[845565]/queues/AP Documents - PL_[2841935]/formulas/item_tax_calculated.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-40
+"cib-org/default/workspaces/5. Germany_[886214]/queues/AP Documents - DE_[3013757]/formulas/uom_export.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/workspaces/3. Poland_[845565]/queues/AP Documents - PL_[2841935]/formulas/ksef_offline_invoice.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-15
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - header level taxation_[2766928]/formulas/epd_tag.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-2
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - line level taxation_[2766927]/formulas/tax_rate_calculated.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-13
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - line level taxation_[2766927]/schema.json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-5077
+"cib-org/default/workspaces/4. France_[850952]/queues/AP Documents - FR_[2868272]/formulas/sp_item_end_date_text.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1
+CHANGELOG.md
+  s_2cd4f27df9df83::t_927e2dc27fb144 10-70
+"cib-org/default/engines/AP Documents - line level taxation_[56992]/engine_fields/item_amount_base_[2915710].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-15
+"cib-org/default/hooks/Metadata Propagator (CIB)_[1123391].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-60
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - line level taxation_[2766927]/formulas/backing_document.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1
+"cib-org/default/workspaces/4. France_[850952]/queues/AP Documents - FR_[2868272]/formulas/charge_tax_rate_calculated.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-17
+"cib-org/default/workspaces/4. France_[850952]/queues/AP Documents - FR_[2868272]/formulas/charges_total_tax_calculated.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1
+"cib-org/default/hooks/Export Pipeline - 3. Attach Rossum URL (CIB)_[1342016].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-140
+"cib-org/default/workspaces/3. Poland_[845565]/queues/AP Documents - PL_[2841935]/formulas/recipient_tax_id_normalized.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-2
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - header level taxation_[2766928]/formulas/epd_detected.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-8
+"cib-org/default/workspaces/4. France_[850952]/queues/AP Documents - FR_[2868272]/email_templates/Annotation status change - confirmed_[14442546].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-23
+"cib-org/default/workspaces/5. Germany_[886214]/queues/AP Documents - DE_[3013757]/formulas/item_inactive_po_line_tag.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-3
+"cib-org/default/engines/AP Documents - header level taxation_[56991]/engine.json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-19
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - line level taxation_[2766927]/formulas/line_items_present.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/rules/Move to FR queue_[8740].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-27
+"cib-org/default/rules/Service Period End Before PO Start (CIB)_[7915].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-43
+"cib-org/default/workspaces/2. Belgium_[849461]/queues/AP Documents - BE_[2860789]/formulas/contract_number_normalized.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1
+"cib-org/default/workspaces/2. Belgium_[849461]/queues/AP Documents - BE_[2860789]/schema.json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4924
+"cib-org/default/workspaces/3. Poland_[845565]/queues/AP Documents - PL_[2841935]/formulas/item_description_calculated.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-6
+"cib-org/default/engines/AP Documents - header level taxation_[56991]/engine_fields/service_period_item_start_[2915680].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-15
+"cib-org/default/engines/AP Documents - line level taxation_[56992]/engine_fields/service_period_item_start_[2915741].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-15
+"cib-org/default/workspaces/1. Inbox_[849460]/workspace.json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-14
+"cib-org/default/workspaces/2. Belgium_[849461]/queues/AP Documents - BE_[2860789]/formulas/service_period_end_text.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1
+"cib-org/default/workspaces/4. France_[850952]/queues/AP Documents - FR_[2868272]/formulas/document_id_manual.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-5
+"cib-org/default/workspaces/5. Germany_[886214]/queues/AP Documents - DE_[3013757]/formulas/service_period_end_text.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1
+"cib-org/default/rules/Negative Amount - Not Credit Note (CIB)_[7870].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-43
+"cib-org/default/rules/Payment Terms Mismatch (CIB)_[7868].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-43
+"cib-org/default/workspaces/2. Belgium_[849461]/queues/AP Documents - BE_[2860789]/email_templates/Annotation status change - received_[14404836].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-23
+"cib-org/default/workspaces/5. Germany_[886214]/queues/AP Documents - DE_[3013757]/formulas/tax_rate_calculated.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-13
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - header level taxation_[2766928]/email_templates/Default rejection template_[13932885].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-21
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - line level taxation_[2766927]/formulas/line_type.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/workspaces/2. Belgium_[849461]/queues/AP Documents - BE_[2860789]/formulas/epd_days.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-6
+"cib-org/default/workspaces/5. Germany_[886214]/workspace.json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-14
+"cib-org/default/workspaces/4. France_[850952]/queues/AP Documents - FR_[2868272]/formulas/item_supplier_mismatch_tag.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/workspaces/2. Belgium_[849461]/queues/AP Documents - BE_[2860789]/formulas/epd_detected.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-8
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - line level taxation_[2766927]/formulas/item_price_export.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-10
+"cib-org/default/hooks/Export Pipeline - 4. Attach Supplementary Files (CIB)_[1342017].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-243
+"cib-org/default/engines/AP Documents - line level taxation_[56992]/engine_fields/split_payment_mechanism_[2915745].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-15
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - header level taxation_[2766928]/formulas/item_net_total_coupa.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-17
+"cib-org/default/workspaces/5. Germany_[886214]/queues/AP Documents - DE_[3013757]/formulas/epd_expires.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-11
+"cib-org/default/workspaces/4. France_[850952]/queues/AP Documents - FR_[2868272]/formulas/item_line_type.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/workspaces/4. France_[850952]/queues/AP Documents - FR_[2868272]/formulas/backing_document.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1
+"cib-org/default/workspaces/4. France_[850952]/queues/AP Documents - FR_[2868272]/formulas/service_period_end_text.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1
+"cib-org/default/workspaces/5. Germany_[886214]/queues/AP Documents - DE_[3013757]/formulas/item_description_calculated.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-6
+"cib-org/default/workspaces/5. Germany_[886214]/queues/AP Documents - DE_[3013757]/formulas/item_total_base_calculated.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-43
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - header level taxation_[2766928]/formulas/charges_calculated.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - line level taxation_[2766927]/formulas/description_export.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/workspaces/3. Poland_[845565]/queues/AP Documents - PL_[2841935]/formulas/coupa_api_base_url.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1
+"cib-org/default/engines/AP Documents - header level taxation_[56991]/engine_fields/item_amount_base_[2915660].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-15
+"cib-org/default/workspaces/5. Germany_[886214]/queues/AP Documents - DE_[3013757]/formulas/backing_document.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1
+"cib-org/default/rules/KSeF Offline Invoice (PL)_[8573].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-38
+"cib-org/default/engines/AP Documents - header level taxation_[56991]/engine_fields/currency_[2915652].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-15
+"cib-org/default/workspaces/3. Poland_[845565]/queues/AP Documents - PL_[2841935]/formulas/description_export.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/workspaces/4. France_[850952]/queues/AP Documents - FR_[2868272]/formulas/item_inactive_po_line_tag.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-3
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - header level taxation_[2766928]/formulas/epd_amount.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-9
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - header level taxation_[2766928]/formulas/item_order_item_number_export.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - line level taxation_[2766927]/formulas/item_po_closed.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/rules/Invoice Number Too Long (CIB)_[7911].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-43
+"cib-org/default/workspaces/5. Germany_[886214]/queues/AP Documents - DE_[3013757]/formulas/quantity_header_calculated.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1
+"cib-org/default/rules/Tax Code Required (No Line Items, PO Backed) (CIB)_[7908].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-32
+"cib-org/default/workspaces/2. Belgium_[849461]/queues/AP Documents - BE_[2860789]/formulas/po_closed.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/workspaces/5. Germany_[886214]/queues/AP Documents - DE_[3013757]/email_templates/Annotation status change - confirmed_[15174054].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-23
+"cib-org/default/workspaces/3. Poland_[845565]/queues/AP Documents - PL_[2841935]/formulas/payment_terms_export.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/workspaces/5. Germany_[886214]/queues/AP Documents - DE_[3013757]/formulas/terms_calculated.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-11
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - header level taxation_[2766928]/formulas/po_line_sp_start_date_normalized.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-6
+"cib-org/default/workspaces/2. Belgium_[849461]/queues/AP Documents - BE_[2860789]/queue.json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-295
+"cib-org/default/engines/AP Documents - header level taxation_[56991]/engine_fields/item_total_base_[2915665].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-15
+"cib-org/default/workspaces/4. France_[850952]/queues/AP Documents - FR_[2868272]/formulas/line_type.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/workspaces/5. Germany_[886214]/queues/AP Documents - DE_[3013757]/formulas/date_issue_manual.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - header level taxation_[2766928]/formulas/price_export.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1
+"cib-org/default/engines/AP Documents - header level taxation_[56991]/engine_fields/code_[2915650].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-15
+"cib-org/default/workspaces/3. Poland_[845565]/queues/AP Documents - PL_[2841935]/formulas/price_export.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1
+"cib-org/default/rules/Required - Line Total or Unit Price (CIB)_[7875].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-33
+"cib-org/default/workspaces/2. Belgium_[849461]/queues/AP Documents - BE_[2860789]/formulas/country_code.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1
+"cib-org/default/workspaces/5. Germany_[886214]/queues/AP Documents - DE_[3013757]/formulas/sp_item_end_date_export.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-16
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - header level taxation_[2766928]/formulas/sp_item_end_date_export.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-16
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - line level taxation_[2766927]/formulas/item_po_line_sp_end_date_normalized.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-6
+"cib-org/default/workspaces/1. Inbox_[849460]/queues/E-invoicing Inbox_[2860788]/formulas/oauth_client_id.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - line level taxation_[2766927]/formulas/sp_item_start_date_export.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-16
+"cib-org/default/workspaces/5. Germany_[886214]/queues/AP Documents - DE_[3013757]/formulas/epd_days.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-6
+"cib-org/default/engines/AP Documents - line level taxation_[56992]/engine_fields/sp_date_end_[2915743].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-15
+"cib-org/default/workspaces/5. Germany_[886214]/queues/AP Documents - DE_[3013757]/formulas/inv_total_issue_tag.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-2
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - line level taxation_[2766927]/formulas/epd_tag.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-2
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - header level taxation_[2766928]/formulas/item_po_line_sp_start_date_normalized.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-6
+"cib-org/default/workspaces/2. Belgium_[849461]/queues/AP Documents - BE_[2860789]/formulas/requestor_email_calculated.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-12
+"cib-org/default/workspaces/3. Poland_[845565]/queues/AP Documents - PL_[2841935]/formulas/service_period_start_export.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-12
+"cib-org/default/workspaces/5. Germany_[886214]/queues/AP Documents - DE_[3013757]/formulas/amount_total_tax_calculated.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-22
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - line level taxation_[2766927]/formulas/payment_terms_code_export.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/engines/AP Documents - line level taxation_[56992]/engine_fields/invoice_shipping_charge_[2915709].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-15
+"cib-org/default/workspaces/4. France_[850952]/queues/AP Documents - FR_[2868272]/formulas/po_line_sp_start_date_normalized.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-6
+"cib-org/default/workspaces/1. Inbox_[849460]/queues/E-invoicing Inbox_[2860788]/formulas/charge_tax_rate_calculated.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-17
+"cib-org/default/workspaces/3. Poland_[845565]/queues/AP Documents - PL_[2841935]/email_templates/Annotation status change - exported_[14310041].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-23
+"cib-org/default/workspaces/3. Poland_[845565]/queues/AP Documents - PL_[2841935]/email_templates/Email with no processable attachments_[14310042].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-23
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - header level taxation_[2766928]/formulas/item_quantity_export.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/engines/AP Documents - line level taxation_[56992]/engine_fields/recipient_name_[2915729].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-15
+"cib-org/default/workspaces/2. Belgium_[849461]/queues/AP Documents - BE_[2860789]/formulas/document_id_manual.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-5
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - line level taxation_[2766927]/formulas/item_recipient_mismatch_tag.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/engines/AP Documents - line level taxation_[56992]/engine_fields/amount_total_tax_[2915688].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-15
+"cib-org/default/workspaces/3. Poland_[845565]/queues/AP Documents - PL_[2841935]/formulas/charge_tax_rate_calculated.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-17
+"cib-org/default/workspaces/4. France_[850952]/workspace.json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-14
+"cib-org/default/workspaces/5. Germany_[886214]/queues/AP Documents - DE_[3013757]/formulas/sp_item_start_date_text.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - header level taxation_[2766928]/formulas/payment_terms_export.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/workspaces/2. Belgium_[849461]/queues/AP Documents - BE_[2860789]/formulas/recipient_export.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-13
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - header level taxation_[2766928]/formulas/inactive_po_line_tag.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/hooks/Supplier memorization (CIB)_[1123404].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-80
+"cib-org/default/workspaces/4. France_[850952]/queues/AP Documents - FR_[2868272]/formulas/requestor_email_calculated.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-12
+"cib-org/default/workspaces/5. Germany_[886214]/queues/AP Documents - DE_[3013757]/queue.json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-295
+"cib-org/default/workspaces/2. Belgium_[849461]/queues/AP Documents - BE_[2860789]/formulas/po_line_sp_end_date_normalized.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-6
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - line level taxation_[2766927]/formulas/terms_calculated.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-11
+"cib-org/default/workspaces/3. Poland_[845565]/queues/AP Documents - PL_[2841935]/formulas/order_item_number_export.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/engines/AP Documents - header level taxation_[56991]/engine_fields/service_period_item_[2915678].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-15
+prd_config.yaml
+  s_2cd4f27df9df83::t_d6f78d5b505d16 3
+"cib-org/default/engines/AP Documents - line level taxation_[56992]/engine_fields/sp_date_start_[2915744].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-15
+"cib-org/default/rules/Invoice Number Manual Too Long (CIB)_[7880].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-43
+"cib-org/default/engines/AP Documents - header level taxation_[56991]/engine_fields/sp_date_end_[2915682].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-15
+"cib-org/default/workspaces/2. Belgium_[849461]/queues/AP Documents - BE_[2860789]/formulas/quantity_export.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - header level taxation_[2766928]/formulas/quantity_export.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1
+"cib-org/default/workspaces/5. Germany_[886214]/queues/AP Documents - DE_[3013757]/formulas/recipient_export.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-13
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - line level taxation_[2766927]/email_templates/Annotation status change - received_[13932881].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-23
+.gitignore
+  s_2cd4f27df9df83::t_bdeb6109d3252e 23-25
+"cib-org/default/hooks/Coupa E-Invoicing Status Sync - Inbox (CIB)_[1309899].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-82
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - header level taxation_[2766928]/formulas/sender_name_export.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-14
+"cib-org/default/rules/Service Period Start Before PO Start (Line Items) (CIB)_[7891].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-43
+"cib-org/default/workspaces/2. Belgium_[849461]/queues/AP Documents - BE_[2860789]/formulas/recipient_tax_id_normalized.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-2
+"cib-org/default/workspaces/5. Germany_[886214]/queues/AP Documents - DE_[3013757]/formulas/epd_detected.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-8
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - line level taxation_[2766927]/formulas/recipient_name_export.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-15
+"cib-org/default/rules/PO is Closed (Line Items) (CIB)_[7887].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-33
+"cib-org/default/workspaces/1. Inbox_[849460]/queues/E-invoicing Inbox_[2860788]/email_templates/Annotation status change - received_[14404826].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-23
+"cib-org/default/workspaces/4. France_[850952]/queues/AP Documents - FR_[2868272]/formulas/epd_tag.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-2
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - header level taxation_[2766928]/formulas/amount_total_tax_calculated.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-13
+"cib-org/default/workspaces/4. France_[850952]/queues/AP Documents - FR_[2868272]/formulas/quantity_header_calculated.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - line level taxation_[2766927]/formulas/po_line_sp_end_date_normalized.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-6
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - header level taxation_[2766928]/formulas/epd_days.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-6
+"cib-org/default/workspaces/3. Poland_[845565]/queues/AP Documents - PL_[2841935]/formulas/coupa_invoices_statuses.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-11
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - line level taxation_[2766927]/formulas/item_inactive_po_line_tag.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-3
+"cib-org/default/engines/AP Documents - line level taxation_[56992]/engine_fields/item_tax_[2915716].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-15
+"cib-org/default/workspaces/4. France_[850952]/queues/AP Documents - FR_[2868272]/formulas/service_period_start_export.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-12
+"cib-org/default/workspaces/4. France_[850952]/queues/AP Documents - FR_[2868272]/formulas/amount_total_base_calculated.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-19
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - header level taxation_[2766928]/formulas/service_period_end_text.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - header level taxation_[2766928]/schema.json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4486
+"cib-org/default/engines/AP Documents - header level taxation_[56991]/engine_fields/item_code_[2915661].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-15
+"cib-org/default/workspaces/4. France_[850952]/queues/AP Documents - FR_[2868272]/formulas/service_period_start_text.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1
+"cib-org/default/workspaces/3. Poland_[845565]/queues/AP Documents - PL_[2841935]/formulas/backing_document.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1
+"cib-org/default/engines/AP Documents - line level taxation_[56992]/engine_fields/currency_[2915698].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-15
+"cib-org/default/engines/AP Documents - header level taxation_[56991]/engine_fields/order_id_[2915667].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-15
+"cib-org/default/workspaces/4. France_[850952]/queues/AP Documents - FR_[2868272]/formulas/rossum_tag.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/engines/AP Documents - line level taxation_[56992]/engine_fields/payment_order_reference_[2915726].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-15
+"cib-org/default/workspaces/5. Germany_[886214]/queues/AP Documents - DE_[3013757]/formulas/item_line_type.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/engines/AP Documents - header level taxation_[56991]/engine_fields/sender_address_[2915673].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-15
+"cib-org/default/engines/AP Documents - line level taxation_[56992]/engine_fields/item_quantity_[2915714].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-15
+"cib-org/default/rules/Move to DE queue_[11887].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-27
+"cib-org/default/workspaces/2. Belgium_[849461]/queues/AP Documents - BE_[2860789]/formulas/quantity_header_calculated.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1
+"cib-org/default/workspaces/3. Poland_[845565]/queues/AP Documents - PL_[2841935]/formulas/document_id_manual.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-5
+"cib-org/default/workspaces/3. Poland_[845565]/queues/AP Documents - PL_[2841935]/formulas/recipient_name_export.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-15
+"cib-org/default/workspaces/1. Inbox_[849460]/queues/E-invoicing Inbox_[2860788]/formulas/charge_tax_calculated.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-15
+"cib-org/default/workspaces/1. Inbox_[849460]/queues/E-invoicing Inbox_[2860788]/email_templates/Annotation status change - confirmed_[14404827].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-23
+"cib-org/default/workspaces/4. France_[850952]/queues/AP Documents - FR_[2868272]/formulas/charges_net_amount_total_calculated.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-8
+"cib-org/default/workspaces/3. Poland_[845565]/queues/AP Documents - PL_[2841935]/formulas/sp_item_start_date_text.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1
+"cib-org/default/engines/AP Documents - header level taxation_[56991]/engine_fields/bic_[2915649].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-15
+"cib-org/default/workspaces/3. Poland_[845565]/queues/AP Documents - PL_[2841935]/formulas/item_po_closed.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/workspaces/5. Germany_[886214]/queues/AP Documents - DE_[3013757]/formulas/recipient_tax_id_normalized.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-2
+"cib-org/default/engines/AP Documents - line level taxation_[56992]/engine_fields/sender_electronic_address_[2915734].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-15
+"cib-org/default/hooks/Coupa Master Data Import - Tax Codes (CIB)_[1341768].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-108
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - header level taxation_[2766928]/formulas/item_quantity_calculated.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-6
+"cib-org/default/workspaces/2. Belgium_[849461]/queues/AP Documents - BE_[2860789]/formulas/supplier_mismatch_tag.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/workspaces/2. Belgium_[849461]/queues/AP Documents - BE_[2860789]/formulas/uom_export.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - header level taxation_[2766928]/formulas/sp_item_start_date_text.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1
+"cib-org/default/workspaces/3. Poland_[845565]/queues/AP Documents - PL_[2841935]/formulas/sender_tax_id_normalized.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-2
+"cib-org/default/workspaces/2. Belgium_[849461]/queues/AP Documents - BE_[2860789]/formulas/sp_item_start_date_export.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-16
+"cib-org/default/workspaces/5. Germany_[886214]/queues/AP Documents - DE_[3013757]/formulas/order_item_number_export.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/workspaces/5. Germany_[886214]/queues/AP Documents - DE_[3013757]/schema.json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4924
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - header level taxation_[2766928]/formulas/epd_rate.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-6
+"cib-org/default/workspaces/3. Poland_[845565]/queues/AP Documents - PL_[2841935]/email_templates/Annotation status change - received_[14310039].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-23
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - line level taxation_[2766927]/formulas/date_issue_manual.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1
+"cib-org/default/rules/PO Not Found in Coupa (CIB)_[7888].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-43
+"cib-org/default/hooks/Coupa E-Invoicing_[1170832].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-2536
+"cib-org/default/workspaces/5. Germany_[886214]/queues/AP Documents - DE_[3013757]/formulas/enforced_draft_tag.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-2
+"cib-org/default/workspaces/1. Inbox_[849460]/queues/E-invoicing Inbox_[2860788]/schema.json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-1611
+"cib-org/default/rules/Total Amount Not Equal to Subtotal + Tax + Charges (CIB)_[7899].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-38
+"cib-org/default/workspaces/4. France_[850952]/queues/AP Documents - FR_[2868272]/formulas/price_export.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - line level taxation_[2766927]/formulas/item_line_type.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - header level taxation_[2766928]/formulas/supplier_mismatch_tag.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/engines/AP Documents - line level taxation_[56992]/engine_fields/contract_number_[2915696].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-15
+"cib-org/default/rules/ShowHide - Hide Tax Code Match (CIB)_[7912].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-32
+"cib-org/default/workspaces/4. France_[850952]/queues/AP Documents - FR_[2868272]/formulas/epd_amount.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-9
+"cib-org/default/workspaces/4. France_[850952]/queues/AP Documents - FR_[2868272]/formulas/uom_export.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/workspaces/2. Belgium_[849461]/queues/AP Documents - BE_[2860789]/formulas/sp_item_end_date_text.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1
+"cib-org/default/workspaces/1. Inbox_[849460]/queues/E-invoicing Inbox_[2860788]/email_templates/Default rejection template_[14404825].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-21
+"cib-org/default/engines/AP Documents - line level taxation_[56992]/engine_fields/service_period_[2915738].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-15
+"cib-org/default/workspaces/2. Belgium_[849461]/queues/AP Documents - BE_[2860789]/formulas/charge_tax_calculated.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-15
+"cib-org/default/workspaces/4. France_[850952]/queues/AP Documents - FR_[2868272]/formulas/tax_rate_calculated.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-13
+"cib-org/default/workspaces/5. Germany_[886214]/queues/AP Documents - DE_[3013757]/formulas/charges_net_amount_total_calculated.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-8
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - header level taxation_[2766928]/formulas/order_id_calculated.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - line level taxation_[2766927]/formulas/item_amount_base_calculated.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-47
+"cib-org/default/workspaces/4. France_[850952]/queues/AP Documents - FR_[2868272]/formulas/epd_detected.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-8
+"cib-org/default/rules/Service Period End After PO End (Line Items) (CIB)_[7894].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-43
+"cib-org/default/workspaces/5. Germany_[886214]/queues/AP Documents - DE_[3013757]/formulas/fully_tax_coded.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/engines/AP Documents - header level taxation_[56991]/engine_fields/misc_charge_[2915666].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-15
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - header level taxation_[2766928]/formulas/inv_total_issue_tag.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-2
+"cib-org/default/engines/AP Documents - line level taxation_[56992]/engine_fields/document_type_[2915703].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-15
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - line level taxation_[2766927]/formulas/charges_net_amount_total_calculated.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-8
+"cib-org/default/engines/AP Documents - line level taxation_[56992]/engine_fields/service_period_item_[2915739].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-15
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - line level taxation_[2766927]/inbox.json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-36
+"cib-org/default/workspaces/2. Belgium_[849461]/queues/AP Documents - BE_[2860789]/formulas/epd_rate.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-6
+"cib-org/default/workspaces/3. Poland_[845565]/queues/AP Documents - PL_[2841935]/formulas/amount_total_tax_calculated.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-22
+"cib-org/default/workspaces/3. Poland_[845565]/queues/AP Documents - PL_[2841935]/formulas/amount_total_base_calculated.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-19
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - header level taxation_[2766928]/queue.json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-293
+"cib-org/default/workspaces/5. Germany_[886214]/queues/AP Documents - DE_[3013757]/formulas/po_closed.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/rules/PO Line Match Required (No Line Items) (CIB)_[7874].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-43
+"cib-org/default/workspaces/5. Germany_[886214]/queues/AP Documents - DE_[3013757]/email_templates/Email with no processable attachments_[15174056].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-23
+"cib-org/default/engines/AP Documents - header level taxation_[56991]/engine_fields/document_type_[2915656].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-15
+"cib-org/default/engines/AP Documents - header level taxation_[56991]/engine_fields/sender_remit_to_address_[2915675].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-15
+"cib-org/default/engines/AP Documents - line level taxation_[56992]/engine_fields/code_[2915695].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-15
+"cib-org/default/workspaces/2. Belgium_[849461]/queues/AP Documents - BE_[2860789]/email_templates/Annotation status change - confirmed_[14404837].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-23
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - line level taxation_[2766927]/formulas/epd_expires.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-11
+"cib-org/default/workspaces/4. France_[850952]/queues/AP Documents - FR_[2868272]/formulas/sf_submit_for_approval.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-27
+"cib-org/default/workspaces/3. Poland_[845565]/queues/AP Documents - PL_[2841935]/email_templates/Default rejection template_[14310038].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-21
+"cib-org/default/engines/AP Documents - header level taxation_[56991]/engine_fields/amount_total_base_[2915646].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-15
+"cib-org/default/workspaces/3. Poland_[845565]/queues/AP Documents - PL_[2841935]/formulas/inv_total_issue_tag.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-2
+"cib-org/default/workspaces/4. France_[850952]/queues/AP Documents - FR_[2868272]/formulas/epd_days.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-6
+"cib-org/default/rules/Service Period Start After PO End (Line Items) (CIB)_[7895].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-43
+"cib-org/default/engines/AP Documents - line level taxation_[56992]/engine_fields/tax_rate_[2915746].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-15
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - header level taxation_[2766928]/formulas/amount_total_base_calculated.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-17
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - line level taxation_[2766927]/formulas/oauth_client_id.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1
+"cib-org/default/workspaces/3. Poland_[845565]/queues/AP Documents - PL_[2841935]/formulas/item_supplier_mismatch_tag.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - line level taxation_[2766927]/formulas/recipient_mismatch_tag.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/engines/AP Documents - line level taxation_[56992]/engine_fields/charge_tax_rate_[2915694].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-15
+"cib-org/default/hooks/Coupa Master Data Import - Purchase Order Lines (CIB)_[1341770].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-219
+"cib-org/default/rules/PO Not Found in Coupa (Line Items) (CIB)_[7889].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-43
+"cib-org/default/hooks/Coupa Master Data Import - Addresses (CIB)_[1341771].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-79
+"cib-org/default/engines/AP Documents - line level taxation_[56992]/engine_fields/credit_reason_[2915697].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-15
+"cib-org/default/engines/AP Documents - line level taxation_[56992]/engine_fields/item_tax_reverse_charge_[2915720].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-15
+"cib-org/default/hooks/Export Mapping - Header Level Taxation (CIB)_[1123394].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-177
+"cib-org/default/hooks/Coupa Master Data Import - Units of Measure (CIB)_[1341763].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-88
+"cib-org/default/workspaces/1. Inbox_[849460]/queues/E-invoicing Inbox_[2860788]/inbox.json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-36
+"cib-org/default/workspaces/2. Belgium_[849461]/queues/AP Documents - BE_[2860789]/formulas/sp_item_end_date_export.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-16
+"cib-org/default/engines/AP Documents - line level taxation_[56992]/engine_fields/invoice_rounding_amount_[2915708].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-15
+"cib-org/default/workspaces/4. France_[850952]/queues/AP Documents - FR_[2868272]/formulas/supplier_mismatch_tag.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/workspaces/5. Germany_[886214]/queues/AP Documents - DE_[3013757]/formulas/charges_tax_rate_average_calculated.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - line level taxation_[2766927]/formulas/item_order_id_calculated.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-11
+"cib-org/default/workspaces/4. France_[850952]/queues/AP Documents - FR_[2868272]/formulas/service_period_end_export.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-12
+"cib-org/default/workspaces/4. France_[850952]/queues/AP Documents - FR_[2868272]/formulas/recipient_export.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-13
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - line level taxation_[2766927]/formulas/inactive_po_line_tag.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - line level taxation_[2766927]/formulas/epd_detected.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-8
+"cib-org/default/workspaces/5. Germany_[886214]/queues/AP Documents - DE_[3013757]/formulas/item_tax_calculated.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-40
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - line level taxation_[2766927]/formulas/rossum_tag.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - header level taxation_[2766928]/formulas/coupa_total_calculated.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-17
+"cib-org/default/engines/AP Documents - header level taxation_[56991]/engine_fields/sender_tax_id_[2915676].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-15
+"cib-org/default/engines/AP Documents - line level taxation_[56992]/engine_fields/bank_num_[2915689].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-15
+"cib-org/default/hooks/Customer memorization (CIB)_[1123405].py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-350
+"cib-org/default/workspaces/3. Poland_[845565]/queues/AP Documents - PL_[2841935]/email_templates/Annotation status change - confirmed_[14310040].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-23
+"cib-org/default/workspaces/2. Belgium_[849461]/queues/AP Documents - BE_[2860789]/formulas/po_backed.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - header level taxation_[2766928]/formulas/item_amount_base_calculated.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-47
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - line level taxation_[2766927]/formulas/coupa_invoices_statuses.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-11
+"cib-org/default/workspaces/4. France_[850952]/queues/AP Documents - FR_[2868272]/formulas/item_tax_calculated.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-40
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - header level taxation_[2766928]/formulas/document_id_manual.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-5
+"cib-org/default/workspaces/3. Poland_[845565]/queues/AP Documents - PL_[2841935]/formulas/quantity_header_calculated.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1
+"cib-org/default/rules/Currency Mismatch (No Line Items) (CIB)_[7884].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-43
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - header level taxation_[2766928]/formulas/enforced_draft_tag.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-2
+"cib-org/default/workspaces/2. Belgium_[849461]/queues/AP Documents - BE_[2860789]/formulas/description_export.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/workspaces/3. Poland_[845565]/queues/AP Documents - PL_[2841935]/formulas/coupa_total_calculated.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-20
+"cib-org/default/workspaces/3. Poland_[845565]/queues/AP Documents - PL_[2841935]/formulas/item_order_item_number_export.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/workspaces/3. Poland_[845565]/queues/AP Documents - PL_[2841935]/formulas/date_issue_manual.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1
+"cib-org/default/workspaces/4. France_[850952]/queues/AP Documents - FR_[2868272]/formulas/sender_tax_id_normalized.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-2
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - header level taxation_[2766928]/formulas/sp_item_end_date_text.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1
+"cib-org/default/workspaces/2. Belgium_[849461]/queues/AP Documents - BE_[2860789]/formulas/charge_tax_rate_calculated.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-17
+"cib-org/default/workspaces/2. Belgium_[849461]/workspace.json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-14
+"cib-org/default/rules/Total Without Tax Not Equal to Sum of Item Totals (CIB)_[7909].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-42
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - line level taxation_[2766927]/formulas/sender_tax_id_normalized.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-2
+"cib-org/default/workspaces/4. France_[850952]/queues/AP Documents - FR_[2868272]/email_templates/Annotation status change - received_[14442545].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-23
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - line level taxation_[2766927]/formulas/charge_tax_rate_calculated.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-17
+"cib-org/default/engines/AP Documents - line level taxation_[56992]/engine_fields/recipient_electronic_address_[2915728].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-15
+"cib-org/default/rules/Header Tax Not Equal to Sum of Line Taxes and Charges (CIB)_[7907].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-42
+"cib-org/default/workspaces/4. France_[850952]/queues/AP Documents - FR_[2868272]/formulas/coupa_api_base_url.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - header level taxation_[2766928]/formulas/coupa_api_base_url.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - line level taxation_[2766927]/email_templates/Annotation status change - exported_[13932883].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-23
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - line level taxation_[2766927]/formulas/item_order_item_number_export.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/workspaces/4. France_[850952]/queues/AP Documents - FR_[2868272]/formulas/date_issue_manual.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1
+"cib-org/default/rules/Supplier Mismatch Warning (CIB)_[7872].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-43
+"cib-org/default/workspaces/4. France_[850952]/queues/AP Documents - FR_[2868272]/formulas/item_po_line_sp_start_date_normalized.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-6
+"cib-org/default/workspaces/5. Germany_[886214]/queues/AP Documents - DE_[3013757]/formulas/item_rate_calculated.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-11
+"cib-org/default/workspaces/5. Germany_[886214]/queues/AP Documents - DE_[3013757]/formulas/service_period_end_export.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-12
+"cib-org/default/workspaces/2. Belgium_[849461]/queues/AP Documents - BE_[2860789]/formulas/item_net_total_coupa.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-11
+"cib-org/default/workspaces/5. Germany_[886214]/queues/AP Documents - DE_[3013757]/formulas/coupa_total_calculated.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-20
+"cib-org/default/hooks/Duplicate Handling (CIB)_[1123399].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-151
+"cib-org/default/workspaces/5. Germany_[886214]/queues/AP Documents - DE_[3013757]/formulas/service_period_start_export.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-12
+"cib-org/default/workspaces/2. Belgium_[849461]/queues/AP Documents - BE_[2860789]/formulas/item_description_export.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1
+"cib-org/default/hooks/Handle Coupa Responses (CIB)_[1123389].py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-83
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - header level taxation_[2766928]/formulas/requestor_email_calculated.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-12
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/workspace.json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-15
+"cib-org/default/rules/PO Line is Closed (CIB)_[7886].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-33
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - line level taxation_[2766927]/formulas/po_line_sp_start_date_normalized.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-6
+"cib-org/default/workspaces/4. France_[850952]/queues/AP Documents - FR_[2868272]/formulas/recipient_mismatch_tag.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/workspaces/3. Poland_[845565]/queues/AP Documents - PL_[2841935]/formulas/oauth_client_id.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1
+"cib-org/default/workspaces/4. France_[850952]/queues/AP Documents - FR_[2868272]/formulas/recipient_tax_id_normalized.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-2
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - line level taxation_[2766927]/formulas/item_quantity_export.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/rules/Invoice Number Missing (CIB)_[7881].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-43
+"cib-org/default/workspaces/4. France_[850952]/queues/AP Documents - FR_[2868272]/formulas/contract_number_normalized.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1
+"cib-org/default/hooks/Coupa E-Invoicing Status Sync (CIB)_[1309898].py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-329
+"cib-org/default/engines/AP Documents - header level taxation_[56991]/engine_fields/date_issue_[2915654].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-15
+"cib-org/default/hooks/Export Pipeline - 2. Attach Image Scan (CIB)_[1342015].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-143
+"cib-org/default/engines/AP Documents - line level taxation_[56992]/engine_fields/sender_name_[2915735].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-15
+"cib-org/default/workspaces/4. France_[850952]/queues/AP Documents - FR_[2868272]/formulas/item_po_closed.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/rules/Required - Recipient Match (CIB)_[8735].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-33
+"cib-org/default/workspaces/3. Poland_[845565]/queues/AP Documents - PL_[2841935]/formulas/enforced_draft_tag.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-2
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - header level taxation_[2766928]/formulas/line_items_present.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - header level taxation_[2766928]/formulas/item_supplier_mismatch_tag.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/workspaces/5. Germany_[886214]/queues/AP Documents - DE_[3013757]/formulas/item_po_line_sp_end_date_normalized.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-6
+"cib-org/default/workspaces/3. Poland_[845565]/queues/AP Documents - PL_[2841935]/formulas/service_period_end_text.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1
+"cib-org/default/hooks/Coupa Master Data Import - Contracts (CIB)_[1341774].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-137
+"cib-org/default/workspaces/3. Poland_[845565]/queues/AP Documents - PL_[2841935]/formulas/sp_item_end_date_text.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1
+"cib-org/default/hooks/MDH - Coupa Invoice Check (CIB)_[1123402].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-127
+"cib-org/default/workspaces/3. Poland_[845565]/queues/AP Documents - PL_[2841935]/queue.json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-189
+"cib-org/default/workspaces/3. Poland_[845565]/queues/AP Documents - PL_[2841935]/formulas/charge_tax_calculated.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-15
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - line level taxation_[2766927]/formulas/quantity_export.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1
+deploy/required_scopes.json
+  s_2cd4f27df9df83::t_da1f3c7dc338f9 1-13
+"cib-org/default/engines/AP Documents - line level taxation_[56992]/engine_fields/iban_[2915706].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-15
+"cib-org/default/workspaces/3. Poland_[845565]/queues/AP Documents - PL_[2841935]/formulas/sp_item_end_date_export.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-16
+"cib-org/default/workspaces/5. Germany_[886214]/queues/AP Documents - DE_[3013757]/formulas/item_quantity_export.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - line level taxation_[2766927]/formulas/recipient_export.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-13
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - header level taxation_[2766928]/formulas/item_line_type.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/engines/AP Documents - line level taxation_[56992]/engine_fields/document_id_[2915702].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-15
+"cib-org/default/workspaces/5. Germany_[886214]/queues/AP Documents - DE_[3013757]/formulas/item_price_export.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-10
+"cib-org/default/workspaces/4. France_[850952]/queues/AP Documents - FR_[2868272]/formulas/po_line_sp_end_date_normalized.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-6
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - line level taxation_[2766927]/formulas/order_item_number_export.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/workspaces/2. Belgium_[849461]/queues/AP Documents - BE_[2860789]/formulas/fully_tax_coded.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/workspaces/5. Germany_[886214]/queues/AP Documents - DE_[3013757]/formulas/item_recipient_mismatch_tag.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/workspaces/4. France_[850952]/queues/AP Documents - FR_[2868272]/formulas/sender_name_export.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-14
+"cib-org/default/workspaces/2. Belgium_[849461]/queues/AP Documents - BE_[2860789]/formulas/sf_submit_for_approval.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-27
+"cib-org/default/engines/AP Documents - header level taxation_[56991]/engine_fields/service_period_item_end_[2915679].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-15
+"cib-org/default/engines/AP Documents - header level taxation_[56991]/engine_fields/item_description_[2915662].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-15
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - header level taxation_[2766928]/formulas/quantity_header_calculated.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1
+"cib-org/default/rules/Customer Mismatch Warning (CIB)_[7871].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-43
+"cib-org/default/hooks/Get Barcodes - KSeF PL (CIB)_[1157629].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-54
+"cib-org/default/workspaces/3. Poland_[845565]/queues/AP Documents - PL_[2841935]/formulas/item_po_line_sp_start_date_normalized.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-6
+"cib-org/default/workspaces/4. France_[850952]/queues/AP Documents - FR_[2868272]/formulas/item_recipient_mismatch_tag.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/engines/AP Documents - header level taxation_[56991]/engine_fields/amount_total_tax_[2915647].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-15
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - header level taxation_[2766928]/formulas/misc_charge_calculated.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-8
+"cib-org/default/workspaces/5. Germany_[886214]/queues/AP Documents - DE_[3013757]/formulas/coupa_invoices_statuses.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-11
+"cib-org/default/engines/AP Documents - line level taxation_[56992]/engine_fields/recipient_party_identifier_[2915730].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-15
+"cib-org/default/workspaces/2. Belgium_[849461]/queues/AP Documents - BE_[2860789]/formulas/inv_total_issue_tag.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-2
+"cib-org/default/engines/AP Documents - header level taxation_[56991]/engine_fields/terms_[2915684].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-15
+"cib-org/default/workspaces/2. Belgium_[849461]/queues/AP Documents - BE_[2860789]/formulas/item_quantity_export.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/workspaces/2. Belgium_[849461]/queues/AP Documents - BE_[2860789]/formulas/item_rate_calculated.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-11
+"cib-org/default/workspaces/5. Germany_[886214]/queues/AP Documents - DE_[3013757]/formulas/supplier_mismatch_tag.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - header level taxation_[2766928]/email_templates/Annotation status change - received_[13932886].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-23
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - header level taxation_[2766928]/formulas/uom_export.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/hooks/Export Pipeline - 1. Create Draft (CIB)_[1157241].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-138
+"cib-org/default/workspaces/3. Poland_[845565]/queues/AP Documents - PL_[2841935]/formulas/recipient_mismatch_tag.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - header level taxation_[2766928]/formulas/oauth_client_id.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - line level taxation_[2766927]/formulas/sp_item_start_date_text.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - line level taxation_[2766927]/formulas/charges_tax_rate_average_calculated.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - header level taxation_[2766928]/formulas/description_export.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/workspaces/2. Belgium_[849461]/queues/AP Documents - BE_[2860789]/formulas/payment_terms_code_export.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/engines/AP Documents - line level taxation_[56992]/engine_fields/invoice_misc_charge_[2915707].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-15
+"cib-org/default/workspaces/3. Poland_[845565]/queues/AP Documents - PL_[2841935]/formulas/epd_tag.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-2
+"cib-org/default/rules/Service Period End Before PO Start (Line Items) (CIB)_[7896].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-43
+"cib-org/default/workspaces/3. Poland_[845565]/workspace.json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-14
+"cib-org/default/workspaces/5. Germany_[886214]/queues/AP Documents - DE_[3013757]/formulas/item_order_item_number_export.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - line level taxation_[2766927]/formulas/document_id_manual.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-5
+"cib-org/default/workspaces/5. Germany_[886214]/queues/AP Documents - DE_[3013757]/formulas/item_supplier_mismatch_tag.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - line level taxation_[2766927]/formulas/item_rate_calculated.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-11
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - header level taxation_[2766928]/formulas/service_period_start_export.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-12
+"cib-org/default/engines/AP Documents - line level taxation_[56992]/engine_fields/recipient_address_[2915727].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-15
+"cib-org/default/rules/Subtotal Not Equal to Sum of Item Totals (CIB)_[7904].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-38
+"cib-org/default/workspaces/4. France_[850952]/queues/AP Documents - FR_[2868272]/formulas/item_amount_base_calculated.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-47
+"cib-org/default/workspaces/5. Germany_[886214]/queues/AP Documents - DE_[3013757]/inbox.json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-36
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - line level taxation_[2766927]/formulas/sender_name_export.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-14
+"cib-org/default/rules/Service Period End After PO End (CIB)_[7892].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-43
+"cib-org/default/workspaces/1. Inbox_[849460]/queues/E-invoicing Inbox_[2860788]/email_templates/Email with no processable attachments_[14404829].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-23
+"cib-org/default/workspaces/1. Inbox_[849460]/queues/E-invoicing Inbox_[2860788]/queue.json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-98
+"cib-org/default/workspaces/3. Poland_[845565]/queues/AP Documents - PL_[2841935]/formulas/transaction_date.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-8
+"cib-org/default/engines/AP Documents - header level taxation_[56991]/engine_fields/sender_name_[2915674].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-15
+"cib-org/default/engines/AP Documents - line level taxation_[56992]/engine_fields/sender_party_identifier_[2915736].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-15
+"cib-org/default/workspaces/4. France_[850952]/queues/AP Documents - FR_[2868272]/formulas/item_order_id_calculated.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-11
+"cib-org/default/workspaces/4. France_[850952]/queues/AP Documents - FR_[2868272]/formulas/po_closed.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/workspaces/5. Germany_[886214]/queues/AP Documents - DE_[3013757]/formulas/item_po_closed.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/rules/PO is Closed (CIB)_[7906].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-33
+"cib-org/default/workspaces/2. Belgium_[849461]/queues/AP Documents - BE_[2860789]/formulas/recipient_mismatch_tag.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/workspaces/3. Poland_[845565]/queues/AP Documents - PL_[2841935]/formulas/charges_total_tax_calculated.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1
+"cib-org/default/workspaces/3. Poland_[845565]/queues/AP Documents - PL_[2841935]/formulas/item_quantity_calculated.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-6
+"cib-org/default/workspaces/5. Germany_[886214]/queues/AP Documents - DE_[3013757]/formulas/po_line_sp_end_date_normalized.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-6
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - line level taxation_[2766927]/formulas/item_net_total_coupa.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-11
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - line level taxation_[2766927]/formulas/quantity_header_calculated.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1
+"cib-org/default/workspaces/2. Belgium_[849461]/queues/AP Documents - BE_[2860789]/formulas/item_quantity_calculated.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-6
+"cib-org/default/workspaces/3. Poland_[845565]/queues/AP Documents - PL_[2841935]/formulas/item_amount_base_calculated.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-47
+"cib-org/default/engines/AP Documents - line level taxation_[56992]/engine_fields/amount_total_base_[2915687].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-15
+"cib-org/default/workspaces/5. Germany_[886214]/queues/AP Documents - DE_[3013757]/formulas/contract_number_normalized.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1
+"cib-org/default/workspaces/2. Belgium_[849461]/queues/AP Documents - BE_[2860789]/email_templates/Email with no processable attachments_[14404839].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-23
+"cib-org/default/rules/Invoice Date Out of Range (CIB)_[7879].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-43
+"cib-org/default/engines/AP Documents - line level taxation_[56992]/engine_fields/item_total_base_[2915721].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-15
+"cib-org/default/workspaces/2. Belgium_[849461]/queues/AP Documents - BE_[2860789]/formulas/item_po_closed.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/workspaces/2. Belgium_[849461]/queues/AP Documents - BE_[2860789]/formulas/item_description_calculated.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-6
+"cib-org/default/workspaces/3. Poland_[845565]/queues/AP Documents - PL_[2841935]/formulas/item_rate_calculated.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-11
+"cib-org/default/workspaces/4. France_[850952]/queues/AP Documents - FR_[2868272]/formulas/sp_item_end_date_export.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-16
+"cib-org/default/workspaces/2. Belgium_[849461]/queues/AP Documents - BE_[2860789]/inbox.json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-36
+"cib-org/default/workspaces/5. Germany_[886214]/queues/AP Documents - DE_[3013757]/formulas/charge_tax_calculated.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-15
+"cib-org/default/workspaces/4. France_[850952]/queues/AP Documents - FR_[2868272]/formulas/item_price_export.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-10
+"cib-org/default/workspaces/5. Germany_[886214]/queues/AP Documents - DE_[3013757]/formulas/epd_tag.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-2
+"cib-org/default/workspaces/5. Germany_[886214]/queues/AP Documents - DE_[3013757]/formulas/rossum_tag.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/workspaces/2. Belgium_[849461]/queues/AP Documents - BE_[2860789]/formulas/item_order_id_calculated.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-11
+"cib-org/default/rules/Service Period Start After PO End (CIB)_[7893].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-43
+"cib-org/default/workspaces/2. Belgium_[849461]/queues/AP Documents - BE_[2860789]/formulas/amount_total_tax_calculated.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-22
+"cib-org/default/rules/PO Line Match Required (Line Items) (CIB)_[7873].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-43
+"cib-org/default/workspaces/4. France_[850952]/queues/AP Documents - FR_[2868272]/formulas/country_code.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1
+"cib-org/default/workspaces/2. Belgium_[849461]/queues/AP Documents - BE_[2860789]/formulas/line_type.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/engines/AP Documents - line level taxation_[56992]/engine_fields/header_description_[2915705].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-15
+"cib-org/default/workspaces/3. Poland_[845565]/queues/AP Documents - PL_[2841935]/formulas/epd_detected.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-8
+"cib-org/default/workspaces/3. Poland_[845565]/queues/AP Documents - PL_[2841935]/formulas/payment_terms_code_export.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/workspaces/4. France_[850952]/queues/AP Documents - FR_[2868272]/formulas/enforced_draft_tag.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-2
+"cib-org/default/engines/AP Documents - line level taxation_[56992]/engine_fields/item_tax_out_of_scope_[2915719].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-15
+"cib-org/default/workspaces/4. France_[850952]/queues/AP Documents - FR_[2868272]/queue.json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-295
+"cib-org/default/workspaces/3. Poland_[845565]/queues/AP Documents - PL_[2841935]/formulas/rossum_tag.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - header level taxation_[2766928]/formulas/epd_expires.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-11
+"cib-org/default/hooks/MDH - Payment Terms (CIB)_[1123400].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-233
+"cib-org/default/workspaces/2. Belgium_[849461]/queues/AP Documents - BE_[2860789]/formulas/date_issue_manual.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1
+"cib-org/default/workspaces/3. Poland_[845565]/queues/AP Documents - PL_[2841935]/formulas/item_net_total_coupa.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-11
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - header level taxation_[2766928]/formulas/item_total_base_calculated.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-43
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - header level taxation_[2766928]/formulas/po_line_sp_end_date_normalized.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-6
+"cib-org/default/workspaces/2. Belgium_[849461]/queues/AP Documents - BE_[2860789]/formulas/order_id_calculated.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - header level taxation_[2766928]/formulas/sf_submit_for_approval.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-23
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - line level taxation_[2766927]/formulas/amount_total_base_calculated.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-19
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - line level taxation_[2766927]/formulas/item_quantity_calculated.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-6
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - line level taxation_[2766927]/formulas/po_backed.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/engines/AP Documents - line level taxation_[56992]/engine.json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-24
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - header level taxation_[2766928]/formulas/service_period_start_text.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1
+"cib-org/default/workspaces/2. Belgium_[849461]/queues/AP Documents - BE_[2860789]/formulas/line_items_present.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/workspaces/2. Belgium_[849461]/queues/AP Documents - BE_[2860789]/formulas/po_line_sp_start_date_normalized.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-6
+"cib-org/default/workspaces/4. France_[850952]/queues/AP Documents - FR_[2868272]/formulas/item_quantity_export.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - line level taxation_[2766927]/formulas/sp_item_end_date_export.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-16
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - line level taxation_[2766927]/formulas/price_export.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1
+"cib-org/default/workspaces/4. France_[850952]/queues/AP Documents - FR_[2868272]/formulas/item_total_base_calculated.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-43
+deploy/cib_target_secrets.json
+  s_2cd4f27df9df83::t_da1f3c7dc338f9 1-62
+"cib-org/default/workspaces/5. Germany_[886214]/queues/AP Documents - DE_[3013757]/email_templates/Default rejection template_[15174052].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-21
+"cib-org/default/workspaces/5. Germany_[886214]/queues/AP Documents - DE_[3013757]/formulas/order_id_calculated.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/workspaces/2. Belgium_[849461]/queues/AP Documents - BE_[2860789]/formulas/item_po_line_sp_start_date_normalized.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-6
+"cib-org/default/workspaces/4. France_[850952]/queues/AP Documents - FR_[2868272]/formulas/item_rate_calculated.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-11
+"cib-org/default/engines/AP Documents - line level taxation_[56992]/engine_fields/sender_tax_id_[2915737].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-15
+"cib-org/default/workspaces/5. Germany_[886214]/queues/AP Documents - DE_[3013757]/formulas/po_backed.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/workspaces/2. Belgium_[849461]/queues/AP Documents - BE_[2860789]/formulas/tax_rate_calculated.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-13
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - header level taxation_[2766928]/formulas/po_closed.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/workspaces/2. Belgium_[849461]/queues/AP Documents - BE_[2860789]/formulas/item_price_export.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-10
+"cib-org/default/rules/Line Total Not Equal to Quantity x Unit Price (CIB)_[7876].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-43
+"cib-org/default/engines/AP Documents - line level taxation_[56992]/engine_fields/order_id_[2915722].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-15
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - line level taxation_[2766927]/formulas/epd_rate.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-6
+"cib-org/default/engines/AP Documents - header level taxation_[56991]/engine_fields/item_quantity_[2915664].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-15
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - header level taxation_[2766928]/formulas/item_order_id_calculated.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-11
+"cib-org/default/workspaces/2. Belgium_[849461]/queues/AP Documents - BE_[2860789]/formulas/sender_tax_id_normalized.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-2
+"cib-org/default/workspaces/5. Germany_[886214]/queues/AP Documents - DE_[3013757]/formulas/item_amount_base_calculated.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-47
+"cib-org/default/engines/AP Documents - line level taxation_[56992]/engine_fields/sender_address_[2915733].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-15
+"cib-org/default/workspaces/2. Belgium_[849461]/queues/AP Documents - BE_[2860789]/formulas/price_export.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1
+"cib-org/default/workspaces/3. Poland_[845565]/queues/AP Documents - PL_[2841935]/formulas/contract_number_normalized.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1
+"cib-org/default/workspaces/3. Poland_[845565]/queues/AP Documents - PL_[2841935]/formulas/item_order_id_calculated.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-11
+"cib-org/default/workspaces/4. France_[850952]/queues/AP Documents - FR_[2868272]/formulas/epd_expires.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-11
+"cib-org/default/workspaces/2. Belgium_[849461]/queues/AP Documents - BE_[2860789]/formulas/oauth_client_id.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1
+"cib-org/default/rules/Service Period Start After Document End (Line Items) (CIB)_[7898].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-43
+"cib-org/default/workspaces/3. Poland_[845565]/queues/AP Documents - PL_[2841935]/formulas/sp_item_start_date_export.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-16
+"cib-org/default/workspaces/5. Germany_[886214]/queues/AP Documents - DE_[3013757]/formulas/inactive_po_line_tag.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - header level taxation_[2766928]/formulas/payment_terms_code_export.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - header level taxation_[2766928]/formulas/recipient_export.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-13
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - line level taxation_[2766927]/formulas/amount_total_tax_calculated.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-22
+"cib-org/default/workspaces/4. France_[850952]/queues/AP Documents - FR_[2868272]/formulas/description_export.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/workspaces/4. France_[850952]/queues/AP Documents - FR_[2868272]/formulas/item_order_item_number_export.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - line level taxation_[2766927]/formulas/sender_export.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-13
+"cib-org/default/hooks/Coupa Master Data Import - Payment Terms (CIB)_[1341772].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-79
+"cib-org/default/workspaces/3. Poland_[845565]/queues/AP Documents - PL_[2841935]/formulas/po_line_sp_end_date_normalized.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-6
+"cib-org/default/workspaces/5. Germany_[886214]/queues/AP Documents - DE_[3013757]/formulas/description_export.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/hooks/Coupa E-Invoicing Status Sync (CIB)_[1309898].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-92
+"cib-org/default/workspaces/4. France_[850952]/queues/AP Documents - FR_[2868272]/formulas/po_backed.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/workspaces/2. Belgium_[849461]/queues/AP Documents - BE_[2860789]/email_templates/Default rejection template_[14404835].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-21
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - header level taxation_[2766928]/formulas/item_po_line_sp_end_date_normalized.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-6
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - header level taxation_[2766928]/formulas/shipping_charge_calculated.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-9
+"cib-org/default/engines/AP Documents - line level taxation_[56992]/engine_fields/recipient_tax_id_[2915731].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-15
+"cib-org/default/workspaces/2. Belgium_[849461]/queues/AP Documents - BE_[2860789]/formulas/backing_document.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1
+"cib-org/default/workspaces/3. Poland_[845565]/queues/AP Documents - PL_[2841935]/formulas/item_po_line_sp_end_date_normalized.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-6
+"cib-org/default/engines/AP Documents - header level taxation_[56991]/engine_fields/contract_number_[2915651].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-15
+"cib-org/default/hooks/Coupa Master Data Import - Remit To Addresses (CIB)_[1341773].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-116
+"cib-org/default/engines/AP Documents - line level taxation_[56992]/engine_fields/terms_[2915747].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-15
+"cib-org/default/workspaces/2. Belgium_[849461]/queues/AP Documents - BE_[2860789]/formulas/item_tax_calculated.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-40
+"cib-org/default/engines/AP Documents - header level taxation_[56991]/engine_fields/sp_date_start_[2915683].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-15
+"cib-org/default/workspaces/5. Germany_[886214]/queues/AP Documents - DE_[3013757]/formulas/sp_item_start_date_export.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-16
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - header level taxation_[2766928]/formulas/item_price_export.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-10
+"cib-org/default/workspaces/3. Poland_[845565]/queues/AP Documents - PL_[2841935]/formulas/quantity_export.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1
+"cib-org/default/workspaces/3. Poland_[845565]/queues/AP Documents - PL_[2841935]/formulas/epd_days.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-6
+"cib-org/default/workspaces/3. Poland_[845565]/queues/AP Documents - PL_[2841935]/formulas/requestor_email_calculated.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-12
+"cib-org/default/workspaces/4. France_[850952]/queues/AP Documents - FR_[2868272]/formulas/amount_total_tax_calculated.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-22
+"cib-org/default/workspaces/3. Poland_[845565]/queues/AP Documents - PL_[2841935]/formulas/recipient_export.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-13
+"cib-org/default/workspaces/4. France_[850952]/queues/AP Documents - FR_[2868272]/formulas/sp_item_start_date_text.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - header level taxation_[2766928]/formulas/recipient_name_export.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-14
+"cib-org/default/engines/AP Documents - header level taxation_[56991]/engine_fields/iban_[2915659].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-15
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - line level taxation_[2766927]/formulas/service_period_end_text.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - line level taxation_[2766927]/queue.json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-293
+"cib-org/default/workspaces/3. Poland_[845565]/queues/AP Documents - PL_[2841935]/formulas/po_line_sp_start_date_normalized.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-6
+"cib-org/default/workspaces/3. Poland_[845565]/queues/AP Documents - PL_[2841935]/formulas/epd_rate.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-6
+"cib-org/default/workspaces/4. France_[850952]/queues/AP Documents - FR_[2868272]/formulas/sp_item_start_date_export.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-16
+"cib-org/default/workspaces/2. Belgium_[849461]/queues/AP Documents - BE_[2860789]/formulas/charges_tax_rate_average_calculated.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - line level taxation_[2766927]/formulas/po_closed.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - header level taxation_[2766928]/formulas/item_uom_export.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/engines/AP Documents - line level taxation_[56992]/engine_fields/item_rate_[2915715].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-15
+"cib-org/default/workspaces/4. France_[850952]/queues/AP Documents - FR_[2868272]/email_templates/Email with no processable attachments_[14442548].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-23
+"cib-org/default/workspaces/3. Poland_[845565]/queues/AP Documents - PL_[2841935]/formulas/fully_tax_coded.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/workspaces/2. Belgium_[849461]/queues/AP Documents - BE_[2860789]/formulas/coupa_invoices_statuses.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-11
+"cib-org/default/workspaces/4. France_[850952]/queues/AP Documents - FR_[2868272]/formulas/charge_tax_calculated.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-15
+"cib-org/default/workspaces/4. France_[850952]/queues/AP Documents - FR_[2868272]/formulas/item_po_line_sp_end_date_normalized.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-6
+"cib-org/default/workspaces/5. Germany_[886214]/queues/AP Documents - DE_[3013757]/email_templates/Annotation status change - exported_[15174055].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-23
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - line level taxation_[2766927]/formulas/country_code.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1
+"cib-org/default/workspaces/4. France_[850952]/queues/AP Documents - FR_[2868272]/email_templates/Annotation status change - exported_[14442547].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-23
+"cib-org/default/engines/AP Documents - header level taxation_[56991]/engine_fields/account_num_[2915644].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-15
+"cib-org/default/workspaces/4. France_[850952]/queues/AP Documents - FR_[2868272]/formulas/coupa_invoices_statuses.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-11
+"cib-org/default/engines/AP Documents - header level taxation_[56991]/engine_fields/document_id_[2915655].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-15
+"cib-org/default/workspaces/2. Belgium_[849461]/queues/AP Documents - BE_[2860789]/formulas/rossum_tag.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/workspaces/3. Poland_[845565]/queues/AP Documents - PL_[2841935]/formulas/item_description_export.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1
+"cib-org/default/workspaces/3. Poland_[845565]/queues/AP Documents - PL_[2841935]/formulas/item_uom_export.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/workspaces/3. Poland_[845565]/queues/AP Documents - PL_[2841935]/formulas/service_period_start_text.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1
+"cib-org/default/workspaces/5. Germany_[886214]/queues/AP Documents - DE_[3013757]/formulas/sender_export.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-13
+"cib-org/default/workspaces/3. Poland_[845565]/queues/AP Documents - PL_[2841935]/formulas/item_line_type.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/workspaces/3. Poland_[845565]/queues/AP Documents - PL_[2841935]/inbox.json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-36
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - header level taxation_[2766928]/formulas/item_recipient_mismatch_tag.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/workspaces/4. France_[850952]/queues/AP Documents - FR_[2868272]/formulas/order_item_number_export.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/workspaces/4. France_[850952]/queues/AP Documents - FR_[2868272]/formulas/quantity_export.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1
+"cib-org/default/workspaces/5. Germany_[886214]/queues/AP Documents - DE_[3013757]/formulas/item_quantity_calculated.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-6
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - line level taxation_[2766927]/formulas/service_period_end_export.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-12
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - header level taxation_[2766928]/formulas/item_po_closed.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/rules/Currency Mismatch (With Line Items) (CIB)_[7882].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-43
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - line level taxation_[2766927]/formulas/service_period_start_text.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1
+"cib-org/default/workspaces/4. France_[850952]/queues/AP Documents - FR_[2868272]/formulas/inv_total_issue_tag.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-2
+"cib-org/default/hooks/MDH - Main (CIB)_[1123384].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-3898
+"cib-org/default/workspaces/2. Belgium_[849461]/queues/AP Documents - BE_[2860789]/formulas/order_item_number_export.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/engines/AP Documents - line level taxation_[56992]/engine_fields/payment_order_number_[2915725].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-15
+"cib-org/default/workspaces/4. France_[850952]/queues/AP Documents - FR_[2868272]/formulas/payment_terms_export.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/workspaces/4. France_[850952]/queues/AP Documents - FR_[2868272]/formulas/recipient_name_export.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-15
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - header level taxation_[2766928]/formulas/item_description_export.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1
+"cib-org/default/hooks/MDH - Tax Codes (CIB)_[1123401].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-615
+"cib-org/default/workspaces/2. Belgium_[849461]/queues/AP Documents - BE_[2860789]/formulas/epd_tag.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-2
+"cib-org/default/workspaces/5. Germany_[886214]/queues/AP Documents - DE_[3013757]/formulas/item_net_total_coupa.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-11
+"cib-org/default/workspaces/5. Germany_[886214]/queues/AP Documents - DE_[3013757]/formulas/payment_terms_export.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/engines/AP Documents - line level taxation_[56992]/engine_fields/account_num_[2915685].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-15
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - header level taxation_[2766928]/formulas/rossum_tag.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - line level taxation_[2766927]/formulas/service_period_start_export.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-12
+"cib-org/default/engines/AP Documents - line level taxation_[56992]/engine_fields/item_code_[2915711].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-15
+"cib-org/default/rules/Coupa Duplicate Found (CIB)_[7883].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-43
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - header level taxation_[2766928]/formulas/date_issue_manual.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1
+"cib-org/default/workspaces/4. France_[850952]/queues/AP Documents - FR_[2868272]/schema.json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4992
+"cib-org/default/engines/AP Documents - header level taxation_[56991]/engine_fields/shipping_charge_[2915681].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-15
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - header level taxation_[2766928]/formulas/country_code.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - header level taxation_[2766928]/formulas/service_period_end_export.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-12
+"cib-org/default/rules/Service Period Start After Document End (CIB)_[7897].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-43
+"cib-org/default/workspaces/5. Germany_[886214]/queues/AP Documents - DE_[3013757]/formulas/item_po_line_sp_start_date_normalized.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-6
+"cib-org/default/workspaces/2. Belgium_[849461]/queues/AP Documents - BE_[2860789]/formulas/item_uom_export.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/workspaces/3. Poland_[845565]/queues/AP Documents - PL_[2841935]/formulas/tax_rate_calculated.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-13
+"cib-org/default/workspaces/3. Poland_[845565]/queues/AP Documents - PL_[2841935]/formulas/epd_amount.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-9
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - line level taxation_[2766927]/email_templates/Email with no processable attachments_[13932884].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-23
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - line level taxation_[2766927]/formulas/item_description_export.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1
+"cib-org/default/workspaces/2. Belgium_[849461]/queues/AP Documents - BE_[2860789]/formulas/enforced_draft_tag.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-2
+"cib-org/default/workspaces/3. Poland_[845565]/queues/AP Documents - PL_[2841935]/formulas/item_total_base_calculated.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-43
+"cib-org/default/workspaces/4. France_[850952]/queues/AP Documents - FR_[2868272]/formulas/coupa_total_calculated.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-20
+"cib-org/default/rules/Required - Total Amount or Total Without Tax (CIB)_[7905].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-32
+"cib-org/default/engines/AP Documents - line level taxation_[56992]/engine_fields/item_tax_exempt_[2915718].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-15
+"cib-org/default/workspaces/3. Poland_[845565]/queues/AP Documents - PL_[2841935]/formulas/item_price_export.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-10
+"cib-org/default/workspaces/3. Poland_[845565]/queues/AP Documents - PL_[2841935]/formulas/sf_submit_for_approval.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-27
+"cib-org/default/workspaces/5. Germany_[886214]/queues/AP Documents - DE_[3013757]/formulas/recipient_name_export.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-15
+"cib-org/default/engines/AP Documents - header level taxation_[56991]/engine_fields/date_due_[2915653].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-15
+"cib-org/default/workspaces/2. Belgium_[849461]/queues/AP Documents - BE_[2860789]/formulas/charges_net_amount_total_calculated.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-8
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - header level taxation_[2766928]/formulas/sp_item_start_date_export.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-16
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - line level taxation_[2766927]/formulas/epd_amount.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-9
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - line level taxation_[2766927]/formulas/item_description_calculated.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-6
+"cib-org/default/workspaces/5. Germany_[886214]/queues/AP Documents - DE_[3013757]/formulas/document_id_manual.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-5
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - line level taxation_[2766927]/email_templates/Default rejection template_[13932880].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-21
+"cib-org/default/workspaces/2. Belgium_[849461]/queues/AP Documents - BE_[2860789]/formulas/item_amount_base_calculated.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-47
+"cib-org/default/workspaces/2. Belgium_[849461]/queues/AP Documents - BE_[2860789]/formulas/terms_calculated.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-11
+"cib-org/default/workspaces/5. Germany_[886214]/queues/AP Documents - DE_[3013757]/formulas/recipient_mismatch_tag.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/engines/AP Documents - line level taxation_[56992]/engine_fields/item_order_id_[2915713].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-15
+"cib-org/default/hooks/Customer memorization (CIB)_[1123405].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-80
+"cib-org/default/rules/Required - Description (No Line Items) (CIB)_[7901].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-33
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - header level taxation_[2766928]/formulas/terms_calculated.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-11
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - line level taxation_[2766927]/formulas/requestor_email_calculated.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-12
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - header level taxation_[2766928]/formulas/sender_export.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-13
+"cib-org/default/hooks/Export Pipeline - 5. Submit Document (CIB)_[1342018].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-145
+"cib-org/default/rules/Item Tax Code Required (Line Items, PO Backed) (CIB)_[7910].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-32
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - line level taxation_[2766927]/formulas/item_po_line_sp_start_date_normalized.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-6
+"cib-org/default/workspaces/5. Germany_[886214]/queues/AP Documents - DE_[3013757]/formulas/payment_terms_code_export.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/workspaces/2. Belgium_[849461]/queues/AP Documents - BE_[2860789]/formulas/item_supplier_mismatch_tag.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/workspaces/3. Poland_[845565]/queues/AP Documents - PL_[2841935]/formulas/line_items_present.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/workspaces/5. Germany_[886214]/queues/AP Documents - DE_[3013757]/formulas/po_line_sp_start_date_normalized.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-6
+"cib-org/default/engines/AP Documents - line level taxation_[56992]/engine_fields/item_tax_description_[2915717].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-15
+"cib-org/default/workspaces/4. France_[850952]/queues/AP Documents - FR_[2868272]/formulas/charges_tax_rate_average_calculated.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/workspaces/2. Belgium_[849461]/queues/AP Documents - BE_[2860789]/formulas/item_total_base_calculated.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-43
+"cib-org/default/workspaces/4. France_[850952]/queues/AP Documents - FR_[2868272]/formulas/inactive_po_line_tag.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/engines/AP Documents - header level taxation_[56991]/engine_fields/handling_charge_[2915657].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-15
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - header level taxation_[2766928]/inbox.json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-34
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - line level taxation_[2766927]/formulas/supplier_mismatch_tag.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/engines/AP Documents - line level taxation_[56992]/engine_fields/item_description_[2915712].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-15
+"cib-org/default/workspaces/4. France_[850952]/queues/AP Documents - FR_[2868272]/formulas/item_quantity_calculated.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-6
+"cib-org/default/workspaces/4. France_[850952]/queues/AP Documents - FR_[2868272]/formulas/item_uom_export.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/workspaces/5. Germany_[886214]/queues/AP Documents - DE_[3013757]/formulas/sp_item_end_date_text.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1
+"cib-org/default/rules/Total Amount Less Than Without Tax (Tax Invoice) (CIB)_[7914].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-42
+"cib-org/default/workspaces/4. France_[850952]/queues/AP Documents - FR_[2868272]/formulas/item_net_total_coupa.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-11
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - line level taxation_[2766927]/formulas/order_id_calculated.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/engines/AP Documents - header level taxation_[56991]/engine_fields/item_order_id_[2915663].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-15
+"cib-org/default/engines/AP Documents - line level taxation_[56992]/engine_fields/charge_tax_[2915693].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-15
+"cib-org/default/engines/AP Documents - line level taxation_[56992]/engine_fields/original_document_id_[2915724].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-15
+"cib-org/default/workspaces/4. France_[850952]/queues/AP Documents - FR_[2868272]/formulas/line_items_present.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/engines/AP Documents - header level taxation_[56991]/engine_fields/recipient_address_[2915670].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-15
+"cib-org/default/workspaces/5. Germany_[886214]/queues/AP Documents - DE_[3013757]/formulas/line_type.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - line level taxation_[2766927]/formulas/sf_submit_for_approval.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-27
+"cib-org/default/workspaces/2. Belgium_[849461]/queues/AP Documents - BE_[2860789]/formulas/item_inactive_po_line_tag.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-3
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - line level taxation_[2766927]/email_templates/Annotation status change - confirmed_[13932882].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-23
+"cib-org/default/workspaces/3. Poland_[845565]/queues/AP Documents - PL_[2841935]/formulas/line_type.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/workspaces/4. France_[850952]/queues/AP Documents - FR_[2868272]/formulas/item_description_calculated.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-6
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - header level taxation_[2766928]/formulas/contract_number_normalized.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - header level taxation_[2766928]/formulas/order_item_number_export.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/workspaces/5. Germany_[886214]/queues/AP Documents - DE_[3013757]/formulas/charge_tax_rate_calculated.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-17
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - line level taxation_[2766927]/formulas/epd_days.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-6
+"cib-org/default/workspaces/4. France_[850952]/queues/AP Documents - FR_[2868272]/formulas/oauth_client_id.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1
+"cib-org/default/rules/Service Period Start Before PO Start (CIB)_[7890].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-43
+"cib-org/default/workspaces/3. Poland_[845565]/queues/AP Documents - PL_[2841935]/formulas/service_period_end_export.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-12
+"cib-org/default/engines/AP Documents - line level taxation_[56992]/engine_fields/source_country_[2915742].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-15
+"cib-org/default/hooks/Tax Coding Memorization (CIB)_[1123407].py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-400
+"cib-org/default/workspaces/5. Germany_[886214]/queues/AP Documents - DE_[3013757]/formulas/item_order_id_calculated.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-11
+"cib-org/default/engines/AP Documents - line level taxation_[56992]/engine_fields/exchange_rate_[2915704].json"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-15
+"cib-org/default/workspaces/2. Belgium_[849461]/queues/AP Documents - BE_[2860789]/formulas/item_po_line_sp_end_date_normalized.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-6
+"cib-org/default/hooks/Supplier memorization (CIB)_[1123404].py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-350
+"cib-org/default/workspaces/3. Poland_[845565]/queues/AP Documents - PL_[2841935]/formulas/item_recipient_mismatch_tag.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/workspaces/2. Belgium_[849461]/queues/AP Documents - BE_[2860789]/formulas/payment_terms_export.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - line level taxation_[2766927]/formulas/fully_tax_coded.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-4
+"cib-org/default/workspaces/2. Belgium_[849461]/queues/AP Documents - BE_[2860789]/formulas/coupa_total_calculated.py"
+  s_2cd4f27df9df83::t_e94b4a0d491d15 1-20
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "8bf438a7c0d397e03ba4312c69b08ed2d45aad9f",
+  "prompts": {},
+  "sessions": {
+    "s_2cd4f27df9df83": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "d17e97c7-ceda-4ddb-a905-8e28b23633ea",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Martin Kazík <martin.kazik@rossum.ai>"
+    }
+  }
+}
