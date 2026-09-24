@@ -1,0 +1,21 @@
+deploy/required_scopes.json
+  s_2cd4f27df9df83::t_419268d3647989 1
+CHANGELOG.md
+  s_2cd4f27df9df83::t_71122c1c2ab83a 10-19
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "9d79edbed8f3611e8a698d13274028cb56faa2e6",
+  "prompts": {},
+  "sessions": {
+    "s_2cd4f27df9df83": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "d17e97c7-ceda-4ddb-a905-8e28b23633ea",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Martin Kazík <martin.kazik@rossum.ai>"
+    }
+  }
+}
