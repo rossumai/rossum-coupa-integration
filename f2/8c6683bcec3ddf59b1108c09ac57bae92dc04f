@@ -1,0 +1,14 @@
+"cib-org/default/hooks/Coupa E-Invoicing_[1170832].json"
+  h_df81ba928223e4 2483
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "f28c6683bcec3ddf59b1108c09ac57bae92dc04f",
+  "prompts": {},
+  "humans": {
+    "h_df81ba928223e4": {
+      "author": "Martin Kazík <martin.kazik@rossum.ai>"
+    }
+  }
+}
