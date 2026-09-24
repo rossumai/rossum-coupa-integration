@@ -1,0 +1,1 @@
+('contract' if (is_empty(field.order_header_match) and is_empty(field.order_blanket_match) and default_to(field.contract_status_match, '') == 'approved') else 'po')

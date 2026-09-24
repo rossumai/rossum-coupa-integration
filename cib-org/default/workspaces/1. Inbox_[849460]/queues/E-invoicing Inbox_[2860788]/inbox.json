@@ -1,0 +1,36 @@
+{
+  "id": 929654,
+  "name": "AP Documents - PL (Duplicate)",
+  "url": "https://cib.rossum.app/api/v1/inboxes/929654",
+  "email": "coupa-integration-baseline-cib-org-343e7e@cib.rossum.app",
+  "email_prefix": "coupa-integration-baseline-cib-org",
+  "bounce_email_to": null,
+  "bounce_unprocessable_attachments": false,
+  "bounce_deleted_annotations": false,
+  "bounce_postponed_annotations": false,
+  "bounce_email_with_no_attachments": true,
+  "metadata": {},
+  "filters": {
+    "allowed_senders": [],
+    "denied_senders": [],
+    "document_rejection_conditions": {
+      "enabled": true,
+      "resolution_lower_than_px": [
+        1200,
+        600
+      ],
+      "file_size_less_than_b": null,
+      "mime_types": [
+        "image/gif"
+      ],
+      "file_name_regexes": [
+        "(?i)image.{7,}"
+      ]
+    }
+  },
+  "dmarc_check_action": "accept",
+  "modified_by": "https://cib.rossum.app/api/v1/users/146087",
+  "queues": [
+    "https://cib.rossum.app/api/v1/queues/2860788"
+  ]
+}

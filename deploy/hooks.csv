@@ -1,0 +1,24 @@
+hook_name,prod-eu-url,prod-eu2-url,prod-us2-url,prod-jp-url,patch_secret,invoke
+Coupa E-Invoicing,https://elis.rossum.ai/svc/webhook-facade/api/v1/coupa-einvoicing,https://shared-eu2.rossum.app/svc/webhook-facade/api/v1/coupa-einvoicing,https://us.app.rossum.ai/svc/webhook-facade/api/v1/coupa-einvoicing,https://shared-jp.app.rossum.ai/svc/webhook-facade/api/v1/coupa-einvoicing,false,false
+Coupa E-Invoicing Status Sync (CIB),,,,,true,false
+Coupa E-Invoicing Status Sync - Inbox (CIB),,,,,true,false
+Coupa Master Data Import - Account Types (CIB),,,,,true,true
+Coupa Master Data Import - Addresses (CIB),,,,,true,true
+Coupa Master Data Import - Contracts (CIB),,,,,true,true
+Coupa Master Data Import - Lookup values (CIB),,,,,true,true
+Coupa Master Data Import - Payment Terms (CIB),,,,,true,true
+Coupa Master Data Import - Purchase Order Lines (CIB),,,,,true,true
+Coupa Master Data Import - Purchase Orders (CIB),,,,,true,true
+Coupa Master Data Import - Remit To Addresses (CIB),,,,,true,true
+Coupa Master Data Import - Suppliers (CIB),,,,,true,true
+Coupa Master Data Import - Tax Codes (CIB),,,,,true,true
+Coupa Master Data Import - Tax Registrations (CIB),,,,,true,true
+Coupa Master Data Import - Units of Measure (CIB),,,,,true,true
+Export Mapping - Header Level Taxation (CIB),https://elis.custom-format-templating.rossum-ext.app,https://shared-eu2.custom-format-templating.rossum-ext.app,https://us.custom-format-templating.rossum-ext.app,https://shared-jp.custom-format-templating.rossum-ext.app,false,false
+Export Mapping - LIne Level Taxation (CIB),https://elis.custom-format-templating.rossum-ext.app,https://shared-eu2.custom-format-templating.rossum-ext.app,https://us.custom-format-templating.rossum-ext.app,https://shared-jp.custom-format-templating.rossum-ext.app,false,false
+Export Pipeline - 1. Create Draft (CIB),,,,,true,false
+Export Pipeline - 2. Attach Image Scan (CIB),,,,,true,false
+Export Pipeline - 3. Attach Rossum URL (CIB),,,,,true,false
+Export Pipeline - 4. Attach Supplementary Files (CIB),,,,,true,false
+Export Pipeline - 5. Submit Document (CIB),,,,,true,false
+MDH - Coupa Invoice Check (CIB),,,,,true,false

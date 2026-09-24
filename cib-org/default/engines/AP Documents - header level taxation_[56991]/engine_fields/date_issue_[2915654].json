@@ -1,0 +1,15 @@
+{
+  "id": 2915654,
+  "url": "https://cib.rossum.app/api/v1/engine_fields/2915654",
+  "engine": "https://cib.rossum.app/api/v1/engines/56991",
+  "name": "date_issue",
+  "label": "Invoice Date",
+  "type": "date",
+  "subtype": "period_begin",
+  "pre_trained_field_id": "date_issue",
+  "tabular": false,
+  "multiline": "false",
+  "created_by": null,
+  "created_at": null,
+  "modified_by": null
+}

@@ -1,0 +1,27 @@
+{
+  "url": "https://cib.rossum.app/api/v1/rules/8732",
+  "id": 8732,
+  "name": "Move to PL queue",
+  "description": "",
+  "enabled": true,
+  "trigger_condition": "field.source_country == 'PL'",
+  "actions": [
+    {
+      "id": "87193e10-327b-45c6-94eb-0b9b88c74ef6",
+      "enabled": true,
+      "type": "change_queue",
+      "event": "annotation_confirmed",
+      "payload": {
+        "queue": "https://cib.rossum.app/api/v1/queues/2841935",
+        "reimport": true
+      }
+    }
+  ],
+  "organization": "https://cib.rossum.app/api/v1/organizations/377932",
+  "modified_by": "https://cib.rossum.app/api/v1/users/146087",
+  "created_by": "https://cib.rossum.app/api/v1/users/146087",
+  "queues": [
+    "https://cib.rossum.app/api/v1/queues/2860788"
+  ],
+  "created_at": "2026-07-02T14:16:16.898801Z"
+}

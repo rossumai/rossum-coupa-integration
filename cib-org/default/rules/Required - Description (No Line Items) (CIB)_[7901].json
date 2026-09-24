@@ -1,0 +1,33 @@
+{
+  "url": "https://cib.rossum.app/api/v1/rules/7901",
+  "id": 7901,
+  "name": "Required - Description (No Line Items) (CIB)",
+  "description": "",
+  "enabled": true,
+  "trigger_condition": "(\n  not is_empty(field.line_items_present) and field.line_items_present == 'false'\n  and is_empty(field.description_export)\n)",
+  "actions": [
+    {
+      "id": "b63e3ba8-b5a1-4a60-af38-c320f3c9178f",
+      "enabled": true,
+      "type": "show_message",
+      "event": "validation",
+      "payload": {
+        "type": "error",
+        "content": "required",
+        "schema_id": "description_export"
+      }
+    }
+  ],
+  "organization": "https://cib.rossum.app/api/v1/organizations/377932",
+  "modified_by": "https://cib.rossum.app/api/v1/users/146087",
+  "created_by": "https://cib.rossum.app/api/v1/users/146087",
+  "queues": [
+    "https://cib.rossum.app/api/v1/queues/2766927",
+    "https://cib.rossum.app/api/v1/queues/2766928",
+    "https://cib.rossum.app/api/v1/queues/2841935",
+    "https://cib.rossum.app/api/v1/queues/2860789",
+    "https://cib.rossum.app/api/v1/queues/2868272",
+    "https://cib.rossum.app/api/v1/queues/3013757"
+  ],
+  "created_at": "2026-05-26T21:33:37.471304Z"
+}

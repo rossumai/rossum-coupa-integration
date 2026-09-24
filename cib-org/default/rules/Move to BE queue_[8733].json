@@ -1,0 +1,27 @@
+{
+  "url": "https://cib.rossum.app/api/v1/rules/8733",
+  "id": 8733,
+  "name": "Move to BE queue",
+  "description": "",
+  "enabled": true,
+  "trigger_condition": "field.source_country == 'BE'",
+  "actions": [
+    {
+      "id": "dd534de2-e5cd-4128-98ec-e22d84480a00",
+      "enabled": true,
+      "type": "change_queue",
+      "event": "annotation_confirmed",
+      "payload": {
+        "queue": "https://cib.rossum.app/api/v1/queues/2860789",
+        "reimport": true
+      }
+    }
+  ],
+  "organization": "https://cib.rossum.app/api/v1/organizations/377932",
+  "modified_by": "https://cib.rossum.app/api/v1/users/146087",
+  "created_by": "https://cib.rossum.app/api/v1/users/146087",
+  "queues": [
+    "https://cib.rossum.app/api/v1/queues/2860788"
+  ],
+  "created_at": "2026-07-02T14:26:33.365455Z"
+}

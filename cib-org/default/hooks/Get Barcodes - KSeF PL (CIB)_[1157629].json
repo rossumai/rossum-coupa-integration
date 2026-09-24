@@ -1,0 +1,54 @@
+{
+  "id": 1157629,
+  "type": "function",
+  "name": "Get Barcodes - KSeF PL (CIB)",
+  "url": "https://cib.rossum.app/api/v1/hooks/1157629",
+  "description": "",
+  "settings": {},
+  "active": true,
+  "events": [
+    "annotation_content.initialize"
+  ],
+  "queues": [
+    "https://cib.rossum.app/api/v1/queues/2841935"
+  ],
+  "run_after": [],
+  "integration_credentials": [],
+  "metadata": {},
+  "config": {
+    "schedule": {
+      "cron": ""
+    },
+    "app": null,
+    "payload_logging_enabled": false,
+    "timeout_s": 30,
+    "max_polling_time_s": 300,
+    "retry_count": 4,
+    "retry_after_polling_failure": true,
+    "runtime": "python3.12",
+    "code": "from rossum_api import ElisAPIClientSync\nfrom txscript import TxScript\nfrom txscript.txscript import TxScriptAnnotationContent as Tx\n\n\ndef rossum_hook_request_handler(payload: dict) -> dict:\n    \"\"\"Main entry point for hook\"\"\"\n    t: Tx = TxScript.from_payload(payload)\n\n    client = ElisAPIClientSync(\n        base_url=payload[\"base_url\"] + \"/api/v1\",\n        token=payload[\"rossum_authorization_token\"],\n    )\n\n    action = payload.get(\"action\")\n    if action == \"initialize\":\n        return handle_initialize(t, client, payload)\n\n    return t.hook_response()\n\n\ndef handle_initialize(t: Tx, client: ElisAPIClientSync, payload: dict) -> dict:\n    \"\"\"Handles 'initialize' by reading barcode/QR data from OCR and saving results\"\"\"\n    ocr_data = get_full_ocr_data(client, payload[\"annotation\"][\"url\"])\n    create_initial_value(t, ocr_data)\n    return t.hook_response()\n\n\ndef get_full_ocr_data(client: ElisAPIClientSync, annotation_url: str) -> list[dict]:\n    \"\"\"Calls the full-document barcode OCR endpoint\"\"\"\n    response = client.request_json(\n        \"GET\",\n        f\"{annotation_url}/page_data\",\n        params={\"granularity\": \"barcodes\"},\n    )\n    return response.get(\"results\", [])\n\n\ndef create_initial_value(t: Tx, ocr_data: list[dict]) -> None:\n    \"\"\"Appends each detected QR code text to barcode_qrcode field\"\"\"\n    for page in ocr_data:\n        for item in page.get(\"items\", []):\n            if item[\"type\"] == \"QRCODE\":\n                t.field.barcode_qrcode.all_values.append(item[\"text\"])",
+    "third_party_library_pack": "default",
+    "memory_size_mb": 256
+  },
+  "test": {},
+  "sideload": [
+    "schemas"
+  ],
+  "settings_schema": null,
+  "secrets_schema": {
+    "type": "object",
+    "additionalProperties": {
+      "type": "string"
+    }
+  },
+  "token_owner": "https://cib.rossum.app/api/v1/users/470502",
+  "extension_source": "custom",
+  "guide": null,
+  "read_more_url": null,
+  "extension_image_url": null,
+  "token_lifetime_s": null,
+  "hook_template": null,
+  "created_by": "https://cib.rossum.app/api/v1/users/146087",
+  "created_at": "2026-06-23T16:20:01.617070Z",
+  "modified_by": "https://cib.rossum.app/api/v1/users/146087"
+}

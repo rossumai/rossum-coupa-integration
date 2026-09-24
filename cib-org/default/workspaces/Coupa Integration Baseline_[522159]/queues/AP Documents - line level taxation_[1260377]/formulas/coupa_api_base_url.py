@@ -1,1 +1,0 @@
-"https://rossum-czech-coupalink.coupacloud.com/"

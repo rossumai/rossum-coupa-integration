@@ -1,0 +1,15 @@
+{
+  "id": 2915693,
+  "url": "https://cib.rossum.app/api/v1/engine_fields/2915693",
+  "engine": "https://cib.rossum.app/api/v1/engines/56992",
+  "name": "charge_tax",
+  "label": "Charge Tax Amount",
+  "type": "number",
+  "subtype": null,
+  "pre_trained_field_id": "charge_tax",
+  "tabular": true,
+  "multiline": "false",
+  "created_by": null,
+  "created_at": null,
+  "modified_by": null
+}

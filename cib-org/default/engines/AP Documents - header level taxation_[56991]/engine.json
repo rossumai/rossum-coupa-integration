@@ -1,0 +1,19 @@
+{
+  "id": 56991,
+  "url": "https://cib.rossum.app/api/v1/engines/56991",
+  "organization": "https://cib.rossum.app/api/v1/organizations/377932",
+  "name": "AP Documents - header level taxation",
+  "type": "extractor",
+  "learning_enabled": true,
+  "training_queues": [
+    "https://cib.rossum.app/api/v1/queues/2766928"
+  ],
+  "description": "Coupa Integration Baseline 2.0 - header-level taxation extractor.",
+  "agenda_id": "cib2_ab78d098",
+  "settings": {
+    "use_case": "coupa_header_level"
+  },
+  "created_by": "https://cib.rossum.app/api/v1/users/146087",
+  "created_at": "2026-09-10T07:22:12.881166Z",
+  "modified_by": "https://cib.rossum.app/api/v1/users/146087"
+}

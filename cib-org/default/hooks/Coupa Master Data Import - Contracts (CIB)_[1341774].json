@@ -1,0 +1,137 @@
+{
+  "id": 1341774,
+  "type": "job",
+  "name": "Coupa Master Data Import - Contracts (CIB)",
+  "url": "https://cib.rossum.app/api/v1/hooks/1341774",
+  "description": "Import master data (aka datasets) from Coupa account.",
+  "settings": {
+    "credentials": {
+      "client_id": "d11672af2fb99ce6e9048a821ab649b4",
+      "base_api_url": "https://rossum-czech-coupalink.coupacloud.com/",
+      "client_scope": "core.contract.read"
+    },
+    "import_config": {
+      "query": {
+        "fields": [
+          "id",
+          "name",
+          "number",
+          "status",
+          "supplier_invoiceable",
+          "used-for_buying",
+          "terminated",
+          "description",
+          "active",
+          {
+            "custom_fields": {}
+          },
+          {
+            "supplier": [
+              "id",
+              "name",
+              "display_name",
+              "number"
+            ]
+          },
+          {
+            "currency": [
+              "id",
+              "code",
+              "active"
+            ]
+          },
+          {
+            "default_account": [
+              "id",
+              "name",
+              "code",
+              "account-type-id",
+              "segment_1",
+              "segment_2",
+              "segment_3",
+              "segment_4",
+              "segment_5",
+              "segment_6",
+              "segment_7",
+              "segment_8",
+              "segment_9",
+              "segment_10",
+              "segment_11",
+              "segment_12",
+              "segment_13",
+              "segment_14",
+              "segment_15",
+              "segment_16",
+              "segment_17",
+              "segment_18",
+              "segment_19",
+              "segment_20",
+              {
+                "account_type": [
+                  "id",
+                  "name",
+                  "active",
+                  "legal-entity-name"
+                ]
+              }
+            ]
+          }
+        ],
+        "order_by": "id",
+        "updated-at[gt_or_eq]": "${last_modified_date}"
+      },
+      "method": "update",
+      "id_keys": [
+        "id"
+      ],
+      "endpoint": "api/contracts",
+      "dataset_name": "contracts_test",
+      "records_per_request": 50
+    },
+    "job_run_settings": {
+      "max_run_time_s": 36000
+    }
+  },
+  "active": true,
+  "events": [
+    "invocation.scheduled",
+    "invocation.manual"
+  ],
+  "queues": [],
+  "run_after": [],
+  "integration_credentials": [],
+  "metadata": {},
+  "config": {
+    "private": true,
+    "schedule": {
+      "cron": "0 */2 * * *"
+    },
+    "app": null,
+    "payload_logging_enabled": false
+  },
+  "test": {},
+  "sideload": [],
+  "settings_schema": null,
+  "secrets_schema": {
+    "type": "object",
+    "properties": {
+      "client_secret": {
+        "type": "string",
+        "description": "Client secret"
+      }
+    },
+    "additionalProperties": {
+      "type": "string"
+    }
+  },
+  "token_owner": "https://cib.rossum.app/api/v1/users/470502",
+  "extension_source": "rossum_store",
+  "guide": "https://rossumai.atlassian.net/wiki/spaces/ET/pages/6300303379/Coupa+Master+Data+Import",
+  "read_more_url": null,
+  "extension_image_url": null,
+  "token_lifetime_s": 7200,
+  "hook_template": "https://cib.rossum.app/api/v1/hook_templates/55",
+  "created_by": "https://cib.rossum.app/api/v1/users/146087",
+  "created_at": "2026-09-22T05:48:49.574708Z",
+  "modified_by": "https://cib.rossum.app/api/v1/users/146087"
+}

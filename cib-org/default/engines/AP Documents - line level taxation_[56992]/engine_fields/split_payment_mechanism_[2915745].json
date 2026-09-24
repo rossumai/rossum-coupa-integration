@@ -1,0 +1,15 @@
+{
+  "id": 2915745,
+  "url": "https://cib.rossum.app/api/v1/engine_fields/2915745",
+  "engine": "https://cib.rossum.app/api/v1/engines/56992",
+  "name": "split_payment_mechanism",
+  "label": "Split Payment Mechanism",
+  "type": "enum",
+  "subtype": "",
+  "pre_trained_field_id": null,
+  "tabular": false,
+  "multiline": "false",
+  "created_by": null,
+  "created_at": null,
+  "modified_by": null
+}
