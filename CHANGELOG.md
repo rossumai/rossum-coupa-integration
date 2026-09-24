@@ -7,7 +7,7 @@ Versioning follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ---
 
-## [2.0.0] - unreleased
+## [2.0.0] - 2026-09-24
 
 Major release. CIB 2.0 is a **fresh install only** — there is no in-place upgrade
 path from 1.x. Deploy it into a clean organisation.
