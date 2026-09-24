@@ -2480,7 +2480,7 @@
           }
         ],
         "trigger_condition": {
-          "selector": "/*[local-name()='CrossIndustryInvoice']",
+          "selector": "/*[local-name()='CrossIndustryInvoice' and *[local-name()='SupplyChainTradeTransaction']/*[local-name()='ApplicableHeaderTradeAgreement']/*[local-name()='BuyerTradeParty']/*[local-name()='PostalTradeAddress']/*[local-name()='CountryID']='FR']",
           "file_type": "xml"
         }
       }
