@@ -7,6 +7,16 @@ Versioning follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ---
 
+## [2.0.1] - 2026-09-24
+
+### Fixed
+- `Coupa E-Invoicing`: the `UN/CEFACT CII - France` mapping now triggers only
+  when the buyer's `CountryID` is `FR`. Previously it matched any CII invoice.
+- `deploy/required_scopes.json` was not valid JSON in 2.0.0, so the CIB init
+  script skipped the Coupa credential scope check. Restored.
+
+---
+
 ## [2.0.0] - 2026-09-24
 
 Major release. CIB 2.0 is a **fresh install only** — there is no in-place upgrade
