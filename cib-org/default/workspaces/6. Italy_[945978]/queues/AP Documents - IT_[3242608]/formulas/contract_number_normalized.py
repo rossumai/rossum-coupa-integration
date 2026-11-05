@@ -1,0 +1,1 @@
+default_to(field.contract_number, '')

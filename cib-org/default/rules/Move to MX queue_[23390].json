@@ -1,0 +1,27 @@
+{
+  "url": "https://cib.rossum.app/api/v1/rules/23390",
+  "id": 23390,
+  "name": "Move to MX queue",
+  "description": "",
+  "enabled": true,
+  "trigger_condition": "field.source_country == 'MX'",
+  "actions": [
+    {
+      "id": "ce5ed5ca-f00c-4715-9f0a-b143653b5d53",
+      "enabled": true,
+      "type": "change_queue",
+      "event": "annotation_confirmed",
+      "payload": {
+        "queue": "https://cib.rossum.app/api/v1/queues/3251179",
+        "reimport": true
+      }
+    }
+  ],
+  "organization": "https://cib.rossum.app/api/v1/organizations/377932",
+  "modified_by": "https://cib.rossum.app/api/v1/users/252040",
+  "created_by": "https://cib.rossum.app/api/v1/users/252040",
+  "queues": [
+    "https://cib.rossum.app/api/v1/queues/2860788"
+  ],
+  "created_at": "2026-10-22T20:54:46.165779Z"
+}

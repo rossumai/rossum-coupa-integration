@@ -1,0 +1,1 @@
+round(sum(field.charge_tax_calculated.all_values),6)

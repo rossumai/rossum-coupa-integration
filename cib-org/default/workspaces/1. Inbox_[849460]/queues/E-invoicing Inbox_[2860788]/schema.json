@@ -1,6 +1,6 @@
 {
   "id": 2289203,
-  "name": "AP Documents - line level taxation",
+  "name": "E-invoicing Inbox",
   "queues": [
     "https://cib.rossum.app/api/v1/queues/2860788"
   ],
@@ -173,7 +173,7 @@
         {
           "rir_field_names": [],
           "constraints": {
-            "required": false
+            "required": true
           },
           "score_threshold": 0.0,
           "default_value": null,
@@ -203,6 +203,159 @@
           "ui_configuration": {
             "type": "data",
             "edit": "disabled"
+          }
+        }
+      ],
+      "icon": null
+    },
+    {
+      "category": "section",
+      "id": "cfdi_section",
+      "label": "CFDI (Mexico)",
+      "hidden": false,
+      "children": [
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "series",
+          "label": "Series",
+          "hidden": true,
+          "type": "string",
+          "can_export": true,
+          "ui_configuration": {
+            "type": "captured",
+            "edit": "enabled"
+          }
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "folio_number",
+          "label": "Folio Number",
+          "hidden": true,
+          "type": "string",
+          "can_export": true,
+          "ui_configuration": {
+            "type": "captured",
+            "edit": "enabled"
+          }
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "use_of_invoice",
+          "label": "Use of CFDI",
+          "hidden": true,
+          "type": "string",
+          "can_export": true,
+          "ui_configuration": {
+            "type": "captured",
+            "edit": "enabled"
+          }
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "form_of_payment",
+          "label": "Form of Payment",
+          "hidden": true,
+          "type": "string",
+          "can_export": true,
+          "ui_configuration": {
+            "type": "captured",
+            "edit": "enabled"
+          }
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "payment_method",
+          "label": "Payment Method",
+          "hidden": true,
+          "type": "string",
+          "can_export": true,
+          "ui_configuration": {
+            "type": "captured",
+            "edit": "enabled"
+          }
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "issuance_place",
+          "label": "Issuance Place",
+          "hidden": true,
+          "type": "string",
+          "can_export": true,
+          "ui_configuration": {
+            "type": "captured",
+            "edit": "enabled"
+          }
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "confirmation",
+          "label": "Confirmation Code",
+          "hidden": true,
+          "type": "string",
+          "can_export": true,
+          "ui_configuration": {
+            "type": "captured",
+            "edit": "enabled"
+          }
+        },
+        {
+          "rir_field_names": [],
+          "constraints": {
+            "required": false
+          },
+          "score_threshold": 0.0,
+          "default_value": null,
+          "category": "datapoint",
+          "id": "type_of_relationship",
+          "label": "Type of Relationship",
+          "hidden": true,
+          "type": "string",
+          "can_export": true,
+          "ui_configuration": {
+            "type": "captured",
+            "edit": "enabled"
           }
         }
       ],
@@ -725,7 +878,7 @@
                   "charge_type"
                 ],
                 "constraints": {
-                  "required": true
+                  "required": false
                 },
                 "score_threshold": 0.0,
                 "default_value": "InvoiceShippingCharge",
@@ -756,7 +909,7 @@
               {
                 "rir_field_names": [],
                 "constraints": {
-                  "required": true
+                  "required": false
                 },
                 "default_value": null,
                 "category": "datapoint",
@@ -868,7 +1021,7 @@
         {
           "rir_field_names": [],
           "constraints": {
-            "required": true
+            "required": false
           },
           "default_value": null,
           "category": "datapoint",
@@ -1436,6 +1589,22 @@
                 "constraints": {
                   "required": false
                 },
+                "score_threshold": 0.0,
+                "default_value": null,
+                "category": "datapoint",
+                "id": "item_po_line_number",
+                "label": "PO Line Number",
+                "type": "string",
+                "ui_configuration": {
+                  "type": "captured",
+                  "edit": "enabled"
+                }
+              },
+              {
+                "rir_field_names": [],
+                "constraints": {
+                  "required": false
+                },
                 "default_value": null,
                 "category": "datapoint",
                 "id": "item_code",
@@ -1449,6 +1618,9 @@
               },
               {
                 "rir_field_names": [],
+                "constraints": {
+                  "required": false
+                },
                 "score_threshold": 0.0,
                 "default_value": null,
                 "category": "datapoint",
@@ -1464,6 +1636,9 @@
               },
               {
                 "rir_field_names": [],
+                "constraints": {
+                  "required": false
+                },
                 "score_threshold": 0.0,
                 "default_value": null,
                 "category": "datapoint",

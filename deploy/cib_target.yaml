@@ -40,6 +40,14 @@ workspaces:
   name: 5. Germany
   targets:
   - id: null
+- id: 945978
+  name: 6. Italy
+  targets:
+  - id: null
+- id: 949060
+  name: 7. Mexico
+  targets:
+  - id: null
 - id: 831207
   name: Coupa Integration Baseline
   targets:
@@ -112,6 +120,34 @@ queues:
     - id: null
   inbox:
     id: 968886
+    targets:
+    - id: null
+  targets:
+  - id: null
+- id: 3242608
+  name: AP Documents - IT
+  base_path: "cib-org/default/workspaces/6. Italy_[945978]"
+  ignore_deploy_warnings: true
+  schema:
+    id: 2532986
+    targets:
+    - id: null
+  inbox:
+    id: 1022060
+    targets:
+    - id: null
+  targets:
+  - id: null
+- id: 3251179
+  name: AP Documents - MX
+  base_path: "cib-org/default/workspaces/7. Mexico_[949060]"
+  ignore_deploy_warnings: true
+  schema:
+    id: 2537803
+    targets:
+    - id: null
+  inbox:
+    id: 1025134
     targets:
     - id: null
   targets:
@@ -366,6 +402,10 @@ engines:
     name: item_order_id
     targets:
     - id: null
+  - id: 3088958
+    name: item_po_line_number
+    targets:
+    - id: null
   - id: 2915664
     name: item_quantity
     targets:
@@ -500,6 +540,10 @@ engines:
     name: code
     targets:
     - id: null
+  - id: 3090051
+    name: confirmation
+    targets:
+    - id: null
   - id: 2915696
     name: contract_number
     targets:
@@ -536,6 +580,14 @@ engines:
     name: exchange_rate
     targets:
     - id: null
+  - id: 3090052
+    name: folio_number
+    targets:
+    - id: null
+  - id: 3090053
+    name: form_of_payment
+    targets:
+    - id: null
   - id: 2915705
     name: header_description
     targets:
@@ -556,6 +608,10 @@ engines:
     name: invoice_shipping_charge
     targets:
     - id: null
+  - id: 3090054
+    name: issuance_place
+    targets:
+    - id: null
   - id: 2915710
     name: item_amount_base
     targets:
@@ -570,6 +626,10 @@ engines:
     - id: null
   - id: 2915713
     name: item_order_id
+    targets:
+    - id: null
+  - id: 3088959
+    name: item_po_line_number
     targets:
     - id: null
   - id: 2915714
@@ -614,6 +674,10 @@ engines:
     - id: null
   - id: 2915724
     name: original_document_id
+    targets:
+    - id: null
+  - id: 3090055
+    name: payment_method
     targets:
     - id: null
   - id: 2915725
@@ -668,6 +732,10 @@ engines:
     name: sender_tax_id
     targets:
     - id: null
+  - id: 3090056
+    name: series
+    targets:
+    - id: null
   - id: 2915738
     name: service_period
     targets:
@@ -706,6 +774,14 @@ engines:
     - id: null
   - id: 2915747
     name: terms
+    targets:
+    - id: null
+  - id: 3090057
+    name: type_of_relationship
+    targets:
+    - id: null
+  - id: 3090058
+    name: use_of_invoice
     targets:
     - id: null
 
@@ -776,6 +852,14 @@ rules:
   - id: null
 - id: 8740
   name: Move to FR queue
+  targets:
+  - id: null
+- id: 23152
+  name: Move to IT queue
+  targets:
+  - id: null
+- id: 23390
+  name: Move to MX queue
   targets:
   - id: null
 - id: 8732

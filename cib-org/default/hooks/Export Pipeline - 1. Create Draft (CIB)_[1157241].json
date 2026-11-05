@@ -87,7 +87,9 @@
     "https://cib.rossum.app/api/v1/queues/2841935",
     "https://cib.rossum.app/api/v1/queues/2860789",
     "https://cib.rossum.app/api/v1/queues/2868272",
-    "https://cib.rossum.app/api/v1/queues/3013757"
+    "https://cib.rossum.app/api/v1/queues/3013757",
+    "https://cib.rossum.app/api/v1/queues/3242608",
+    "https://cib.rossum.app/api/v1/queues/3251179"
   ],
   "run_after": [
     "https://cib.rossum.app/api/v1/hooks/1123383",

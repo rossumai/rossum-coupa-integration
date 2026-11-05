@@ -1,0 +1,1 @@
+default_to(field.service_period_start_export.strftime('%Y-%m-%d') if not is_empty(field.service_period_start_export) else '', '')
