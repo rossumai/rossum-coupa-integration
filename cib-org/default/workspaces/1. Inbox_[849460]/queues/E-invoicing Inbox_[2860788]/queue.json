@@ -17,7 +17,9 @@
     "https://cib.rossum.app/api/v1/rules/8732",
     "https://cib.rossum.app/api/v1/rules/8733",
     "https://cib.rossum.app/api/v1/rules/8740",
-    "https://cib.rossum.app/api/v1/rules/11887"
+    "https://cib.rossum.app/api/v1/rules/11887",
+    "https://cib.rossum.app/api/v1/rules/23152",
+    "https://cib.rossum.app/api/v1/rules/23390"
   ],
   "inbox": "https://cib.rossum.app/api/v1/inboxes/929654",
   "session_timeout": "01:00:00",
@@ -75,6 +77,106 @@
       "enabled": false,
       "bypass_workflows_allowed": false
     },
+    "annotation_list_table": {
+      "columns": [
+        {
+          "visible": false,
+          "column_type": "meta",
+          "width": 170.0,
+          "meta_name": "annotation"
+        },
+        {
+          "visible": true,
+          "column_type": "meta",
+          "width": 170.0,
+          "meta_name": "status"
+        },
+        {
+          "visible": true,
+          "column_type": "meta",
+          "width": 419.0,
+          "meta_name": "original_file_name"
+        },
+        {
+          "visible": true,
+          "column_type": "meta",
+          "width": 150.0,
+          "meta_name": "details"
+        },
+        {
+          "visible": false,
+          "column_type": "meta",
+          "width": 300.0,
+          "meta_name": "queue"
+        },
+        {
+          "visible": true,
+          "column_type": "meta",
+          "width": 250.0,
+          "meta_name": "labels"
+        },
+        {
+          "visible": true,
+          "column_type": "meta",
+          "width": 90.0,
+          "meta_name": "training_enabled"
+        },
+        {
+          "visible": true,
+          "column_type": "meta",
+          "width": 150.0,
+          "meta_name": "created_at"
+        },
+        {
+          "visible": true,
+          "column_type": "meta",
+          "width": 150.0,
+          "meta_name": "creator"
+        },
+        {
+          "visible": true,
+          "column_type": "meta",
+          "width": 150.0,
+          "meta_name": "modified_at"
+        },
+        {
+          "visible": true,
+          "column_type": "meta",
+          "width": 170.0,
+          "meta_name": "modifier"
+        },
+        {
+          "visible": true,
+          "column_type": "meta",
+          "width": 150.0,
+          "meta_name": "deleted_at"
+        },
+        {
+          "visible": true,
+          "column_type": "meta",
+          "width": 170.0,
+          "meta_name": "deleted_by"
+        },
+        {
+          "visible": true,
+          "column_type": "meta",
+          "width": 150.0,
+          "meta_name": "exported_at"
+        },
+        {
+          "visible": true,
+          "column_type": "meta",
+          "width": 150.0,
+          "meta_name": "export_failed_at"
+        },
+        {
+          "visible": true,
+          "column_type": "meta",
+          "width": 170.0,
+          "meta_name": "exported_by"
+        }
+      ]
+    },
     "ui_upload_enabled": true,
     "ui_on_edit_confirm": "validate_first",
     "ui_validation_screen_enabled": true,
@@ -91,8 +193,9 @@
   "status": "active",
   "workflows": [],
   "quality_spot_check_percentage": 0.0,
-  "modified_by": "https://cib.rossum.app/api/v1/users/146087",
+  "modified_by": "https://cib.rossum.app/api/v1/users/252040",
   "engine": "https://cib.rossum.app/api/v1/engines/56992",
   "training_enabled": false,
-  "archive_enabled": false
+  "archive_enabled": false,
+  "enabled": true
 }

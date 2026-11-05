@@ -1,0 +1,14 @@
+{
+  "id": 945978,
+  "name": "6. Italy",
+  "url": "https://cib.rossum.app/api/v1/workspaces/945978",
+  "organization": "https://cib.rossum.app/api/v1/organizations/377932",
+  "queues": [
+    "https://cib.rossum.app/api/v1/queues/3242608"
+  ],
+  "metadata": {},
+  "autopilot": true,
+  "created_by": "https://cib.rossum.app/api/v1/users/146087",
+  "created_at": "2026-10-21T10:51:03.589292Z",
+  "modified_by": "https://cib.rossum.app/api/v1/users/146087"
+}

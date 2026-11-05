@@ -1,0 +1,15 @@
+{
+  "id": 3090055,
+  "url": "https://cib.rossum.app/api/v1/engine_fields/3090055",
+  "engine": "https://cib.rossum.app/api/v1/engines/56992",
+  "name": "payment_method",
+  "label": "Payment Method",
+  "type": "string",
+  "subtype": null,
+  "pre_trained_field_id": null,
+  "tabular": false,
+  "multiline": "false",
+  "created_by": "https://cib.rossum.app/api/v1/users/252040",
+  "created_at": "2026-10-22T20:46:57.570827Z",
+  "modified_by": "https://cib.rossum.app/api/v1/users/252040"
+}

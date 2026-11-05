@@ -2666,6 +2666,22 @@
                 "score_threshold": 0.0,
                 "default_value": null,
                 "category": "datapoint",
+                "id": "item_po_line_number",
+                "label": "PO Line Number",
+                "type": "string",
+                "ui_configuration": {
+                  "type": "captured",
+                  "edit": "enabled"
+                }
+              },
+              {
+                "rir_field_names": [],
+                "constraints": {
+                  "required": false
+                },
+                "score_threshold": 0.0,
+                "default_value": null,
+                "category": "datapoint",
                 "id": "item_order_item_number_export",
                 "label": "PO Line Number Export",
                 "hidden": true,
@@ -4482,5 +4498,5 @@
     }
   ],
   "metadata": {},
-  "modified_by": "https://cib.rossum.app/api/v1/users/146087"
+  "modified_by": "https://cib.rossum.app/api/v1/users/252040"
 }

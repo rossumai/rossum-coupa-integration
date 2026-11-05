@@ -114,7 +114,7 @@
   "default_score_threshold": 0.975,
   "automation_enabled": false,
   "automation_level": "never",
-  "locale": "en_GB",
+  "locale": "fr_FR",
   "metadata": {
     "queueTemplate": "taxinvoiceeu"
   },
@@ -277,6 +277,7 @@
     "ui_validation_screen_enabled": true,
     "ui_edit_target_queue_selection_enabled": true,
     "ui_edit_always_split_document": true,
+    "memory_learning_mode": "automatic",
     "html_conversion_enabled": true,
     "txt_conversion_enabled": true
   },
@@ -291,5 +292,6 @@
   "modified_by": "https://cib.rossum.app/api/v1/users/146087",
   "engine": "https://cib.rossum.app/api/v1/engines/56992",
   "training_enabled": false,
-  "archive_enabled": false
+  "archive_enabled": false,
+  "enabled": true
 }
