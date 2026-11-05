@@ -7,6 +7,54 @@ Versioning follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ---
 
+## [2.1.0] - 2026-11-05
+
+CIB has no update or upgrade path between versions. A deployed CIB becomes
+an independent fork, so 2.1.0 is for new deployments; existing 2.0.x
+deployments are not upgraded.
+
+### Added
+- **Italy.** `6. Italy` workspace with an `AP Documents - IT` queue on the
+  shared line-level engine, and a `Move to IT queue` rule on the E-invoicing
+  Inbox. `Coupa E-Invoicing` gains a `FatturaElettronica` (FatturaPA) mapping
+  that sets `source_country` to `IT`; `TD04` / `TD08` map to credit notes.
+- **Mexico.** `7. Mexico` workspace with an `AP Documents - MX` queue on the
+  shared line-level engine, and a `Move to MX queue` rule on the E-invoicing
+  Inbox. `Coupa E-Invoicing` gains a CFDI 4.0 `Comprobante` mapping
+  (`TipoDeComprobante` `I` or `E`) that sets `source_country` to `MX`.
+  - New `cfdi_section` on the MX queue and the Inbox: `series`, `folio_number`,
+    `use_of_invoice`, `form_of_payment`, `payment_method`, `issuance_place`,
+    `confirmation`, `type_of_relationship`.
+  - `Export Mapping - Line Level Taxation` sends these as `series`,
+    `folio-number`, `use-of-invoice`, `form-of-payment`, `payment-method`,
+    `issuance-place`, `confirmation` and `type-of-relationship` when they are
+    set.
+- `item_po_line_number` line-item field on every queue, an engine field on
+  both extraction engines, and mapped from the e-invoice XML.
+- Nine new engine fields on `AP Documents - line level taxation` (the CFDI
+  fields above plus `item_po_line_number`) and one on
+  `AP Documents - header level taxation` (`item_po_line_number`).
+- The IT and MX queues are attached to the same baseline hooks and business
+  rules as the other country queues. `Get Barcodes - KSeF PL` stays on the
+  PL queue only.
+
+### Changed
+- `Coupa E-Invoicing`: UBL and CII selectors for `Invoice` and `CreditNote`
+  are merged into single expressions. Seller/buyer tax and party IDs, the
+  currency code and the credit-note reason now resolve with an explicit
+  fallback order.
+- `Coupa E-Invoicing`: the currency code is now lowercased directly from the
+  XML instead of going through a fixed 16-currency mapping table, so a
+  currency outside that table is no longer mapped to `other`.
+- E-invoicing Inbox schema: `source_country` is now required. `currency`,
+  `charge_amount` and `charge_type` are no longer required on the Inbox.
+- `deploy/cib_target.yaml` regenerated to include the new workspaces, queues,
+  schemas, inboxes, rules and engine fields. `cib_target_secrets.json`,
+  `hooks.csv` and `required_scopes.json` are unchanged, so no new secrets,
+  service URLs or Coupa OAuth scopes are needed.
+
+---
+
 ## [2.0.1] - 2026-09-24
 
 ### Fixed
