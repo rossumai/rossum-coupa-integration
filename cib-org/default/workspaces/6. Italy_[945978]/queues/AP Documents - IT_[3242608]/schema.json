@@ -948,7 +948,7 @@
             "type": "formula",
             "edit": "disabled"
           },
-          "formula": "def get_nonempty(list_of_strings):\n    for s in list_of_strings:\n        if s:\n            return s\nif field.backing_document == \"contract\":\n    if not is_empty(field.contract_customer_match):\n        field.contract_customer_match\nelif any(field.item_po_line_recipient_match.all_values):\n    get_nonempty(field.item_po_line_recipient_match.all_values)\nelif not is_empty(field.po_line_recipient_match):\n    field.po_line_recipient_match\nelse:\n    field.recipient_match"
+          "formula": "def get_nonempty(list_of_strings):\n    for s in list_of_strings:\n        if s:\n            return s\nif field.backing_document == \"contract\" and not is_empty(field.contract_customer_match):\n    field.contract_customer_match\nelif any(field.item_po_line_recipient_match.all_values):\n    get_nonempty(field.item_po_line_recipient_match.all_values)\nelif not is_empty(field.po_line_recipient_match):\n    field.po_line_recipient_match\nelse:\n    field.recipient_match"
         },
         {
           "rir_field_names": [],
@@ -1188,7 +1188,7 @@
             "type": "formula",
             "edit": "disabled"
           },
-          "formula": "def get_nonempty(list_of_strings):\n    for s in list_of_strings:\n        if s:\n            return s\nif field.backing_document == \"contract\":\n    if not is_empty(field.contract_supplier_match):\n        field.contract_supplier_match\nelif any(field.item_po_line_supplier_match.all_values):\n    int(get_nonempty(field.item_po_line_supplier_match.all_values))\nelif field.po_line_supplier_match:\n    int(field.po_line_supplier_match)\nelse:\n    int(field.sender_match)"
+          "formula": "def get_nonempty(list_of_strings):\n    for s in list_of_strings:\n        if s:\n            return s\nif field.backing_document == \"contract\" and not is_empty(field.contract_supplier_match):\n    field.contract_supplier_match\nelif any(field.item_po_line_supplier_match.all_values):\n    int(get_nonempty(field.item_po_line_supplier_match.all_values))\nelif field.po_line_supplier_match:\n    int(field.po_line_supplier_match)\nelse:\n    int(field.sender_match)"
         },
         {
           "rir_field_names": [],
@@ -2439,7 +2439,7 @@
             "type": "formula",
             "edit": "disabled"
           },
-          "formula": "('contract' if (is_empty(field.order_header_match) and is_empty(field.order_blanket_match) and default_to(field.contract_status_match, '') == 'approved') else 'po')",
+          "formula": "('contract' if (is_empty(field.order_header_match) and is_empty(field.order_blanket_match) and default_to(field.contract_status_match, '') in ('approved', 'published')) else 'po')",
           "options": [
             {
               "value": "contract",
