@@ -7,6 +7,17 @@ Versioning follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ---
 
+## [Unreleased]
+
+### Fixed
+- **Published contracts.** `backing_document` now gives `contract` when the
+  matched Coupa contract has the status `approved` or `published`. Before, it
+  accepted only `approved`, so non-PO invoices against a published contract
+  (the normal state of a live Coupa contract) were handled as `po`.
+- **Export fallback for contracts.** `recipient_export` and `sender_export` use
+  the contract customer or supplier only when it is not empty. Otherwise they
+  fall back to the PO line and header matches, the same as for PO invoices.
+
 ## [2.1.0] - 2026-11-05
 
 CIB has no update or upgrade path between versions. A deployed CIB becomes
