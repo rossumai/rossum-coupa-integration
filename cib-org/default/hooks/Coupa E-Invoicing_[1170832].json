@@ -3249,7 +3249,7 @@
           {
             "schema_id": "credit_reason",
             "selectors": [
-              "concat(substring('Credit note for returned goods', 1, 30 * (/*[local-name()='Comprobante']/*[local-name()='CfdiRelacionados']/@TipoRelacion='01')), substring('Credit note for discounts/rebates/bonuses', 1, 41 * (not(/*[local-name()='Comprobante']/*[local-name()='CfdiRelacionados']/@TipoRelacion='01') and /*[local-name()='Comprobante']/*[local-name()='CfdiRelacionados']/@TipoRelacion='03')))"
+              "concat(substring('Credit note for returned goods', 1, 30 * (/*[local-name()='Comprobante']/*[local-name()='CfdiRelacionados']/@TipoRelacion='03')), substring('Credit note for related documents', 1, 33 * (not(/*[local-name()='Comprobante']/*[local-name()='CfdiRelacionados']/@TipoRelacion='03') and /*[local-name()='Comprobante']/*[local-name()='CfdiRelacionados']/@TipoRelacion='01')))"
             ],
             "skip_non_existing_schema_ids": true
           },

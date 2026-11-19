@@ -7,6 +7,17 @@ Versioning follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ---
 
+## [Unreleased]
+
+### Fixed
+- **Mexico credit reason.** In the `Coupa E-Invoicing` CFDI 4.0 mapping,
+  `credit_reason` had the labels for `TipoRelacion` `01` and `03` swapped. In
+  the SAT catalogue `c_TipoRelacion`, `03` is a return of goods and `01` is a
+  generic credit note. `03` now gives "Credit note for returned goods" and
+  `01` gives "Credit note for related documents". Before, `01` gave
+  "Credit note for returned goods" and `03` gave
+  "Credit note for discounts/rebates/bonuses".
+
 ## [2.1.0] - 2026-11-05
 
 CIB has no update or upgrade path between versions. A deployed CIB becomes
