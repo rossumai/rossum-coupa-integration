@@ -1,0 +1,19 @@
+CHANGELOG.md
+  s_09da04ca8e6ac6::t_c10d8cf1b0da0c 10-19
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "325fa9ff4bc6381f3f3e9db442449b27272099c6",
+  "prompts": {},
+  "sessions": {
+    "s_09da04ca8e6ac6": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "a4a5053f-1395-4315-a32c-edd2d0d965b7",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Martin Kazík <martin.kazik@rossum.ai>"
+    }
+  }
+}
