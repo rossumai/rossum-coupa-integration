@@ -1,0 +1,161 @@
+"cib-org/default/rules/Invoice Number Missing (CIB)_[7881].json"
+  s_09da04ca8e6ac6::t_4b1f482f671599 32,40-43
+"cib-org/default/hooks/Coupa Master Data Import - Addresses (CIB)_[1341771].json"
+  s_09da04ca8e6ac6::t_4b1f482f671599 43-44
+"cib-org/default/hooks/Coupa Master Data Import - Account Types (CIB)_[1341765].json"
+  s_09da04ca8e6ac6::t_4b1f482f671599 115-116
+"cib-org/default/rules/PO Line Match Required (No Line Items) (CIB)_[7874].json"
+  s_09da04ca8e6ac6::t_4b1f482f671599 32,40-43
+"cib-org/default/rules/Line Total Not Equal to Quantity x Unit Price (CIB)_[7876].json"
+  s_09da04ca8e6ac6::t_4b1f482f671599 32,40-43
+"cib-org/default/rules/Service Period Start Before PO Start (CIB)_[7890].json"
+  s_09da04ca8e6ac6::t_4b1f482f671599 32,40-43
+"cib-org/default/hooks/Export Pipeline - 1. Create Draft (CIB)_[1157241].json"
+  s_09da04ca8e6ac6::t_4b1f482f671599 92-93
+"cib-org/default/hooks/MDH - Coupa Invoice Check (CIB)_[1123402].json"
+  s_09da04ca8e6ac6::t_4b1f482f671599 87-88
+"cib-org/default/rules/Payment Terms Mismatch (CIB)_[7868].json"
+  s_09da04ca8e6ac6::t_4b1f482f671599 32,40-43
+"cib-org/default/hooks/Export Pipeline - 4. Attach Supplementary Files (CIB)_[1342017].json"
+  s_09da04ca8e6ac6::t_4b1f482f671599 198-199
+"cib-org/default/hooks/Metadata Propagator (CIB)_[1123391].json"
+  s_09da04ca8e6ac6::t_4b1f482f671599 21-22
+"cib-org/default/workspaces/1. Inbox_[849460]/queues/E-invoicing Inbox_[2860788]/queue.json"
+  s_09da04ca8e6ac6::t_4b1f482f671599 22-23
+"cib-org/default/rules/Total Amount Less Than Without Tax (Tax Invoice) (CIB)_[7914].json"
+  s_09da04ca8e6ac6::t_4b1f482f671599 32,39-42
+"cib-org/default/hooks/MDH - Main (CIB)_[1123384].json"
+  s_09da04ca8e6ac6::t_4b1f482f671599 3860-3861
+"cib-org/default/rules/Currency Mismatch (No Line Items) (CIB)_[7884].json"
+  s_09da04ca8e6ac6::t_4b1f482f671599 32,40-43
+"cib-org/default/rules/Item Tax Code Required (Line Items, PO Backed) (CIB)_[7910].json"
+  s_09da04ca8e6ac6::t_4b1f482f671599 22,29-32
+"cib-org/default/rules/PO Line is Closed (Line Items) (CIB)_[7885].json"
+  s_09da04ca8e6ac6::t_4b1f482f671599 22,30-33
+"cib-org/default/hooks/Coupa Master Data Import - Lookup values (CIB)_[1341766].json"
+  s_09da04ca8e6ac6::t_4b1f482f671599 83-84
+"cib-org/default/rules/Required - Description (No Line Items) (CIB)_[7901].json"
+  s_09da04ca8e6ac6::t_4b1f482f671599 22,30-33
+"cib-org/default/rules/Service Period Start After PO End (Line Items) (CIB)_[7895].json"
+  s_09da04ca8e6ac6::t_4b1f482f671599 32,40-43
+"cib-org/default/rules/Currency Mismatch (With Line Items) (CIB)_[7882].json"
+  s_09da04ca8e6ac6::t_4b1f482f671599 32,40-43
+"cib-org/default/rules/ShowHide - Hide Tax Code Match (CIB)_[7912].json"
+  s_09da04ca8e6ac6::t_4b1f482f671599 22,29-32
+"cib-org/default/rules/Service Period Start After Document End (CIB)_[7897].json"
+  s_09da04ca8e6ac6::t_4b1f482f671599 32,40-43
+"cib-org/default/rules/Required - Total Amount or Total Without Tax (CIB)_[7905].json"
+  s_09da04ca8e6ac6::t_4b1f482f671599 22,29-32
+"cib-org/default/rules/PO Not Found in Coupa (CIB)_[7888].json"
+  s_09da04ca8e6ac6::t_4b1f482f671599 32,40-43
+"cib-org/default/rules/Supplier Mismatch Warning (CIB)_[7872].json"
+  s_09da04ca8e6ac6::t_4b1f482f671599 32,40-43
+"cib-org/default/rules/Tax Code Required (No Line Items, PO Backed) (CIB)_[7908].json"
+  s_09da04ca8e6ac6::t_4b1f482f671599 22,29-32
+"cib-org/default/hooks/Export Pipeline - 5. Submit Document (CIB)_[1342018].json"
+  s_09da04ca8e6ac6::t_4b1f482f671599 100-101
+"cib-org/default/rules/Coupa Total Mismatch (CIB)_[7877].json"
+  s_09da04ca8e6ac6::t_4b1f482f671599 32,40-43
+"cib-org/default/rules/Invoice Number Too Long (CIB)_[7911].json"
+  s_09da04ca8e6ac6::t_4b1f482f671599 32,40-43
+"cib-org/default/rules/Total Amount Not Equal to Without Tax + Tax (CIB)_[7903].json"
+  s_09da04ca8e6ac6::t_4b1f482f671599 32,39-42
+"cib-org/default/hooks/Duplicate Handling (CIB)_[1123399].json"
+  s_09da04ca8e6ac6::t_4b1f482f671599 114-115
+"cib-org/default/workspaces/Coupa Integration Baseline_[831207]/queues/AP Documents - header level taxation_[2766928]/queue.json"
+  s_09da04ca8e6ac6::t_4b1f482f671599 292-293
+"cib-org/default/rules/Header Tax Not Equal to Sum of Line Taxes and Charges (CIB)_[7907].json"
+  s_09da04ca8e6ac6::t_4b1f482f671599 32,39-42
+"cib-org/default/rules/Invoice Date Out of Range (CIB)_[7879].json"
+  s_09da04ca8e6ac6::t_4b1f482f671599 32,40-43
+"cib-org/default/rules/PO is Closed (CIB)_[7906].json"
+  s_09da04ca8e6ac6::t_4b1f482f671599 22,30-33
+"cib-org/default/rules/Service Period End After PO End (Line Items) (CIB)_[7894].json"
+  s_09da04ca8e6ac6::t_4b1f482f671599 32,40-43
+"cib-org/default/hooks/Customer memorization (CIB)_[1123405].json"
+  s_09da04ca8e6ac6::t_4b1f482f671599 41-42
+"cib-org/default/hooks/Coupa Master Data Import - Remit To Addresses (CIB)_[1341773].json"
+  s_09da04ca8e6ac6::t_4b1f482f671599 80-81
+"cib-org/default/rules/Required - Line Total or Unit Price (CIB)_[7875].json"
+  s_09da04ca8e6ac6::t_4b1f482f671599 22,30-33
+"cib-org/default/rules/Service Period Start Before PO Start (Line Items) (CIB)_[7891].json"
+  s_09da04ca8e6ac6::t_4b1f482f671599 32,40-43
+"cib-org/default/hooks/Tax Coding Memorization (CIB)_[1123407].json"
+  s_09da04ca8e6ac6::t_4b1f482f671599 48-49
+"cib-org/default/rules/Required - Recipient Match (CIB)_[8735].json"
+  s_09da04ca8e6ac6::t_4b1f482f671599 22,30-33
+"cib-org/default/hooks/Handle Coupa Responses (CIB)_[1123389].json"
+  s_09da04ca8e6ac6::t_4b1f482f671599 20-21
+"cib-org/default/hooks/Coupa Master Data Import - Tax Codes (CIB)_[1341768].json"
+  s_09da04ca8e6ac6::t_4b1f482f671599 72-73
+"cib-org/default/rules/Customer Mismatch Warning (CIB)_[7871].json"
+  s_09da04ca8e6ac6::t_4b1f482f671599 32,40-43
+"cib-org/default/rules/Duplicate Detected (CIB)_[7878].json"
+  s_09da04ca8e6ac6::t_4b1f482f671599 32,40-43
+"cib-org/default/hooks/Export Pipeline - 2. Attach Image Scan (CIB)_[1342015].json"
+  s_09da04ca8e6ac6::t_4b1f482f671599 98-99
+"cib-org/default/hooks/MDH - Payment Terms (CIB)_[1123400].json"
+  s_09da04ca8e6ac6::t_4b1f482f671599 193-194
+"cib-org/default/rules/Negative Amount - Not Credit Note (CIB)_[7870].json"
+  s_09da04ca8e6ac6::t_4b1f482f671599 32,40-43
+"cib-org/default/rules/Service Period Start After Document End (Line Items) (CIB)_[7898].json"
+  s_09da04ca8e6ac6::t_4b1f482f671599 32,40-43
+"cib-org/default/rules/Service Period Start After PO End (CIB)_[7893].json"
+  s_09da04ca8e6ac6::t_4b1f482f671599 32,40-43
+"cib-org/default/hooks/Export Mapping - LIne Level Taxation (CIB)_[1123383].json"
+  s_09da04ca8e6ac6::t_4b1f482f671599 249-250
+"cib-org/default/hooks/Supplier memorization (CIB)_[1123404].json"
+  s_09da04ca8e6ac6::t_4b1f482f671599 41-42
+"cib-org/default/rules/PO Line is Closed (CIB)_[7886].json"
+  s_09da04ca8e6ac6::t_4b1f482f671599 22,30-33
+"cib-org/default/rules/Service Period End After PO End (CIB)_[7892].json"
+  s_09da04ca8e6ac6::t_4b1f482f671599 32,40-43
+"cib-org/default/rules/Service Period End Before PO Start (Line Items) (CIB)_[7896].json"
+  s_09da04ca8e6ac6::t_4b1f482f671599 32,40-43
+"cib-org/default/hooks/Coupa Master Data Import - Units of Measure (CIB)_[1341763].json"
+  s_09da04ca8e6ac6::t_4b1f482f671599 52-53
+"cib-org/default/rules/Total Without Tax Not Equal to Sum of Item Totals (CIB)_[7909].json"
+  s_09da04ca8e6ac6::t_4b1f482f671599 32,39-42
+"cib-org/default/hooks/Coupa E-Invoicing Status Sync (CIB)_[1309898].json"
+  s_09da04ca8e6ac6::t_4b1f482f671599 49-50
+"cib-org/default/rules/PO Line Match Required (Line Items) (CIB)_[7873].json"
+  s_09da04ca8e6ac6::t_4b1f482f671599 32,40-43
+"cib-org/default/rules/ShowHide - Hide Order Item Match (CIB)_[7913].json"
+  s_09da04ca8e6ac6::t_4b1f482f671599 22,30-33
+"cib-org/default/rules/PO Not Found in Coupa (Line Items) (CIB)_[7889].json"
+  s_09da04ca8e6ac6::t_4b1f482f671599 32,40-43
+"cib-org/default/hooks/Export Pipeline - 3. Attach Rossum URL (CIB)_[1342016].json"
+  s_09da04ca8e6ac6::t_4b1f482f671599 95-96
+"cib-org/default/hooks/Coupa Master Data Import - Payment Terms (CIB)_[1341772].json"
+  s_09da04ca8e6ac6::t_4b1f482f671599 43-44
+"cib-org/default/rules/Invoice Number Manual Too Long (CIB)_[7880].json"
+  s_09da04ca8e6ac6::t_4b1f482f671599 32,40-43
+"cib-org/default/hooks/MDH - Tax Codes (CIB)_[1123401].json"
+  s_09da04ca8e6ac6::t_4b1f482f671599 576-577
+"cib-org/default/rules/PO is Closed (Line Items) (CIB)_[7887].json"
+  s_09da04ca8e6ac6::t_4b1f482f671599 22,30-33
+"cib-org/default/hooks/Coupa Master Data Import - Tax Registrations (CIB)_[1341769].json"
+  s_09da04ca8e6ac6::t_4b1f482f671599 60-61
+"cib-org/default/hooks/Coupa Master Data Import - Suppliers (CIB)_[1341764].json"
+  s_09da04ca8e6ac6::t_4b1f482f671599 166-167
+"cib-org/default/rules/Service Period End Before PO Start (CIB)_[7915].json"
+  s_09da04ca8e6ac6::t_4b1f482f671599 32,40-43
+"cib-org/default/rules/Coupa Duplicate Found (CIB)_[7883].json"
+  s_09da04ca8e6ac6::t_4b1f482f671599 32,40-43
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "631fd7f6527aca50a3b4b5d65dd7fe83520185de",
+  "prompts": {},
+  "sessions": {
+    "s_09da04ca8e6ac6": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "a4a5053f-1395-4315-a32c-edd2d0d965b7",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Martin Kazík <martin.kazik@rossum.ai>"
+    }
+  }
+}
