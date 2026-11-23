@@ -19,7 +19,8 @@
     "https://cib.rossum.app/api/v1/rules/8740",
     "https://cib.rossum.app/api/v1/rules/11887",
     "https://cib.rossum.app/api/v1/rules/23152",
-    "https://cib.rossum.app/api/v1/rules/23390"
+    "https://cib.rossum.app/api/v1/rules/23390",
+    "https://cib.rossum.app/api/v1/rules/26513"
   ],
   "inbox": "https://cib.rossum.app/api/v1/inboxes/929654",
   "session_timeout": "01:00:00",

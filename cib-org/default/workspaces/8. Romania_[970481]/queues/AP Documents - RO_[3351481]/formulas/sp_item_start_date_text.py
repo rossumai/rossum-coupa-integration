@@ -1,0 +1,1 @@
+default_to(field.sp_item_start_date_export, "")
