@@ -7,6 +7,42 @@ Versioning follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ---
 
+## [2.2.0] - 2026-11-23
+
+CIB has no update or upgrade path between versions. A deployed CIB becomes
+an independent fork, so 2.2.0 is for new deployments; existing 2.1.x and
+2.0.x deployments are not upgraded.
+
+### Added
+- **Romania.** `8. Romania` workspace with an `AP Documents - RO` queue on the
+  shared line-level engine, and a `Move to RO queue` rule on the E-invoicing
+  Inbox. `Coupa E-Invoicing` gains a UBL 2.1 / RO-CIUS (ANAF e-Factura)
+  mapping that sets `source_country` to `RO`. It is selected when the
+  `CustomizationID` contains `CIUS-RO` or the buyer's country is `RO`, and is
+  evaluated before the other UBL mappings. Document type, PO and contract
+  references, contact, payment and VAT-exemption details are written into the
+  description in Romanian.
+- The RO queue is attached to the same baseline hooks and business rules as
+  the other country queues. `Get Barcodes - KSeF PL` stays on the PL queue
+  only.
+
+### Fixed
+- **Business rules on the IT and MX queues.** In 2.1.0 the 44 baseline
+  business rules were not assigned to `AP Documents - IT` and
+  `AP Documents - MX`, so documents on those queues were not validated by
+  them. All 44 rules are now assigned to the IT, MX and RO queues.
+
+### Changed
+- `AP Documents - MX` schema: removed the hidden, unused `barcode_qrcode`
+  multivalue. Only `Get Barcodes - KSeF PL` fills it, and that hook is not on
+  the MX queue.
+- `deploy/cib_target.yaml` regenerated to include the Romania workspace,
+  queue, schema, inbox and the `Move to RO queue` rule.
+  `cib_target_secrets.json`, `hooks.csv` and `required_scopes.json` are
+  unchanged, so no new secrets, service URLs or Coupa OAuth scopes are needed.
+
+---
+
 ## [2.1.0] - 2026-11-05
 
 CIB has no update or upgrade path between versions. A deployed CIB becomes

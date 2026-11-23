@@ -48,6 +48,10 @@ workspaces:
   name: 7. Mexico
   targets:
   - id: null
+- id: 970481
+  name: 8. Romania
+  targets:
+  - id: null
 - id: 831207
   name: Coupa Integration Baseline
   targets:
@@ -148,6 +152,20 @@ queues:
     - id: null
   inbox:
     id: 1025134
+    targets:
+    - id: null
+  targets:
+  - id: null
+- id: 3351481
+  name: AP Documents - RO
+  base_path: "cib-org/default/workspaces/8. Romania_[970481]"
+  ignore_deploy_warnings: true
+  schema:
+    id: 2603636
+    targets:
+    - id: null
+  inbox:
+    id: 1043330
     targets:
     - id: null
   targets:
@@ -864,6 +882,10 @@ rules:
   - id: null
 - id: 8732
   name: Move to PL queue
+  targets:
+  - id: null
+- id: 26513
+  name: Move to RO queue
   targets:
   - id: null
 - id: 7870
