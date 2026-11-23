@@ -7,6 +7,16 @@ Versioning follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ---
 
+## [2.2.1] - 2026-11-23
+
+### Fixed
+- `AP Documents - RO`: the queue carried a cluster-internal `rir_url`
+  (`http://morgan-api.prod-rir.svc.cluster.local`), which made deploying 2.2.0
+  fail. It is now `null`, like every other CIB queue.
+- `deploy/` assets are unchanged.
+
+---
+
 ## [2.2.0] - 2026-11-23
 
 CIB has no update or upgrade path between versions. A deployed CIB becomes
