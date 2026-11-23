@@ -468,6 +468,402 @@
         }
       },
       {
+        "//": "UBL 2.1 / RO-CIUS (ANAF e-Factura) - Romania",
+        "fields": [
+          {
+            "schema_id": "source_country",
+            "selectors": [
+              "'RO'"
+            ],
+            "skip_non_existing_schema_ids": true
+          },
+          {
+            "schema_id": "document_id",
+            "selectors": [
+              "/*[local-name()='Invoice']/*[local-name()='ID']",
+              "/*[local-name()='CreditNote']/*[local-name()='ID']"
+            ],
+            "skip_non_existing_schema_ids": true
+          },
+          {
+            "mapping": {
+              "81": "credit_note",
+              "83": "credit_note",
+              "381": "credit_note",
+              "396": "credit_note",
+              "532": "credit_note",
+              "__default__": "tax_invoice"
+            },
+            "schema_id": "document_type",
+            "selectors": [
+              "/*[local-name()='Invoice']/*[local-name()='InvoiceTypeCode']",
+              "/*[local-name()='CreditNote']/*[local-name()='CreditNoteTypeCode']"
+            ],
+            "skip_non_existing_schema_ids": true
+          },
+          {
+            "schema_id": "date_issue",
+            "selectors": [
+              "/*[local-name()='Invoice']/*[local-name()='IssueDate']",
+              "/*[local-name()='CreditNote']/*[local-name()='IssueDate']"
+            ],
+            "skip_non_existing_schema_ids": true
+          },
+          {
+            "schema_id": "date_due",
+            "selectors": [
+              "/*[local-name()='Invoice']/*[local-name()='DueDate']",
+              "/*[local-name()='CreditNote']/*[local-name()='DueDate']"
+            ],
+            "skip_non_existing_schema_ids": true
+          },
+          {
+            "schema_id": "header_description",
+            "selectors": [
+              "/*[local-name()='Invoice']/*[local-name()='Note']",
+              "/*[local-name()='CreditNote']/*[local-name()='Note']"
+            ],
+            "skip_non_existing_schema_ids": true
+          },
+          {
+            "schema_id": "notes_manual",
+            "selectors": [
+              "concat(substring-before(substring-after(concat(\"|380=Factura|381=Nota de creditare|383=Nota de debitare|384=Factura corectata|386=Factura de avans|389=Autofactura|751=Factura de informare|\", '|', concat(/*[local-name()='Invoice' or local-name()='CreditNote']/*[local-name()='InvoiceTypeCode'], /*[local-name()='Invoice' or local-name()='CreditNote']/*[local-name()='CreditNoteTypeCode']), '=Factura|'), concat('|', concat(/*[local-name()='Invoice' or local-name()='CreditNote']/*[local-name()='InvoiceTypeCode'], /*[local-name()='Invoice' or local-name()='CreditNote']/*[local-name()='CreditNoteTypeCode']), '=')), '|'), \"\n\r\", 'Num\u0103r PO: ', concat(/*[local-name()='Invoice' or local-name()='CreditNote']/*[local-name()='OrderReference']/*[local-name()='ID'], substring(/*[local-name()='Invoice' or local-name()='CreditNote']/*[local-name()='PaymentMeans']/*[local-name()='PaymentID'], 1, 10000 * (normalize-space(/*[local-name()='Invoice' or local-name()='CreditNote']/*[local-name()='OrderReference']/*[local-name()='ID']) = ''))), \"\n\r\", substring(concat(\"Num\u0103rul contractului: \", /*[local-name()='Invoice' or local-name()='CreditNote']/*[local-name()='ContractDocumentReference']/*[local-name()='ID'], \"\n\r\"), 1, 10000 * (normalize-space(/*[local-name()='Invoice' or local-name()='CreditNote']/*[local-name()='ContractDocumentReference']/*[local-name()='ID']) != '')), substring(concat(\"codul licita\u021biei: \", /*[local-name()='Invoice' or local-name()='CreditNote']/*[local-name()='OriginatorDocumentReference']/*[local-name()='ID'], \"\n\r\"), 1, 10000 * (normalize-space(/*[local-name()='Invoice' or local-name()='CreditNote']/*[local-name()='OriginatorDocumentReference']/*[local-name()='ID']) != '')), /*[local-name()='Invoice' or local-name()='CreditNote']/*[local-name()='Note'], \"\n\r\", /*[local-name()='Invoice' or local-name()='CreditNote']/*[local-name()='PaymentTerms']/*[local-name()='Note'], \"\n\r\", \"Persoana de contact (dac\u0103 este prezent\u0103 pe factur\u0103):\", \"\n\r\", /*[local-name()='Invoice' or local-name()='CreditNote']/*[local-name()='AccountingSupplierParty']/*[local-name()='Party']/*[local-name()='Contact']/*[local-name()='Name'], \"\n\r\", /*[local-name()='Invoice' or local-name()='CreditNote']/*[local-name()='AccountingSupplierParty']/*[local-name()='Party']/*[local-name()='Contact']/*[local-name()='Telephone'], \"\n\r\", /*[local-name()='Invoice' or local-name()='CreditNote']/*[local-name()='AccountingSupplierParty']/*[local-name()='Party']/*[local-name()='Contact']/*[local-name()='ElectronicMail'], \"\n\r\", \"Plata (dac\u0103 este prezent\u0103 pe factur\u0103):\", \"\n\r\", 'PaymentMeansCode: ', /*[local-name()='Invoice' or local-name()='CreditNote']/*[local-name()='PaymentMeans']/*[local-name()='PaymentMeansCode'], \"\n\r\", /*[local-name()='Invoice' or local-name()='CreditNote']/*[local-name()='PaymentMeans']/*[local-name()='PayeeFinancialAccount']/*[local-name()='ID'], \"\n\r\", /*[local-name()='Invoice' or local-name()='CreditNote']/*[local-name()='PaymentMeans']/*[local-name()='PayeeFinancialAccount']/*[local-name()='Name'])"
+            ],
+            "skip_non_existing_schema_ids": true
+          },
+          {
+            "schema_id": "sender_name",
+            "selectors": [
+              "/*[local-name()='Invoice']/*[local-name()='AccountingSupplierParty']/*[local-name()='Party']/*[local-name()='PartyName']/*[local-name()='Name']",
+              "/*[local-name()='Invoice']/*[local-name()='AccountingSupplierParty']/*[local-name()='Party']/*[local-name()='PartyLegalEntity']/*[local-name()='RegistrationName']",
+              "/*[local-name()='CreditNote']/*[local-name()='AccountingSupplierParty']/*[local-name()='Party']/*[local-name()='PartyName']/*[local-name()='Name']",
+              "/*[local-name()='CreditNote']/*[local-name()='AccountingSupplierParty']/*[local-name()='Party']/*[local-name()='PartyLegalEntity']/*[local-name()='RegistrationName']"
+            ],
+            "skip_non_existing_schema_ids": true
+          },
+          {
+            "schema_id": "sender_address",
+            "selectors": [
+              "normalize-space(concat(normalize-space(/*[local-name()='Invoice' or local-name()='CreditNote']/*[local-name()='AccountingSupplierParty']/*[local-name()='Party']/*[local-name()='PostalAddress']/*[local-name()='StreetName']), ', ', normalize-space(/*[local-name()='Invoice' or local-name()='CreditNote']/*[local-name()='AccountingSupplierParty']/*[local-name()='Party']/*[local-name()='PostalAddress']/*[local-name()='CityName'])))"
+            ],
+            "skip_non_existing_schema_ids": true
+          },
+          {
+            "schema_id": "sender_tax_id",
+            "selectors": [
+              "concat(translate(/*[local-name()='Invoice' or local-name()='CreditNote']/*[local-name()='AccountingSupplierParty']/*[local-name()='Party']/*[local-name()='PartyTaxScheme']/*[local-name()='CompanyID'],' ',''), substring(translate(/*[local-name()='Invoice' or local-name()='CreditNote']/*[local-name()='AccountingSupplierParty']/*[local-name()='Party']/*[local-name()='PartyLegalEntity']/*[local-name()='CompanyID'],' ',''), 1, string-length(translate(/*[local-name()='Invoice' or local-name()='CreditNote']/*[local-name()='AccountingSupplierParty']/*[local-name()='Party']/*[local-name()='PartyLegalEntity']/*[local-name()='CompanyID'],' ','')) * (translate(/*[local-name()='Invoice' or local-name()='CreditNote']/*[local-name()='AccountingSupplierParty']/*[local-name()='Party']/*[local-name()='PartyTaxScheme']/*[local-name()='CompanyID'],' ','')='')))"
+            ],
+            "skip_non_existing_schema_ids": true
+          },
+          {
+            "schema_id": "recipient_name",
+            "selectors": [
+              "/*[local-name()='Invoice']/*[local-name()='AccountingCustomerParty']/*[local-name()='Party']/*[local-name()='PartyName']/*[local-name()='Name']",
+              "/*[local-name()='Invoice']/*[local-name()='AccountingCustomerParty']/*[local-name()='Party']/*[local-name()='PartyLegalEntity']/*[local-name()='RegistrationName']",
+              "/*[local-name()='CreditNote']/*[local-name()='AccountingCustomerParty']/*[local-name()='Party']/*[local-name()='PartyName']/*[local-name()='Name']",
+              "/*[local-name()='CreditNote']/*[local-name()='AccountingCustomerParty']/*[local-name()='Party']/*[local-name()='PartyLegalEntity']/*[local-name()='RegistrationName']"
+            ],
+            "skip_non_existing_schema_ids": true
+          },
+          {
+            "schema_id": "recipient_address",
+            "selectors": [
+              "normalize-space(concat(normalize-space(/*[local-name()='Invoice' or local-name()='CreditNote']/*[local-name()='AccountingCustomerParty']/*[local-name()='Party']/*[local-name()='PostalAddress']/*[local-name()='StreetName']), ', ', normalize-space(/*[local-name()='Invoice' or local-name()='CreditNote']/*[local-name()='AccountingCustomerParty']/*[local-name()='Party']/*[local-name()='PostalAddress']/*[local-name()='CityName'])))"
+            ],
+            "skip_non_existing_schema_ids": true
+          },
+          {
+            "schema_id": "recipient_tax_id",
+            "selectors": [
+              "translate(/*[local-name()='Invoice' or local-name()='CreditNote']/*[local-name()='AccountingCustomerParty']/*[local-name()='Party']/*[local-name()='PartyTaxScheme'][*[local-name()='TaxScheme']/*[local-name()='ID']='VAT']/*[local-name()='CompanyID'],' ','')"
+            ],
+            "skip_non_existing_schema_ids": true
+          },
+          {
+            "schema_id": "iban",
+            "selectors": [
+              "/*[local-name()='Invoice']/*[local-name()='PaymentMeans']/*[local-name()='PayeeFinancialAccount']/*[local-name()='ID']",
+              "/*[local-name()='CreditNote']/*[local-name()='PaymentMeans']/*[local-name()='PayeeFinancialAccount']/*[local-name()='ID']"
+            ],
+            "skip_non_existing_schema_ids": true
+          },
+          {
+            "schema_id": "amount_total",
+            "selectors": [
+              "/*[local-name()='Invoice']/*[local-name()='LegalMonetaryTotal']/*[local-name()='TaxInclusiveAmount']",
+              "/*[local-name()='CreditNote']/*[local-name()='LegalMonetaryTotal']/*[local-name()='TaxInclusiveAmount']"
+            ],
+            "skip_non_existing_schema_ids": true
+          },
+          {
+            "schema_id": "amount_total_base",
+            "selectors": [
+              "/*[local-name()='Invoice']/*[local-name()='LegalMonetaryTotal']/*[local-name()='TaxExclusiveAmount']",
+              "/*[local-name()='CreditNote']/*[local-name()='LegalMonetaryTotal']/*[local-name()='TaxExclusiveAmount']"
+            ],
+            "skip_non_existing_schema_ids": true
+          },
+          {
+            "schema_id": "amount_total_tax",
+            "selectors": [
+              "/*[local-name()='Invoice']/*[local-name()='TaxTotal']/*[local-name()='TaxAmount']",
+              "/*[local-name()='CreditNote']/*[local-name()='TaxTotal']/*[local-name()='TaxAmount']"
+            ],
+            "skip_non_existing_schema_ids": true
+          },
+          {
+            "schema_id": "currency",
+            "selectors": [
+              "translate(normalize-space(/*[local-name()='Invoice' or local-name()='CreditNote']/*[local-name()='DocumentCurrencyCode']), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz')"
+            ],
+            "skip_non_existing_schema_ids": true
+          },
+          {
+            "schema_id": "original_document_id",
+            "selectors": [
+              "substring(string(/*[local-name()='Invoice' or local-name()='CreditNote']/*[local-name()='BillingReference']/*[local-name()='InvoiceDocumentReference']/*[local-name()='ID']),1,string-length(string(/*[local-name()='Invoice' or local-name()='CreditNote']/*[local-name()='BillingReference']/*[local-name()='InvoiceDocumentReference']/*[local-name()='ID'])) * (number(contains(\"|81|83|381|396|532|\",concat('|',concat(/*[local-name()='Invoice' or local-name()='CreditNote']/*[local-name()='InvoiceTypeCode'],/*[local-name()='Invoice' or local-name()='CreditNote']/*[local-name()='CreditNoteTypeCode']),'|')))))"
+            ],
+            "skip_non_existing_schema_ids": true
+          },
+          {
+            "schema_id": "original_date_issue",
+            "selectors": [
+              "substring(string(/*[local-name()='Invoice' or local-name()='CreditNote']/*[local-name()='BillingReference']/*[local-name()='InvoiceDocumentReference']/*[local-name()='IssueDate']),1,string-length(string(/*[local-name()='Invoice' or local-name()='CreditNote']/*[local-name()='BillingReference']/*[local-name()='InvoiceDocumentReference']/*[local-name()='IssueDate'])) * (number(contains(\"|81|83|381|396|532|\",concat('|',concat(/*[local-name()='Invoice' or local-name()='CreditNote']/*[local-name()='InvoiceTypeCode'],/*[local-name()='Invoice' or local-name()='CreditNote']/*[local-name()='CreditNoteTypeCode']),'|')))))"
+            ],
+            "skip_non_existing_schema_ids": true
+          },
+          {
+            "schema_id": "contract_number",
+            "selectors": [
+              "/*[local-name()='Invoice']/*[local-name()='ContractDocumentReference']/*[local-name()='ID']",
+              "/*[local-name()='CreditNote']/*[local-name()='ContractDocumentReference']/*[local-name()='ID']"
+            ],
+            "skip_non_existing_schema_ids": true
+          },
+          {
+            "schema_id": "order_id",
+            "selectors": [
+              "/*[local-name()='Invoice' or local-name()='CreditNote']/*[local-name()='OrderReference']/*[local-name()='ID'][normalize-space()]",
+              "/*[local-name()='Invoice' or local-name()='CreditNote']/*[local-name()='PaymentMeans']/*[local-name()='PaymentID']"
+            ],
+            "skip_non_existing_schema_ids": true
+          },
+          {
+            "schema_id": "delivery_date",
+            "selectors": [
+              "/*[local-name()='Invoice']/*[local-name()='Delivery']/*[local-name()='ActualDeliveryDate']",
+              "/*[local-name()='CreditNote']/*[local-name()='Delivery']/*[local-name()='ActualDeliveryDate']"
+            ],
+            "skip_non_existing_schema_ids": true
+          },
+          {
+            "schema_id": "exchange_rate",
+            "selectors": [
+              "/*[local-name()='Invoice']/*[local-name()='TaxExchangeRate']/*[local-name()='CalculationRate']",
+              "/*[local-name()='CreditNote']/*[local-name()='TaxExchangeRate']/*[local-name()='CalculationRate']"
+            ],
+            "skip_non_existing_schema_ids": true
+          },
+          {
+            "schema_id": "credit_reason",
+            "selectors": [
+              "concat(normalize-space(/*[local-name()='Invoice' or local-name()='CreditNote']/*[local-name()='DiscrepancyResponse']/*[local-name()='Description']), substring(normalize-space(/*[local-name()='Invoice' or local-name()='CreditNote']/*[local-name()='DiscrepancyResponse']), 1, string-length(normalize-space(/*[local-name()='Invoice' or local-name()='CreditNote']/*[local-name()='DiscrepancyResponse'])) * (normalize-space(/*[local-name()='Invoice' or local-name()='CreditNote']/*[local-name()='DiscrepancyResponse']/*[local-name()='Description'])='')))"
+            ],
+            "skip_non_existing_schema_ids": true
+          },
+          {
+            "schema_id": "cash_accounting_scheme_reference",
+            "selectors": [
+              "/*[local-name()='Invoice']/*[local-name()='AccountingSupplierParty']/*[local-name()='Party']/*[local-name()='PartyTaxScheme']/*[local-name()='TaxScheme']/*[local-name()='ID']",
+              "/*[local-name()='CreditNote']/*[local-name()='AccountingSupplierParty']/*[local-name()='Party']/*[local-name()='PartyTaxScheme']/*[local-name()='TaxScheme']/*[local-name()='ID']"
+            ],
+            "skip_non_existing_schema_ids": true
+          },
+          {
+            "schema_id": "payment_order_reference",
+            "selectors": [
+              "/*[local-name()='Invoice']/*[local-name()='PaymentMeans']/*[local-name()='PaymentID']",
+              "/*[local-name()='CreditNote']/*[local-name()='PaymentMeans']/*[local-name()='PaymentID']"
+            ],
+            "skip_non_existing_schema_ids": true
+          },
+          {
+            "schema_id": "requester_email_xml",
+            "selectors": [
+              "/*[local-name()='Invoice' or local-name()='CreditNote']/*[local-name()='BuyerReference']"
+            ],
+            "skip_non_existing_schema_ids": true
+          },
+          {
+            "schema_id": "invoice_rounding_amount",
+            "selectors": [
+              "substring(string(/*[local-name()='Invoice' or local-name()='CreditNote']/*[local-name()='LegalMonetaryTotal']/*[local-name()='PayableRoundingAmount']),1,string-length(string(/*[local-name()='Invoice' or local-name()='CreditNote']/*[local-name()='LegalMonetaryTotal']/*[local-name()='PayableRoundingAmount'])) * (number(string-length(normalize-space(string(/*[local-name()='Invoice' or local-name()='CreditNote']/*[local-name()='LegalMonetaryTotal']/*[local-name()='PayableRoundingAmount']))) > 0) * number(number(/*[local-name()='Invoice' or local-name()='CreditNote']/*[local-name()='LegalMonetaryTotal']/*[local-name()='PayableRoundingAmount']) != 0)))"
+            ],
+            "skip_non_existing_schema_ids": true
+          },
+          {
+            "fields": [
+              {
+                "schema_id": "charge_type",
+                "selectors": [
+                  "'InvoiceMiscCharge'"
+                ],
+                "skip_non_existing_schema_ids": true
+              },
+              {
+                "schema_id": "charge_amount",
+                "selectors": [
+                  "substring(string(number(translate(*[local-name()='Amount'],',','.')) * (1 - 2 * number(*[local-name()='ChargeIndicator'] = 'false'))), 1, string-length(string(number(translate(*[local-name()='Amount'],',','.')) * (1 - 2 * number(*[local-name()='ChargeIndicator'] = 'false')))) * number(string-length(normalize-space(string(*[local-name()='Amount']))) > 0))"
+                ],
+                "skip_non_existing_schema_ids": true
+              },
+              {
+                "schema_id": "charge_tax_rate",
+                "selectors": [
+                  "translate(*[local-name()='TaxCategory']/*[local-name()='Percent'],',','.')"
+                ],
+                "skip_non_existing_schema_ids": true
+              }
+            ],
+            "schema_id": "line_item_charges",
+            "selectors": [
+              "/*[local-name()='Invoice']/*[local-name()='AllowanceCharge']",
+              "/*[local-name()='CreditNote']/*[local-name()='AllowanceCharge']"
+            ],
+            "skip_non_existing_schema_ids": true
+          },
+          {
+            "fields": [
+              {
+                "schema_id": "item_description",
+                "selectors": [
+                  "normalize-space(concat(*[local-name()='Item']/*[local-name()='Name'], substring(concat(' ', *[local-name()='Item']/*[local-name()='Description']), 1, 10000 * (string(*[local-name()='Item']/*[local-name()='Name']) != string(*[local-name()='Item']/*[local-name()='Description']))), ' ', *[local-name()='Note']))"
+                ],
+                "skip_non_existing_schema_ids": true
+              },
+              {
+                "schema_id": "item_quantity",
+                "selectors": [
+                  "translate(*[local-name()='InvoicedQuantity'] | *[local-name()='CreditedQuantity'],',','.')"
+                ],
+                "skip_non_existing_schema_ids": true
+              },
+              {
+                "schema_id": "item_amount_base",
+                "selectors": [
+                  "substring(string(number(*[local-name()='LineExtensionAmount']) div (sum((*[local-name()='InvoicedQuantity'] | *[local-name()='CreditedQuantity'])) + number(not(sum((*[local-name()='InvoicedQuantity'] | *[local-name()='CreditedQuantity'])) != 0)))), 1, string-length(string(number(*[local-name()='LineExtensionAmount']) div (sum((*[local-name()='InvoicedQuantity'] | *[local-name()='CreditedQuantity'])) + number(not(sum((*[local-name()='InvoicedQuantity'] | *[local-name()='CreditedQuantity'])) != 0))))) * number(string-length(normalize-space(string(*[local-name()='LineExtensionAmount']))) > 0))"
+                ],
+                "skip_non_existing_schema_ids": true
+              },
+              {
+                "schema_id": "item_total_base",
+                "selectors": [
+                  "*[local-name()='LineExtensionAmount']"
+                ],
+                "skip_non_existing_schema_ids": true
+              },
+              {
+                "schema_id": "item_tax",
+                "selectors": [
+                  "translate(*[local-name()='Item']/*[local-name()='ClassifiedTaxCategory']/*[local-name()='TaxAmount'],',','.')"
+                ],
+                "skip_non_existing_schema_ids": true
+              },
+              {
+                "schema_id": "item_rate",
+                "selectors": [
+                  "translate(*[local-name()='Item']/*[local-name()='ClassifiedTaxCategory']/*[local-name()='Percent'],',','.')"
+                ],
+                "skip_non_existing_schema_ids": true
+              },
+              {
+                "schema_id": "item_po_line_number",
+                "selectors": [
+                  "*[local-name()='OrderLineReference']/*[local-name()='LineID']"
+                ],
+                "skip_non_existing_schema_ids": true
+              },
+              {
+                "schema_id": "item_code",
+                "selectors": [
+                  "*[local-name()='Item']/*[local-name()='SellersItemIdentification']/*[local-name()='ID']"
+                ],
+                "skip_non_existing_schema_ids": true
+              },
+              {
+                "mapping": {
+                  "E": "t",
+                  "G": "t",
+                  "K": "t",
+                  "L": "t",
+                  "M": "t",
+                  "__default__": "f"
+                },
+                "schema_id": "item_tax_exempt",
+                "selectors": [
+                  "*[local-name()='Item']/*[local-name()='ClassifiedTaxCategory']/*[local-name()='ID']"
+                ],
+                "skip_non_existing_schema_ids": true
+              },
+              {
+                "mapping": {
+                  "AE": "t",
+                  "__default__": "f"
+                },
+                "schema_id": "item_tax_reverse_charge",
+                "selectors": [
+                  "*[local-name()='Item']/*[local-name()='ClassifiedTaxCategory']/*[local-name()='ID']"
+                ],
+                "skip_non_existing_schema_ids": true
+              },
+              {
+                "schema_id": "item_tax_description",
+                "selectors": [
+                  "substring(string(normalize-space(concat(normalize-space(*[local-name()='Item']/*[local-name()='ClassifiedTaxCategory']/*[local-name()='TaxExemptionReason']),' ',substring-before(substring-after(\"|S=|AE=TVA cu taxare invers\u0103|E=Scutire de TVA|Z=TVA cota zero|G=TVA pentru exporturi|O=Nu face obiectul TVA|K=TVA pentru livr\u0103ri intracomunitare|L=Taxele din Insulele Canare|M=Taxele din Ceuta \u0219i Melilla|\",concat('|',*[local-name()='Item']/*[local-name()='ClassifiedTaxCategory']/*[local-name()='ID'],'=')),'|')))),1,string-length(string(normalize-space(concat(normalize-space(*[local-name()='Item']/*[local-name()='ClassifiedTaxCategory']/*[local-name()='TaxExemptionReason']),' ',substring-before(substring-after(\"|S=|AE=TVA cu taxare invers\u0103|E=Scutire de TVA|Z=TVA cota zero|G=TVA pentru exporturi|O=Nu face obiectul TVA|K=TVA pentru livr\u0103ri intracomunitare|L=Taxele din Insulele Canare|M=Taxele din Ceuta \u0219i Melilla|\",concat('|',*[local-name()='Item']/*[local-name()='ClassifiedTaxCategory']/*[local-name()='ID'],'=')),'|'))))) * (number(contains(\"|S|AE|E|Z|G|O|K|L|M|\",concat('|',*[local-name()='Item']/*[local-name()='ClassifiedTaxCategory']/*[local-name()='ID'],'|')))))"
+                ],
+                "skip_non_existing_schema_ids": true
+              },
+              {
+                "mapping": {
+                  "O": "t",
+                  "__default__": "f"
+                },
+                "schema_id": "item_tax_out_of_scope",
+                "selectors": [
+                  "*[local-name()='Item']/*[local-name()='ClassifiedTaxCategory']/*[local-name()='ID']"
+                ],
+                "skip_non_existing_schema_ids": true
+              },
+              {
+                "schema_id": "service_period_item_start",
+                "selectors": [
+                  "*[local-name()='InvoicePeriod']/*[local-name()='StartDate']"
+                ],
+                "skip_non_existing_schema_ids": true
+              },
+              {
+                "schema_id": "service_period_item_end",
+                "selectors": [
+                  "*[local-name()='InvoicePeriod']/*[local-name()='EndDate']"
+                ],
+                "skip_non_existing_schema_ids": true
+              }
+            ],
+            "schema_id": "line_items",
+            "selectors": [
+              "/*[local-name()='Invoice']/*[local-name()='InvoiceLine']",
+              "/*[local-name()='CreditNote']/*[local-name()='CreditNoteLine']"
+            ],
+            "skip_non_existing_schema_ids": true
+          }
+        ],
+        "trigger_condition": {
+          "selector": "/*[(local-name()='Invoice' or local-name()='CreditNote') and (contains(*[local-name()='CustomizationID'], 'CIUS-RO') or *[local-name()='AccountingCustomerParty']/*[local-name()='Party']/*[local-name()='PostalAddress']/*[local-name()='Country']/*[local-name()='IdentificationCode']='RO')]",
+          "file_type": "xml"
+        }
+      },
+      {
         "//": "UBL 2.1 / Peppol BIS 3.0 - France",
         "fields": [
           {
@@ -3640,5 +4036,5 @@
   "hook_template": null,
   "created_by": null,
   "created_at": "2026-07-03T12:10:46.043557Z",
-  "modified_by": "https://cib.rossum.app/api/v1/users/252040"
+  "modified_by": "https://cib.rossum.app/api/v1/users/26534"
 }

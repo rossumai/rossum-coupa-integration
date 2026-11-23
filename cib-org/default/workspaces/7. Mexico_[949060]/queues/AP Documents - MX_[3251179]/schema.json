@@ -381,36 +381,6 @@
             "type": "captured",
             "edit": "enabled"
           }
-        },
-        {
-          "rir_field_names": [],
-          "category": "multivalue",
-          "id": "barcode_qrcode",
-          "label": "Barcode/QR Code Reader",
-          "hidden": true,
-          "disable_prediction": true,
-          "children": {
-            "rir_field_names": [],
-            "constraints": {
-              "required": false
-            },
-            "score_threshold": 0.0,
-            "default_value": null,
-            "category": "datapoint",
-            "id": "barcode_qrcode_item",
-            "label": "Barcode/QR Code",
-            "hidden": false,
-            "type": "string",
-            "can_export": true,
-            "ui_configuration": {
-              "type": "data",
-              "edit": "disabled"
-            }
-          },
-          "min_occurrences": null,
-          "max_occurrences": null,
-          "default_value": null,
-          "show_grid_by_default": false
         }
       ],
       "icon": null
@@ -5119,5 +5089,5 @@
     }
   ],
   "metadata": {},
-  "modified_by": "https://cib.rossum.app/api/v1/users/252040"
+  "modified_by": "https://cib.rossum.app/api/v1/users/146087"
 }

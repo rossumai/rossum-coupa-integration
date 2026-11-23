@@ -11,7 +11,10 @@
     "https://cib.rossum.app/api/v1/queues/2860788",
     "https://cib.rossum.app/api/v1/queues/2860789",
     "https://cib.rossum.app/api/v1/queues/2868272",
-    "https://cib.rossum.app/api/v1/queues/3013757"
+    "https://cib.rossum.app/api/v1/queues/3013757",
+    "https://cib.rossum.app/api/v1/queues/3242608",
+    "https://cib.rossum.app/api/v1/queues/3251179",
+    "https://cib.rossum.app/api/v1/queues/3351481"
   ],
   "description": "Coupa Integration Baseline 2.0 - line-level taxation extractor. Serves the country AP queues and the e-invoicing inbox.",
   "agenda_id": "cib2_7bb0fbb1",
@@ -20,5 +23,5 @@
   },
   "created_by": "https://cib.rossum.app/api/v1/users/146087",
   "created_at": "2026-09-10T07:22:12.995212Z",
-  "modified_by": "https://cib.rossum.app/api/v1/users/146087"
+  "modified_by": "https://cib.rossum.app/api/v1/users/26534"
 }
