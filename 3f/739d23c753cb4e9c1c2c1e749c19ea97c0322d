@@ -1,0 +1,21 @@
+CHANGELOG.md
+  s_09da04ca8e6ac6::t_33bb5cbf6b3dd7 10-45
+deploy/cib_target.yaml
+  s_09da04ca8e6ac6::t_fc30a2ab22bb8b 51-54,159-172,886-889
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "3f739d23c753cb4e9c1c2c1e749c19ea97c0322d",
+  "prompts": {},
+  "sessions": {
+    "s_09da04ca8e6ac6": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "a4a5053f-1395-4315-a32c-edd2d0d965b7",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Martin Kazík <martin.kazik@rossum.ai>"
+    }
+  }
+}
