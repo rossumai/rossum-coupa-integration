@@ -1,0 +1,204 @@
+"cib-org/default/engines/AP Documents - line level taxation_[56992]/engine.json"
+  h_df81ba928223e4 14-17,26
+"cib-org/default/hooks/Coupa E-Invoicing_[1170832].json"
+  h_df81ba928223e4 470-865,4039
+"cib-org/default/rules/Move to RO queue_[26513].json"
+  h_df81ba928223e4 1-27
+"cib-org/default/workspaces/7. Mexico_[949060]/queues/AP Documents - MX_[3251179]/schema.json"
+  h_df81ba928223e4 5092
+"cib-org/default/workspaces/8. Romania_[970481]/queues/AP Documents - RO_[3351481]/email_templates/Annotation status change - confirmed_[16871017].json"
+  h_df81ba928223e4 1-23
+"cib-org/default/workspaces/8. Romania_[970481]/queues/AP Documents - RO_[3351481]/email_templates/Annotation status change - exported_[16871018].json"
+  h_df81ba928223e4 1-23
+"cib-org/default/workspaces/8. Romania_[970481]/queues/AP Documents - RO_[3351481]/email_templates/Annotation status change - received_[16871016].json"
+  h_df81ba928223e4 1-23
+"cib-org/default/workspaces/8. Romania_[970481]/queues/AP Documents - RO_[3351481]/email_templates/Default rejection template_[16871015].json"
+  h_df81ba928223e4 1-21
+"cib-org/default/workspaces/8. Romania_[970481]/queues/AP Documents - RO_[3351481]/email_templates/Email with no processable attachments_[16871019].json"
+  h_df81ba928223e4 1-23
+"cib-org/default/workspaces/8. Romania_[970481]/queues/AP Documents - RO_[3351481]/formulas/amount_total_base_calculated.py"
+  h_df81ba928223e4 1-19
+"cib-org/default/workspaces/8. Romania_[970481]/queues/AP Documents - RO_[3351481]/formulas/amount_total_tax_calculated.py"
+  h_df81ba928223e4 1-22
+"cib-org/default/workspaces/8. Romania_[970481]/queues/AP Documents - RO_[3351481]/formulas/backing_document.py"
+  h_df81ba928223e4 1
+"cib-org/default/workspaces/8. Romania_[970481]/queues/AP Documents - RO_[3351481]/formulas/charge_tax_calculated.py"
+  h_df81ba928223e4 1-15
+"cib-org/default/workspaces/8. Romania_[970481]/queues/AP Documents - RO_[3351481]/formulas/charge_tax_rate_calculated.py"
+  h_df81ba928223e4 1-17
+"cib-org/default/workspaces/8. Romania_[970481]/queues/AP Documents - RO_[3351481]/formulas/charges_net_amount_total_calculated.py"
+  h_df81ba928223e4 1-8
+"cib-org/default/workspaces/8. Romania_[970481]/queues/AP Documents - RO_[3351481]/formulas/charges_tax_rate_average_calculated.py"
+  h_df81ba928223e4 1-4
+"cib-org/default/workspaces/8. Romania_[970481]/queues/AP Documents - RO_[3351481]/formulas/charges_total_tax_calculated.py"
+  h_df81ba928223e4 1
+"cib-org/default/workspaces/8. Romania_[970481]/queues/AP Documents - RO_[3351481]/formulas/contract_number_normalized.py"
+  h_df81ba928223e4 1
+"cib-org/default/workspaces/8. Romania_[970481]/queues/AP Documents - RO_[3351481]/formulas/country_code.py"
+  h_df81ba928223e4 1
+"cib-org/default/workspaces/8. Romania_[970481]/queues/AP Documents - RO_[3351481]/formulas/coupa_api_base_url.py"
+  h_df81ba928223e4 1
+"cib-org/default/workspaces/8. Romania_[970481]/queues/AP Documents - RO_[3351481]/formulas/coupa_invoices_statuses.py"
+  h_df81ba928223e4 1-11
+"cib-org/default/workspaces/8. Romania_[970481]/queues/AP Documents - RO_[3351481]/formulas/coupa_total_calculated.py"
+  h_df81ba928223e4 1-20
+"cib-org/default/workspaces/8. Romania_[970481]/queues/AP Documents - RO_[3351481]/formulas/date_issue_manual.py"
+  h_df81ba928223e4 1
+"cib-org/default/workspaces/8. Romania_[970481]/queues/AP Documents - RO_[3351481]/formulas/description_export.py"
+  h_df81ba928223e4 1-4
+"cib-org/default/workspaces/8. Romania_[970481]/queues/AP Documents - RO_[3351481]/formulas/document_id_manual.py"
+  h_df81ba928223e4 1-5
+"cib-org/default/workspaces/8. Romania_[970481]/queues/AP Documents - RO_[3351481]/formulas/enforced_draft_tag.py"
+  h_df81ba928223e4 1-2
+"cib-org/default/workspaces/8. Romania_[970481]/queues/AP Documents - RO_[3351481]/formulas/epd_amount.py"
+  h_df81ba928223e4 1-9
+"cib-org/default/workspaces/8. Romania_[970481]/queues/AP Documents - RO_[3351481]/formulas/epd_days.py"
+  h_df81ba928223e4 1-6
+"cib-org/default/workspaces/8. Romania_[970481]/queues/AP Documents - RO_[3351481]/formulas/epd_detected.py"
+  h_df81ba928223e4 1-8
+"cib-org/default/workspaces/8. Romania_[970481]/queues/AP Documents - RO_[3351481]/formulas/epd_expires.py"
+  h_df81ba928223e4 1-11
+"cib-org/default/workspaces/8. Romania_[970481]/queues/AP Documents - RO_[3351481]/formulas/epd_rate.py"
+  h_df81ba928223e4 1-6
+"cib-org/default/workspaces/8. Romania_[970481]/queues/AP Documents - RO_[3351481]/formulas/epd_tag.py"
+  h_df81ba928223e4 1-2
+"cib-org/default/workspaces/8. Romania_[970481]/queues/AP Documents - RO_[3351481]/formulas/fully_tax_coded.py"
+  h_df81ba928223e4 1-4
+"cib-org/default/workspaces/8. Romania_[970481]/queues/AP Documents - RO_[3351481]/formulas/inactive_po_line_tag.py"
+  h_df81ba928223e4 1-4
+"cib-org/default/workspaces/8. Romania_[970481]/queues/AP Documents - RO_[3351481]/formulas/inv_total_issue_tag.py"
+  h_df81ba928223e4 1-2
+"cib-org/default/workspaces/8. Romania_[970481]/queues/AP Documents - RO_[3351481]/formulas/item_amount_base_calculated.py"
+  h_df81ba928223e4 1-47
+"cib-org/default/workspaces/8. Romania_[970481]/queues/AP Documents - RO_[3351481]/formulas/item_description_calculated.py"
+  h_df81ba928223e4 1-6
+"cib-org/default/workspaces/8. Romania_[970481]/queues/AP Documents - RO_[3351481]/formulas/item_description_export.py"
+  h_df81ba928223e4 1
+"cib-org/default/workspaces/8. Romania_[970481]/queues/AP Documents - RO_[3351481]/formulas/item_inactive_po_line_tag.py"
+  h_df81ba928223e4 1-3
+"cib-org/default/workspaces/8. Romania_[970481]/queues/AP Documents - RO_[3351481]/formulas/item_line_type.py"
+  h_df81ba928223e4 1-4
+"cib-org/default/workspaces/8. Romania_[970481]/queues/AP Documents - RO_[3351481]/formulas/item_net_total_coupa.py"
+  h_df81ba928223e4 1-11
+"cib-org/default/workspaces/8. Romania_[970481]/queues/AP Documents - RO_[3351481]/formulas/item_order_id_calculated.py"
+  h_df81ba928223e4 1-11
+"cib-org/default/workspaces/8. Romania_[970481]/queues/AP Documents - RO_[3351481]/formulas/item_order_item_number_export.py"
+  h_df81ba928223e4 1-4
+"cib-org/default/workspaces/8. Romania_[970481]/queues/AP Documents - RO_[3351481]/formulas/item_po_closed.py"
+  h_df81ba928223e4 1-4
+"cib-org/default/workspaces/8. Romania_[970481]/queues/AP Documents - RO_[3351481]/formulas/item_po_line_sp_end_date_normalized.py"
+  h_df81ba928223e4 1-6
+"cib-org/default/workspaces/8. Romania_[970481]/queues/AP Documents - RO_[3351481]/formulas/item_po_line_sp_start_date_normalized.py"
+  h_df81ba928223e4 1-6
+"cib-org/default/workspaces/8. Romania_[970481]/queues/AP Documents - RO_[3351481]/formulas/item_price_export.py"
+  h_df81ba928223e4 1-10
+"cib-org/default/workspaces/8. Romania_[970481]/queues/AP Documents - RO_[3351481]/formulas/item_quantity_calculated.py"
+  h_df81ba928223e4 1-6
+"cib-org/default/workspaces/8. Romania_[970481]/queues/AP Documents - RO_[3351481]/formulas/item_quantity_export.py"
+  h_df81ba928223e4 1-4
+"cib-org/default/workspaces/8. Romania_[970481]/queues/AP Documents - RO_[3351481]/formulas/item_rate_calculated.py"
+  h_df81ba928223e4 1-11
+"cib-org/default/workspaces/8. Romania_[970481]/queues/AP Documents - RO_[3351481]/formulas/item_recipient_mismatch_tag.py"
+  h_df81ba928223e4 1-4
+"cib-org/default/workspaces/8. Romania_[970481]/queues/AP Documents - RO_[3351481]/formulas/item_supplier_mismatch_tag.py"
+  h_df81ba928223e4 1-4
+"cib-org/default/workspaces/8. Romania_[970481]/queues/AP Documents - RO_[3351481]/formulas/item_tax_calculated.py"
+  h_df81ba928223e4 1-40
+"cib-org/default/workspaces/8. Romania_[970481]/queues/AP Documents - RO_[3351481]/formulas/item_total_base_calculated.py"
+  h_df81ba928223e4 1-43
+"cib-org/default/workspaces/8. Romania_[970481]/queues/AP Documents - RO_[3351481]/formulas/item_uom_export.py"
+  h_df81ba928223e4 1-4
+"cib-org/default/workspaces/8. Romania_[970481]/queues/AP Documents - RO_[3351481]/formulas/line_items_present.py"
+  h_df81ba928223e4 1-4
+"cib-org/default/workspaces/8. Romania_[970481]/queues/AP Documents - RO_[3351481]/formulas/line_type.py"
+  h_df81ba928223e4 1-4
+"cib-org/default/workspaces/8. Romania_[970481]/queues/AP Documents - RO_[3351481]/formulas/oauth_client_id.py"
+  h_df81ba928223e4 1
+"cib-org/default/workspaces/8. Romania_[970481]/queues/AP Documents - RO_[3351481]/formulas/order_id_calculated.py"
+  h_df81ba928223e4 1-4
+"cib-org/default/workspaces/8. Romania_[970481]/queues/AP Documents - RO_[3351481]/formulas/order_item_number_export.py"
+  h_df81ba928223e4 1-4
+"cib-org/default/workspaces/8. Romania_[970481]/queues/AP Documents - RO_[3351481]/formulas/payment_terms_code_export.py"
+  h_df81ba928223e4 1-4
+"cib-org/default/workspaces/8. Romania_[970481]/queues/AP Documents - RO_[3351481]/formulas/payment_terms_export.py"
+  h_df81ba928223e4 1-4
+"cib-org/default/workspaces/8. Romania_[970481]/queues/AP Documents - RO_[3351481]/formulas/po_backed.py"
+  h_df81ba928223e4 1-4
+"cib-org/default/workspaces/8. Romania_[970481]/queues/AP Documents - RO_[3351481]/formulas/po_closed.py"
+  h_df81ba928223e4 1-4
+"cib-org/default/workspaces/8. Romania_[970481]/queues/AP Documents - RO_[3351481]/formulas/po_line_sp_end_date_normalized.py"
+  h_df81ba928223e4 1-6
+"cib-org/default/workspaces/8. Romania_[970481]/queues/AP Documents - RO_[3351481]/formulas/po_line_sp_start_date_normalized.py"
+  h_df81ba928223e4 1-6
+"cib-org/default/workspaces/8. Romania_[970481]/queues/AP Documents - RO_[3351481]/formulas/price_export.py"
+  h_df81ba928223e4 1
+"cib-org/default/workspaces/8. Romania_[970481]/queues/AP Documents - RO_[3351481]/formulas/quantity_export.py"
+  h_df81ba928223e4 1
+"cib-org/default/workspaces/8. Romania_[970481]/queues/AP Documents - RO_[3351481]/formulas/quantity_header_calculated.py"
+  h_df81ba928223e4 1
+"cib-org/default/workspaces/8. Romania_[970481]/queues/AP Documents - RO_[3351481]/formulas/recipient_export.py"
+  h_df81ba928223e4 1-13
+"cib-org/default/workspaces/8. Romania_[970481]/queues/AP Documents - RO_[3351481]/formulas/recipient_mismatch_tag.py"
+  h_df81ba928223e4 1-4
+"cib-org/default/workspaces/8. Romania_[970481]/queues/AP Documents - RO_[3351481]/formulas/recipient_name_export.py"
+  h_df81ba928223e4 1-15
+"cib-org/default/workspaces/8. Romania_[970481]/queues/AP Documents - RO_[3351481]/formulas/recipient_tax_id_normalized.py"
+  h_df81ba928223e4 1-2
+"cib-org/default/workspaces/8. Romania_[970481]/queues/AP Documents - RO_[3351481]/formulas/requestor_email_calculated.py"
+  h_df81ba928223e4 1-12
+"cib-org/default/workspaces/8. Romania_[970481]/queues/AP Documents - RO_[3351481]/formulas/rossum_tag.py"
+  h_df81ba928223e4 1-4
+"cib-org/default/workspaces/8. Romania_[970481]/queues/AP Documents - RO_[3351481]/formulas/sender_export.py"
+  h_df81ba928223e4 1-13
+"cib-org/default/workspaces/8. Romania_[970481]/queues/AP Documents - RO_[3351481]/formulas/sender_name_export.py"
+  h_df81ba928223e4 1-14
+"cib-org/default/workspaces/8. Romania_[970481]/queues/AP Documents - RO_[3351481]/formulas/sender_tax_id_normalized.py"
+  h_df81ba928223e4 1-2
+"cib-org/default/workspaces/8. Romania_[970481]/queues/AP Documents - RO_[3351481]/formulas/service_period_end_export.py"
+  h_df81ba928223e4 1-12
+"cib-org/default/workspaces/8. Romania_[970481]/queues/AP Documents - RO_[3351481]/formulas/service_period_end_text.py"
+  h_df81ba928223e4 1
+"cib-org/default/workspaces/8. Romania_[970481]/queues/AP Documents - RO_[3351481]/formulas/service_period_start_export.py"
+  h_df81ba928223e4 1-12
+"cib-org/default/workspaces/8. Romania_[970481]/queues/AP Documents - RO_[3351481]/formulas/service_period_start_text.py"
+  h_df81ba928223e4 1
+"cib-org/default/workspaces/8. Romania_[970481]/queues/AP Documents - RO_[3351481]/formulas/sf_submit_for_approval.py"
+  h_df81ba928223e4 1-27
+"cib-org/default/workspaces/8. Romania_[970481]/queues/AP Documents - RO_[3351481]/formulas/sp_item_end_date_export.py"
+  h_df81ba928223e4 1-16
+"cib-org/default/workspaces/8. Romania_[970481]/queues/AP Documents - RO_[3351481]/formulas/sp_item_end_date_text.py"
+  h_df81ba928223e4 1
+"cib-org/default/workspaces/8. Romania_[970481]/queues/AP Documents - RO_[3351481]/formulas/sp_item_start_date_export.py"
+  h_df81ba928223e4 1-16
+"cib-org/default/workspaces/8. Romania_[970481]/queues/AP Documents - RO_[3351481]/formulas/sp_item_start_date_text.py"
+  h_df81ba928223e4 1
+"cib-org/default/workspaces/8. Romania_[970481]/queues/AP Documents - RO_[3351481]/formulas/supplier_mismatch_tag.py"
+  h_df81ba928223e4 1-4
+"cib-org/default/workspaces/8. Romania_[970481]/queues/AP Documents - RO_[3351481]/formulas/tax_rate_calculated.py"
+  h_df81ba928223e4 1-13
+"cib-org/default/workspaces/8. Romania_[970481]/queues/AP Documents - RO_[3351481]/formulas/terms_calculated.py"
+  h_df81ba928223e4 1-11
+"cib-org/default/workspaces/8. Romania_[970481]/queues/AP Documents - RO_[3351481]/formulas/uom_export.py"
+  h_df81ba928223e4 1-4
+"cib-org/default/workspaces/8. Romania_[970481]/queues/AP Documents - RO_[3351481]/inbox.json"
+  h_df81ba928223e4 1-36
+"cib-org/default/workspaces/8. Romania_[970481]/queues/AP Documents - RO_[3351481]/queue.json"
+  h_df81ba928223e4 1-297
+"cib-org/default/workspaces/8. Romania_[970481]/queues/AP Documents - RO_[3351481]/schema.json"
+  h_df81ba928223e4 1-4940
+"cib-org/default/workspaces/8. Romania_[970481]/workspace.json"
+  h_df81ba928223e4 1-14
+cib-org/organization.json
+  h_df81ba928223e4 11-14,36-158
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "bf786ae893b3c50e39ada04d43be1c5c2a1b5b44",
+  "prompts": {},
+  "humans": {
+    "h_df81ba928223e4": {
+      "author": "Martin Kazík <martin.kazik@rossum.ai>"
+    }
+  }
+}
