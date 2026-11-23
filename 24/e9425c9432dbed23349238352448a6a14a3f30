@@ -1,0 +1,19 @@
+"cib-org/default/workspaces/8. Romania_[970481]/queues/AP Documents - RO_[3351481]/queue.json"
+  s_09da04ca8e6ac6::t_c7bb4790463e6c 112,292
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "24e9425c9432dbed23349238352448a6a14a3f30",
+  "prompts": {},
+  "sessions": {
+    "s_09da04ca8e6ac6": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "a4a5053f-1395-4315-a32c-edd2d0d965b7",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Martin Kazík <martin.kazik@rossum.ai>"
+    }
+  }
+}
